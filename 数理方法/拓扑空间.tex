@@ -1,4 +1,4 @@
-实数轴和欧几里得平面 $\mathbb{R}^{2}$ 是拓扑空间的原型。在实数轴 $\mathbb{R}$ 上，一个开区间是形如 $(a,b)=\{x\in \mathbb{R} \mid a< x< b\}$ 的集合。若存在 $\epsilon  >0$，使得开区间 $(x-\epsilon ,x+\epsilon )$ 完全包含在集合 $U\subseteq \mathbb{R}$ 中，则集合$U$称为点$\ x\in \mathbb{R} \ $的邻域。给定一个实数序列$\{x_{n} \}$，若对于任意的 $\epsilon  >0$，都存在一个整数 $N >0$，使得对于所有 $n >N$，都有 $|x_{n} -x|< \epsilon $，则称 $\{x_{n} \}$ 收敛于 $x\in \mathbb{R}$，记作 $x_{n}\rightarrow x$。也就是说，随着 $\displaystyle n$ 趋近于无穷大，序列 $x_{n}$ 会进入并停留在每个包含 $x$ 的邻域 $U$ 内。此时，点 $x$ 被称为序列 $\{x_{n} \}$ 的极限。
+实数轴和欧几里得平面 $\mathbb{R}^{2}$ 是拓扑空间的原型。在实数轴 $\mathbb{R}$ 上，一个开区间是形如 $(a,b)=\{x\in \mathbb{R} \mid a< x< b\}$ 的集合。若存在 $\epsilon  >0$，使得开区间 $(x-\epsilon ,x+\epsilon )$ 完全包含在集合 $U\subseteq \mathbb{R}$ 中，则集合$U$称为点$\ x\in \mathbb{R} \ $的邻域。给定一个实数序列$\{x_{n} \}$，若对于任意的 $\epsilon  >0$，都存在一个整数 $N >0$，使得对于所有 $n >N$，都有 $|x_{n} -x|< \epsilon $，则称 $\{x_{n} \}$ 收敛于 $x\in \mathbb{R}$，记作 $x_{n}\rightarrow x$。也就是说，随着 $ n$ 趋近于无穷大，序列 $x_{n}$ 会进入并停留在每个包含 $x$ 的邻域 $U$ 内。此时，点 $x$ 被称为序列 $\{x_{n} \}$ 的极限。
 
 \begin{exercise}
     证明序列的极限是唯一的：如果 $x_{n}\rightarrow x$ 且 $x_{n}\rightarrow x'$，那么 $x=x'$。
@@ -23,24 +23,24 @@ x_{n} \in B_{\epsilon } (x)。
 \begin{equation*}
 |y-x|< \delta \ \ \Rightarrow \ \ |f(y)-f(x)|< \epsilon 。
 \end{equation*}
-因此，对于任意的 $\epsilon  >0$，逆像集 $f^{-1} (f(x)-\epsilon ,f(x)+\epsilon )$ 是 $x$ 的一个邻域，因为它包含一个以 $x$ 为中心的开区间 $(x-\delta ,x+\delta )$。由于每个 $f(x)$ 的邻域都包含一个形如 $(f(x)-\epsilon ,f(x)+\epsilon )$ 的区间，因此，函数 $f$ 在 $x$ 连续，当且仅当每个 $f(x)$ 邻域的逆像也是 $\displaystyle x$ 的邻域。若一个函数 $\displaystyle f:\mathbb{R}\rightarrow \mathbb{R}$ 在每点 $\displaystyle x\in \mathbb{R}$ 连续，则称 $\displaystyle f$ 在 $\displaystyle \mathbb{R}$ 上连续。
+因此，对于任意的 $\epsilon  >0$，逆像集 $f^{-1} (f(x)-\epsilon ,f(x)+\epsilon )$ 是 $x$ 的一个邻域，因为它包含一个以 $x$ 为中心的开区间 $(x-\delta ,x+\delta )$。由于每个 $f(x)$ 的邻域都包含一个形如 $(f(x)-\epsilon ,f(x)+\epsilon )$ 的区间，因此，函数 $f$ 在 $x$ 连续，当且仅当每个 $f(x)$ 邻域的逆像也是 $ x$ 的邻域。若一个函数 $ f:\mathbb{R}\rightarrow \mathbb{R}$ 在每点 $ x\in \mathbb{R}$ 连续，则称 $ f$ 在 $ \mathbb{R}$ 上连续。
 
 \begin{theorem}\label{thm:10.1} 
      函数 $f:\mathbb{R}\rightarrow \mathbb{R}$ 在 $\mathbb{R}$ 中连续当且仅当对于每个开集 $V\subset \mathbb{R}$，其逆像 $f^{-1} (V)$ 是 $\mathbb{R}$ 的一个开集。
 \end{theorem}
 \begin{proof}
-设函数 $\displaystyle f$ 在 $\displaystyle \mathbb{R}$ 上连续，因为开集对于每一点 $\displaystyle y\in U$ 都是邻域，则 $\displaystyle U$ 的逆像 $\displaystyle V=f^{-1}( U)$ 必须是其中每点 $\displaystyle x\in V$ 的邻域。因此 $\displaystyle V$ 是一个开集。
-    反过来，设函数 $f:\mathbb{R}\rightarrow \mathbb{R}$ 满足对于每个开集 $U\subset \mathbb{R}$，其逆像 $f^{-1} (U)$ 是开集。对任意 $x\in \mathbb{R}$ 为和任意 $\epsilon  >0$ ，$(f(x)-\epsilon ,f(x)+\epsilon )$ 的逆像是一个包含 $\displaystyle x$ 的开集。它因此包含了一个形如 $\displaystyle ( x-\delta ,\ x+\delta )$ ，于是 $\displaystyle f$ 在点 $\displaystyle x$ 是连续的。又因为 $\displaystyle x$ 点是在 $\mathbb{R}$ 上任取的，因此 $\displaystyle f$ 在 $\mathbb{R}$ 上连续。
+设函数 $ f$ 在 $ \mathbb{R}$ 上连续，因为开集对于每一点 $ y\in U$ 都是邻域，则 $ U$ 的逆像 $ V=f^{-1}( U)$ 必须是其中每点 $ x\in V$ 的邻域。因此 $ V$ 是一个开集。
+    反过来，设函数 $f:\mathbb{R}\rightarrow \mathbb{R}$ 满足对于每个开集 $U\subset \mathbb{R}$，其逆像 $f^{-1} (U)$ 是开集。对任意 $x\in \mathbb{R}$ 为和任意 $\epsilon  >0$ ，$(f(x)-\epsilon ,f(x)+\epsilon )$ 的逆像是一个包含 $ x$ 的开集。它因此包含了一个形如 $ ( x-\delta ,\ x+\delta )$ ，于是 $ f$ 在点 $ x$ 是连续的。又因为 $ x$ 点是在 $\mathbb{R}$ 上任取的，因此 $ f$ 在 $\mathbb{R}$ 上连续。
 \end{proof}
-    在更广义的拓扑学上，上述关系将被用于定义连续映射。$\mathbb{R}^{2}$ 中对于连续的处理方法和 $\displaystyle \mathbb{R}$ 几乎相同。函数 $f:\mathbb{R}^{2}\rightarrow \mathbb{R}^{2}$ 在点 $x$ 连续当且仅当对于每个 $\epsilon  >0$，都存在 $\delta  >0$，使得
+    在更广义的拓扑学上，上述关系将被用于定义连续映射。$\mathbb{R}^{2}$ 中对于连续的处理方法和 $ \mathbb{R}$ 几乎相同。函数 $f:\mathbb{R}^{2}\rightarrow \mathbb{R}^{2}$ 在点 $x$ 连续当且仅当对于每个 $\epsilon  >0$，都存在 $\delta  >0$，使得
 \begin{equation*}
 |y-x|< \delta \ \ \Rightarrow \ \ |f(y)-f(x)|< \epsilon 。
 \end{equation*}
-利用和定理\ref{thm:10.1}几乎相同的证明方法，可得知函数 $f$ 在 $\displaystyle \mathbb{R}$ 上连续当且仅当对于每个开集 $U\subset \mathbb{R}^{2}$，其逆像 $f^{-1} (U)$ 是 $\mathbb{R}^{2}$ 的开子集。对实值函数 $f:\mathbb{R}^{2}\rightarrow \mathbb{R}$ 也是如此。于是函数的连续性可以完全通过它们对陪域上开集的逆作用来描述。正因如此，开集被视为拓扑空间的关键成分。处理欧几里得空间及其内嵌曲面的经验使得数学家们认识到，开集的最重要特性可以用几个简单的规则来总结，这些规则将在下一节中列出（另见 [1–8]）。
+利用和定理\ref{thm:10.1}几乎相同的证明方法，可得知函数 $f$ 在 $ \mathbb{R}$ 上连续当且仅当对于每个开集 $U\subset \mathbb{R}^{2}$，其逆像 $f^{-1} (U)$ 是 $\mathbb{R}^{2}$ 的开子集。对实值函数 $f:\mathbb{R}^{2}\rightarrow \mathbb{R}$ 也是如此。于是函数的连续性可以完全通过它们对陪域上开集的逆作用来描述。正因如此，开集被视为拓扑空间的关键成分。处理欧几里得空间及其内嵌曲面的经验使得数学家们认识到，开集的最重要特性可以用几个简单的规则来总结，这些规则将在下一节中列出（另见 [1–8]）。
 \section{拓扑群}
 拓扑结构和代数结构可以用很多种有意义的方式结合起来。结合这两种结构的核心要求是，用于表示代数运算法则的函数必须是拓扑连续的（相对于底拓扑空间）。在这一节中，我们将群论与拓扑学结合起来。
-	一个\textbf{拓扑群(topological group)}是指一个既是群又是豪斯多夫空间的集合 $\displaystyle G$ ，其中由 $\psi :G\times G\rightarrow G$ 定义的映射 $\psi (g,h)=gh^{-1}$ 是连续的。如果底空间的拓扑是离散的，则称拓扑群 $G$ 为\textbf{离散的(discrete)}。
-	由 $\varphi (g,h)=gh$ 和 $\psi (g,h)=gh^{-1}$ 定义的映射 $\varphi :G\rightarrow G$ 和 $\psi :G\times G\rightarrow G$ 都是连续的。因为根据定理\ref{thm:10.1}，包含映射 $i:G\rightarrow G\times G$ 定义为 $i(h)=\iota _{e} (e,h)$ ，其为连续映射。于是映射 $\tau =\psi \circ i$ 也是连续的，因为它是连续映射$\displaystyle \psi $和$\displaystyle i$的复合映射。而 $\phi ( g,h) =\psi (g,\tau (h))$，可知 $\phi $ 也是连续映射。
+	一个\textbf{拓扑群(topological group)}是指一个既是群又是豪斯多夫空间的集合 $ G$ ，其中由 $\psi :G\times G\rightarrow G$ 定义的映射 $\psi (g,h)=gh^{-1}$ 是连续的。如果底空间的拓扑是离散的，则称拓扑群 $G$ 为\textbf{离散的(discrete)}。
+	由 $\varphi (g,h)=gh$ 和 $\psi (g,h)=gh^{-1}$ 定义的映射 $\varphi :G\rightarrow G$ 和 $\psi :G\times G\rightarrow G$ 都是连续的。因为根据定理\ref{thm:10.1}，包含映射 $i:G\rightarrow G\times G$ 定义为 $i(h)=\iota _{e} (e,h)$ ，其为连续映射。于是映射 $\tau =\psi \circ i$ 也是连续的，因为它是连续映射$ \psi $和$ i$的复合映射。而 $\phi ( g,h) =\psi (g,\tau (h))$，可知 $\phi $ 也是连续映射。
 
 \begin{exercise}
 	证明 $\varphi $ 是 $G$ 的同胚映射。
@@ -59,18 +59,18 @@ x_{n} \in B_{\epsilon } (x)。
 \begin{equation*}
 \tau (\mathbf{x} )=-\mathbf{x} =(-x^{1} ,\dotsc ,-x^{n} ),
 \end{equation*}
-这个群是一个建立在欧几里得拓扑上的阿贝尔拓扑群。$n$-环面 $T^{n} =\mathbb{R}^{n} /\mathbb{Z}^{n}$ 同样也是一个阿贝尔拓扑群，其群乘法是模 $\displaystyle 1$ 加法。
+这个群是一个建立在欧几里得拓扑上的阿贝尔拓扑群。$n$-环面 $T^{n} =\mathbb{R}^{n} /\mathbb{Z}^{n}$ 同样也是一个阿贝尔拓扑群，其群乘法是模 $ 1$ 加法。
 \end{eg}
 
 \begin{eg}\label{eg:10.20}
-全体 $n\times n$ 实矩阵 $M_{n} (\mathbb{R} )$ 构成的集合具有与欧几里得拓扑 $\mathbb{R}^{n^{2}}$ 同胚的拓扑。行列式映射 $\det :M_{n} (\mathbb{R} )\rightarrow \mathbb{R}$ 显然是连续的，因为行列式 $\displaystyle \ \mathrm{det}\mathbf{A}$ 是 $\displaystyle \mathbf{A}$ 的矩阵元的多项式函数。于是一般线性群 $GL(n,\mathbb{R} )$ 是 $M_{n} (\mathbb{R} )$ 的一个开子集，因为其是开集 $\dot{\mathbb{R}} =\mathbb{R} -\{0\}$在行列式逆映射下的像。如果给 $GL(n,\mathbb{R} )$ 赋予由 $M_{n} (\mathbb{R} )$ 中的拓扑诱导出的相对拓扑，那么映射 $\psi $ 以分量形式写为
+全体 $n\times n$ 实矩阵 $M_{n} (\mathbb{R} )$ 构成的集合具有与欧几里得拓扑 $\mathbb{R}^{n^{2}}$ 同胚的拓扑。行列式映射 $\det :M_{n} (\mathbb{R} )\rightarrow \mathbb{R}$ 显然是连续的，因为行列式 $ \ \mathrm{det}\mathbf{A}$ 是 $ \mathbf{A}$ 的矩阵元的多项式函数。于是一般线性群 $GL(n,\mathbb{R} )$ 是 $M_{n} (\mathbb{R} )$ 的一个开子集，因为其是开集 $\dot{\mathbb{R}} =\mathbb{R} -\{0\}$在行列式逆映射下的像。如果给 $GL(n,\mathbb{R} )$ 赋予由 $M_{n} (\mathbb{R} )$ 中的拓扑诱导出的相对拓扑，那么映射 $\psi $ 以分量形式写为
 \begin{equation*}
 ( \psi (\mathbf{A} ,\mathbf{B} ))_{ij} =\sum _{k=1}^{n} A_{ik}\left( B^{-1}\right)_{kj} 。
 \end{equation*}
-这些分量的映射都是连续函数，因为 $(B^{-1} )_{ij}$ 是矩阵元 $B_{ij}$ 的有理多项式函数，且函数的分母为非奇异矩阵的多项式 $\displaystyle \mathrm{det} B$ 。
+这些分量的映射都是连续函数，因为 $(B^{-1} )_{ij}$ 是矩阵元 $B_{ij}$ 的有理多项式函数，且函数的分母为非奇异矩阵的多项式 $ \mathrm{det} B$ 。
 \end{eg}
 
-	群 $G$ 的一个子群 $H$ 连带着其相对拓扑一起被称为 $G$ 的\textbf{拓扑子群(topological subgroup)}。为了证明任何子群 $H$ 在相对拓扑下成为拓扑子群，设 $U'=H\cap U$，其中 $U$ 是 $G$ 的任意开子集。由于映射 $\phi $ 的连续性，对于任何一对使得 $gh\in U'\subset U$ 的点 $g,h\in H$，存在 $G$ 中的开集 $A$ 和 $B$，使得 $A\times B\subset \varphi ^{-1} (U)$。由此得出 $\varphi (A'\times B')\subset H\cap U$，其中 $A'=A\cap H$，$B'=B\cap H$，而 $\displaystyle \phi |_{H}$ 的连续性是显然的。类似地，限制到 $H$ 上逆映射 $\tau $ 也是连续的。如果 $H$ 还是 $G$ 中的闭集，则称其为 $G$ 的\textbf{闭子群}。
+	群 $G$ 的一个子群 $H$ 连带着其相对拓扑一起被称为 $G$ 的\textbf{拓扑子群(topological subgroup)}。为了证明任何子群 $H$ 在相对拓扑下成为拓扑子群，设 $U'=H\cap U$，其中 $U$ 是 $G$ 的任意开子集。由于映射 $\phi $ 的连续性，对于任何一对使得 $gh\in U'\subset U$ 的点 $g,h\in H$，存在 $G$ 中的开集 $A$ 和 $B$，使得 $A\times B\subset \varphi ^{-1} (U)$。由此得出 $\varphi (A'\times B')\subset H\cap U$，其中 $A'=A\cap H$，$B'=B\cap H$，而 $ \phi |_{H}$ 的连续性是显然的。类似地，限制到 $H$ 上逆映射 $\tau $ 也是连续的。如果 $H$ 还是 $G$ 中的闭集，则称其为 $G$ 的\textbf{闭子群}。
 	对于每个 $g\in G$，令左平移映射 $L_{g} :G\rightarrow G$ 为
 \begin{equation*}
 L_{g} (h)\equiv L_{g} h=gh
