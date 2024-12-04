@@ -1,0 +1,39 @@
+实数轴和欧几里得平面 $\mathbb{R}^{2}$ 是拓扑空间的原型。在实数轴 $\mathbb{R}$ 上，一个开区间是形如 $(a,b)=\{x\in \mathbb{R} \mid a< x< b\}$ 的集合。若存在 $\epsilon  >0$，使得开区间 $(x-\epsilon ,x+\epsilon )$ 完全包含在集合 $U\subseteq \mathbb{R}$ 中，则集合$U$称为点$\ x\in \mathbb{R} \ $的邻域。给定一个实数序列$\{x_{n} \}$，若对于任意的 $\epsilon  >0$，都存在一个整数 $N >0$，使得对于所有 $n >N$，都有 $|x_{n} -x|< \epsilon $，则称 $\{x_{n} \}$ 收敛于 $x\in \mathbb{R}$，记作 $x_{n}\rightarrow x$。也就是说，随着 $\displaystyle n$ 趋近于无穷大，序列 $x_{n}$ 会进入并停留在每个包含 $x$ 的邻域 $U$ 内。此时，点 $x$ 被称为序列 $\{x_{n} \}$ 的极限。
+
+\begin{exercise}
+    证明序列的极限是唯一的：如果 $x_{n}\rightarrow x$ 且 $x_{n}\rightarrow x'$，那么 $x=x'$。
+\end{exercise}
+
+    类似的定义适用于欧几里得平面 $\mathbb{R}^{2}$，我们设定$|y-x|=\sqrt{(y_{1} -x_{1} )^{2} +(y_{2} -x_{2} )^{2}}$。在这种情况下，开区间的概念被开球取代：
+\begin{equation*}
+B_{r} (x)=\{y\in \mathbb{R}^{2} \mid |y-x|< r\}
+\end{equation*}
+如果存在实数 $\epsilon  >0$，使得开球 $B_{\epsilon } (x)\subset U$，则称集合 $U\subset \mathbb{R}^{2}$ 是点 $x\in \mathbb{R}^{2}$ 的一个邻域。对于一个点列 $\{x_{n} \}$ ，若对于每一个 $\epsilon  >0$，都存在一个正整数 $N >0$，使得对于所有 $n >N$，都有
+\begin{equation*}
+x_{n} \in B_{\epsilon } (x)。
+\end{equation*}
+则称点列 $\{x_{n} \}$ 收敛于 $x\in \mathbb{R}^{2}$，或者说 $x$ 是点列 $\{x_{n} \}$ 的极限，写作 $x_{n}\rightarrow x$，这个定义等价于这样的表述：对于 $x$ 的每个邻域 $U$，都存在一个 $N >0$，使得对于所有 $n >N$，都有 $x_{n} \in U$。
+    在 $\mathbb{R}$ 或 $\mathbb{R}^{2}$ 中，开集 $U$ 是指包含其每个点的邻域的集合。直观地说，$U$ 在 $\mathbb{R}$（或 $\mathbb{R}^{2}$）中是开集，当且仅当 $U$ 中的每个点都可以被“扩展”成一个开区间（或开球）（见图 10.1）。例如，单位球 $B_{1} (O)=\{y\mid |y|^{2} < 1\}$ 是一个开集，因为对于每个点 $x\in B_{1} (O)$，都有开球 $B_{\epsilon } (x)\subset B_{1} (O)$，其中 $\epsilon =1-|x| >0$。
+    在实数线上，可以证明最一般的开集是由不相交的开区间组成的，可以写成：
+\begin{equation*}
+\dotsc ,(a_{-1} ,a_{0} ),(a_{1} ,a_{2} ),(a_{3} ,a_{4} ),(a_{5} ,a_{6} ),\dotsc 
+\end{equation*}
+其中 $\dotsc a_{-1} < a_{0} \leq a_{1} < a_{2} \leq a_{3} < a_{4} \leq a_{5} < a_{6} \leq \dotsc $。在 $\mathbb{R}^{2}$ 中，开集不能如此简单地分类，因为尽管每个开集都是开球的并集，但这些并集不一定是互不相交的。
+在标准分析中，函数 $f:\mathbb{R}\rightarrow \mathbb{R}$ 在点 $x$ 连续当且仅当对于任意的 $\epsilon  >0$，都存在 $\delta  >0$，使得
+\begin{equation*}
+|y-x|< \delta \ \ \Rightarrow \ \ |f(y)-f(x)|< \epsilon 。
+\end{equation*}
+因此，对于任意的 $\epsilon  >0$，逆像集 $f^{-1} (f(x)-\epsilon ,f(x)+\epsilon )$ 是 $x$ 的一个邻域，因为它包含一个以 $x$ 为中心的开区间 $(x-\delta ,x+\delta )$。由于每个 $f(x)$ 的邻域都包含一个形如 $(f(x)-\epsilon ,f(x)+\epsilon )$ 的区间，因此，函数 $f$ 在 $x$ 连续，当且仅当每个 $f(x)$ 邻域的逆像也是 $\displaystyle x$ 的邻域。若一个函数 $\displaystyle f:\mathbb{R}\rightarrow \mathbb{R}$ 在每点 $\displaystyle x\in \mathbb{R}$ 连续，则称 $\displaystyle f$ 在 $\displaystyle \mathbb{R}$ 上连续。
+
+\begin{theorem}\label{thm:10.1} 
+     函数 $f:\mathbb{R}\rightarrow \mathbb{R}$ 在 $\mathbb{R}$ 中连续当且仅当对于每个开集 $V\subset \mathbb{R}$，其逆像 $f^{-1} (V)$ 是 $\mathbb{R}$ 的一个开集。
+\end{theorem}
+\begin{proof}
+设函数 $\displaystyle f$ 在 $\displaystyle \mathbb{R}$ 上连续，因为开集对于每一点 $\displaystyle y\in U$ 都是邻域，则 $\displaystyle U$ 的逆像 $\displaystyle V=f^{-1}( U)$ 必须是其中每点 $\displaystyle x\in V$ 的邻域。因此 $\displaystyle V$ 是一个开集。
+    反过来，设函数 $f:\mathbb{R}\rightarrow \mathbb{R}$ 满足对于每个开集 $U\subset \mathbb{R}$，其逆像 $f^{-1} (U)$ 是开集。对任意 $x\in \mathbb{R}$ 为和任意 $\epsilon  >0$ ，$(f(x)-\epsilon ,f(x)+\epsilon )$ 的逆像是一个包含 $\displaystyle x$ 的开集。它因此包含了一个形如 $\displaystyle ( x-\delta ,\ x+\delta )$ ，于是 $\displaystyle f$ 在点 $\displaystyle x$ 是连续的。又因为 $\displaystyle x$ 点是在 $\mathbb{R}$ 上任取的，因此 $\displaystyle f$ 在 $\mathbb{R}$ 上连续。
+\end{proof}
+    在更广义的拓扑学上，上述关系将被用于定义连续映射。$\mathbb{R}^{2}$ 中对于连续的处理方法和 $\displaystyle \mathbb{R}$ 几乎相同。函数 $f:\mathbb{R}^{2}\rightarrow \mathbb{R}^{2}$ 在点 $x$ 连续当且仅当对于每个 $\epsilon  >0$，都存在 $\delta  >0$，使得
+\begin{equation*}
+|y-x|< \delta \ \ \Rightarrow \ \ |f(y)-f(x)|< \epsilon 。
+\end{equation*}
+利用和定理\ref{thm:10.1}几乎相同的证明方法，可得知函数 $f$ 在 $\displaystyle \mathbb{R}$ 上连续当且仅当对于每个开集 $U\subset \mathbb{R}^{2}$，其逆像 $f^{-1} (U)$ 是 $\mathbb{R}^{2}$ 的开子集。对实值函数 $f:\mathbb{R}^{2}\rightarrow \mathbb{R}$ 也是如此。于是函数的连续性可以完全通过它们对陪域上开集的逆作用来描述。正因如此，开集被视为拓扑空间的关键成分。处理欧几里得空间及其内嵌曲面的经验使得数学家们认识到，开集的最重要特性可以用几个简单的规则来总结，这些规则将在下一节中列出（另见 [1–8]）。
