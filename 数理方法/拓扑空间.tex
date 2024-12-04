@@ -37,3 +37,43 @@ x_{n} \in B_{\epsilon } (x)。
 |y-x|< \delta \ \ \Rightarrow \ \ |f(y)-f(x)|< \epsilon 。
 \end{equation*}
 利用和定理\ref{thm:10.1}几乎相同的证明方法，可得知函数 $f$ 在 $\displaystyle \mathbb{R}$ 上连续当且仅当对于每个开集 $U\subset \mathbb{R}^{2}$，其逆像 $f^{-1} (U)$ 是 $\mathbb{R}^{2}$ 的开子集。对实值函数 $f:\mathbb{R}^{2}\rightarrow \mathbb{R}$ 也是如此。于是函数的连续性可以完全通过它们对陪域上开集的逆作用来描述。正因如此，开集被视为拓扑空间的关键成分。处理欧几里得空间及其内嵌曲面的经验使得数学家们认识到，开集的最重要特性可以用几个简单的规则来总结，这些规则将在下一节中列出（另见 [1–8]）。
+\section{拓扑群}
+拓扑结构和代数结构可以用很多种有意义的方式结合起来。结合这两种结构的核心要求是，用于表示代数运算法则的函数必须是拓扑连续的（相对于底拓扑空间）。在这一节中，我们将群论与拓扑学结合起来。
+	一个\textbf{拓扑群(topological group)}是指一个既是群又是豪斯多夫空间的集合 $\displaystyle G$ ，其中由 $\psi :G\times G\rightarrow G$ 定义的映射 $\psi (g,h)=gh^{-1}$ 是连续的。如果底空间的拓扑是离散的，则称拓扑群 $G$ 为\textbf{离散的(discrete)}。
+	由 $\varphi (g,h)=gh$ 和 $\psi (g,h)=gh^{-1}$ 定义的映射 $\varphi :G\rightarrow G$ 和 $\psi :G\times G\rightarrow G$ 都是连续的。因为根据定理\ref{thm:10.1}，包含映射 $i:G\rightarrow G\times G$ 定义为 $i(h)=\iota _{e} (e,h)$ ，其为连续映射。于是映射 $\tau =\psi \circ i$ 也是连续的，因为它是连续映射$\displaystyle \psi $和$\displaystyle i$的复合映射。而 $\phi ( g,h) =\psi (g,\tau (h))$，可知 $\phi $ 也是连续映射。
+
+\begin{exercise}
+	证明 $\varphi $ 是 $G$ 的同胚映射。
+\end{exercise}
+
+\begin{exercise}
+	如果 $\varphi $ 和 $\psi $ 是连续映射，证明 $\varphi $ 是连续的。
+\end{exercise}
+
+\begin{eg}\label{eg:10.20}
+加法群 $\mathbb{R}^{n}$，其群乘法是向量加法，
+\begin{equation*}
+\phi (\mathbf{x} ,\mathbf{y}) =(x^{1} ,x^{2} ,\dotsc ,x^{n} )+(y^{1} ,y^{2} ,\dotsc ,y^{n} )=(x^{1} +y^{1} ,\dotsc ,x^{n} +y^{n} )
+\end{equation*}
+逆映射为
+\begin{equation*}
+\tau (\mathbf{x} )=-\mathbf{x} =(-x^{1} ,\dotsc ,-x^{n} ),
+\end{equation*}
+这个群是一个建立在欧几里得拓扑上的阿贝尔拓扑群。$n$-环面 $T^{n} =\mathbb{R}^{n} /\mathbb{Z}^{n}$ 同样也是一个阿贝尔拓扑群，其群乘法是模 $\displaystyle 1$ 加法。
+\end{eg}
+
+\begin{eg}\label{eg:10.20}
+全体 $n\times n$ 实矩阵 $M_{n} (\mathbb{R} )$ 构成的集合具有与欧几里得拓扑 $\mathbb{R}^{n^{2}}$ 同胚的拓扑。行列式映射 $\det :M_{n} (\mathbb{R} )\rightarrow \mathbb{R}$ 显然是连续的，因为行列式 $\displaystyle \ \mathrm{det}\mathbf{A}$ 是 $\displaystyle \mathbf{A}$ 的矩阵元的多项式函数。于是一般线性群 $GL(n,\mathbb{R} )$ 是 $M_{n} (\mathbb{R} )$ 的一个开子集，因为其是开集 $\dot{\mathbb{R}} =\mathbb{R} -\{0\}$在行列式逆映射下的像。如果给 $GL(n,\mathbb{R} )$ 赋予由 $M_{n} (\mathbb{R} )$ 中的拓扑诱导出的相对拓扑，那么映射 $\psi $ 以分量形式写为
+\begin{equation*}
+( \psi (\mathbf{A} ,\mathbf{B} ))_{ij} =\sum _{k=1}^{n} A_{ik}\left( B^{-1}\right)_{kj} 。
+\end{equation*}
+这些分量的映射都是连续函数，因为 $(B^{-1} )_{ij}$ 是矩阵元 $B_{ij}$ 的有理多项式函数，且函数的分母为非奇异矩阵的多项式 $\displaystyle \mathrm{det} B$ 。
+\end{eg}
+
+	群 $G$ 的一个子群 $H$ 连带着其相对拓扑一起被称为 $G$ 的\textbf{拓扑子群(topological subgroup)}。为了证明任何子群 $H$ 在相对拓扑下成为拓扑子群，设 $U'=H\cap U$，其中 $U$ 是 $G$ 的任意开子集。由于映射 $\phi $ 的连续性，对于任何一对使得 $gh\in U'\subset U$ 的点 $g,h\in H$，存在 $G$ 中的开集 $A$ 和 $B$，使得 $A\times B\subset \varphi ^{-1} (U)$。由此得出 $\varphi (A'\times B')\subset H\cap U$，其中 $A'=A\cap H$，$B'=B\cap H$，而 $\displaystyle \phi |_{H}$ 的连续性是显然的。类似地，限制到 $H$ 上逆映射 $\tau $ 也是连续的。如果 $H$ 还是 $G$ 中的闭集，则称其为 $G$ 的\textbf{闭子群}。
+	对于每个 $g\in G$，令左平移映射 $L_{g} :G\rightarrow G$ 为
+\begin{equation*}
+L_{g} (h)\equiv L_{g} h=gh
+\end{equation*}
+与例\ref{eg:2.25}中的定义相同。由于映射 $L_{g}$ 是两个连续映射的复合映射，$L_{g} =\phi \circ \iota _{g}$，因此 $L_{g}$ 是连续的，其中 $\iota _{g} :G\rightarrow G\times G$ 是包含映射 $\iota _{g} (h)=(g,h)$。
+（见定理\ref{thm:10.3}）。它显然是单射，因为 $gh=gh'\Longrightarrow h=g^{-1} gh'=h'$ ，并且它的逆是连续映射 $L_{g^{-1}}$。由此可知 $L_{g}$ 是同胚映射。类似地，对于每个右平移可以定义 $R_{g} :G\rightarrow G$ 为 $R_{g} h=hg$，其也是 $G$ 的同胚映射，还可以定义内自同构 $C_{g} :G\rightarrow G$ 为 $C_{g} h=ghg^{-1} =L_{h} \circ R_{h^{-1}}( g)$ 。
