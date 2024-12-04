@@ -1,12 +1,12 @@
 # Fdb version 4
-["xdvipdfmx"] 1733326933.71631 "数理方法.xdv" "数理方法.pdf" "数理方法" 1733326934.31507 0
-  "数理方法.xdv" 1733326933.63298 1442828 68ce6e8144ee43404ef537f23989f8d2 "xelatex"
+["xdvipdfmx"] 1733328508.44384 "数理方法.xdv" "数理方法.pdf" "数理方法" 1733328509.0544 0
+  "数理方法.xdv" 1733328508.35847 1442828 2c4d08ab5995447616123183468c0b25 "xelatex"
   (generated)
   "数理方法.pdf"
   (rewritten before read)
-["xelatex"] 1733326931.23573 "/Users/limbo137/Documents/GitHub/Szekeres/数理方法/数理方法.tex" "数理方法.xdv" "数理方法" 1733326934.31188 0
+["xelatex"] 1733328505.97291 "/Users/limbo137/Documents/GitHub/Szekeres/数理方法/数理方法.tex" "数理方法.xdv" "数理方法" 1733328509.05241 0
   "/System/Library/Fonts/Menlo.ttc" 1731646787 2156036 ec05dfca6821d85440da0899493002c3 ""
-  "/Users/limbo137/Documents/GitHub/Szekeres/数理方法/数理方法.tex" 1733326912.89346 178142 9225b9d8fc4089d079a72a787e800c2c ""
+  "/Users/limbo137/Documents/GitHub/Szekeres/数理方法/数理方法.tex" 1733328390.82621 178142 9225b9d8fc4089d079a72a787e800c2c ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -224,12 +224,12 @@
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
   "2023_12_20_5d48e1c38160b1e32b28g-03(1).jpg" 1733323766.06285 16724 bc1ad689b2f8d6cb289faedceab78e77 ""
   "2023_12_20_5d48e1c38160b1e32b28g-03.jpg" 1733323766.0633 15201 0e1cca57e689e0330cb1023c8a187999 ""
-  "分布.tex" 1733326871.14078 67657 099b7499220325247c1a41f7329b70da ""
-  "拓扑空间.tex" 1733326239.20329 9929 620eb99e6d8981f1f4749455bb54ae38 ""
-  "数理方法.aux" 1733326933.62706 53781 6d2478f917f3c83787571024b681a0c2 "xelatex"
-  "数理方法.out" 1733326933.63251 31612 13952b5ab63c034c4c3adec5b53d1d99 "xelatex"
-  "数理方法.tex" 1733326912.89346 178142 9225b9d8fc4089d079a72a787e800c2c ""
-  "数理方法.toc" 1733326933.63292 29032 cdadb6c3cf5efbab3d55c9465531af80 "xelatex"
+  "分布.tex" 1733328390.81021 67657 099b7499220325247c1a41f7329b70da ""
+  "拓扑空间.tex" 1733328390.81072 9929 620eb99e6d8981f1f4749455bb54ae38 ""
+  "数理方法.aux" 1733328508.3545 53781 6d2478f917f3c83787571024b681a0c2 "xelatex"
+  "数理方法.out" 1733328508.35793 31612 13952b5ab63c034c4c3adec5b53d1d99 "xelatex"
+  "数理方法.tex" 1733328390.82621 178142 9225b9d8fc4089d079a72a787e800c2c ""
+  "数理方法.toc" 1733328508.35841 29032 cdadb6c3cf5efbab3d55c9465531af80 "xelatex"
   (generated)
   "数理方法.aux"
   "数理方法.log"
