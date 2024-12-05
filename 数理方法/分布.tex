@@ -37,7 +37,54 @@ $$
 $$
 
 然而，我们不会尝试通过某种极限意义来定义狄拉克类函数。相反，我们遵循洛朗·施瓦茨的思路，将它们定义为适当定义的正规测试函数空间上的连续线性泛函。这种方法被称为\textbf{分布理论(distributions)}{[}1-6{]}。
+\begin{figure}
+  \centering
 
+\begin{tikzpicture}
+
+  % Draw the left plot (Rectangular approximation)
+  \begin{scope}[xshift=-4cm]
+      % Axes
+      \draw[-] (-2.5,0) -- (2.5,0) ;
+      \draw[-] (0,0) -- (0,5) ;
+      
+      % Rectangles
+      \draw (-2,0) rectangle (2,1);
+      \draw (-1,0) rectangle (1,2);
+      \draw (-0.5,0) rectangle (.5,4);
+      
+      % Labels
+      \node at (-0.5,-0.3) {\(-\frac{1}{n}\)};
+      \node at (0.5,-0.3) {\(\frac{1}{n}\)};
+      \node at (0.7,4.1) {\(\frac{n}{2}\)};
+  \end{scope}
+
+  % Draw the right plot (Gaussian approximation)
+  \begin{scope}[xshift=2cm]
+      % Axes
+      \draw[-] (-3,0) -- (3,0) ;
+      \draw[-] (0,0) -- (0,5) ;
+      
+      % Gaussian curves
+      \def\sigmaA{0.7}
+    \def\sigmaB{0.5}
+    \def\sigmaC{0.3}
+
+    % Scaling factors for integral = 2
+    \def\scaleA{3/(sqrt(2*pi*\sigmaA*\sigmaA))}
+    \def\scaleB{3/(sqrt(2*pi*\sigmaB*\sigmaB))}
+    \def\scaleC{3/(sqrt(2*pi*\sigmaC*\sigmaC))}
+
+    % Gaussian curves
+    \draw[smooth] plot[domain=-2:2,samples=200] (\x, {\scaleA*exp(-\x*\x/(2*\sigmaA*\sigmaA))}) node[right] {};
+    \draw[smooth] plot[domain=-2:2,samples=200] (\x, {\scaleB*exp(-\x*\x/(2*\sigmaB*\sigmaB))}) node[right] {};
+    \draw[smooth] plot[domain=-2:2,samples=200] (\x, {\scaleC*exp(-\x*\x/(2*\sigmaC*\sigmaC))}) node[right] {};
+
+  \end{scope}
+\end{tikzpicture}
+  \caption{作为函数极限的狄拉克$\delta$函数}
+  \label{fig:12.1}
+\end{figure}
 \section{测试函数和分布}\label{sec:12.1}
 
 \subsection{测试函数空间}
@@ -470,7 +517,7 @@ $$
   $g_n \to \delta(x)$。
 \end{enumerate}
 
-\section{分布的运算}\label{sec:12.2}
+\section{分布上的算符}\label{sec:12.2}
 
 如果 $T$ 和 $S$ 是定义在 $\mathbb{R}^n$ 上阶数为 $m$
 的分布，那么显然 $T + S$ 和 $a T$ 对于所有 $a \in \mathbb{R}$
@@ -478,7 +525,7 @@ $$
 的分布。因此，$\mathcal{D}^{\prime m}(\mathbb{R}^n)$ 是一个向量空间。
 \begin{exercise}
   证明 $T + S$ 是线性且连续的。同样地，证明 $a T$
-的线性和连续性。
+的线性性和连续性。
 \end{exercise}
 
 两个分布 $S$ 和 $T$ 的乘积 $S T$
@@ -511,7 +558,7 @@ $$
 将正则分布 $T_f$ 乘以 $\alpha$ 的运算等价于将对应的密度函数 $f$
 乘以 $\alpha$。在这种情况下，$\alpha$ 只需要是一个局部可积函数即可。
 
-\begin{eg}
+\begin{eg}\label{eg:12.3}
 在例 \ref{eg:12.2} 中定义的分布 $\delta$
 是一个阶数为零的分布，因为它在连续测试函数的空间
 $\mathcal{D}^0(\mathbb{R})$ 上是良定义的。对于任意连续函数
@@ -523,9 +570,9 @@ $$
 
 因此，
 
-$$
-\alpha \delta = \alpha(0) \delta
-$$
+\begin{equation}
+  \alpha \delta = \alpha(0) \delta
+\end{equation}
 
 用``$\delta$函数''的语言，这一恒等式通常写作：
 
@@ -540,25 +587,26 @@ $$
 $$
 
 对于任意点 $a$ 处的 $\delta$函数，上述恒等式变为：
+\begin{equation}
+  \alpha \delta_a = \alpha(a) \delta_a, \quad \alpha(x) \delta(x-a) = \alpha(a) \delta(x-a)
+\end{equation}
 
-$$
-\alpha \delta_a = \alpha(a) \delta_a, \quad \alpha(x) \delta(x-a) = \alpha(a) \delta(x-a)
-$$
 
 令 $\alpha(x) = x$，可以得出以下有用的恒等式：
+\begin{equation}
+  x \delta = 0, \quad x \delta(x) = 0
+\end{equation}
 
-$$
-x \delta = 0, \quad x \delta(x) = 0
-$$
 \end{eg}
-
-\#练习：将这些恒等式扩展到 $n$ 维 $\delta$函数：
+\begin{exercise}
+  练习：将这些恒等式扩展到 $n$ 维 $\delta$函数：
 
 $$
 \alpha \delta_{\mathbf{a}} = \alpha(\mathbf{a}) \delta_{\mathbf{a}}, \quad \alpha(\mathbf{x}) \delta^n(\mathbf{x} - \mathbf{a}) = \alpha(\mathbf{a}) \delta(\mathbf{x} - \mathbf{a})
 $$
+\end{exercise}
 
-\subsection{分布的微分}\label{ux5206ux5e03ux7684ux5faeux5206}
+\subsection{分布的微分}
 
 设 $T_f$ 是一个正则分布，其中 $f$
 是一个可微函数。实分析中的标准结果表明，导数
@@ -575,12 +623,12 @@ T_{f^{\prime}}(\varphi) & = \int_{-\infty}^\infty \varphi(x) \frac{\mathrm{d}f}{
 $$
 
 因为 $\varphi(\pm \infty) = 0$。我们可以将此恒等式扩展到一般分布，定义
-$\mathbb{R}$ 上阶数 $m \geq 0$ 的分布 $T$ 的\textbf{导数}
+$\mathbb{R}$ 上阶数 $m \geq 0$ 的分布 $T$ 的\textbf{导数(derivative of a distribution)}
 $T^{\prime}$ 为阶数 $m+1$ 的分布，其定义为：
+\begin{equation}
+  T^{\prime}(\varphi) = T\left(-\varphi^{\prime}\right) = -T\left(\varphi^{\prime}\right)
+\end{equation}
 
-$$
-T^{\prime}(\varphi) = T\left(-\varphi^{\prime}\right) = -T\left(\varphi^{\prime}\right)
-$$
 
 正则分布的导数对应于取其密度函数的导数。注意，分布的阶数在微分时会增加，因为
 $\varphi^{\prime} \in \mathcal{D}^m(\mathbb{R})$ 意味着
@@ -709,11 +757,9 @@ $$
 & = \alpha T^{\prime}(\varphi) + \alpha^{\prime} T(\varphi)。
 \end{aligned}
 $$
-
+\end{eg}
 \begin{eg}\label{eg:12.6} 
   从\ref{eg:12.3} 和 \ref{eg:12.5} 中我们可以得出：
-\end{eg}
-
 $$
 (x \delta)^{\prime} = 0^{\prime} = 0
 $$
@@ -762,9 +808,9 @@ $$
 $\int_{-\infty}^\infty$，并引入一个符号变化。对于具有唯一零点
 $x = a$ 的任意方向的单调函数 $f$，通用公式为：
 
-$$
-\int_{-\infty}^\infty \varphi(x) \delta(f(x)) \mathrm{d}x = \frac{\varphi(a)}{\left|f^{\prime}(a)\right|}
-$$
+\begin{equation} \label{eq:12.7}
+ \int_{-\infty}^\infty \varphi(x) \delta(f(x)) \mathrm{d}x = \frac{\varphi(a)}{\left|f^{\prime}(a)\right|} 
+ \end{equation}
 
 符号上，我们可以写作：
 
@@ -774,9 +820,9 @@ $$
 
 或以分布的形式表示为：
 
-$$
-\delta \circ f = \frac{1}{\left|f^{\prime}(a)\right|} \delta_a。
-$$
+\begin{equation} label{eq:12.8}
+ \delta \circ f = \frac{1}{\left|f^{\prime}(a)\right|} \delta_a。 
+ \end{equation}
 
 实际上，这个等式可以作为分布 $\delta \circ f$ 的定义。令
 $f(x) = -x$，可以得出 $\delta(x)$ 是偶函数，即
@@ -809,9 +855,9 @@ $$
 
 因此，
 
-$$
-\delta(f(x)) = \sum_{i} \frac{1}{\left|f^{\prime}(a_i)\right|} \delta(x - a_i)
-$$
+\begin{equation}label{eq:12.9}
+ \delta(f(x)) = \sum_{i} \frac{1}{\left|f^{\prime}(a_i)\right|} \delta(x - a_i) 
+ \end{equation}
 
 或者等价地表示为：
 
@@ -832,9 +878,9 @@ $$
 与公式 (12.9) 一致。
 \end{eg}
 
-\subsubsection*{问题}
+\subsubsection*{习题}
 \begin{problem}
-  根据问题 \ref{pro:12.4} 中定义的收敛意义，证明如果
+  根据题 \ref{pro:12.4} 中定义的收敛意义，证明如果
 $T_n \rightarrow T$，那么 $T_n^{\prime} \rightarrow T^{\prime}$。
 
 
@@ -1007,7 +1053,7 @@ $$
 计算 $\frac{\partial \phi}{\partial x}$ 和
 $\frac{\partial \phi}{\partial y}$，代入方程验证成立。
 
-\subsection{12.3 傅里叶变换}\label{ux5085ux91ccux53f6ux53d8ux6362}
+\section{傅里叶变换}\label{12.3}
 
 对于任意函数 $\varphi(x)$，其\textbf{傅里叶变换}定义为函数
 $\mathcal{F} \varphi$：
@@ -1038,34 +1084,34 @@ $$
 
 利用应用于 $\delta$函数的积分标准规则，可以推导出：
 
-$$
-\delta_a(x) = \delta(x-a) = \frac{1}{2 \pi} \int_{-\infty}^\infty \mathrm{e}^{i y(a-x)} \mathrm{d}y，
-$$
+\begin{equation}\label{eq:12.10} 
+ \delta_a(x) = \delta(x-a) = \frac{1}{2 \pi} \int_{-\infty}^\infty \mathrm{e}^{i y(a-x)} \mathrm{d}y， 
+ \end{equation}
 
 将 $a=0$ 并利用 $\delta(x)=\delta(-x)$ 得到：
 
-$$
-\delta(x)=\frac{1}{2 \pi} \int_{-\infty}^\infty \mathrm{e}^{-i y x} \mathrm{d}y = \frac{1}{2 \pi} \int_{-\infty}^\infty \mathrm{e}^{i y x} \mathrm{d}y。
-$$
+\begin{equation}\label{eq:12.11} 
+ \delta(x)=\frac{1}{2 \pi} \int_{-\infty}^\infty \mathrm{e}^{-i y x} \mathrm{d}y = \frac{1}{2 \pi} \int_{-\infty}^\infty \mathrm{e}^{i y x} \mathrm{d}y。 
+ \end{equation}
 
 类似地，$\delta$函数的傅里叶变换为：
 
-$$
-\mathcal{F} \delta(y)=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \mathrm{e}^{-i x y} \delta(x) \mathrm{d}x = \frac{1}{\sqrt{2 \pi}}，
-$$
+\begin{equation}\label{eq:12.12} 
+ \mathcal{F} \delta(y)=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \mathrm{e}^{-i x y} \delta(x) \mathrm{d}x = \frac{1}{\sqrt{2 \pi}}， 
+ \end{equation}
 
 公式 (12.11) 也验证了：
 
-$$
-\delta(x) = \mathcal{F}^{-1} \frac{1}{\sqrt{2 \pi}} = \frac{1}{2 \pi} \int_{-\infty}^\infty \mathrm{e}^{i x y} \mathrm{d}y。
-$$
+\begin{equation}\label{eq:12.13} 
+ \delta(x) = \mathcal{F}^{-1} \frac{1}{\sqrt{2 \pi}} = \frac{1}{2 \pi} \int_{-\infty}^\infty \mathrm{e}^{i x y} \mathrm{d}y。 
+ \end{equation}
 
 通过定义分布 $T$ 的傅里叶变换
 $\mathcal{F} T$，可以实现数学上的一致性：
 
-$$
-\mathcal{F} T(\varphi)=T(\mathcal{F} \varphi)，
-$$
+\begin{equation}\label{eq:12.14} 
+ \mathcal{F} T(\varphi)=T(\mathcal{F} \varphi)， 
+ \end{equation}
 
 适用于所有测试函数 $\varphi$。对于正则分布，有如下结果：
 
@@ -1104,7 +1150,7 @@ $$
 (12.14) 的右侧通常是未定义的。
 
 解决这一问题的方法是定义更广泛的测试函数空间
-$\mathcal{S}(\mathbb{R})$，称为\textbf{快速衰减函数空间}，即满足
+$\mathcal{S}(\mathbb{R})$，称为\textbf{速降函数空间(space of rapidly decreasing functions)}，即满足
 $|x| \to \infty$ 时比任何逆幂 $|x|^{-n}$ 都衰减得更快的函数：
 
 $$
@@ -1330,25 +1376,25 @@ $$
 
 简化后可还原 $g(y)$ 的空间表达。
 
-\subsection{12.4 格林函数（Green's
-functions）}\label{ux683cux6797ux51fdux6570greens-functions}
+\section{格林函数（Green's
+functions）}\label{sec:12.4}
 
 分布理论通常用于通过格林函数技术求解非齐次线性偏微分方程。这里我们给出两个重要的标准例子。
 
-\subsubsection{泊松方程（Poisson's
-equation）}\label{ux6ccaux677eux65b9ux7a0bpoissons-equation}
+\subsection{泊松方程（Poisson's
+equation）}
 
 为了求解像泊松方程这样的非齐次方程
 
-$$
-\nabla^{2} \phi=-4 \pi \rho,
-$$
+\begin{equation}\label{eq:12.15} 
+ \nabla^{2} \phi=-4 \pi \rho, 
+ \end{equation}
 
 我们需要找到以下分布方程的解：
 
-$$
-\nabla^{2} G\left(\mathbf{x}-\mathbf{x}^{\prime}\right)=\delta^{3}\left(\mathbf{x}-\mathbf{x}^{\prime}\right)=\delta\left(x-x^{\prime}\right) \delta\left(y-y^{\prime}\right) \delta\left(z-z^{\prime}\right)。
-$$
+\begin{equation}\label{eq:12.16} 
+ \nabla^{2} G\left(\mathbf{x}-\mathbf{x}^{\prime}\right)=\delta^{3}\left(\mathbf{x}-\mathbf{x}^{\prime}\right)=\delta\left(x-x^{\prime}\right) \delta\left(y-y^{\prime}\right) \delta\left(z-z^{\prime}\right)。 
+ \end{equation}
 
 泊松方程的解（12.15）为
 
@@ -1407,9 +1453,9 @@ $$
 
 于是
 
-$$
-G\left(\mathbf{x}-\mathbf{x}^{\prime}\right)=-\frac{1}{(2 \pi)^{3}} \iiint_{-\infty}^{\infty} \frac{\mathrm{e}^{i \mathbf{k} \cdot \mathbf{y}}}{\mathbf{k}^{2}} \mathrm{~d}^{3} k。
-$$
+\begin{equation}\label{eq:12.17} 
+ G\left(\mathbf{x}-\mathbf{x}^{\prime}\right)=-\frac{1}{(2 \pi)^{3}} \iiint_{-\infty}^{\infty} \frac{\mathrm{e}^{i \mathbf{k} \cdot \mathbf{y}}}{\mathbf{k}^{2}} \mathrm{~d}^{3} k。 
+ \end{equation}
 
 在 $\mathbf{k}$-空间中，积分最好使用极坐标 $(k, \theta, \phi)$，其中
 $k_{3}$ 轴沿着方向 $\mathbf{R}=\mathbf{x}-\mathbf{x}^{\prime}$
@@ -1424,8 +1470,27 @@ $$
 $$
 \mathrm{d}^{3} k=k^{2} \sin \theta \mathrm{~d} k \mathrm{~d} \theta \mathrm{~d} \phi。
 $$
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
 
-图 12.2 在 $\mathbf{k}$ 空间中转换到极坐标
+    % Draw the vectors
+    \draw[thick,-latex] (0,0) -- (0,4) node[above] {\(\mathbf{R} = \mathbf{x} - \mathbf{x}'\)};
+    \draw[thick,-latex] (0,0) -- (2.5,3) node[right] {\(\mathbf{k}\)};
+
+    % Draw the angle arc
+    \draw[thick,-latex] (0,1.2) arc[start angle=90,end angle=48,radius=1.2];
+    \node at (0.25,0.6) {\(\theta\)};
+
+    % Draw coordinate axes for context (optional, can be removed)
+    % \draw[->] (-0.5,0) -- (4,0) node[below] {$x$};
+    % \draw[->] (0,-0.5) -- (0,5) node[left] {$y$};
+
+\end{tikzpicture}
+  \caption{在 $\mathbf{k}$ 空间中转换到极坐标}
+  \label{12.2}
+\end{figure}
+
 
 这导致
 
@@ -1447,9 +1512,9 @@ $$
 
 因此，
 
-$$
-G\left(\mathbf{x}-\mathbf{x}^{\prime}\right)=-\frac{1}{4 \pi\left|\mathbf{x}-\mathbf{x}^{\prime}\right|}
-$$
+\begin{equation}\label{eq:12.18} 
+ G\left(\mathbf{x}-\mathbf{x}^{\prime}\right)=-\frac{1}{4 \pi\left|\mathbf{x}-\mathbf{x}^{\prime}\right|} 
+ \end{equation}
 
 泊松方程 (12.15) 的解为
 
@@ -1465,16 +1530,14 @@ $$
 \phi(\mathbf{x})=\frac{q}{|\mathbf{x}-\mathbf{a}|}
 $$
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsubsection{波动方程的格林函数（Green's function for the wave
-equation）}\label{ux6ce2ux52a8ux65b9ux7a0bux7684ux683cux6797ux51fdux6570greens-function-for-the-wave-equation}
+\subsection{波动方程的格林函数（Green's function for the wave
+equation）}
 
 为了解非齐次波动方程
 
-$$
-\square \psi=-\frac{\partial^{2}}{c^{2} \partial t^{2}} \psi+\nabla^{2} \psi=f(\mathbf{x}, t),
-$$
+\begin{equation}\label{eq:12.19} 
+ \square \psi=-\frac{\partial^{2}}{c^{2} \partial t^{2}} \psi+\nabla^{2} \psi=f(\mathbf{x}, t), 
+ \end{equation}
 
 最好采用相对论的 4-矢量表示法，令 $x^{4}=c t$。波动方程可以写为第 9.4
 节所述的形式：
@@ -1487,9 +1550,9 @@ $$
 是对角度量张量，其对角线分量为 $1,1,1,-1$，最后一项中的 $x$ 表示
 $\left(\mathbf{x}, x^{4}\right)$ 的简写。 同样，我们寻找以下方程的解：
 
-$$
-\square G\left(x-x^{\prime}\right)=\delta^{4}\left(x-x^{\prime}\right) \equiv \delta\left(x^{1}-x^{\prime 1}\right) \delta\left(x^{2}-x^{\prime 2}\right) \delta\left(x^{3}-x^{\prime 3}\right) \delta\left(x^{4}-x^{\prime 4}\right)
-$$
+\begin{equation}\label{eq:12.20} 
+ \square G\left(x-x^{\prime}\right)=\delta^{4}\left(x-x^{\prime}\right) \equiv \delta\left(x^{1}-x^{\prime 1}\right) \delta\left(x^{2}-x^{\prime 2}\right) \delta\left(x^{3}-x^{\prime 3}\right) \delta\left(x^{4}-x^{\prime 4}\right) 
+ \end{equation}
 
 每个格林函数 $G$ 都可以生成方程 (12.19) 的解 $\psi_{G}(x)$，
 
@@ -1502,23 +1565,20 @@ $$
 $$
 \square \psi_{G}=\iiint \int \square G\left(x-x^{\prime}\right) f\left(x^{\prime}\right) \mathrm{d}^{4} x^{\prime}=\iiint \int \delta^{4}\left(x-x^{\prime}\right) f\left(x^{\prime}\right) \mathrm{d}^{4} x^{\prime}=f(x)
 $$
-
-\subsubsection{\texorpdfstring{练习：证明非齐次波动方程 (12.19)
-的通解形式为 $\psi_{G}(x)+\phi(x)$，其中
-$\square \phi=0$。}{练习：证明非齐次波动方程 (12.19) 的通解形式为 \textbackslash psi\_\{G\}(x)+\textbackslash phi(x)，其中 \textbackslash square \textbackslash phi=0。}}\label{ux7ec3ux4e60ux8bc1ux660eux975eux9f50ux6b21ux6ce2ux52a8ux65b9ux7a0b-12.19-ux7684ux901aux89e3ux5f62ux5f0fux4e3a-psi_gxphixux5176ux4e2d-square-phi0}
+\begin{exercise}
+  练习：证明非齐次波动方程 (\ref{eq:12.19}) 的通解形式为 $ \psi\_\{G\}(x)+\phi(x)$，其中 $\square \phi=0$。
+\end{exercise}
 
 设
 
 $$
 G\left(x-x^{\prime}\right)=\frac{1}{(2 \pi)^{2}} \iiint \int g(k) \mathrm{e}^{i k \cdot\left(x-x^{\prime}\right)} \mathrm{d}^{4} k,
 $$
-
 其中 $k=\left(k_{1}, k_{2}, k_{3}, k_{4}\right)$，并且
 
 $$
 k \cdot\left(x-x^{\prime}\right)=k_{\mu}\left(x^{\mu}-x^{\prime \mu}\right)=k_{4}\left(x^{4}-x^{\prime 4}\right)+\mathbf{k} \cdot \left(\mathbf{x}-\mathbf{x}^{\prime}\right),
 $$
-
 且
 $\mathrm{d}^{4} k=\mathrm{d} k_{1} \mathrm{~d} k_{2} \mathrm{~d} k_{3} \mathrm{~d} k_{4}$。将四维
 $\delta$ 函数表示为傅里叶变换，有
@@ -1529,24 +1589,60 @@ $$
 & =\delta^{4}\left(x-x^{\prime}\right)=\frac{1}{(2 \pi)^{4}} \iiint \int \mathrm{e}^{i k \cdot\left(x-x^{\prime}\right)} \mathrm{d}^{4} k,
 \end{aligned}
 $$
-
 因此有
 
 $$
 g(k)=-\frac{1}{4 \pi^{2} k^{2}}.
 $$
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\begin{figure}
+  \centering
+\begin{tikzpicture}
 
-\subsubsection{图 12.3
-三维波动方程的格林函数}\label{ux56fe-12.3-ux4e09ux7ef4ux6ce2ux52a8ux65b9ux7a0bux7684ux683cux6797ux51fdux6570}
+  % Draw the outer circle
+  \draw[thick] (0,0) circle (3);
+
+
+  % Draw the poles
+  \filldraw (1.5,0) circle (2pt) node[above] {$k_4 = K$};
+  \filldraw (-1.5,0) circle (2pt) node[above] {$k_4 = -K$};
+
+  % Draw the contour line along the real axis
+  \draw[thick,->] (-3,0) -- (-2.5,0);
+  \draw[thick] (-3,0) -- (-2,0);
+  \draw[thick] (-1,0) -- (1,0);
+  \draw[thick,->] (-1,0) -- (0,0);
+  \draw[thick] (2,0) -- (3,0);
+  \draw[thick,->] (2,0) -- (2.5,0);
+
+  % Draw the small semicircles around the poles
+  \draw[thick,->] (-2,0) arc[start angle=180,end angle=270,radius=0.5];
+  \draw[thick] (-2,0) arc[start angle=180,end angle=360,radius=0.5];
+  \draw[thick,->] (1,0) arc[start angle=180,end angle=270,radius=0.5];
+  \draw[thick] (1,0) arc[start angle=180,end angle=360,radius=0.5];
+
+  % Draw the large semicircle
+  \draw[thick,->] (3,0) arc[start angle=0,end angle=30,radius=3];
+  \draw[thick,->] (3,0) arc[start angle=0,end angle=-30,radius=3];
+
+  % Add labels for the semicircles
+  \node at (3.8,1.8) {$\to 0 \text{ 当 } \tau > 0$};
+  \node at (3.8,-1.8) {$\to 0 \text{ 当 } \tau < 0$};
+
+  % Label the plane
+  \node at (0,1.5) [above] {$k_4$-复平面};
+
+\end{tikzpicture}
+\caption{三维波动方程的格林函数}
+\label{fig:12.3}
+\end{figure}
 
 其中
 $k^{2} \equiv k \cdot k = k_{\mu} k^{\mu}$。因此格林函数的傅里叶变换表达式为
 
-$$
-G\left(x-x^{\prime}\right)=-\frac{1}{(2 \pi)^{4}} \iiint \int \frac{\mathrm{e}^{i k \cdot\left(x-x^{\prime}\right)}}{k^{2}} \mathrm{~d}^{4} k.
-$$
+\begin{equation}\label{eq:12.21} 
+ G\left(x-x^{\prime}\right)=-\frac{1}{(2 \pi)^{4}} \iiint \int \frac{\mathrm{e}^{i k \cdot\left(x-x^{\prime}\right)}}{k^{2}} \mathrm{~d}^{4} k. 
+ \end{equation}
 
 为计算该积分，设
 
@@ -1583,9 +1679,10 @@ $$
 
 这种特定路径生成的格林函数在 $\tau<0$ 时为零，即当
 $x^{4}<x^{\prime 4}$
-时为零。因此，该函数被称为\textbf{出射波条件}或\textbf{推迟格林函数}，因为在
+时为零。因此，该函数被称为\textbf{出射波条件(outgoing wave condition)}或\textbf{推迟格林函数(retarded Green's function)}，因为在
 $\left(\mathbf{x}^{\prime}, x^{\prime 4}\right)$
-打开的源仅影响之后的时空点。如果路径选择绕过极点上方，则会产生\textbf{入射波条件}或\textbf{超前格林函数}。
+打开的源仅影响之后的时空点。如果路径选择绕过极点上方，则会产生\textbf{入射波条件(ingoing wave condition)}或\textbf{超前格林函数(advanced Green's
+function)}。
 
 在 $\mathbf{k}$ 空间中使用以 $\mathbf{R}$ 为 $k_{3}$
 轴的极坐标，有
@@ -1604,20 +1701,20 @@ $$
 时为零，而当 $\tau>0$ 时
 $\delta(\tau+R)=0$。因此，格林函数可以表示为
 
-$$
-G\left(x-x^{\prime}\right)=-\frac{1}{4 \pi\left|\mathbf{x}-\mathbf{x}^{\prime}\right|} \delta\left(x^{4}-x^{\prime 4}-\left|\mathbf{x}-\mathbf{x}^{\prime}\right|\right),
-$$
+\begin{equation}\label{eq:12.22} 
+ G\left(x-x^{\prime}\right)=-\frac{1}{4 \pi\left|\mathbf{x}-\mathbf{x}^{\prime}\right|} \delta\left(x^{4}-x^{\prime 4}-\left|\mathbf{x}-\mathbf{x}^{\prime}\right|\right), 
+ \end{equation}
 
 该函数仅在 $x^{\prime}$ 的未来光锥上非零。
 
 由该格林函数生成的非齐次波动方程 (12.19) 的解为
 
-$$
+\begin{equation}
 \begin{aligned}
 \psi(\mathbf{x}, t) & =\iiint \int G\left(x-x^{\prime}\right) f\left(x^{\prime}\right) \mathrm{d}^{4} x^{\prime} \\
 & =-\frac{1}{4 \pi} \iiint \frac{\left[f\left(\mathbf{x}^{\prime}, t^{\prime}\right)\right]_{\mathrm{ret}}}{\left|\mathbf{x}-\mathbf{x}^{\prime}\right|} \mathrm{d}^{3} x^{\prime},
 \end{aligned}
-$$
+\end{equation}
 
 其中
 $\left[f\left(\mathbf{x}^{\prime}, t^{\prime}\right)\right]_{\text{ret}}$
