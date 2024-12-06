@@ -514,7 +514,7 @@ $$
 
 \end{eg}
 \begin{exercise}
-  练习：将这些恒等式扩展到 $n$ 维 $\delta$函数：
+  将这些恒等式扩展到 $n$ 维 $\delta$函数：
  $$
 \alpha \delta_{\mathbf{a}} = \alpha(\mathbf{a}) \delta_{\mathbf{a}}, \quad \alpha(\mathbf{x}) \delta^n(\mathbf{x} - \mathbf{a}) = \alpha(\mathbf{a}) \delta(\mathbf{x} - \mathbf{a})
 $$
@@ -537,7 +537,7 @@ $$
 因为 $\varphi(\pm \infty) = 0$。我们可以将此恒等式扩展到一般分布，定义
 $\mathbb{R}$ 上阶数 $m \geq 0$ 的分布 $T$ 的\textbf{导数(derivative of a distribution)}
 $T^{\prime}$ 为阶数 $m+1$ 的分布，其定义为：
-\begin{equation}
+\begin{equation}\label{eq:12.6}
   T^{\prime}(\varphi) = T\left(-\varphi^{\prime}\right) = -T\left(\varphi^{\prime}\right)
 \end{equation}
 
@@ -628,8 +628,7 @@ $$
  $$
 \delta^{(m)}(\varphi) = (-1)^m \varphi^{(m)}(0), \quad \int_{-\infty}^\infty \delta^{(m)}(x) \varphi(x) \mathrm{d}x = (-1)^m \varphi^{(m)}(0)
 $$
-对于一个可微函数 $\alpha$ 和一个分布 $T$ 的乘积，可以得到常见的
-Leibnitz 规则：
+对于一个可微函数 $\alpha$ 和一个分布 $T$ 的乘积，可以得到常见的莱布尼茨(Leibnitz)规则：
  $$
 (\alpha T)^{\prime} = \alpha T^{\prime} + \alpha^{\prime} T
 $$
@@ -725,7 +724,7 @@ $$
 $$
 因此，
 
-\begin{equation}label{eq:12.9}
+\begin{equation}\label{eq:12.9}
  \delta(f(x)) = \sum_{i} \frac{1}{\left|f^{\prime}(a_i)\right|} \delta(x - a_i) 
  \end{equation}
 
@@ -795,7 +794,7 @@ $$
 的一个解。
 \end{problem}
 
-\subsection{答案}\label{ux7b54ux6848}
+\subsubsection*{答案}
 
 \textbf{问题 12.5}
 
@@ -926,36 +925,26 @@ $$
 {[}2, p.~88{]}。
 
 利用应用于 $\delta$函数的积分标准规则，可以推导出：
-
 \begin{equation}\label{eq:12.10} 
  \delta_a(x) = \delta(x-a) = \frac{1}{2 \pi} \int_{-\infty}^\infty \mathrm{e}^{i y(a-x)} \mathrm{d}y， 
  \end{equation}
-
 将 $a=0$ 并利用 $\delta(x)=\delta(-x)$ 得到：
-
 \begin{equation}\label{eq:12.11} 
  \delta(x)=\frac{1}{2 \pi} \int_{-\infty}^\infty \mathrm{e}^{-i y x} \mathrm{d}y = \frac{1}{2 \pi} \int_{-\infty}^\infty \mathrm{e}^{i y x} \mathrm{d}y。 
  \end{equation}
-
 类似地，$\delta$函数的傅里叶变换为：
-
 \begin{equation}\label{eq:12.12} 
  \mathcal{F} \delta(y)=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \mathrm{e}^{-i x y} \delta(x) \mathrm{d}x = \frac{1}{\sqrt{2 \pi}}， 
  \end{equation}
-
-公式 (12.11) 也验证了：
-
+公式 (\ref{eq:12.11}) 也验证了：
 \begin{equation}\label{eq:12.13} 
  \delta(x) = \mathcal{F}^{-1} \frac{1}{\sqrt{2 \pi}} = \frac{1}{2 \pi} \int_{-\infty}^\infty \mathrm{e}^{i x y} \mathrm{d}y。 
  \end{equation}
 
-通过定义分布 $T$ 的傅里叶变换
-$\mathcal{F} T$，可以实现数学上的一致性：
-
+通过定义分布 $T$ 的\textbf{傅里叶变换(Fourier transform of a distribution T)} $\mathcal{F} T$，可以实现数学上的一致性：
 \begin{equation}\label{eq:12.14} 
  \mathcal{F} T(\varphi)=T(\mathcal{F} \varphi)， 
  \end{equation}
-
 适用于所有测试函数 $\varphi$。对于正则分布，有如下结果：
  $$
 T_{\mathcal{F} f}(\varphi) = \mathcal{F} T_f(\varphi)，
@@ -979,12 +968,10 @@ $$
  $$
 \mathcal{F}^{-1} \mathcal{F} T(\varphi) = \mathcal{F} T\left(\mathcal{F}^{-1} \varphi\right) = T\left(\mathcal{F F}^{-1} \varphi\right) = T(\varphi)。
 $$
+
 然而，这些定义存在一个严重问题。如果 $\varphi$
 是一个具有有界支集的函数，那么 $\mathcal{F} \varphi$
-通常是一个整解析函数，且不能具有有界支集，因为任何在开集上为零的整函数必须在整个域内为零。因此，式
-(12.14) 的右侧通常是未定义的。
-
-解决这一问题的方法是定义更广泛的测试函数空间
+通常是一个整解析函数，且不能具有有界支集，因为任何在开集上为零的整函数必须在整个域内为零。因此，式(\ref{eq:12.14}) 的右侧通常是未定义的。解决这一问题的方法是定义更广泛的测试函数空间
 $\mathcal{S}(\mathbb{R})$，称为\textbf{速降函数空间(space of rapidly decreasing functions)}，即满足
 $|x| \to \infty$ 时比任何逆幂 $|x|^{-n}$ 都衰减得更快的函数：
  $$
@@ -1000,49 +987,57 @@ $\mathcal{S}^\prime(\mathbb{R})$，称为\textbf{广义分布(tempered distribut
 $\mathcal{D}(\mathbb{R}) \subset \mathcal{S}(\mathbb{R})$。如果 $T$
 是公式 (12.14) 中的广义分布，则 $T$ 的傅里叶变换 $\mathcal{F} T$
 是良好定义的，因为任何快速衰减函数的傅里叶变换仍是快速衰减函数。
-\textgreater{} \#Example 12.8 Delta分布的傅里叶变换定义为：
-\textgreater{} \textgreater{} $$
-> \begin{aligned}
-> \mathcal{F} \delta_{a}(\varphi) & = \delta_{a}(\mathcal{F} \varphi) \\
-> & = \mathcal{F} \varphi(a) \\
-> & = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \mathrm{e}^{-i a x} \varphi(x) \mathrm{d} x \\
-> & = T_{(2 \pi)^{-1 / 2} \mathrm{e}^{i a x}}(\varphi)
-> \end{aligned}
-> $$ \textgreater{} \textgreater{} 类似地： \textgreater{}
-\textgreater{} $$
-> \mathcal{F}^{-1} T_{\mathrm{e}^{-i a x}} = \sqrt{2 \pi} \delta_{a}。
-> $$ \textgreater{} \textgreater{} 这些分布方程的 $\delta$函数版本为：
-\textgreater{} \textgreater{} $$
-> \mathcal{F} \delta_{a}(y) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \mathrm{e}^{-i y x} \delta(x-a) \mathrm{d} x = \frac{\mathrm{e}^{-i a y}}{\sqrt{2 \pi}}，
-> $$ \textgreater{} \textgreater{} 和 \textgreater{} \textgreater{} $$
-> \mathcal{F}^{-1} \mathrm{e}^{-i a x} = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \mathrm{e}^{i x y} \mathrm{e}^{-i a x} \mathrm{d} x = \sqrt{2 \pi} \delta(x-a)。
-> $$ \textgreater{} \textgreater{} 这些结果与 (12.10)-(12.13)
-中的方程一致。
+\begin{eg}\label{eg:12.8}
+  delta分布的傅里叶变换定义为：
+$$
+\begin{aligned}
+\mathcal{F} \delta_{a}(\varphi) & = \delta_{a}(\mathcal{F} \varphi) \\
+& = \mathcal{F} \varphi(a) \\
+& = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \mathrm{e}^{-i a x} \varphi(x) \mathrm{d} x \\
+& = T_{(2 \pi)^{-1 / 2} \mathrm{e}^{i a x}}(\varphi)
+\end{aligned}
+$$ 
+类似地： 
+$$
+\mathcal{F}^{-1} T_{\mathrm{e}^{-i a x}} = \sqrt{2 \pi} \delta_{a}。
+$$ 
+这些分布方程的 $\delta$函数版本为：
+$$
+\mathcal{F} \delta_{a}(y) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \mathrm{e}^{-i y x} \delta(x-a) \mathrm{d} x = \frac{\mathrm{e}^{-i a y}}{\sqrt{2 \pi}}，
+$$ 
+和 
+$$
+\mathcal{F}^{-1} \mathrm{e}^{-i a x} = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \mathrm{e}^{i x y} \mathrm{e}^{-i a x} \mathrm{d} x = \sqrt{2 \pi} \delta(x-a)。
+$$ 
+这些结果与(\ref{eq:12.10})-(\ref{eq:12.13})中的方程一致。
 
-\subsubsection{问题}\label{ux95eeux9898-2}
+\end{eg}
+\subsection*{习题}
 
-\paragraph{Problem 12.11}\label{problem-12.11}
-
-证明：
+\begin{problem}\label{pro:12.11}
+  证明：
  $$
 \mathcal{F}\left(\mathrm{e}^{-a^{2} x^{2} / 2}\right) = \frac{1}{|a|} \mathrm{e}^{-k^{2} / 2 a^{2}}。
 $$
-\subsubsection{Problem 12.12}\label{problem-12.12}
-
-计算以下分布函数的傅里叶变换： (a) $\delta(x-a)$，\\
-(b) $\delta^{\prime}(x-a)$，\\
-(c) $\delta^{(n)}(x-a)$，\\
-(d) $\delta\left(x^{2}-a^{2}\right)$，\\
-(e) $\delta^{\prime}\left(x^{2}-a^{2}\right)$。
-
-\paragraph{Problem 12.13}\label{problem-12.13}
-
+\end{problem}
+\begin{problem}\label{pro:12.12}
+  计算以下分布函数的傅里叶变换： 
+  \begin{enumerate}[(a)]
+    \item $\delta(x-a)$,
+    \item $\delta^{\prime}(x-a)$,
+    \item $\delta^{(n)}(x-a)$,
+    \item $\delta\left(x^{2}-a^{2}\right)$.
+    \item $\delta^{\prime}\left(x^{2}-a^{2}\right)$.
+  \end{enumerate}
+\end{problem}
+\begin{problem}\label{pro:12.13}
+  
 证明：
- $$
+$$
 x^{m} \delta^{(n)}(x) = (-1)^{m} \frac{n!}{(n-m)!} \delta^{(n-m)}(x), \quad \text{for } n \geq m。
 $$
 因此，证明分布
- $$
+$$
 \sqrt{2 \pi} \frac{k!}{(m+k)!} x^{m} \delta^{(m+k)}(-x), \quad (m, k \geq 0)
 $$
 的傅里叶变换为 $(-i y)^{k}$。
@@ -1050,24 +1045,26 @@ $$
 \paragraph{Problem 12.14}\label{problem-12.14}
 
 证明分布
- $$
+$$
 \delta_{0} + \delta_{a} + \delta_{2 a} + \cdots + \delta_{(2 n-1) a}
 $$
 的傅里叶变换为密度：
- $$
+$$
 \frac{1}{\sqrt{2 \pi}} \frac{\sin (n a y)}{\sin \left(\frac{1}{2} a y\right)} \mathrm{e}^{-\left(n-\frac{1}{2}\right) i a y}。
 $$
 证明：
- $$
+$$
 \mathcal{F}^{-1}\left(f(y) \mathrm{e}^{i b y}\right) = \left(\mathcal{F}^{-1} f\right)(x+b)。
 $$
 因此，找到函数：
- $$
+$$
 g(y) = \frac{\sin n a y}{\sin \left(\frac{1}{2} a y\right)}
 $$
 的逆傅里叶变换。
+\end{problem}
 
-\subsubsection{问题 12.10 答案}\label{ux95eeux9898-12.10-ux7b54ux6848}
+
+\subsubsection{问题 12.10 答案}
 
 \paragraph{\texorpdfstring{对于
 $f(x)$：}{对于 f(x)：}}\label{ux5bf9ux4e8e-fx}
@@ -1083,7 +1080,7 @@ $$
 当 $k = 0$ 时，傅里叶变换为 $2a$。
 
 \paragraph{\texorpdfstring{对于
-$g(x)$：}{对于 g(x)：}}\label{ux5bf9ux4e8e-gx}
+$g(x)$：}{对于 g(x)：}}
 
 傅里叶变换为：
  $$
@@ -1100,7 +1097,7 @@ $$
 $$
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsubsection{问题 12.11 答案}\label{ux95eeux9898-12.11-ux7b54ux6848}
+\subsubsection{问题 12.11 答案}
 
 对于 $\varphi(x) = \mathrm{e}^{-a^2 x^2 / 2}$，傅里叶变换为：
  $$
@@ -1118,13 +1115,13 @@ $$
 $\mathcal{F}\delta(x-a) = \mathrm{e}^{-i k a}$。}{(a) \textbackslash mathcal\{F\}\textbackslash delta(x-a) = \textbackslash mathrm\{e\}\^{}\{-i k a\}。}}\label{a-mathcalfdeltax-a-mathrme-i-k-a}
 
 \paragraph{\texorpdfstring{(b)
-$\mathcal{F}\delta'(x-a) = -i k \mathrm{e}^{-i k a}$。}{(b) \textbackslash mathcal\{F\}\textbackslash delta\textegsingle(x-a) = -i k \textbackslash mathrm\{e\}\^{}\{-i k a\}。}}\label{b-mathcalfdeltax-a--i-k-mathrme-i-k-a}
+$\mathcal{F}\delta'(x-a) = -i k \mathrm{e}^{-i k a}$。}{(b) \textbackslash mathcal\{F\}\textbackslash delta\textegsingle(x-a) = -i k \textbackslash mathrm\{e\}\^{}\{-i k a\}。}}
 
 \paragraph{\texorpdfstring{(c)
-$\mathcal{F}\delta^{(n)}(x-a) = (-i k)^n \mathrm{e}^{-i k a}$。}{(c) \textbackslash mathcal\{F\}\textbackslash delta\^{}\{(n)\}(x-a) = (-i k)\^{}n \textbackslash mathrm\{e\}\^{}\{-i k a\}。}}\label{c-mathcalfdeltanx-a--i-kn-mathrme-i-k-a}
+$\mathcal{F}\delta^{(n)}(x-a) = (-i k)^n \mathrm{e}^{-i k a}$。}{(c) \textbackslash mathcal\{F\}\textbackslash delta\^{}\{(n)\}(x-a) = (-i k)\^{}n \textbackslash mathrm\{e\}\^{}\{-i k a\}。}}
 
 \paragraph{\texorpdfstring{(d) 对于 $\delta(x^2-a^2)$，注意
-$x^2-a^2 = (x-a)(x+a)$。傅里叶变换为：}{(d) 对于 \textbackslash delta(x\^{}2-a\^{}2)，注意 x\^{}2-a\^{}2 = (x-a)(x+a)。傅里叶变换为：}}\label{d-ux5bf9ux4e8e-deltax2-a2ux6ce8ux610f-x2-a2-x-axaux5085ux91ccux53f6ux53d8ux6362ux4e3a}
+$x^2-a^2 = (x-a)(x+a)$。傅里叶变换为：}{(d) 对于 \textbackslash delta(x\^{}2-a\^{}2)，注意 x\^{}2-a\^{}2 = (x-a)(x+a)。傅里叶变换为：}}
  $$
 \mathcal{F}\delta(x^2-a^2) = \frac{\mathrm{e}^{-i k a} + \mathrm{e}^{i k a}}{2|a|} = \frac{\cos(k a)}{|a|}。
 $$
@@ -1135,7 +1132,7 @@ $\delta'(x^2-a^2)$，利用求导和链式法则可得：}{(e) 对于 \textbacks
 $$
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsubsection{问题 12.13 答案}\label{ux95eeux9898-12.13-ux7b54ux6848}
+\subsubsection{问题 12.13 答案}
 
 根据递归关系：
  $$
@@ -1148,18 +1145,17 @@ $\sqrt{2 \pi} \frac{k!}{(m+k)!} x^m \delta^{(m+k)}(-x)$，其傅里叶变换为�
 $$
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsubsection{问题 12.14 答案}\label{ux95eeux9898-12.14-ux7b54ux6848}
+\subsubsection{问题 12.14 答案}
 
 \paragraph{\texorpdfstring{分布
 $\delta_{0} + \delta_{a} + \delta_{2a} + \cdots + \delta_{(2n-1)a}$
-的傅里叶变换：}{分布 \textbackslash delta\_\{0\} + \textbackslash delta\_\{a\} + \textbackslash delta\_\{2a\} + \textbackslash cdots + \textbackslash delta\_\{(2n-1)a\} 的傅里叶变换：}}\label{ux5206ux5e03-delta_0-delta_a-delta_2a-cdots-delta_2n-1a-ux7684ux5085ux91ccux53f6ux53d8ux6362}
+的傅里叶变换：}{分布 \textbackslash delta\_\{0\} + \textbackslash delta\_\{a\} + \textbackslash delta\_\{2a\} + \textbackslash cdots + \textbackslash delta\_\{(2n-1)a\} 的傅里叶变换：}}
 
 其傅里叶变换为：
  $$
 \mathcal{F}\left(\delta_{0} + \delta_{a} + \delta_{2a} + \cdots + \delta_{(2n-1)a}\right) = \frac{1}{\sqrt{2 \pi}} \frac{\sin(n a y)}{\sin(\frac{1}{2} a y)} \mathrm{e}^{-i(n-\frac{1}{2}) a y}。
 $$
-\paragraph{逆傅里叶变换：}\label{ux9006ux5085ux91ccux53f6ux53d8ux6362}
-
+\paragraph{逆傅里叶变换：}
 要找到 $g(y) = \frac{\sin(n a y)}{\sin(\frac{1}{2} a y)}$
 的逆傅里叶变换，可利用性质：
  $$
@@ -1167,27 +1163,23 @@ $$
 $$
 简化后可还原 $g(y)$ 的空间表达。
 
-\section{格林函数（Green's
-functions）}\label{sec:12.4}
+\section{格林函数}\label{sec:12.4}
 
-分布理论通常用于通过格林函数技术求解非齐次线性偏微分方程。这里我们给出两个重要的标准例子。
+分布理论通常用于通过格林函数(Green's
+functions)技术求解非齐次线性偏微分方程。这里我们给出两个重要的标准例子。
 
-\subsection{泊松方程（Poisson's
-equation）}
+\subsection{泊松方程}
 
-为了求解像泊松方程这样的非齐次方程
-
+为了求解像泊松方程(Poisson's
+equation)这样的非齐次方程
 \begin{equation}\label{eq:12.15} 
  \nabla^{2} \phi=-4 \pi \rho, 
  \end{equation}
-
 我们需要找到以下分布方程的解：
-
 \begin{equation}\label{eq:12.16} 
  \nabla^{2} G\left(\mathbf{x}-\mathbf{x}^{\prime}\right)=\delta^{3}\left(\mathbf{x}-\mathbf{x}^{\prime}\right)=\delta\left(x-x^{\prime}\right) \delta\left(y-y^{\prime}\right) \delta\left(z-z^{\prime}\right)。 
  \end{equation}
-
-泊松方程的解（12.15）为
+泊松方程(\ref{eq:12.15})的解为
  $$
 \phi(\mathbf{x})=-\iiint 4 \pi \rho\left(\mathbf{x}^{\prime}\right) G\left(\mathbf{x}-\mathbf{x}^{\prime}\right) \mathrm{d}^{3} x^{\prime},
 $$
@@ -1247,7 +1239,7 @@ $$
   \begin{tikzpicture}
 
     % Draw the vectors
-    \draw[thick,-latex] (0,0) -- (0,4) node[above] {\(\mathbf{R} = \mathbf{x} - \mathbf{x}'\)};
+    \draw[thick,-latex] (0,0) -- (0,4) node[above] {\(\mathbf{R} = \mathbf{x} - \mathbf{x^'}\)};
     \draw[thick,-latex] (0,0) -- (2.5,3) node[right] {\(\mathbf{k}\)};
 
     % Draw the angle arc
@@ -1294,10 +1286,9 @@ $\rho(\mathbf{x})=q \delta^{3}(\mathbf{x}-\mathbf{a})$，解退化为标准的�
  $$
 \phi(\mathbf{x})=\frac{q}{|\mathbf{x}-\mathbf{a}|}
 $$
-\subsection{波动方程的格林函数（Green's function for the wave
-equation）}
+\subsection{波动方程的格林函数}
 
-为了解非齐次波动方程
+为了解非齐次波动方程(wave equation)
 
 \begin{equation}\label{eq:12.19} 
  \square \psi=-\frac{\partial^{2}}{c^{2} \partial t^{2}} \psi+\nabla^{2} \psi=f(\mathbf{x}, t), 
@@ -1311,11 +1302,9 @@ $$
 其中 $\mu$ 和 $\nu$ 的取值范围为 1 到 4，$g^{\mu \nu}$
 是对角度量张量，其对角线分量为 $1,1,1,-1$，最后一项中的 $x$ 表示
 $\left(\mathbf{x}, x^{4}\right)$ 的简写。 同样，我们寻找以下方程的解：
-
 \begin{equation}\label{eq:12.20} 
  \square G\left(x-x^{\prime}\right)=\delta^{4}\left(x-x^{\prime}\right) \equiv \delta\left(x^{1}-x^{\prime 1}\right) \delta\left(x^{2}-x^{\prime 2}\right) \delta\left(x^{3}-x^{\prime 3}\right) \delta\left(x^{4}-x^{\prime 4}\right) 
  \end{equation}
-
 每个格林函数 $G$ 都可以生成方程 (12.19) 的解 $\psi_{G}(x)$，
  $$
 \psi_{G}(x)=\iiint \int G\left(x-x^{\prime}\right) f\left(x^{\prime}\right) \mathrm{d}^{4} x^{\prime},
@@ -1393,11 +1382,9 @@ $$
 
 其中
 $k^{2} \equiv k \cdot k = k_{\mu} k^{\mu}$。因此格林函数的傅里叶变换表达式为
-
 \begin{equation}\label{eq:12.21} 
  G\left(x-x^{\prime}\right)=-\frac{1}{(2 \pi)^{4}} \iiint \int \frac{\mathrm{e}^{i k \cdot\left(x-x^{\prime}\right)}}{k^{2}} \mathrm{~d}^{4} k. 
  \end{equation}
-
 为计算该积分，设
  $$
 \tau=x^{4}-x^{\prime 4}, \quad \mathbf{R}=\mathbf{x}-\mathbf{x}^{\prime}, \quad K=|\mathbf{k}|=\sqrt{\mathbf{k} \cdot \mathbf{k}},
@@ -1407,7 +1394,7 @@ $$
 G\left(x-x^{\prime}\right)=\frac{1}{(2 \pi)^{4}} \int_{-\infty}^{\infty} \mathrm{d} k_{4} \frac{\mathrm{e}^{i k_{4} \tau}}{k_{4}^{2}-K^{2}} \iiint \mathrm{~d}^{3} k \mathrm{e}^{i \mathbf{k} \cdot \mathbf{R}}.
 $$
 在复平面 $k_{4}$ 上变形路径以避开 $k_{4}=\pm K$ 处的奇点，如图 12.3
-所示------同时确认该变形不会影响 $G$ 满足方程 (12.20)。
+所示------同时确认该变形不会影响 $G$ 满足方程 (\ref{eq:12.20})。
 
 对于 $\tau>0$，沿逆时针方向完成上半圆的闭合路径，有
  $$
@@ -1421,7 +1408,7 @@ $\tau<0$，沿顺时针方向闭合下半圆路径；未包含奇点，积分为
  $$
 \int_{-\infty}^{\infty} \frac{\mathrm{e}^{i k_{4} \tau}}{k_{4}^{2}-K^{2}} \mathrm{~d} k_{4}=-\frac{2 \pi}{K} \theta(\tau) \sin K \tau,
 $$
-其中 $\theta(\tau)$ 是海维赛阶跃函数。
+其中 $\theta(\tau)$ 是 Heaviside 阶跃函数。
 
 这种特定路径生成的格林函数在 $\tau<0$ 时为零，即当
 $x^{4}<x^{\prime 4}$
@@ -1473,7 +1460,7 @@ $$
 \paragraph{问题 12.15}\label{ux95eeux9898-12.15}
 
 \textbf{证明：}
-时间不依赖的克莱因-戈登方程的格林函数可表示为以下傅里叶积分：
+时间不依赖的克莱因-戈登方程(Klein–Gordon equation)的格林函数可表示为以下傅里叶积分：
  $$
 G\left(\mathbf{x}-\mathbf{x}^{\prime}\right)=-\frac{1}{(2 \pi)^{3}} \iiint \mathrm{~d}^{3} k \frac{\mathrm{e}^{i \mathbf{k} \cdot\left(\mathbf{x}-\mathbf{x}^{\prime}\right)}}{\mathbf{k}^{2}+m^{2}}
 $$
@@ -1538,7 +1525,7 @@ $$
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\paragraph{问题 12.16}\label{ux95eeux9898-12.16}
+\paragraph{问题 12.16}\label{pro:12.16}
 
 \textbf{证明：} 一维扩散方程的格林函数为
  $$
