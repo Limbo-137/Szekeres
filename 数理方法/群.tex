@@ -3,18 +3,18 @@
 群的概念起源于埃瓦里斯特-伽罗瓦（Evariste Galois，1811-1832 年）和尼尔斯-亨里克-阿贝尔（Niels Henrik Abel，1802-1829 年）关于用根式解代数方程的研究。后一位数学家以满足交换律的一类特殊群组（称为阿贝尔群组）的名称而闻名。近代，埃米-诺特（Emmy Noether，1888- 1935 年）发现，由作用原理产生的方程组的每一组对称性都会产生守恒量。例如，能量、动量和角动量分别来自时间平移、空间平移和旋转的对称性。在基本粒子物理学中，还有更多的守恒定律与诸如 SU(3) 这样的奇异基团有关，对它们的理解已经促成了新粒子的发现。本章将介绍群论的基本思想，并举例说明它们是如何在物理环境中出现的。
 \section{群论的元素}\label{sec:2.1}
 集合 $G$上任意一对 $g,h\in G$，都存在 $gh\in G$称为其\textbf{乘积}(product)，满足
-\begin{enumerate}
-    \item[(Gp1)]\label{gp:1}
+\begin{enumerate}[label=(Gp\arabic*),ref=Gp\arabic*]
+    \item \label{gp:1}
     \textbf{结合律}(associative law): 对全体 $g,h,k\in G$有$g(hk)=(gh)k$  
-    \item[(Gp2)] \label{gp:2}
+    \item \label{gp:2}
     存在\textbf{恒等元}(identity element): $e\in G$,使得对全体\(g\in G\)
     \[eg=ge=g\]
-    \item[(Gp3)] \label{gp:3}
+    \item \label{gp:3}
     每个群元 $g\in G$有\textbf{逆}(inverse) $g^{-1}\in G$ 使得\[g^{-1}g=gg^{-1}=e\] 
 \end{enumerate}
 这样的集合称为\textbf{群}(group)
 
-对任意两个元素都存在乘积，且乘积在群内，这个性质称为\textbf{封闭性}(closure property)
+对任意两个元素都存在乘积 \ref{gp:1}，且乘积在群内，这个性质称为\textbf{封闭性}(closure property)
 
 类似的，可证明每个$g\in G$ 都有唯一逆 $g^{-1}$且 $(gh)^{-1}=h^{-1}g^{-1}$ 
 \\
