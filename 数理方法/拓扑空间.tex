@@ -1,3 +1,10 @@
+\chapter{拓扑}
+到目前为止，我们主要讨论了代数结构在数学物理中的作用。虽然前一章提到了微积分，但并没有系统地展开。像\emph{连续性}和\emph{可微性}这样的\emph{分析学}核心概念，其本质是几何的，需要依赖\emph{拓扑}来进行严格定义。从广义的角度，\emph{拓扑}是加在几何上的结构，用以定义序列或子集的\emph{收敛}和\emph{极限}。定义了拓扑的空间叫做\emph{拓扑空间}，拓扑空间之间的\emph{连续映射}是保持子集极限点的映射。研究拓扑学最一般的方法是从开集的概念入手。
+
+想象一个嵌入到三维欧几里得空间 $\mathbb{E}^{3}$ 中的二维表面 $S$ 。这种情形下我们可以直观地将“连续变形”理解为曲面的一种不会发生撕裂或粘贴的变形过程。拓扑学主要研究的是那些在连续变形下不变的属性。度量性质并非连续性的关键，像“拉伸”这样的操作是可以允许的，因此拓扑学有时被称为“橡皮片几何”。在本章我们还将定义\emph{度量空间}的概念。这一类空间可以自然地定义出拓扑，但反过来并不一定成立——很多带有拓扑的空间并没有度量的概念。
+
+\section{欧氏拓扑}
+
 实数轴和欧几里得平面 $\mathbb{R}^{2}$ 是拓扑空间的原型。在实数轴 $\mathbb{R}$ 上，一个开区间是形如 $(a,b)=\{x\in \mathbb{R} \mid a< x< b\}$ 的集合。若存在 $\epsilon  >0$，使得开区间 $(x-\epsilon ,x+\epsilon )$ 完全包含在集合 $U\subseteq \mathbb{R}$ 中，则集合$U$称为点$\ x\in \mathbb{R} \ $的邻域。给定一个实数序列$\{x_{n} \}$，若对于任意的 $\epsilon  >0$，都存在一个整数 $N >0$，使得对于所有 $n >N$，都有 $|x_{n} -x|< \epsilon $，则称 $\{x_{n} \}$ 收敛于 $x\in \mathbb{R}$，记作 $x_{n}\rightarrow x$。也就是说，随着 $ n$ 趋近于无穷大，序列 $x_{n}$ 会进入并停留在每个包含 $x$ 的邻域 $U$ 内。此时，点 $x$ 被称为序列 $\{x_{n} \}$ 的极限。
 
 \begin{exercise}
@@ -37,7 +44,75 @@ x_{n} \in B_{\epsilon } (x)。
 |y-x|< \delta \ \ \Rightarrow \ \ |f(y)-f(x)|< \epsilon 。
 \end{equation*}
 利用和定理\ref{thm:10.1}几乎相同的证明方法，可得知函数 $f$ 在 $ \mathbb{R}$ 上连续当且仅当对于每个开集 $U\subset \mathbb{R}^{2}$，其逆像 $f^{-1} (U)$ 是 $\mathbb{R}^{2}$ 的开子集。对实值函数 $f:\mathbb{R}^{2}\rightarrow \mathbb{R}$ 也是如此。于是函数的连续性可以完全通过它们对陪域上开集的逆作用来描述。正因如此，开集被视为拓扑空间的关键成分。处理欧几里得空间及其内嵌曲面的经验使得数学家们认识到，开集的最重要特性可以用几个简单的规则来总结，这些规则将在下一节中列出（另见 [1–8]）。
+
+\section{广义拓扑空间}
+（填充）
+\section{矩阵空间}
+（填充）
+\section{诱导拓扑}
+（填充）
+\subsection{诱导拓扑和拓扑乘积}
+（填充）
+\subsection{同化拓扑}
+（填充）
+\section{豪斯多夫空间}
+
+在某些拓扑中（例如离散拓扑）由于开集太少，不同的点无法被非相交的邻域分隔开。为了解决这种情况，有时会对拓扑空间施加称为\emph{分离公理}的条件。其中一种最常见的是\textbf{豪斯多夫条件(Hausdorff condition)}：对于每一对点$x,y\in X$，存在$x$的开邻域 $U$ 和 $y$ 的开邻域 $V$ ，使得$U\cap V=\emptyset $。满足此属性的拓扑空间称为\textbf{豪斯多夫空间(Hausdorff space)}。直观来讲，豪斯多夫空间中不存在一对“任意接近”的不同点。
+
+豪斯多夫空间的一个典型的“好的”属性是，任何收敛序列 $x_{n}\rightarrow x$ 的极限（定义见\ref{pro:10.7}）是唯一的。举例来讲，若在豪斯多夫空间$X$中，$x_{n}\rightarrow x$且$x_{n}\rightarrow x'$。假设$x\neq x'$，给出不相交的开邻域$U$和$U'$，使得$x\in U$且$x'\in U'$，并且存在一个整数$N$使得对所有$n >N$，$x_{n} \in U$。在此情况下，由于对所有$n >N$，$x_{n} \notin U'$，因此序列$x_{n}$不能收敛于$x'$，与条件$x_{n}\rightarrow x'$矛盾。于是只能有$x=x'$。
+
+在豪斯多夫空间中，每个单点集$\{x\}$都是闭集。原因如下，令$Y=X-\{x\}$为其补集。$Y$ 中的每个点$y$都有一个不与$x$的某个开邻域相交的开邻域$U_{y}$，特别是对于$x\notin U_{y}$。根据\ref{top:3}，所有这些开邻域的并集$Y=\bigcup _{y\in Y} U_{y} =X-\{x\}$是开的。因此 $\{x\}=X-Y$ 为开集的补集是闭的。
+
+\begin{exercise}
+	证明在一个有限集$X$上，唯一的豪斯多夫拓扑是离散拓扑。正是由于这个原因，有限集的拓扑才比较无趣。
+\end{exercise}
+
+\begin{theorem}\label{eg:10.4}
+	度量空间$(X,d)$都是是豪斯多夫空间。
+\end{theorem}
+
+\begin{proof}
+	找任意不同点$x,y\in X$，并设 $\epsilon =\frac{1}{4} d(x,y)$ 。开球$U=B_{\epsilon } (x)$和$V=B_{\epsilon } (y)$分别是$x$和$y$的开邻域。它们的交集是空的，因为如果$z\in U\cap V$，则$d(x,z)< \epsilon $且$d(y,z)< \epsilon $，这与三角不等式\ref{met:4}
+\begin{equation*}
+d(x,y)\leq d(x,z)+d(z,y)\leq 2\epsilon < \frac{1}{2} d(x,y)
+\end{equation*}
+相矛盾。
+\end{proof}
+
+这个定理的一个直接推论是，对于所有$n >0$，标准拓扑在$\mathbb{R}^{n}$上是豪斯多夫的。
+
+\begin{theorem}\label{eg:10.5}
+	给定拓扑空间 $X$，$Y$ 与连续单射 $f:X\rightarrow Y$ 。若 $Y$ 是豪斯多夫的，则$X$是豪斯多夫的。
+\end{theorem}
+
+\begin{proof}
+	设$x$和$x'$是$X$中的任意一对不同点，并设$y=f(x)$和$y'=f(x')$。由于$f$是单射，这些点在 $Y$ 同样是不同点。如果 $Y$ 是豪斯多夫的，则存在$y$和$y'$的不相交开邻域$U_{y}$和$U_{y} '$。这些集合相对 $f$ 的逆像分别是是 $x$ 和 $x'$ 的不相交开邻域，因为$f^{-1} (U_{y} )\cap f^{-1} (U_{y} ')=f^{-1} (U_{y} \cap U_{y} ')=f^{-1} (\emptyset )=\emptyset $。
+\end{proof}
+
+	这意味着豪斯多夫条件是一个真正的拓扑性质，其在拓扑变换下是不变的，因为若$f:X\rightarrow Y$是一个同胚映射，则$f^{-1} :Y\rightarrow X$是连续单射。
+
+\begin{corollary}\label{eg:10.6}
+	任何豪斯多夫空间的子空间在赋予相对拓扑后是豪斯多夫的。
+\end{corollary}
+
+\begin{proof}
+	设$A$是拓扑空间$X$的任一子集。赋予其相对拓扑后，包含映射$i_{A} :A\rightarrow X$是连续的。由于它是一对一的，由定理\ref{thm:10.5}可知$A$是豪斯多夫空间。
+\end{proof}
+
+\begin{theorem}\label{eg:10.7}
+	若$X$和$Y$是豪斯多夫拓扑空间，则它们的拓扑乘积$X\times Y$是豪斯多夫的。
+\end{theorem}
+
+\begin{proof}
+	设$(x,y)$和$(x',y')$是 $X\times Y$ 中的任意两对不同点，即$x\neq x'$或$y\neq y'$。假设$x\neq x'$。那么存在$X$中的开集$U$，$U'$使得$x\in U$，$x'\in U'$，且$U\cap U'=\emptyset $。于是可以找到集合$U\times Y$和$U'\times Y$， 使得其是$(x,y)$和$(x',y')$的不相交开邻域。类似的，若$y\neq y'$，可以找到不相交邻域$X\times V$和$X\times V'$用来分隔这两个点。
+\end{proof}
+
+\section{紧空间}
+（填充）
+\section{连通空间}
+（填充）
 \section{拓扑群}
+
 拓扑结构和代数结构可以用很多种有意义的方式结合起来。结合这两种结构的核心要求是，用于表示代数运算法则的函数必须是拓扑连续的（相对于底拓扑空间）。在这一节中，我们将群论与拓扑学结合起来。
 	一个\textbf{拓扑群(topological group)}是指一个既是群又是豪斯多夫空间的集合 $ G$ ，其中由 $\psi :G\times G\rightarrow G$ 定义的映射 $\psi (g,h)=gh^{-1}$ 是连续的。如果底空间的拓扑是离散的，则称拓扑群 $G$ 为\textbf{离散的(discrete)}。
 	由 $\varphi (g,h)=gh$ 和 $\psi (g,h)=gh^{-1}$ 定义的映射 $\varphi :G\rightarrow G$ 和 $\psi :G\times G\rightarrow G$ 都是连续的。因为根据定理\ref{thm:10.1}，包含映射 $i:G\rightarrow G\times G$ 定义为 $i(h)=\iota _{e} (e,h)$ ，其为连续映射。于是映射 $\tau =\psi \circ i$ 也是连续的，因为它是连续映射$ \psi $和$ i$的复合映射。而 $\phi ( g,h) =\psi (g,\tau (h))$，可知 $\phi $ 也是连续映射。
@@ -79,6 +154,7 @@ L_{g} (h)\equiv L_{g} h=gh
 （见定理\ref{thm:10.3}）。它显然是单射，因为 $gh=gh'\Longrightarrow h=g^{-1} gh'=h'$ ，并且它的逆是连续映射 $L_{g^{-1}}$。由此可知 $L_{g}$ 是同胚映射。类似地，对于每个右平移可以定义 $R_{g} :G\rightarrow G$ 为 $R_{g} h=hg$，其也是 $G$ 的同胚映射，还可以定义内自同构 $C_{g} :G\rightarrow G$ 为 $C_{g} h=ghg^{-1} =L_{h} \circ R_{h^{-1}}( g)$ 。
 
 \subsection{单位元的连通分支}
+
 如果 $G$ 是一个拓扑群，我们将包含单位元的连通分支记为 $ G_{0}$ ，简称为\textbf{单位连通分支(component of the identity)}。
 
 \begin{theorem}\label{eg:10.20}
@@ -90,6 +166,7 @@ L_{g} (h)\equiv L_{g} h=gh
 	对于任意的 $g\in G$，集合 $gG_{0} g^{-1}$ 是连通的，因为它是 $G_{0}$ 在内自同构映射 $h\rightarrow C_{g} (h)$ 下的像。由于该集合包含单位元 $e$，我们得到 $gG_{0} g^{-1} \subseteq G_{0}$ ，于是 $G_{0}$ 是一个正规子群。
 \end{proof}
 
+一个拓扑空间 $X$ 中每个点的每个邻域都包含一个连通开邻域，则其称为\textbf{局部连通(locally connected)}的。若一个拓扑群 $G$ 在单位元 $e$ 处局部连通,则整个 $G$ 局部连通，因为如果 $V$ 是单位元 $e$ 的开连通邻域，那么选中任一点 $g\in G$ ， $gV =L_{g} V$ 是开连通邻域。如果 $K$ 是群 $G$ 的任一子集，我们称包含 $K$ 的最小子群为\textbf{由 $K$ 生成的子群(subgroup generated by $ K$)}。它是包含 $K$ 的所有子群的交集。
 一个拓扑空间 $X$ 中每个点的每个邻域都包含一个连通开邻域，则其称为\textbf{局部连通(locally connected)}的。若一个拓扑群 $G$ 在单位元 $e$ 处局部连通,则整个 $G$ 局部连通，因为如果 $V$ 是单位元 $e$ 的开连通邻域，那么选中任一点 $g\in G$ ， $gV =L_{g} V$ 是开连通邻域。如果 $K$ 是群 $G$ 的任一子集，我们称包含 $K$ 的最小子群为\textbf{由 $K$ 生成的子群(subgroup generated by $ K$)}。它是包含 $K$ 的所有子群的交集。
 
 \begin{theorem}\label{eg:10.21}
@@ -118,6 +195,11 @@ GL(n,\mathbb{R} )/G_{0} \cong \{1,-1\}=Z_{2}
 然而值得一提的的是，复一般线性群 $GL(n,\mathbb{C} )$ 是连通的，这一结论成立的依据是，任何非奇异复矩阵的 Jordan 标准型可以连续变形为单位矩阵 $ \mathbf{I}$ 。
 \end{eg}
 
-特殊正交群 $SO(n)$ 全都是连通的。可以通过利用维数 $n$ 进行数学归纳来证明这一点。显然 $SO(1)=\{1\}$ 是连通的。假设 $SO(n)$ 是连通的，则可以证明（参见\ref{chapter:19}的\ref{eg:19.10}）$SO(n+1)/SO(n)$ 同胚于球面 $S^{n}$。$S^{n}$是一个连通集（\ref{eg:10.19}），由\ref{thm:10.22}可知 $ SO(n+1)$ 是连通集。于是利用数学归纳法可知，对于所有 $n=1,2,\dotsc $， $ SO(n)$ 是连通群。然而，正交群 $O(n)$ 并不是连通的，因为其单位连通分支是 $SO(n)$，剩余的正交矩阵在另一个对应行列式为 $ -1$ 的连通分支上。
+特殊正交群 $SO(n)$ 全都是连通的。可以通过利用维数 $n$ 进行数学归纳来证明这一点。显然 $SO(1)=\{1\}$ 是连通的。假设 $SO(n)$ 是连通的，则可以证明（参见\ref{chapter:19}的\ref{eg:19.10}）$SO(n+1)/SO(n)$ 同胚于球面 $S^{n}$。$S^{n}$是一个连通集（\ref{eg:10.19}），由\ref{thm:10.22}可知 $ SO(n+1)$ 是连通集。于是利用数学归纳法可知，对于所有 $n=1,2,\dotsc $， $ SO(n)$ 是连通群。然而，正交群 $O(n)$ 并不是连通的，因为其单位连通分支是 $SO(n)$，剩余的正交矩阵都在另一个对应行列式为 $ -1$ 的连通分支上。
 
 类似地，由 $SU(1)=\{1\}$ 和 $SU(n)/SU(n)\cong S^{2n-1}$，可知所有的特殊酉群 $SU(n)$ 是连通的。由\ref{thm:10.22}，酉群 $U(n)$ 也都是连通的，因为 $U(n)/SU(n)=S^{1}$ 是连通的。
+
+\section{拓扑向量空间}
+（填充）
+\subsection{巴拿赫空间}
+（填充）

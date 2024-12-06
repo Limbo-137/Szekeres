@@ -1,41 +1,31 @@
-在物理学和一些工程领域中，使用某些奇怪的``函数''已经变得很常见，例如具有以下性质的狄拉克δ函数
+在物理学和一些工程领域中，使用某些奇怪的``函数''已经变得很常见，例如具有以下性质的狄拉克\symbol{`\δ}函数
 $\delta(x)$：
-
-$$
+ $$
 \int_{-\infty}^{\infty} f(x) \delta(x) \mathrm{d} x=f(0)
 $$
-
 对于所有连续函数 $f(x)$。如果我们将 $f(x)$ 设为一个在
 $(a-\epsilon, a+\epsilon)$ 小区间内非零、在其他地方为零的连续函数
 $f > 0$，则可推得 $\delta(a) = 0$ 对于所有 $a \neq 0$都成立。然而，将$f(x)=1$ 代入意味着 $\int \delta(x) \mathrm{dx}=1$，因此我们必须为
 $\delta(0)$ 赋予无限大的值：
-
-$$
+ $$
 \delta(x)= \begin{cases}0 & \quad x \neq 0 \\ \infty & \quad x=0\end{cases}
 $$
-
 这种定义实际上并不合理，因为 $\delta$
 函数几乎处处为零，因此其勒贝格积分应为零。本章的目标是对这些``广义函数''给出一个严谨的定义，从而避免上述矛盾。
 
-从直观上讲，我们可以将狄拉克δ函数看作是一系列函数的``极限''（参见图12.1），例如
+从直观上讲，我们可以将狄拉克δ函数看作是一系列函数的``极限''（参见图\ref{fig:12.1}），例如
 \begin{equation}
   \varphi_n(x)= \begin{cases}2 n & \quad|x| \leq 1 / n \\ 0 & \quad|x|>1 / n\end{cases}
 \end{equation}
-
-
 或高斯函数
-
-$$
+ $$
 V_n(x)=\frac{1}{n \sqrt{\pi}} \mathrm{e}^{-x^2 / x^2}
 $$
-
 勒贝格的主导收敛定理并不适用于这些序列，但积分的极限显然是1，并且对于任何连续函数
 $f(x)$，可以不难证明：
-
-$$
+ $$
 \lim _{x \rightarrow \infty} \int_{-\infty}^{\infty} f(x) \eta_n(x) \mathrm{d} x=\lim _{x \rightarrow \infty} \int_{-\infty}^{\infty} f(x) \psi_n(x) \mathrm{d} x=f(0)
 $$
-
 然而，我们不会尝试通过某种极限意义来定义狄拉克类函数。相反，我们遵循洛朗·施瓦茨的思路，将它们定义为适当定义的正规测试函数空间上的连续线性泛函。这种方法被称为\textbf{分布理论(distributions)}{[}1-6{]}。
 \begin{figure}
   \centering
@@ -95,11 +85,9 @@ $f(\mathbf{x}) \neq 0$ 的区域的闭包。如果一个定义在 $\mathbb{R}^n$
 $f(x_1, \ldots, x_n)=0$ 对于所有 $|\mathbf{x}| \geq R$），我们称
 $f$ 具有\textbf{紧支集(compact support)}。如果 $f$ 的所有 $m$
 阶偏导数
-
-$$
+ $$
 D_m f = \frac{\partial^m f}{\partial x_1^{m_1} \ldots \partial x_n^{m_n}}
 $$
-
 都存在且连续，其中 $\underline{m} = (m_1, \ldots, m_n)$ 且
 $m = |\underline{m}| \equiv \sum_{i=1}^n m_i$，则称 $f$ 为 $C^m$
 类函数。此外，约定 $D_{(0,0,\ldots,0)} f = f$。如果 $f$
@@ -108,20 +96,17 @@ $C^{\infty}$ 类函数，或称为\textbf{无限可微函数(infinitely
 differentiable function)}。我们用 $\mathcal{D}^m(\mathbb{R}^n)$
 表示定义在 $\mathbb{R}^n$ 上的所有具有紧支集的 $C^m$
 类函数的向量空间，称其为\textbf{$m$ 阶测试函数空间}。
-
-\textbf{练习}：证明 $\mathcal{D}^{\prime \prime}(\mathbb{R}^n)$
-是一个实向量空间。
+\begin{exercise}
+  证明 $\mathcal{D}^{\prime \prime}(\mathbb{R}^n)$ 是一个实向量空间。
+\end{exercise}
 
 无限可微测试函数的空间 $\mathcal{D}^\infty(\mathbb{R}^n)$ 通常简记为
 $\mathcal{D}(\mathbb{R}^n)$，称为\textbf{测试函数空间(space of test functions)}，其定义为
-
 $$
 \mathcal{D}(\mathbb{R}^n) = \bigcap_{n=1}^\infty \mathcal{D}^m(\mathbb{R}^n)
 $$
-
 为了证明这一空间非空，我们可以考虑如下定义的函数
 $f: \mathbb{R} \rightarrow \mathbb{R}$：
-
 $$
 f(x) =
 \begin{cases}
@@ -129,11 +114,9 @@ e^{-1 / x}, & \quad x > 0, \\
 0, & \quad x \leq 0.
 \end{cases}
 $$
-
 这个函数在包括 $x=0$ 在内的所有点上均无限可微，并且在 $x=0$
 处所有导数的左右极限都为零。由此可得定义在 $\mathbb{R}$ 上的函数
 $\varphi$：
-
 $$
 \varphi(x) = f(-(x-a)) f(x+a) =
 \begin{cases}
@@ -141,10 +124,8 @@ $$
 0, & \quad |x| \geq a.
 \end{cases}
 $$
-
 该函数在所有点上无限可微，且其支集为 $[-a, a]$。在 $\mathbb{R}^n$
 中，也可以定义类似的函数：
-
 $$
 \varphi(\mathbf{x}) =
 \begin{cases}
@@ -152,40 +133,31 @@ $$
 0, & \quad |\mathbf{x}| \geq a.
 \end{cases}
 $$
-
 其中
-
 $$
 |\mathbf{x}| = \sqrt{x_1^2 + x_2^2 + \cdots + x_n^2}.
 $$
-
 如果函数序列 $\varphi_n \in \mathcal{D}(\mathbb{R}^n)$
 满足其支集在一个公共有界集合内，且对于任意 $\underline{k}$ 的
 $k=0, 1, \ldots, m$ 阶导数，均有
-
 $$
 D_{\underline{k}} \varphi_n(\mathbf{x}) \to D_{\underline{k}} \varphi(\mathbf{x}),
 $$
-
 且在所有 $\mathbf{x}$ 上一致收敛，那么称 $\varphi_n$ 到 $\varphi$
 在 $m$ 阶上收敛。如果对所有 $m=0,1,2,\ldots$ 都满足此条件，则称
 $\varphi_n$ 收敛到 $\varphi$，记为 $\varphi_n \to \varphi$。
 \begin{eg}
   假设 $\varphi: \mathbb{R} \to \mathbb{R}$ 是一个在
 $\mathbb{R}$ 的紧支集 $K$ 上具有紧支集的可微函数。函数序列
-
 $$
 \varphi_n(x) = \frac{1}{n} \varphi(x) \sin(nx)
 $$
-
 是可微的，并且支集为公共紧支集 $K$。由于
 $|\varphi(x) \sin(nx)| < 1$，显然这些函数在 $n \to \infty$
 时一致趋于零函数，但其导数
-
 $$
 \varphi_n'(x) = \frac{1}{n} \varphi'(x) \sin(nx) + \varphi(x) \cos(nx)
 $$
-
 不趋于零。这个例子说明了一个函数序列在 $0$ 阶收敛于零函数，但在 $1$
 阶并不收敛。
 \end{eg}
@@ -193,20 +165,16 @@ $$
 要从拓扑角度定义这种收敛性，我们可以按以下方式进行操作。对于每个紧集
 $K \subset \mathbb{R}^n$，令 $\mathcal{D}^m(K)$ 表示具有紧支集的
 $C^m$ 函数的空间。通过定义范数
-
 $$
 \|f\|_{K, m} = \sup_{\mathbf{x} \in K} \sum_{\mid \underline{k} \mid \leq m}\left|D_{\underline{k}} f(\mathbf{x})\right|，
 $$
-
 可以将此空间构造成一个拓扑空间（参考例 10.25）。在
 $\mathcal{D}^m(\mathbb{R}^n)$ 上，我们定义一个集合 $U$
 为开集，当且仅当对于每个 $f \in U$，存在一个紧集 $K$ 和一个正数
 $a > 0$，使得 $f \in K$ 且满足
-
 $$
 \left\{g \in K \mid \|g - f\|_{K, m} < a\right\} \subseteq U。
 $$
-
 由此可得，若序列 $f_k \in \mathcal{D}^m(\mathbb{R}^n)$ 收敛到某个函数
 $f \in \mathcal{D}^m(\mathbb{R}^n)$ 的阶数为 $m$，当且仅当
 $f_n \to f$ 在此拓扑下成立。类似地，可以对
@@ -220,18 +188,15 @@ $\mathcal{D}(\mathbb{R}^n)$
 $\mathcal{D}(\mathbb{R}^n)$ 中的某种指定意义上成立，则
 $S(f_n) \to S(f)$。一个\textbf{阶数为 $m$ 的分布}是在
 $\mathcal{D}(\mathbb{R}^n)$ 上的线性泛函 $T$，
-
 $$
 T(a\varphi + b\psi) = aT(\varphi) + bT(\psi)，
 $$
-
 它对阶数 $m$ 连续；即，如果 $\varphi_k \to \varphi$ 是
 $\mathcal{D}(\mathbb{R}^n)$ 中任意的函数序列，且阶数为 $m$
 的收敛性成立，则 $T(\varphi_k) \to T(\varphi)$。一个在线性泛函
 $\mathcal{D}(\mathbb{R}^n)$ 上对所有阶数收敛的函数序列 $\varphi_i$
 连续的泛函，简单地称为\textbf{分布(distribution)}。在这种连续性意义下，阶数为
-$m$ 的分布空间是 $\mathcal{D}^m(\mathbb{R}^n)$ 的对偶空间（参见第
-10.9 节），而分布空间是 $\mathcal{D}(\mathbb{R}^n)$
+$m$ 的分布空间是 $\mathcal{D}^m(\mathbb{R}^n)$ 的对偶空间（参见第 \ref{sec:10.9} 节），而分布空间是 $\mathcal{D}(\mathbb{R}^n)$
 的对偶空间。对应地，它们分别记为
 $\mathcal{D}^{\prime m}(\mathbb{R}^n)$ 和
 $\mathcal{D}^{\prime}(\mathbb{R}^n)$。
@@ -239,17 +204,9 @@ $\mathcal{D}^{\prime}(\mathbb{R}^n)$。
 注意，阶数为 $m$ 的分布 $T$ 也是阶数为 $m'$ 的分布，针对所有
 $m' > m$ 都成立。原因在于，如果 $\varphi_i$ 是
 $\mathcal{D}^{m'}(\mathbb{R}^n)$ 中的一个收敛序列，则 $\varphi_i$
-及其所有阶数 $m'$ 的导数在 $\mathcal{D}^{m'}(\mathbb{R}^n)$
-中一致收敛到函数 $\varphi$。特别地，它也是
-$\mathcal{D}^m(\mathbb{R}^n)$ 中的一个序列，并且阶数为 $m < m'$
-的收敛性也成立。因此，若阶数为 $m$ 的线性泛函 $T$ 满足
-$T(\varphi_i) \to T(\varphi)$ 对于所有 $\mathcal{D}^m(\mathbb{R}^n)$
-中的收敛序列 $\varphi_i$ 都成立，则对于
-$\mathcal{D}^{m'}(\mathbb{R}^n)$
-中所有收敛序列也自动成立。这是对偶空间的一个有趣特点：对于一个 $C^m$
-函数，我们只能推断它是 $C^{m'}$，其中
-$m' \leq m$；然而，对于一个阶数为 $m$ 的分布，我们可以保证它是阶数为
-$m' \geq m$ 的分布。
+及其所有阶数 $m'$ 的导数在 $\mathcal{D}^{m'}(\mathbb{R}^n)$中一致收敛到函数 $\varphi$。特别地，它也是
+$\mathcal{D}^m(\mathbb{R}^n)$ 中的一个序列，并且阶数为 $m < m'$的收敛性也成立。因此，若阶数为 $m$ 的线性泛函 $T$ 满足$T(\varphi_i) \to T(\varphi)$ 对于所有 $\mathcal{D}^m(\mathbb{R}^n)$中的收敛序列 $\varphi_i$ 都成立，则对于 $\mathcal{D}^{m'}(\mathbb{R}^n)$ 中所有收敛序列也自动成立。这是对偶空间的一个有趣特点：对于一个 $C^m$ 函数，我们只能推断它是 $C^{m'}$，其中
+$m' \leq m$；然而，对于一个阶数为 $m$ 的分布，我们可以保证它是阶数为 $m' \geq m$ 的分布。
 
 \subsection{正则分布}
 
@@ -257,20 +214,15 @@ $m' \geq m$ 的分布。
 被称为\textbf{局部可积(locally integrable)}，如果它在 $\mathbb{R}^n$
 的每个紧子集 $K$ 上都是可积的。定义一个连续线性泛函
 $T_f: \mathcal{D}(\mathbb{R}^n) \to \mathbb{R}$ 为
-
 $$
 T_f(\varphi) = \int_{\mathbb{R}^n} \varphi f \mathrm{d}\mu^n = \int \cdots \int_{\mathbb{R}^n} \varphi(\mathbf{x}) f(\mathbf{x}) \mathrm{d}x_1 \cdots \mathrm{d}x_n
 $$
-
 这个积分总是存在的，因为每个测试函数 $\varphi$
 的值在某个紧集之外为零。线性性可以由积分算子的基本性质直接得到：
-
 $$
 T_f(a \varphi + b \psi) = a T_f(\varphi) + b T_f(\psi)
 $$
-
 $T_f$ 的连续性可以从不等式 (\ref{eq:11.11}) 和勒贝格主导收敛定理得出，
-
 $$
 \begin{aligned}
 \left|T_f(\varphi_i) - T_f(\varphi)\right| &= \left|\int \cdots \int f(\mathbf{x})\left(\varphi_i(\mathbf{x}) - \varphi(\mathbf{x})\right) \mathrm{d}^n x\right| \\
@@ -278,7 +230,6 @@ $$
 &\to 0
 \end{aligned}
 $$
-
 因为可积函数序列 $f \varphi_i$ 被一个可积函数
 $\left(\sup_i |\varphi_i|\right)|f|$ 所支配。因此，$T_f$
 是一个分布，而函数 $f$
@@ -291,11 +242,9 @@ $\varphi$ 都有 $T_f(\varphi) = T_g(\varphi)$，那么密度函数 $f$ 和
 $g$ 几乎处处相等。其证明思路如下：设 $I^n$ 是任意的闭区间乘积
 $I^n = I_1 \times I_2 \times \cdots \times I_n$，并选择一个测试函数
 $\varphi$ 使其与单位阶跃函数 $\chi_{I^n}$ 足够接近，则
-
 $$
 \int_{I^n}(f - g) \mathrm{d}\mu^n = 0
 $$
-
 如果 $f - g$ 的正部分 $(f - g)^+ > 0$
 在一个正测度的集合上，这显然是不可能的。这个论证可以进一步精炼，从而得出
 $f - g = 0$ 几乎处处成立。因此，密度 $f$ 由 $T_f$
@@ -305,11 +254,9 @@ $T = T_f$ 的分布有时被称为\textbf{正则分布(regular distributions)}�
 
 \begin{eg}\label{eg:12.2}
 定义分布 $\delta_a$ 为作用于 $\mathcal{D}(\mathbb{R})$ 上的映射：
-
-$$
+ $$
 \delta_a(\varphi) = \varphi(a)
 $$
-
 特别地，我们用 $\delta$ 表示 $\delta_0$，即
 $\delta(\varphi) = \varphi(0)$。映射
 $\delta_a: \mathcal{D}(\mathbb{R}) \to \mathbb{R}$ 显然是线性的：
@@ -320,62 +267,48 @@ $\delta_a: \mathcal{D}(\mathbb{R}) \to \mathbb{R}$ 显然是线性的：
 它是连续的，因为 $\varphi_n \to \varphi$ 意味着
 $\varphi_n(a) \to \varphi(a)$。因此，$\delta_a$
 是一个分布，但根据本章开头的推论，它不能对应于任何局部可积函数，因此是一个奇异分布。然而，物理学家和工程师经常采用密度的记号表示，并写作：
-
-$$
+ $$
 \delta(\varphi) \equiv \int_{-\infty}^\infty \varphi(x) \delta(x) \mathrm{d}x = \varphi(0)
 $$
-
 在书写这样的等式时，分布 $\delta$ 被设想为具有密度函数 $\delta(x)$
 的分布，这个密度函数集中在 $x = 0$ 点，并在该点具有无限大的值，如式
 (12.1) 所示，同时满足：
-
-$$
+ $$
 \int_{-\infty}^\infty \delta(x) \mathrm{d}x = 1
 $$
-
 类似地，分布 $\delta_a$ 可以被看作代表密度函数 $\delta_a(x)$，满足
-
-$$
+ $$
 \int_{-\infty}^\infty \varphi(x) \delta_a(x) \mathrm{d}x = \varphi(a)
 $$
-
 对于所有测试函数 $\varphi$。通常将 $\delta_a(x)$ 写作
 $\delta(x-a)$，因为在执行变量替换 $x = y + a$ 后，
-
-$$
+ $$
 \int_{-\infty}^\infty \varphi(x) \delta(x-a) \mathrm{d}x = \int_{-\infty}^\infty \varphi(y+a) \delta(y) \mathrm{d}y = \varphi(a)
 $$
-
 $n$ 维的 $\delta$函数可以类似地定义为：
-
-$$
+ $$
 \delta_\mathbf{a}^n(\varphi) = \varphi(\mathbf{a}) = \varphi(a_1, \ldots, a_n)
 $$
-
 并可以写作：
-
-$$
+ $$
 \delta_\mathbf{a}^n(\varphi) \equiv T_{\delta_\mathbf{a}^n}(\varphi) = \int_{\mathbb{R}^n} \varphi(\mathbf{x}) \delta^n(\mathbf{x} - \mathbf{a}) \mathrm{d}^n x = \varphi(\mathbf{a}),
 $$
-
 其中：
-
-$$
+ $$
 \delta^n(\mathbf{x} - \mathbf{a}) = \delta(x_1 - a_1) \delta(x_2 - a_2) \cdots \delta(x_n - a_n).
 $$
-
 尽管通常无法定义分布的乘积，但在此情况下没有问题，因为右侧的 δ
 函数依赖于不同且独立的变量。
 \end{eg}
 
 \subsubsection{习题}
-\begin{problem}
-  问题 12.1 构造一个测试函数 $\phi(x)$，使得当 $|x| \leq 1$ 时
+\begin{problem}\label{pro:12.1}
+   构造一个测试函数 $\phi(x)$，使得当 $|x| \leq 1$ 时
 $\phi(x) = 1$，当 $|x| \geq 2$ 时 $\phi(x) = 0$。
 \end{problem}
 
-\begin{problem}
-  问题 12.2 对于每个紧集 $K \subset \mathbb{R}^n$，令 $\mathcal{D}(K)$
+\begin{problem}\label{pro:12.2}
+   对于每个紧集 $K \subset \mathbb{R}^n$，令 $\mathcal{D}(K)$
 表示定义在 $K$ 上具有紧支集的 $C^{\infty}$
 函数的空间。证明：如果将所有整数向量 $\underline{k}$
 排列为一个序列，其中 $N(\underline{k})$ 表示 $\underline{k}$
@@ -383,14 +316,13 @@ $\phi(x) = 1$，当 $|x| \geq 2$ 时 $\phi(x) = 0$。
   $$
 \|f\|_{K}=\sup _{\mathbf{x} \in K} \sum_{|\underline{\underline{k}}|} \frac{1}{2^{N(\underline{k})}} \frac{\left|D_{\underline{\underline{k}}} f(\mathbf{x})\right|}{1+\left|D_{\underline{\underline{k}}} f(\mathbf{x})\right|}
 $$
-
 是 $\mathcal{D}(K)$ 上的一个范数。令 $\mathcal{D}(\mathbb{R}^n)$
 中的集合 $U$ 为开集，当且仅当它是形如
 $\left\{g \in K \mid\|g-f\|_{K}<a\right\}$
 的开球的并集。证明这是一个拓扑，并且在此拓扑下序列的收敛性与紧支集上的函数序列的所有阶收敛性一致。
 
 \end{problem}
-\begin{problem}
+\begin{problem}\label{pro:12.3}
   问题 12.3 以下哪一个是分布？
 
 \begin{enumerate}
@@ -417,8 +349,7 @@ $f_n$ 在 $\mathbb{R}$ 的每个紧子集上均匀收敛于函数
 $f(x)$，证明其对应的正则分布 $T_{f_n} \rightarrow T_{f}$。
 
 在分布意义下，证明以下收敛关系：
-
-$$
+ $$
 \begin{aligned}
 & f_{n}(x)=\frac{n}{\pi\left(1+n^{2} x^{2}\right)} \rightarrow \delta(x), \\
 & g_{n}(x)=\frac{n}{\sqrt{\pi}} \mathrm{e}^{-n^{2} x^{2}} \rightarrow \delta(x)
@@ -426,13 +357,11 @@ $$
 $$
 \end{problem}
 
-\subsubsection{问题答案}\label{ux95eeux9898ux7b54ux6848}
-
+\subsubsection{问题答案}
 \paragraph{问题 12.1}
 
 我们可以构造如下的测试函数 $\phi(x)$：
-
-$$
+ $$
 \phi(x) =
 \begin{cases}
 1, & |x| \leq 1, \\
@@ -440,7 +369,6 @@ $$
 0, & |x| \geq 2.
 \end{cases}
 $$
-
 这个函数满足 $\phi(x) \in C^\infty$，并且在 $|x| \leq 1$ 时取值为
 1，而在 $|x| \geq 2$ 时为 0。
 
@@ -494,11 +422,9 @@ $\{g \in K \mid \|g - f\|_K < a\}$
 
 根据分布的定义，$T_{f_n}(\phi) = \int_{-\infty}^\infty f_n(x) \phi(x) \mathrm{d}x$。由于
 $f_n$ 在每个紧集上均匀收敛于 $f$，勒贝格主导收敛定理保证
-
-$$
+ $$
 T_{f_n}(\phi) \to T_f(\phi) = \int_{-\infty}^\infty f(x) \phi(x) \mathrm{d}x。
 $$
-
 因此，$T_{f_n} \to T_f$。
 
 \textbf{证明收敛关系：}
@@ -533,11 +459,9 @@ $(S T)(\varphi) = S(\varphi) T(\varphi)$，那么该表达式在 $\varphi$
 上并不线性。然而，如果 $\alpha$ 是定义在 $\mathbb{R}^n$ 上的一个
 $C^m$ 函数，且 $T$ 是一个阶数为 $m$ 的分布，则 $\alpha T$
 可以定义为一个阶数为 $m$ 的分布，其定义为：
-
-$$
+ $$
 (\alpha T)(\varphi) = T(\alpha \varphi)
 $$
-
 因为对于所有
 $\varphi \in \mathcal{D}^m(\mathbb{R}^n)$，$\alpha \varphi \in \mathcal{D}^m(\mathbb{R}^n)$。注意，这种构造并不要求
 $\alpha$ 是一个测试函数------即使 $\alpha$
@@ -545,15 +469,13 @@ $\alpha$ 是一个测试函数------即使 $\alpha$
 
 如果 $T$ 是定义在 $\mathbb{R}^n$ 上的正则分布，即 $T = T_f$，那么
 $\alpha T_f = T_{\alpha f}$。具体来说，
-
-$$
+ $$
 \begin{aligned}
 \alpha T_f(\varphi) & = T_f(\alpha \varphi) \\
 & = \int \cdots \int \varphi \alpha f \mathrm{~d}^n x \\
 & = T_{\alpha f}(\varphi)
 \end{aligned}
 $$
-
 将正则分布 $T_f$ 乘以 $\alpha$ 的运算等价于将对应的密度函数 $f$
 乘以 $\alpha$。在这种情况下，$\alpha$ 只需要是一个局部可积函数即可。
 
@@ -562,11 +484,9 @@ $$
 是一个阶数为零的分布，因为它在连续测试函数的空间
 $\mathcal{D}^0(\mathbb{R})$ 上是良定义的。对于任意连续函数
 $\alpha(x)$，我们有：
-
-$$
+ $$
 \alpha \delta(\varphi) = \delta(\alpha \varphi) = \alpha(0) \varphi(0) = \alpha(0) \delta(\varphi)
 $$
-
 因此，
 
 \begin{equation}
@@ -574,17 +494,13 @@ $$
 \end{equation}
 
 用``$\delta$函数''的语言，这一恒等式通常写作：
-
-$$
+ $$
 \alpha(x) \delta(x) = \alpha(0) \delta(x)
 $$
-
 因为：
-
-$$
+ $$
 \int_{-\infty}^\infty \alpha(x) \delta(x) \varphi(x) \mathrm{d}x = \alpha(0) \varphi(0) = \int_{-\infty}^\infty \alpha(0) \delta(x) \varphi(x) \mathrm{d}x。
 $$
-
 对于任意点 $a$ 处的 $\delta$函数，上述恒等式变为：
 \begin{equation}
   \alpha \delta_a = \alpha(a) \delta_a, \quad \alpha(x) \delta(x-a) = \alpha(a) \delta(x-a)
@@ -598,9 +514,8 @@ $$
 
 \end{eg}
 \begin{exercise}
-  练习：将这些恒等式扩展到 $n$ 维 $\delta$函数：
-
-$$
+  将这些恒等式扩展到 $n$ 维 $\delta$函数：
+ $$
 \alpha \delta_{\mathbf{a}} = \alpha(\mathbf{a}) \delta_{\mathbf{a}}, \quad \alpha(\mathbf{x}) \delta^n(\mathbf{x} - \mathbf{a}) = \alpha(\mathbf{a}) \delta(\mathbf{x} - \mathbf{a})
 $$
 \end{exercise}
@@ -612,19 +527,17 @@ $$
 $f^{\prime} = \mathrm{d}f / \mathrm{d}x$ 是一个局部可积函数。令
 $\varphi$ 是来自 $\mathcal{D}^1(\mathbb{R})$
 的任意测试函数。通过分部积分可得：
-
-$$
+ $$
 \begin{aligned}
 T_{f^{\prime}}(\varphi) & = \int_{-\infty}^\infty \varphi(x) \frac{\mathrm{d}f}{\mathrm{~d}x} \mathrm{~d}x \\
 & = [\varphi f]_{-\infty}^\infty - \int_{-\infty}^\infty \frac{\mathrm{d}\varphi}{\mathrm{~d}x} f(x) \mathrm{d}x \\
 & = T_f\left(-\varphi^{\prime}\right)
 \end{aligned}
 $$
-
 因为 $\varphi(\pm \infty) = 0$。我们可以将此恒等式扩展到一般分布，定义
 $\mathbb{R}$ 上阶数 $m \geq 0$ 的分布 $T$ 的\textbf{导数(derivative of a distribution)}
 $T^{\prime}$ 为阶数 $m+1$ 的分布，其定义为：
-\begin{equation}
+\begin{equation}\label{eq:12.6}
   T^{\prime}(\varphi) = T\left(-\varphi^{\prime}\right) = -T\left(\varphi^{\prime}\right)
 \end{equation}
 
@@ -639,24 +552,19 @@ $m+1$ 的函数序列 $\varphi_n \to \varphi$
 的定义，其中要求所有阶数小于等于 $m+1$ 的导数在 $\mathbb{R}$
 的一个紧子集 $K$ 上一致收敛。特别地，对于所有
 $x \in K$，$\varphi_n^{\prime}(x) \to \varphi^{\prime}(x)$，并且：
-
-$$
+ $$
 T^{\prime}(\varphi_n) = T\left(-\varphi_n^{\prime}\right) \to T\left(-\varphi^{\prime}\right) = T^{\prime}(\varphi)
 $$
-
 因此，任意阶数的分布都是无限可微的。
 
 如果 $T$ 是定义在 $\mathbb{R}^n$ 上阶数大于或等于 0
 的分布，我们可以类似地定义其偏导数：
-
-$$
+ $$
 \frac{\partial T}{\partial x_k}(\varphi) = -T\left(\frac{\partial \varphi}{\partial x_k}\right)
 $$
-
 对于 $\mathbb{R}$
 上的分布，任何这样的分布都是无限可微的。对于高阶导数，有以下公式：
-
-$$
+ $$
 D_{\underline{m}} T(\varphi) = (-1)^m T\left(D_{\underline{m}} \varphi\right) \quad \text{其中} \quad m = |\underline{m}| = \sum_{i} m_i
 $$
 \begin{exercise}
@@ -668,20 +576,17 @@ $$
 
 \begin{eg}\label{eg:12.4} 
   令 $\theta(x)$ 为 Heaviside 阶跃函数：
-
-$$
+ $$
 \theta(x) = 
 \begin{cases} 
 1 & \text{if } x \geq 0, \\ 
 0 & \text{if } x < 0 
 \end{cases}
 $$
-
 这是一个显然局部可积的函数，因而生成一个正则分布
 $T_\theta$。对于任意测试函数
 $\varphi \in \mathcal{D}^1(\mathbb{R})$，有：
-
-$$
+ $$
 \begin{aligned}
 T_{\theta^{\prime}}(\varphi) = T_\theta\left(-\varphi^{\prime}\right) & = -\int_{-\infty}^\infty \varphi^{\prime}(x) \theta(x) \mathrm{d}x \\
 & = -\int_0^\infty \frac{\mathrm{d}\varphi}{\mathrm{~d}x} \mathrm{d}x \\
@@ -689,19 +594,14 @@ T_{\theta^{\prime}}(\varphi) = T_\theta\left(-\varphi^{\prime}\right) & = -\int_
 & = \delta(\varphi)
 \end{aligned}
 $$
-
 因此，在 $\mathcal{D}^1(\mathbb{R})$ 上，有以下分布意义的方程：
-
-$$
+ $$
 T_\theta^{\prime} = \delta
 $$
-
 这一结果通常用``函数''语言表示为：
-
-$$
+ $$
 \delta(x) = \theta^{\prime}(x) = \frac{\mathrm{d}\theta(x)}{\mathrm{d}x}
 $$
-
 从直观上看，$x=0$ 处的阶跃是``无限陡峭''的。
 \end{eg}
 
@@ -709,45 +609,31 @@ $$
   $\delta$分布的导数定义为阶数为 1 的分布
 $\delta^{\prime}$，可以作用于任意测试函数
 $\varphi \in \mathcal{D}^1(\mathbb{R})$，定义为：
-
-$$
+ $$
 \delta^{\prime}(\varphi) = \delta\left(-\varphi^{\prime}\right) = -\varphi^{\prime}(0)
 $$
-
 用 $\delta$函数的形式表示，这可以写作：
-
-$$
+ $$
 \int_{-\infty}^\infty \delta^{\prime}(x) \varphi(x) \mathrm{d}x = -\varphi^{\prime}(0)
 $$
-
 对于定义在原点 $x=0$ 邻域内可微的任意函数，继续对更高阶导数，有：
-
-$$
+ $$
 \delta^{\prime\prime}(\varphi) = \varphi^{\prime\prime}(0)
 $$
-
 或用 Dirac 记号表示：
-
-$$
+ $$
 \int_{-\infty}^\infty \delta^{\prime\prime}(x) \varphi(x) \mathrm{d}x = \varphi^{\prime\prime}(0)。
 $$
-
 对于第 $m$ 阶导数，有：
-
-$$
+ $$
 \delta^{(m)}(\varphi) = (-1)^m \varphi^{(m)}(0), \quad \int_{-\infty}^\infty \delta^{(m)}(x) \varphi(x) \mathrm{d}x = (-1)^m \varphi^{(m)}(0)
 $$
-
-对于一个可微函数 $\alpha$ 和一个分布 $T$ 的乘积，可以得到常见的
-Leibnitz 规则：
-
-$$
+对于一个可微函数 $\alpha$ 和一个分布 $T$ 的乘积，可以得到常见的莱布尼茨(Leibnitz)规则：
+ $$
 (\alpha T)^{\prime} = \alpha T^{\prime} + \alpha^{\prime} T
 $$
-
 证明如下：
-
-$$
+ $$
 \begin{aligned}
 (\alpha T)^{\prime}(\varphi) & = \alpha T\left(-\varphi^{\prime}\right) \\
 & = T\left(-\alpha \varphi^{\prime}\right) \\
@@ -762,22 +648,16 @@ $$
 $$
 (x \delta)^{\prime} = 0^{\prime} = 0
 $$
-
 和
-
-$$
+ $$
 (x \delta)^{\prime} = x \delta^{\prime} + x^{\prime} \delta = x \delta^{\prime} + \delta
 $$
-
 因此，
-
-$$
+ $$
 x \delta^{\prime} = -\delta
 $$
-
 我们还可以通过自然地操控 $\delta$函数推导出这个等式：
-
-$$
+ $$
 x \delta^{\prime}(x) = (x \delta(x))^{\prime} - x^{\prime} \delta(x) = 0^{\prime} - 1 \cdot \delta(x) = -\delta(x)
 $$
 \end{eg}
@@ -794,15 +674,13 @@ $f$ 的情况下，我们可以为 $\delta$分布定义这一概念。首先，�
 $f: \mathbb{R} \to \mathbb{R}$ 是一个连续单调递增的函数，且满足
 $f(\pm \infty) = \pm \infty$，采用 Dirac
 的记号并假设积分可按照变量替换的标准规则处理，则有：
-
-$$
+ $$
 \begin{aligned}
 \int_{-\infty}^\infty \varphi(x) \delta(f(x)) \mathrm{d}x & = \int_{-\infty}^\infty \varphi(x) \delta(y) \frac{\mathrm{d}y}{f^{\prime}(x)} \quad \text{其中 } y = f(x) \\
 & = \int_{-\infty}^\infty \frac{\varphi\left(f^{-1}(y)\right)}{f^{\prime}\left(f^{-1}(y)\right)} \delta(y) \mathrm{d}y \\
 & = \frac{\varphi(a)}{f^{\prime}(a)} \quad \text{其中 } f(a) = 0。
 \end{aligned}
 $$
-
 如果 $f(x)$ 是单调递减的，则积分范围反转
 $\int_{-\infty}^\infty$，并引入一个符号变化。对于具有唯一零点
 $x = a$ 的任意方向的单调函数 $f$，通用公式为：
@@ -812,11 +690,9 @@ $x = a$ 的任意方向的单调函数 $f$，通用公式为：
  \end{equation}
 
 符号上，我们可以写作：
-
-$$
+ $$
 \delta(f(x)) = \frac{1}{\left|f^{\prime}(a)\right|} \delta(x - a)
 $$
-
 或以分布的形式表示为：
 
 \begin{equation} label{eq:12.8}
@@ -829,51 +705,41 @@ $\delta(-x) = \delta(x)$。
 
 如果两个测试函数 $\varphi$ 和 $\psi$ 在原点 $x=0$ 的任意邻域
 $[-\epsilon, \epsilon]$ 上相等，则有：
-
-$$
+ $$
 \delta(\varphi) = \delta(\psi) = \varphi(0) = \varphi(\psi)。
 $$
-
 因此，分布 $\delta$ 可以被看作是定义在函数空间
 $\mathcal{D}([-\epsilon, \epsilon])$
 上的分布，因为它本质上只在原点的邻域内对任意测试函数 $\varphi$
 取样。因此，完全可以一致地写作：
-
-$$
+ $$
 \delta(\varphi) = \int_{-\epsilon}^\epsilon \varphi(x) \delta(x) \mathrm{d}x。
 $$
-
 这重申了 $\delta(x)$ 对于所有 $x \neq 0$ 都为零的思想。如果 $f(x)$
 在 $x = a_1, a_2, \ldots$ 处有零点，并且在每个 $a_i$ 的邻域内 $f$
 是单调函数，那么通过变量替换 $y = f(x)$
 并将积分限制在每个零点的一个小邻域内，可以得到：
-
-$$
+ $$
 \int_{-\infty}^\infty \varphi(x) \delta(f(x)) \mathrm{d}x = \sum_{i} \frac{\varphi(a_i)}{\left|f^{\prime}(a_i)\right|}。
 $$
-
 因此，
 
-\begin{equation}label{eq:12.9}
+\begin{equation}\label{eq:12.9}
  \delta(f(x)) = \sum_{i} \frac{1}{\left|f^{\prime}(a_i)\right|} \delta(x - a_i) 
  \end{equation}
 
 或者等价地表示为：
-
-$$
+ $$
 \delta \circ f = \sum_{i} \frac{1}{\left|f^{\prime}(a_i)\right|} \delta_{a_i}。
 $$
-
 \begin{eg} \label{eg:12.7} 
 函数 $f = x^2 - a^2 = (x - a)(x + a)$ 在两个零点
 $x = \pm a$ 的邻域内都是局部单调的，前提是 $a \neq 0$。在 $x = a$
 的小邻域中，函数 $f$ 可以用单调递增函数 $2a(x - a)$ 近似，而在
 $x = -a$ 的邻域中，它是单调递减的，可用 $-2a(x + a)$ 近似。因此，
-
-$$
+ $$
 \delta(x^2 - a^2) = \delta(2a(x - a)) + \delta(-2a(x + a)) = \frac{1}{2a}(\delta(x - a) + \delta(x + a))，
 $$
-
 与公式 (12.9) 一致。
 \end{eg}
 
@@ -884,8 +750,7 @@ $T_n \rightarrow T$，那么 $T_n^{\prime} \rightarrow T^{\prime}$。
 
 
 在分布意义上，证明以下收敛关系：
-
-$$
+ $$
 f_n(x) = -\frac{2 n^3 x}{\sqrt{\pi}} \mathrm{e}^{-n^2 x^2} \rightarrow \delta^{\prime}(x)
 $$
 计算： (a)
@@ -907,57 +772,45 @@ $\delta^{\prime}(x^2-1) = \frac{1}{4}\left(\delta^{\prime}(x-1) - \delta^{\prime
 \begin{problem}
   证明，对于一个单调函数 $f(x)$，满足
 $f(\pm \infty) = \pm \infty$ 且 $f(a) = 0$，有：
-
-$$
+ $$
 \int_{-\infty}^\infty \varphi(x) \delta^{\prime}(f(x)) \mathrm{d}x = -\left.\frac{1}{f^{\prime}(x)} \frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{\varphi(x)}{\left|f^{\prime}(x)\right|}\right)\right|_{x=a}
 $$
-
 对于在所有零点邻域上单调的函数 $f(x)$，找到分布
 $\delta^{\prime} \circ f$ 的通用公式。
 \end{problem} 
 \begin{problem}
   证明以下恒等式：
-
-$$
+ $$
 \frac{\mathrm{d}}{\mathrm{d}x} (\delta(f(x))) = f^{\prime}(x) \delta^{\prime}(f(x))
 $$
-
 以及
-
-$$
+ $$
 \delta(f(x)) + f(x) \delta^{\prime}(f(x)) = 0。
 $$
-
 从而证明 $\phi(x, y) = \delta(x^2 - y^2)$ 是偏微分方程
-
-$$
+ $$
 x \frac{\partial \phi}{\partial x} + y \frac{\partial \phi}{\partial y} + 2 \phi(x, y) = 0
 $$
-
 的一个解。
 \end{problem}
 
-\subsection{答案}\label{ux7b54ux6848}
+\subsubsection*{答案}
 
 \textbf{问题 12.5}
 
 若 $T_n \to T$，则对于任意测试函数 $\varphi$，有
 $T_n(\varphi) \to T(\varphi)$。分布的导数定义为
 $T_n^{\prime}(\varphi) = T_n(-\varphi^{\prime})$，所以
-
-$$
+ $$
 T_n^{\prime}(\varphi) = T_n(-\varphi^{\prime}) \to T(-\varphi^{\prime}) = T^{\prime}(\varphi)。
 $$
-
 因此 $T_n^{\prime} \to T^{\prime}$。
 
 对于
 $f_n(x) = -\frac{2 n^3 x}{\sqrt{\pi}} \mathrm{e}^{-n^2 x^2}$，计算其分布导数：
-
-$$
+ $$
 \int_{-\infty}^\infty f_n(x) \varphi(x) \mathrm{d}x = -\varphi^{\prime}(0)。
 $$
-
 因此，$f_n(x) \to \delta^{\prime}(x)$。
 
 
@@ -1018,17 +871,13 @@ $n=1$ 的贡献。
 \textbf{问题 12.8}
 
 对于 $f(x)$ 单调且 $f(a) = 0$，计算：
-
-$$
+ $$
 \int_{-\infty}^\infty \varphi(x) \delta^{\prime}(f(x)) \mathrm{d}x = -\frac{1}{f^{\prime}(a)} \frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{\varphi(x)}{|f^{\prime}(x)|}\right)\Big|_{x=a}。
 $$
-
 对于多零点的情况，结果为：
-
-$$
+ $$
 \delta^{\prime}(f(x)) = \sum_i \frac{1}{|f^{\prime}(a_i)|} \delta_{a_i}^{\prime}。
 $$
-
 
 \textbf{问题 12.9}
 
@@ -1056,71 +905,52 @@ $\frac{\partial \phi}{\partial y}$，代入方程验证成立。
 
 对于任意函数 $\varphi(x)$，其\textbf{傅里叶变换}定义为函数
 $\mathcal{F} \varphi$：
-
-$$
+ $$
 \mathcal{F} \varphi(y)=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \mathrm{e}^{-i x y} \varphi(x) \mathrm{d}x。
 $$
-
 \textbf{逆傅里叶变换}定义为：
-
-$$
+ $$
 \mathcal{F}^{-1} \varphi(y)=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \mathrm{e}^{i x y} \varphi(x) \mathrm{d}x。
 $$
-
 傅里叶积分定理适用于所有满足 $|\varphi|$ 在区间 $[-\infty, \infty]$
 上可积且具有有界变差的函数 $\varphi$。该定理表明
 $\mathcal{F}^{-1} \mathcal{F} \varphi=\varphi$，可写为积分形式：
-
-$$
+ $$
 \begin{aligned}
 \varphi(a) & =\frac{1}{2 \pi} \int_{-\infty}^\infty \mathrm{d}y \mathrm{e}^{i a y} \int_{-\infty}^\infty \mathrm{e}^{-i y x} \varphi(x) \mathrm{d}x \\
 & =\frac{1}{2 \pi} \int_{-\infty}^\infty \mathrm{d}x \varphi(x) \int_{-\infty}^\infty \mathrm{e}^{i y(a-x)} \mathrm{d}y。
 \end{aligned}
 $$
-
 该定理的证明可在许多实分析的书籍中找到，读者可参考 {[}6, chap.~7{]} 或
 {[}2, p.~88{]}。
 
 利用应用于 $\delta$函数的积分标准规则，可以推导出：
-
 \begin{equation}\label{eq:12.10} 
  \delta_a(x) = \delta(x-a) = \frac{1}{2 \pi} \int_{-\infty}^\infty \mathrm{e}^{i y(a-x)} \mathrm{d}y， 
  \end{equation}
-
 将 $a=0$ 并利用 $\delta(x)=\delta(-x)$ 得到：
-
 \begin{equation}\label{eq:12.11} 
  \delta(x)=\frac{1}{2 \pi} \int_{-\infty}^\infty \mathrm{e}^{-i y x} \mathrm{d}y = \frac{1}{2 \pi} \int_{-\infty}^\infty \mathrm{e}^{i y x} \mathrm{d}y。 
  \end{equation}
-
 类似地，$\delta$函数的傅里叶变换为：
-
 \begin{equation}\label{eq:12.12} 
  \mathcal{F} \delta(y)=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \mathrm{e}^{-i x y} \delta(x) \mathrm{d}x = \frac{1}{\sqrt{2 \pi}}， 
  \end{equation}
-
-公式 (12.11) 也验证了：
-
+公式 (\ref{eq:12.11}) 也验证了：
 \begin{equation}\label{eq:12.13} 
  \delta(x) = \mathcal{F}^{-1} \frac{1}{\sqrt{2 \pi}} = \frac{1}{2 \pi} \int_{-\infty}^\infty \mathrm{e}^{i x y} \mathrm{d}y。 
  \end{equation}
 
-通过定义分布 $T$ 的傅里叶变换
-$\mathcal{F} T$，可以实现数学上的一致性：
-
+通过定义分布 $T$ 的\textbf{傅里叶变换(Fourier transform of a distribution T)} $\mathcal{F} T$，可以实现数学上的一致性：
 \begin{equation}\label{eq:12.14} 
  \mathcal{F} T(\varphi)=T(\mathcal{F} \varphi)， 
  \end{equation}
-
 适用于所有测试函数 $\varphi$。对于正则分布，有如下结果：
-
-$$
+ $$
 T_{\mathcal{F} f}(\varphi) = \mathcal{F} T_f(\varphi)，
 $$
-
 因为：
-
-$$
+ $$
 \begin{aligned}
 \mathcal{F} T_f(\varphi) & = T_f(\mathcal{F} \varphi) \\
 & = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \left(\int_{-\infty}^\infty \mathrm{e}^{-i y x} \varphi(x) \mathrm{d}x \right) f(y) \mathrm{d}y \\
@@ -1129,183 +959,154 @@ $$
 & = T_{\mathcal{F} f}(\varphi)。
 \end{aligned}
 $$
-
 如果逆傅里叶变换在分布上定义为
 $\mathcal{F}^{-1} T(\varphi)=T\left(\mathcal{F}^{-1} \varphi\right)$，则有：
-
-$$
+ $$
 \mathcal{F}^{-1} \mathcal{F} T = T，
 $$
-
 因为：
-
-$$
+ $$
 \mathcal{F}^{-1} \mathcal{F} T(\varphi) = \mathcal{F} T\left(\mathcal{F}^{-1} \varphi\right) = T\left(\mathcal{F F}^{-1} \varphi\right) = T(\varphi)。
 $$
 
 然而，这些定义存在一个严重问题。如果 $\varphi$
 是一个具有有界支集的函数，那么 $\mathcal{F} \varphi$
-通常是一个整解析函数，且不能具有有界支集，因为任何在开集上为零的整函数必须在整个域内为零。因此，式
-(12.14) 的右侧通常是未定义的。
-
-解决这一问题的方法是定义更广泛的测试函数空间
+通常是一个整解析函数，且不能具有有界支集，因为任何在开集上为零的整函数必须在整个域内为零。因此，式(\ref{eq:12.14}) 的右侧通常是未定义的。解决这一问题的方法是定义更广泛的测试函数空间
 $\mathcal{S}(\mathbb{R})$，称为\textbf{速降函数空间(space of rapidly decreasing functions)}，即满足
 $|x| \to \infty$ 时比任何逆幂 $|x|^{-n}$ 都衰减得更快的函数：
-
-$$
+ $$
 \mathcal{S}(\mathbb{R}) = \left\{\varphi | \sup |x^m \varphi^{(p)}(x)| < \infty \text{ 对所有整数 } m, p > 0 \right\}。
 $$
-
 在 $\mathcal{S}(\mathbb{R})$ 中，收敛性定义为
 $\varphi_n \to \varphi$ 当且仅当：
-
-$$
+ $$
 \lim_{n \to \infty} \sup_{x \in \mathbb{R}} \left|x^m \left(\varphi^{(p)}(x) - \varphi^{(p)}(x)\right)\right| = 0 \text{ 对所有整数 } m, p > 0。
 $$
-
 在 $\mathcal{S}(\mathbb{R})$ 上的连续线性函数空间记为
 $\mathcal{S}^\prime(\mathbb{R})$，称为\textbf{广义分布(tempered distributions)}。由于每个测试函数显然是快速衰减函数，所以
 $\mathcal{D}(\mathbb{R}) \subset \mathcal{S}(\mathbb{R})$。如果 $T$
 是公式 (12.14) 中的广义分布，则 $T$ 的傅里叶变换 $\mathcal{F} T$
 是良好定义的，因为任何快速衰减函数的傅里叶变换仍是快速衰减函数。
-\textgreater{} \#Example 12.8 Delta分布的傅里叶变换定义为：
-\textgreater{} \textgreater{} $$
-> \begin{aligned}
-> \mathcal{F} \delta_{a}(\varphi) & = \delta_{a}(\mathcal{F} \varphi) \\
-> & = \mathcal{F} \varphi(a) \\
-> & = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \mathrm{e}^{-i a x} \varphi(x) \mathrm{d} x \\
-> & = T_{(2 \pi)^{-1 / 2} \mathrm{e}^{i a x}}(\varphi)
-> \end{aligned}
-> $$ \textgreater{} \textgreater{} 类似地： \textgreater{}
-\textgreater{} $$
-> \mathcal{F}^{-1} T_{\mathrm{e}^{-i a x}} = \sqrt{2 \pi} \delta_{a}。
-> $$ \textgreater{} \textgreater{} 这些分布方程的 $\delta$函数版本为：
-\textgreater{} \textgreater{} $$
-> \mathcal{F} \delta_{a}(y) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \mathrm{e}^{-i y x} \delta(x-a) \mathrm{d} x = \frac{\mathrm{e}^{-i a y}}{\sqrt{2 \pi}}，
-> $$ \textgreater{} \textgreater{} 和 \textgreater{} \textgreater{} $$
-> \mathcal{F}^{-1} \mathrm{e}^{-i a x} = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \mathrm{e}^{i x y} \mathrm{e}^{-i a x} \mathrm{d} x = \sqrt{2 \pi} \delta(x-a)。
-> $$ \textgreater{} \textgreater{} 这些结果与 (12.10)-(12.13)
-中的方程一致。
-
-\subsubsection{问题}\label{ux95eeux9898-2}
-
-\paragraph{Problem 12.11}\label{problem-12.11}
-
-证明：
-
+\begin{eg}\label{eg:12.8}
+  delta分布的傅里叶变换定义为：
 $$
+\begin{aligned}
+\mathcal{F} \delta_{a}(\varphi) & = \delta_{a}(\mathcal{F} \varphi) \\
+& = \mathcal{F} \varphi(a) \\
+& = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \mathrm{e}^{-i a x} \varphi(x) \mathrm{d} x \\
+& = T_{(2 \pi)^{-1 / 2} \mathrm{e}^{i a x}}(\varphi)
+\end{aligned}
+$$ 
+类似地： 
+$$
+\mathcal{F}^{-1} T_{\mathrm{e}^{-i a x}} = \sqrt{2 \pi} \delta_{a}。
+$$ 
+这些分布方程的 $\delta$函数版本为：
+$$
+\mathcal{F} \delta_{a}(y) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \mathrm{e}^{-i y x} \delta(x-a) \mathrm{d} x = \frac{\mathrm{e}^{-i a y}}{\sqrt{2 \pi}}，
+$$ 
+和 
+$$
+\mathcal{F}^{-1} \mathrm{e}^{-i a x} = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \mathrm{e}^{i x y} \mathrm{e}^{-i a x} \mathrm{d} x = \sqrt{2 \pi} \delta(x-a)。
+$$ 
+这些结果与(\ref{eq:12.10})-(\ref{eq:12.13})中的方程一致。
+
+\end{eg}
+\subsection*{习题}
+
+\begin{problem}\label{pro:12.11}
+  证明：
+ $$
 \mathcal{F}\left(\mathrm{e}^{-a^{2} x^{2} / 2}\right) = \frac{1}{|a|} \mathrm{e}^{-k^{2} / 2 a^{2}}。
 $$
-
-\subsubsection{Problem 12.12}\label{problem-12.12}
-
-计算以下分布函数的傅里叶变换： (a) $\delta(x-a)$，\\
-(b) $\delta^{\prime}(x-a)$，\\
-(c) $\delta^{(n)}(x-a)$，\\
-(d) $\delta\left(x^{2}-a^{2}\right)$，\\
-(e) $\delta^{\prime}\left(x^{2}-a^{2}\right)$。
-
-\paragraph{Problem 12.13}\label{problem-12.13}
-
+\end{problem}
+\begin{problem}\label{pro:12.12}
+  计算以下分布函数的傅里叶变换： 
+  \begin{enumerate}[label=(\alph*)]
+    \item $\delta(x-a)$,
+    \item $\delta^{\prime}(x-a)$,
+    \item $\delta^{(n)}(x-a)$,
+    \item $\delta\left(x^{2}-a^{2}\right)$.
+    \item $\delta^{\prime}\left(x^{2}-a^{2}\right)$.
+  \end{enumerate}
+\end{problem}
+\begin{problem}\label{pro:12.13}
+  
 证明：
-
 $$
 x^{m} \delta^{(n)}(x) = (-1)^{m} \frac{n!}{(n-m)!} \delta^{(n-m)}(x), \quad \text{for } n \geq m。
 $$
-
 因此，证明分布
-
 $$
 \sqrt{2 \pi} \frac{k!}{(m+k)!} x^{m} \delta^{(m+k)}(-x), \quad (m, k \geq 0)
 $$
-
 的傅里叶变换为 $(-i y)^{k}$。
 
 \paragraph{Problem 12.14}\label{problem-12.14}
 
 证明分布
-
 $$
 \delta_{0} + \delta_{a} + \delta_{2 a} + \cdots + \delta_{(2 n-1) a}
 $$
-
 的傅里叶变换为密度：
-
 $$
 \frac{1}{\sqrt{2 \pi}} \frac{\sin (n a y)}{\sin \left(\frac{1}{2} a y\right)} \mathrm{e}^{-\left(n-\frac{1}{2}\right) i a y}。
 $$
-
 证明：
-
 $$
 \mathcal{F}^{-1}\left(f(y) \mathrm{e}^{i b y}\right) = \left(\mathcal{F}^{-1} f\right)(x+b)。
 $$
-
 因此，找到函数：
-
 $$
 g(y) = \frac{\sin n a y}{\sin \left(\frac{1}{2} a y\right)}
 $$
-
 的逆傅里叶变换。
+\end{problem}
 
-\subsubsection{问题 12.10 答案}\label{ux95eeux9898-12.10-ux7b54ux6848}
+
+\subsubsection{问题 12.10 答案}
 
 \paragraph{\texorpdfstring{对于
 $f(x)$：}{对于 f(x)：}}\label{ux5bf9ux4e8e-fx}
 
 傅里叶变换为：
-
-$$
+ $$
 \mathcal{F}f(k) = \int_{-\infty}^\infty f(x) \mathrm{e}^{-i k x} \mathrm{d}x = \int_{-a}^a \mathrm{e}^{-i k x} \mathrm{d}x
 $$
-
 计算积分得：
-
-$$
+ $$
 \mathcal{F}f(k) = \frac{\sin(ka)}{k}, \quad k \neq 0。
 $$
-
 当 $k = 0$ 时，傅里叶变换为 $2a$。
 
 \paragraph{\texorpdfstring{对于
-$g(x)$：}{对于 g(x)：}}\label{ux5bf9ux4e8e-gx}
+$g(x)$：}{对于 g(x)：}}
 
 傅里叶变换为：
-
-$$
+ $$
 \mathcal{F}g(k) = \int_{-a}^a \left(1 - \frac{|x|}{a}\right) \mathrm{e}^{-i k x} \mathrm{d}x。
 $$
-
 由于绝对值的存在，积分需拆分为 $x \in [-a, 0]$ 和 $x \in [0, a]$
 两部分：
-
-$$
+ $$
 \mathcal{F}g(k) = \int_{-a}^0 \left(1 + \frac{x}{a}\right) \mathrm{e}^{-i k x} \mathrm{d}x + \int_{0}^a \left(1 - \frac{x}{a}\right) \mathrm{e}^{-i k x} \mathrm{d}x。
 $$
-
 计算得：
-
-$$
+ $$
 \mathcal{F}g(k) = \frac{2(1 - \cos(ka))}{a k^2}。
 $$
-
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsubsection{问题 12.11 答案}\label{ux95eeux9898-12.11-ux7b54ux6848}
+\subsubsection{问题 12.11 答案}
 
 对于 $\varphi(x) = \mathrm{e}^{-a^2 x^2 / 2}$，傅里叶变换为：
-
-$$
+ $$
 \mathcal{F}\left(\mathrm{e}^{-a^2 x^2 / 2}\right) = \int_{-\infty}^\infty \mathrm{e}^{-a^2 x^2 / 2} \mathrm{e}^{-i k x} \mathrm{d}x。
 $$
-
 这是一个高斯积分，利用高斯函数的傅里叶变换公式可得：
-
-$$
+ $$
 \mathcal{F}\left(\mathrm{e}^{-a^2 x^2 / 2}\right) = \frac{1}{|a|} \mathrm{e}^{-k^2 / 2a^2}。
 $$
-
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsubsection{问题 12.12 答案}\label{ux95eeux9898-12.12-ux7b54ux6848}
@@ -1314,142 +1115,109 @@ $$
 $\mathcal{F}\delta(x-a) = \mathrm{e}^{-i k a}$。}{(a) \textbackslash mathcal\{F\}\textbackslash delta(x-a) = \textbackslash mathrm\{e\}\^{}\{-i k a\}。}}\label{a-mathcalfdeltax-a-mathrme-i-k-a}
 
 \paragraph{\texorpdfstring{(b)
-$\mathcal{F}\delta'(x-a) = -i k \mathrm{e}^{-i k a}$。}{(b) \textbackslash mathcal\{F\}\textbackslash delta\textegsingle(x-a) = -i k \textbackslash mathrm\{e\}\^{}\{-i k a\}。}}\label{b-mathcalfdeltax-a--i-k-mathrme-i-k-a}
+$\mathcal{F}\delta'(x-a) = -i k \mathrm{e}^{-i k a}$。}{(b) \textbackslash mathcal\{F\}\textbackslash delta\textegsingle(x-a) = -i k \textbackslash mathrm\{e\}\^{}\{-i k a\}。}}
 
 \paragraph{\texorpdfstring{(c)
-$\mathcal{F}\delta^{(n)}(x-a) = (-i k)^n \mathrm{e}^{-i k a}$。}{(c) \textbackslash mathcal\{F\}\textbackslash delta\^{}\{(n)\}(x-a) = (-i k)\^{}n \textbackslash mathrm\{e\}\^{}\{-i k a\}。}}\label{c-mathcalfdeltanx-a--i-kn-mathrme-i-k-a}
+$\mathcal{F}\delta^{(n)}(x-a) = (-i k)^n \mathrm{e}^{-i k a}$。}{(c) \textbackslash mathcal\{F\}\textbackslash delta\^{}\{(n)\}(x-a) = (-i k)\^{}n \textbackslash mathrm\{e\}\^{}\{-i k a\}。}}
 
 \paragraph{\texorpdfstring{(d) 对于 $\delta(x^2-a^2)$，注意
-$x^2-a^2 = (x-a)(x+a)$。傅里叶变换为：}{(d) 对于 \textbackslash delta(x\^{}2-a\^{}2)，注意 x\^{}2-a\^{}2 = (x-a)(x+a)。傅里叶变换为：}}\label{d-ux5bf9ux4e8e-deltax2-a2ux6ce8ux610f-x2-a2-x-axaux5085ux91ccux53f6ux53d8ux6362ux4e3a}
-
-$$
+$x^2-a^2 = (x-a)(x+a)$。傅里叶变换为：}{(d) 对于 \textbackslash delta(x\^{}2-a\^{}2)，注意 x\^{}2-a\^{}2 = (x-a)(x+a)。傅里叶变换为：}}
+ $$
 \mathcal{F}\delta(x^2-a^2) = \frac{\mathrm{e}^{-i k a} + \mathrm{e}^{i k a}}{2|a|} = \frac{\cos(k a)}{|a|}。
 $$
-
 \paragraph{\texorpdfstring{(e) 对于
 $\delta'(x^2-a^2)$，利用求导和链式法则可得：}{(e) 对于 \textbackslash delta\textegsingle(x\^{}2-a\^{}2)，利用求导和链式法则可得：}}\label{e-ux5bf9ux4e8e-deltax2-a2ux5229ux7528ux6c42ux5bfcux548cux94feux5f0fux6cd5ux5219ux53efux5f97}
-
-$$
+ $$
 \mathcal{F}\delta'(x^2-a^2) = -i k \cdot \frac{\cos(k a)}{|a|}。
 $$
-
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsubsection{问题 12.13 答案}\label{ux95eeux9898-12.13-ux7b54ux6848}
+\subsubsection{问题 12.13 答案}
 
 根据递归关系：
-
-$$
+ $$
 x^m \delta^{(n)}(x) = (-1)^m \frac{n!}{(n-m)!} \delta^{(n-m)}(x), \quad n \geq m。
 $$
-
 对于分布
 $\sqrt{2 \pi} \frac{k!}{(m+k)!} x^m \delta^{(m+k)}(-x)$，其傅里叶变换为：
-
-$$
+ $$
 \mathcal{F}\left(\sqrt{2 \pi} \frac{k!}{(m+k)!} x^m \delta^{(m+k)}(-x)\right) = (-i y)^k。
 $$
-
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsubsection{问题 12.14 答案}\label{ux95eeux9898-12.14-ux7b54ux6848}
+\subsubsection{问题 12.14 答案}
 
 \paragraph{\texorpdfstring{分布
 $\delta_{0} + \delta_{a} + \delta_{2a} + \cdots + \delta_{(2n-1)a}$
-的傅里叶变换：}{分布 \textbackslash delta\_\{0\} + \textbackslash delta\_\{a\} + \textbackslash delta\_\{2a\} + \textbackslash cdots + \textbackslash delta\_\{(2n-1)a\} 的傅里叶变换：}}\label{ux5206ux5e03-delta_0-delta_a-delta_2a-cdots-delta_2n-1a-ux7684ux5085ux91ccux53f6ux53d8ux6362}
+的傅里叶变换：}{分布 \textbackslash delta\_\{0\} + \textbackslash delta\_\{a\} + \textbackslash delta\_\{2a\} + \textbackslash cdots + \textbackslash delta\_\{(2n-1)a\} 的傅里叶变换：}}
 
 其傅里叶变换为：
-
-$$
+ $$
 \mathcal{F}\left(\delta_{0} + \delta_{a} + \delta_{2a} + \cdots + \delta_{(2n-1)a}\right) = \frac{1}{\sqrt{2 \pi}} \frac{\sin(n a y)}{\sin(\frac{1}{2} a y)} \mathrm{e}^{-i(n-\frac{1}{2}) a y}。
 $$
-
-\paragraph{逆傅里叶变换：}\label{ux9006ux5085ux91ccux53f6ux53d8ux6362}
-
+\paragraph{逆傅里叶变换：}
 要找到 $g(y) = \frac{\sin(n a y)}{\sin(\frac{1}{2} a y)}$
 的逆傅里叶变换，可利用性质：
-
-$$
+ $$
 \mathcal{F}^{-1}\left(f(y) \mathrm{e}^{i b y}\right) = \left(\mathcal{F}^{-1}f\right)(x+b)。
 $$
-
 简化后可还原 $g(y)$ 的空间表达。
 
-\section{格林函数（Green's
-functions）}\label{sec:12.4}
+\section{格林函数}\label{sec:12.4}
 
-分布理论通常用于通过格林函数技术求解非齐次线性偏微分方程。这里我们给出两个重要的标准例子。
+分布理论通常用于通过格林函数(Green's
+functions)技术求解非齐次线性偏微分方程。这里我们给出两个重要的标准例子。
 
-\subsection{泊松方程（Poisson's
-equation）}
+\subsection{泊松方程}
 
-为了求解像泊松方程这样的非齐次方程
-
+为了求解像泊松方程(Poisson's
+equation)这样的非齐次方程
 \begin{equation}\label{eq:12.15} 
  \nabla^{2} \phi=-4 \pi \rho, 
  \end{equation}
-
 我们需要找到以下分布方程的解：
-
 \begin{equation}\label{eq:12.16} 
  \nabla^{2} G\left(\mathbf{x}-\mathbf{x}^{\prime}\right)=\delta^{3}\left(\mathbf{x}-\mathbf{x}^{\prime}\right)=\delta\left(x-x^{\prime}\right) \delta\left(y-y^{\prime}\right) \delta\left(z-z^{\prime}\right)。 
  \end{equation}
-
-泊松方程的解（12.15）为
-
-$$
+泊松方程(\ref{eq:12.15})的解为
+ $$
 \phi(\mathbf{x})=-\iiint 4 \pi \rho\left(\mathbf{x}^{\prime}\right) G\left(\mathbf{x}-\mathbf{x}^{\prime}\right) \mathrm{d}^{3} x^{\prime},
 $$
-
 其中
-
-$$
+ $$
 \begin{aligned}
 \nabla^{2} \phi & =-\iiint 4 \pi \rho\left(\mathbf{x}^{\prime}\right) \nabla^{2} G\left(\mathbf{x}-\mathbf{x}^{\prime}\right) \mathrm{d}^{3} x^{\prime} \\
 & =-\iiint 4 \pi \rho\left(\mathbf{x}^{\prime}\right) \delta^{3}\left(\mathbf{x}-\mathbf{x}^{\prime}\right) \mathrm{d}^{3} x^{\prime} \\
 & =-4 \pi \rho(\mathbf{x})。
 \end{aligned}
 $$
-
 为了求解，设
-
-$$
+ $$
 g(\mathbf{k})=\mathcal{F} G=\frac{1}{(2 \pi)^{3 / 2}} \iiint_{-\infty}^{\infty} \mathrm{e}^{-i \mathbf{k} \cdot \mathbf{y}} G(\mathbf{y}) \mathrm{d}^{3} y。
 $$
-
 根据傅里叶定理
-
-$$
+ $$
 G(\mathbf{y})=\frac{1}{(2 \pi)^{3 / 2}} \iiint_{-\infty}^{\infty} \mathrm{e}^{i \mathbf{k} \cdot \mathbf{y}} g(\mathbf{k}) \mathrm{d}^{3} k，
 $$
-
 这意味着
-
-$$
+ $$
 \nabla^{2} G\left(\mathbf{x}-\mathbf{x}^{\prime}\right)=\frac{1}{(2 \pi)^{3 / 2}} \iiint_{-\infty}^{\infty}-\mathbf{k}^{2} \mathrm{e}^{i \mathbf{k} \cdot \left(\mathbf{x}-\mathbf{x}^{\prime}\right)} g(\mathbf{k}) \mathrm{d}^{3} k。
 $$
-
 但
-
-$$
+ $$
 \begin{aligned}
 \delta(\mathbf{y}) & =\frac{1}{(2 \pi)^{3}} \int_{-\infty}^{\infty} \mathrm{e}^{i k_{1} y_{1}} d k_{1} \int_{-\infty}^{\infty} e^{i k_{2} y_{2}} d k_{2} \int_{-\infty}^{\infty} e^{i k_{3} y_{3}} d k_{3} \\
 & =\frac{1}{(2 \pi)^{3}} \iiint_{-\infty}^{\infty} \mathrm{e}^{i \mathbf{k} \cdot \mathbf{y}} \mathrm{~d}^{3} k，
 \end{aligned}
 $$
-
 因此
-
-$$
+ $$
 \delta^{3}\left(\mathbf{x}-\mathbf{x}^{\prime}\right)=\frac{1}{2 \pi^{3}} \iiint_{-\infty}^{\infty} \mathrm{e}^{i \mathbf{k} \cdot\left(\mathbf{x}-\mathbf{x}^{\prime}\right)} \mathrm{d}^{3} k。
 $$
-
 将其代入公式 (12.16) 中得
-
-$$
+ $$
 g(\mathbf{k})=-\frac{1}{(2 \pi)^{3 / 2} \mathbf{k}^{2}}，
 $$
-
 于是
 
 \begin{equation}\label{eq:12.17} 
@@ -1459,14 +1227,11 @@ $$
 在 $\mathbf{k}$-空间中，积分最好使用极坐标 $(k, \theta, \phi)$，其中
 $k_{3}$ 轴沿着方向 $\mathbf{R}=\mathbf{x}-\mathbf{x}^{\prime}$
 指向（见图 12.2）。于是
-
-$$
+ $$
 \mathbf{k} \cdot\left(\mathbf{x}-\mathbf{x}^{\prime}\right)=k R \cos \theta \quad(k=\sqrt{\mathbf{k} \cdot \mathbf{k}})
 $$
-
 且
-
-$$
+ $$
 \mathrm{d}^{3} k=k^{2} \sin \theta \mathrm{~d} k \mathrm{~d} \theta \mathrm{~d} \phi。
 $$
 \begin{figure}
@@ -1474,7 +1239,7 @@ $$
   \begin{tikzpicture}
 
     % Draw the vectors
-    \draw[thick,-latex] (0,0) -- (0,4) node[above] {\(\mathbf{R} = \mathbf{x} - \mathbf{x}'\)};
+    \draw[thick,-latex] (0,0) -- (0,4) node[above] {\(\mathbf{R} = \mathbf{x} - \mathbf{x^'}\)};
     \draw[thick,-latex] (0,0) -- (2.5,3) node[right] {\(\mathbf{k}\)};
 
     % Draw the angle arc
@@ -1492,8 +1257,7 @@ $$
 
 
 这导致
-
-$$
+ $$
 \begin{aligned}
 G(\mathbf{R}) & =-\frac{1}{(2 \pi)^{3}} \int_{0}^{\infty} \mathrm{d} k \int_{0}^{\pi} \mathrm{d} \theta \int_{0}^{2 \pi} \mathrm{~d} \phi \frac{\mathrm{e}^{i k R \cos \theta}}{k^{2}} k^{2} \sin \theta \\
 & =-\frac{2 \pi}{(2 \pi)^{3}} \int_{0}^{\infty} \mathrm{d} k \int_{0}^{\pi} \mathrm{d} \theta \frac{\mathrm{~d}}{\mathrm{~d} \theta}\left(\frac{-\mathrm{e}^{i k R \cos \theta}}{i k R}\right) \\
@@ -1502,13 +1266,10 @@ G(\mathbf{R}) & =-\frac{1}{(2 \pi)^{3}} \int_{0}^{\infty} \mathrm{d} k \int_{0}^
 & =-\frac{1}{4 \pi R}
 \end{aligned}
 $$
-
 这里用到了著名的定积分公式
-
-$$
+ $$
 \int_{0}^{\infty} \frac{\sin x}{x} \mathrm{~d} x=\frac{\pi}{2}
 $$
-
 因此，
 
 \begin{equation}\label{eq:12.18} 
@@ -1516,23 +1277,18 @@ $$
  \end{equation}
 
 泊松方程 (12.15) 的解为
-
-$$
+ $$
 \phi(\mathbf{x})=\iiint \frac{\rho\left(\mathbf{x}^{\prime}\right)}{\left|\mathbf{x}-\mathbf{x}^{\prime}\right|} \mathrm{d}^{3} x^{\prime},
 $$
-
 其中积分范围为整个空间
 $-\infty<x^{\prime}, y^{\prime}, z^{\prime}<\infty$。对于点电荷
 $\rho(\mathbf{x})=q \delta^{3}(\mathbf{x}-\mathbf{a})$，解退化为标准的库仑解：
-
-$$
+ $$
 \phi(\mathbf{x})=\frac{q}{|\mathbf{x}-\mathbf{a}|}
 $$
+\subsection{波动方程的格林函数}
 
-\subsection{波动方程的格林函数（Green's function for the wave
-equation）}
-
-为了解非齐次波动方程
+为了解非齐次波动方程(wave equation)
 
 \begin{equation}\label{eq:12.19} 
  \square \psi=-\frac{\partial^{2}}{c^{2} \partial t^{2}} \psi+\nabla^{2} \psi=f(\mathbf{x}, t), 
@@ -1540,28 +1296,21 @@ equation）}
 
 最好采用相对论的 4-矢量表示法，令 $x^{4}=c t$。波动方程可以写为第 9.4
 节所述的形式：
-
-$$
+ $$
 \square \psi=g^{\mu \nu} \frac{\partial}{\partial x^{\mu}} \frac{\partial}{\partial x^{\nu}} \psi=f(x),
 $$
-
 其中 $\mu$ 和 $\nu$ 的取值范围为 1 到 4，$g^{\mu \nu}$
 是对角度量张量，其对角线分量为 $1,1,1,-1$，最后一项中的 $x$ 表示
 $\left(\mathbf{x}, x^{4}\right)$ 的简写。 同样，我们寻找以下方程的解：
-
 \begin{equation}\label{eq:12.20} 
  \square G\left(x-x^{\prime}\right)=\delta^{4}\left(x-x^{\prime}\right) \equiv \delta\left(x^{1}-x^{\prime 1}\right) \delta\left(x^{2}-x^{\prime 2}\right) \delta\left(x^{3}-x^{\prime 3}\right) \delta\left(x^{4}-x^{\prime 4}\right) 
  \end{equation}
-
 每个格林函数 $G$ 都可以生成方程 (12.19) 的解 $\psi_{G}(x)$，
-
-$$
+ $$
 \psi_{G}(x)=\iiint \int G\left(x-x^{\prime}\right) f\left(x^{\prime}\right) \mathrm{d}^{4} x^{\prime},
 $$
-
 其中，
-
-$$
+ $$
 \square \psi_{G}=\iiint \int \square G\left(x-x^{\prime}\right) f\left(x^{\prime}\right) \mathrm{d}^{4} x^{\prime}=\iiint \int \delta^{4}\left(x-x^{\prime}\right) f\left(x^{\prime}\right) \mathrm{d}^{4} x^{\prime}=f(x)
 $$
 \begin{exercise}
@@ -1569,31 +1318,26 @@ $$
 \end{exercise}
 
 设
-
-$$
+ $$
 G\left(x-x^{\prime}\right)=\frac{1}{(2 \pi)^{2}} \iiint \int g(k) \mathrm{e}^{i k \cdot\left(x-x^{\prime}\right)} \mathrm{d}^{4} k,
 $$
 其中 $k=\left(k_{1}, k_{2}, k_{3}, k_{4}\right)$，并且
-
-$$
+ $$
 k \cdot\left(x-x^{\prime}\right)=k_{\mu}\left(x^{\mu}-x^{\prime \mu}\right)=k_{4}\left(x^{4}-x^{\prime 4}\right)+\mathbf{k} \cdot \left(\mathbf{x}-\mathbf{x}^{\prime}\right),
 $$
 且
 $\mathrm{d}^{4} k=\mathrm{d} k_{1} \mathrm{~d} k_{2} \mathrm{~d} k_{3} \mathrm{~d} k_{4}$。将四维
 $\delta$ 函数表示为傅里叶变换，有
-
-$$
+ $$
 \begin{aligned}
 \square G\left(x-x^{\prime}\right) & =\frac{1}{(2 \pi)^{2}} \iiint \int-k^{2} g(k) \mathrm{e}^{i k \cdot\left(x-x^{\prime}\right)} \mathrm{d}^{4} k \\
 & =\delta^{4}\left(x-x^{\prime}\right)=\frac{1}{(2 \pi)^{4}} \iiint \int \mathrm{e}^{i k \cdot\left(x-x^{\prime}\right)} \mathrm{d}^{4} k,
 \end{aligned}
 $$
 因此有
-
-$$
+ $$
 g(k)=-\frac{1}{4 \pi^{2} k^{2}}.
 $$
-
 \begin{figure}
   \centering
 \begin{tikzpicture}
@@ -1638,43 +1382,33 @@ $$
 
 其中
 $k^{2} \equiv k \cdot k = k_{\mu} k^{\mu}$。因此格林函数的傅里叶变换表达式为
-
 \begin{equation}\label{eq:12.21} 
  G\left(x-x^{\prime}\right)=-\frac{1}{(2 \pi)^{4}} \iiint \int \frac{\mathrm{e}^{i k \cdot\left(x-x^{\prime}\right)}}{k^{2}} \mathrm{~d}^{4} k. 
  \end{equation}
-
 为计算该积分，设
-
-$$
+ $$
 \tau=x^{4}-x^{\prime 4}, \quad \mathbf{R}=\mathbf{x}-\mathbf{x}^{\prime}, \quad K=|\mathbf{k}|=\sqrt{\mathbf{k} \cdot \mathbf{k}},
 $$
-
 于是 $k^{2}=K^{2}-k_{4}^{2}$，并且
-
-$$
+ $$
 G\left(x-x^{\prime}\right)=\frac{1}{(2 \pi)^{4}} \int_{-\infty}^{\infty} \mathrm{d} k_{4} \frac{\mathrm{e}^{i k_{4} \tau}}{k_{4}^{2}-K^{2}} \iiint \mathrm{~d}^{3} k \mathrm{e}^{i \mathbf{k} \cdot \mathbf{R}}.
 $$
-
 在复平面 $k_{4}$ 上变形路径以避开 $k_{4}=\pm K$ 处的奇点，如图 12.3
-所示------同时确认该变形不会影响 $G$ 满足方程 (12.20)。
+所示------同时确认该变形不会影响 $G$ 满足方程 (\ref{eq:12.20})。
 
 对于 $\tau>0$，沿逆时针方向完成上半圆的闭合路径，有
-
-$$
+ $$
 \begin{aligned}
 \int_{-\infty}^{\infty} \frac{\mathrm{e}^{i k_{4} \tau}}{k_{4}^{2}-K^{2}} \mathrm{~d} k_{4} & =2 \pi i \times \text{残差和} \\
 & =2 \pi i\left(\frac{\mathrm{e}^{i K \tau}}{2 K}-\frac{\mathrm{e}^{-i K \tau}}{2 K}\right).
 \end{aligned}
 $$
-
 对于
 $\tau<0$，沿顺时针方向闭合下半圆路径；未包含奇点，积分为零。因此，
-
-$$
+ $$
 \int_{-\infty}^{\infty} \frac{\mathrm{e}^{i k_{4} \tau}}{k_{4}^{2}-K^{2}} \mathrm{~d} k_{4}=-\frac{2 \pi}{K} \theta(\tau) \sin K \tau,
 $$
-
-其中 $\theta(\tau)$ 是海维赛阶跃函数。
+其中 $\theta(\tau)$ 是 Heaviside 阶跃函数。
 
 这种特定路径生成的格林函数在 $\tau<0$ 时为零，即当
 $x^{4}<x^{\prime 4}$
@@ -1685,8 +1419,7 @@ function)}。
 
 在 $\mathbf{k}$ 空间中使用以 $\mathbf{R}$ 为 $k_{3}$
 轴的极坐标，有
-
-$$
+ $$
 \begin{aligned}
 G\left(x-x^{\prime}\right) & =-\frac{1}{(2 \pi)^{3}} \theta(\tau) \int_{0}^{2 \pi} \mathrm{~d} \phi \int_{0}^{\infty} \mathrm{d} K \int_{0}^{\pi} \mathrm{d} \theta K^{2} \sin \theta \mathrm{e}^{i K R \cos \theta} \frac{\sin K \tau}{K} \\
 & =-\frac{\theta(\tau)}{2 \pi^{2} R} \int_{0}^{\infty} \mathrm{d} K \sin K \tau \sin K R \\
@@ -1695,7 +1428,6 @@ G\left(x-x^{\prime}\right) & =-\frac{1}{(2 \pi)^{3}} \theta(\tau) \int_{0}^{2 \p
 & =-\frac{\delta(\tau-R)}{4 \pi R}.
 \end{aligned}
 $$
-
 最后一步是因为由于 $\theta(\tau)$ 因子，整个表达式在 $\tau<0$
 时为零，而当 $\tau>0$ 时
 $\delta(\tau+R)=0$。因此，格林函数可以表示为
@@ -1718,11 +1450,9 @@ $\delta(\tau+R)=0$。因此，格林函数可以表示为
 其中
 $\left[f\left(\mathbf{x}^{\prime}, t^{\prime}\right)\right]_{\text{ret}}$
 表示在\textbf{推迟时间}
-
-$$
+ $$
 t^{\prime}=t-\frac{\left|\mathbf{x}-\mathbf{x}^{\prime}\right|}{c}
 $$
-
 处计算的 $f$。
 
 \subsubsection{问题}\label{ux95eeux9898-3}
@@ -1730,18 +1460,14 @@ $$
 \paragraph{问题 12.15}\label{ux95eeux9898-12.15}
 
 \textbf{证明：}
-时间不依赖的克莱因-戈登方程的格林函数可表示为以下傅里叶积分：
-
-$$
+时间不依赖的克莱因-戈登方程(Klein–Gordon equation)的格林函数可表示为以下傅里叶积分：
+ $$
 G\left(\mathbf{x}-\mathbf{x}^{\prime}\right)=-\frac{1}{(2 \pi)^{3}} \iiint \mathrm{~d}^{3} k \frac{\mathrm{e}^{i \mathbf{k} \cdot\left(\mathbf{x}-\mathbf{x}^{\prime}\right)}}{\mathbf{k}^{2}+m^{2}}
 $$
-
 并求解此积分以证明结果为：
-
-$$
+ $$
 G(\mathbf{R})=-\frac{\mathrm{e}^{-m R}}{4 \pi R} \quad \text { 其中 } \quad \mathbf{R}=\mathbf{x}-\mathbf{x}^{\prime}, \quad R=|\mathbf{R}|.
 $$
-
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \begin{enumerate}
@@ -1754,13 +1480,11 @@ $$
   $$
   G(\mathbf{R})=-\frac{1}{(2 \pi)^{3}} \int_{0}^{\infty} k^{2} \mathrm{~d} k \int_{0}^{\pi} \sin \theta \mathrm{~d} \theta \int_{0}^{2 \pi} \mathrm{~d} \phi \frac{\mathrm{e}^{i k R \cos \theta}}{k^{2}+m^{2}}.
   $$
-
   对 $\phi$ 的积分得 $2 \pi$，对 $\theta$ 的积分为
 
   $$
   \int_{0}^{\pi} \sin \theta \mathrm{e}^{i k R \cos \theta} \mathrm{~d} \theta = \frac{\sin(k R)}{k R}.
   $$
-
   因此，积分化简为
 
   $$
@@ -1773,7 +1497,6 @@ $$
   $$
   \int_{0}^{\infty} \frac{k \sin(k R)}{k^{2}+m^{2}} \mathrm{d} k = \frac{\pi}{2} \mathrm{e}^{-m R}.
   $$
-
   因此，
 
   $$
@@ -1793,7 +1516,6 @@ $$
   $$
   \phi(\mathbf{r}) = \int G(\mathbf{R}) \rho(\mathbf{r}^{\prime}) \mathrm{d}^{3} r^{\prime}.
   $$
-
   代入 $\rho(\mathbf{r})$，得到
 
   $$
@@ -1803,20 +1525,16 @@ $$
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\paragraph{问题 12.16}\label{ux95eeux9898-12.16}
+\paragraph{问题 12.16}\label{pro:12.16}
 
 \textbf{证明：} 一维扩散方程的格林函数为
-
-$$
+ $$
 G\left(x-x^{\prime}, t-t^{\prime}\right)=-\theta\left(t-t^{\prime}\right) \sqrt{\frac{\kappa}{4 \pi\left(t-t^{\prime}\right)}} \mathrm{e}^{-\left(x-x^{\prime}\right)^{2} / 4 \kappa\left(t-t^{\prime}\right)}.
 $$
-
 并写出非齐次方程
-
-$$
+ $$
 \frac{\partial^{2} \psi(x, t)}{\partial x^{2}}-\frac{1}{\kappa} \frac{\partial \psi(x, t)}{\partial t}=F(x, t)
 $$
-
 的解。
 \begin{enumerate}
 
@@ -1826,19 +1544,16 @@ $$
   $$
   \frac{\partial^{2} G(x, t)}{\partial x^{2}}-\frac{1}{\kappa} \frac{\partial G(x, t)}{\partial t} = \delta(x-x^{\prime}) \delta(t-t^{\prime}).
   $$
-
   令 $G(x, t)=\theta(t-t^{\prime}) g(x, t)$，分离变量并解得
 
   $$
   g(x, t) = \sqrt{\frac{\kappa}{4 \pi (t-t^{\prime})}} \mathrm{e}^{-\frac{\left(x-x^{\prime}\right)^{2}}{4 \kappa (t-t^{\prime})}}.
   $$
-
   格林函数因此为
 
   $$
   G(x-x^{\prime}, t-t^{\prime}) = -\theta(t-t^{\prime}) g(x, t).
   $$
-
 \item
   \textbf{非齐次方程的解：} 由卷积形式的解，非齐次方程的解为
 
@@ -1847,25 +1562,19 @@ $$
   $$
 
 
-
 \item
   \textbf{二维与三维扩散方程：}
 \end{enumerate}
 
 对于 $n=2, 3$ 的扩散方程
-
-$$
+ $$
 \nabla^{2} G(x, t)-\frac{1}{\kappa} \frac{\partial G(x, t)}{\partial t} = \delta^{n}\left(\mathbf{x}-\mathbf{x}^{\prime}\right) \delta(t-t^{\prime}),
 $$
-
 格林函数为
-
-$$
+ $$
 G(\mathbf{x}-\mathbf{x}^{\prime}, t-t^{\prime}) = -\theta(t-t^{\prime}) \frac{1}{(4 \pi \kappa (t-t^{\prime}))^{n/2}} \mathrm{e}^{-\frac{|\mathbf{x}-\mathbf{x}^{\prime}|^{2}}{4 \kappa (t-t^{\prime})}}.
 $$
-
 非齐次方程解为
-
-$$
+ $$
 \psi(\mathbf{x}, t) = \int G(\mathbf{x}-\mathbf{x}^{\prime}, t-t^{\prime}) F(\mathbf{x}^{\prime}, t^{\prime}) \mathrm{d}^{n} \mathbf{x}^{\prime} \mathrm{d} t^{\prime}.
 $$
