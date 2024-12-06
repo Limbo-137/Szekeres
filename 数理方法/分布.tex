@@ -21,21 +21,17 @@ $$
 \begin{equation}
   \varphi_n(x)= \begin{cases}2 n & \quad|x| \leq 1 / n \\ 0 & \quad|x|>1 / n\end{cases}
 \end{equation}
-
-
 或高斯函数
 
 $$
 V_n(x)=\frac{1}{n \sqrt{\pi}} \mathrm{e}^{-x^2 / x^2}
 $$
-
 勒贝格的主导收敛定理并不适用于这些序列，但积分的极限显然是1，并且对于任何连续函数
 $f(x)$，可以不难证明：
 
 $$
 \lim _{x \rightarrow \infty} \int_{-\infty}^{\infty} f(x) \eta_n(x) \mathrm{d} x=\lim _{x \rightarrow \infty} \int_{-\infty}^{\infty} f(x) \psi_n(x) \mathrm{d} x=f(0)
 $$
-
 然而，我们不会尝试通过某种极限意义来定义狄拉克类函数。相反，我们遵循洛朗·施瓦茨的思路，将它们定义为适当定义的正规测试函数空间上的连续线性泛函。这种方法被称为\textbf{分布理论(distributions)}{[}1-6{]}。
 \begin{figure}
   \centering
