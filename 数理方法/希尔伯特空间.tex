@@ -1,0 +1,1048 @@
+
+\section{定义和例子}
+令$V$是带有内积结构\(\braket{\cdot|\cdot}:V\times V\rightarrow\mathbb{C}\)的复向量空间，满足\ref{sec:5.2}中的(IP1)-(IP3)，这样一个空间常被称为一个\textbf{准希尔伯特空间(pre-Hilbert space)}。\ref*{eq:5.11}可以在其上定义范数
+\[\left\lVert u\right\rVert =\sqrt{\braket{u|u}}\]
+这样一个范数\(\lVert \cdot\rVert \)也满足\ref{sec:10.9}节的性质(Norm1)-(Norm3)。条件(Norm1)和(IP1)是等价的，(Norm2)是(IP1)和(IP2)的直接结果，因为
+
+\begin{equation}
+    \|\lambda v\|=\sqrt{\langle\lambda v \mid \lambda v\rangle}=\sqrt{\lambda \bar{\lambda}\langle v \mid v\rangle}=|\lambda|\|v\| .
+\end{equation}
+三角不等式是定理\ref{thm:5.6}的结果，这些性质在无穷维空间也保持，\textbf{希尔伯特空间(Hilbert space)}(\(\mathcal{H},\braket{\cdot|\cdot}\))是在这样内积空间的诱导范数下完备的空间。也就是说，(\(\mathcal{H},\left\lVert \cdot\right\rVert \))是巴拿赫空间。这章水平的希尔伯特空间介绍可以参看[1-6],而更进一步的主题在[7-11]中有讨论
+
+\textbf{平行四边形定理(parallelogram law)}
+\begin{equation}
+    \|x+y\|^{2}+\|x-y\|^{2}=2\|x\|^{2}+2\|y\|^{2}\label{eq:13.2}
+\end{equation}
+对任意一对在内积空间\(\mathcal{H}\)中的向量\(x,y\)都保持。证明就是直接代入$\|x+y\|^{2}=\langle x+y \mid x+y\rangle=\|x\|^{2}+\|y\|^{2}+2 \operatorname{Re}(\langle x \mid y\rangle$，可以直接给出不等式
+\begin{equation}
+    \|x+y\|^{2} \leq 2\|x\|^{2}+2\|y\|^{2}\label{eq:13.3}
+\end{equation}
+(\ref{eq:13.2})和(\ref{eq:13.3})在复数情形下也成立
+\begin{eg}
+    在例\ref{eg:5.4}中，\(\mathbb{C^n}\)的一个典型内积定义成
+    $$
+\left\langle\left(u_{1}, \ldots, u_{n}\right) \mid\left(v_{1}, \ldots, v_{n}\right)\right\rangle=\sum_{i=1}^{n} \overline{u_{i}} v_{i}
+$$
+变成一个希尔伯特空间，范数是
+$$
+\|\mathbf{v}\|=\sqrt{\left|v_{1}\right|^{2}+\left|v_{2}\right|^{2}+\cdots+\left|v_{n}\right|^{2}}
+$$
+这样的空间在例\ref{eg:10.27}中已经证明过了是完备的。在任意有限维内积空间中，施密特正交化过程可以产生一组取这样形式内积的正交标准基(见\ref{sec:5.2}节)，这样一来，每个有限维希尔伯特空间按照上面的内积定义都与\(\mathbb{C}^n\)同构，于是唯一能区分不同有限维希尔伯特空间的就只剩它们的维度了。
+\end{eg}
+\begin{eg}
+    令\(\ell^2\)是全体复序列\(u=(u_1,u_2,...)\)的集合，其中\(u_i \in \mathbb{C}\)使得
+    $$
+\sum_{i=1}^{\infty}\left|u_{i}\right|^{2}<\infty
+$$
+这个空间是一个复向量空间，因为如果\(u,v\)是\(\ell^2\)中任意一对序列，就有\(u+v \in \ell^2\)\\
+因此，使用复数版本的不等式(\ref{eq:13.3})
+$$
+\sum_{=1}^{\infty}\left|u_{i}+v_{i}\right|^{2} \leq 2 \sum_{i=1}^{\infty}\left|u_{i}\right|^{2}+2 \sum_{i=1}^{\infty}\left|v_{i}\right|^{2}<\infty
+$$
+显而易见，如果有\(u \in \ell^2\)，那么对任意复数\(\lambda\),\(\lambda u \in \ell^2\)
+
+令内积定义成
+$$
+\langle u \mid v\rangle=\sum_{i=1}^{\infty} \overline{u_{i}} v_{i}
+$$
+这对任意一对序列\(u,v\in \ell^2\)都是良定义的，理由是
+$$
+\begin{aligned}
+\left|\sum_{i=1}^{\infty} \overline{u_{i}} v_{i}\right| & \leq \sum_{i=1}^{\infty}\left|\overline{u_{i}} v_{i}\right| \\
+& \leq \frac{1}{2} \sum_{i=1}^{\infty}\left(\left|u_{i}\right|^{2}+\left|v_{i}\right|^{2}\right)<\infty
+\end{aligned}
+$$
+最后一步来源于
+$$
+2|\bar{a} b|^{2}=2|a|^{2}|b|^{2}=|a|^{2}+|b|^{2}-(|a|-|b|)^{2} \leq|a|^{2}+|b|^{2}
+$$
+由内积定义的范数是
+$$
+\|u\|=\sqrt{\sum_{i=1}^{\infty}\left|u_{i}\right|^{2}} \leq \infty
+$$
+
+对于任意整数\(M\)和\(n,m>N\)
+$$
+\sum_{i=1}^{M}\left|u_{i}^{(m)}-u_{i}^{(n)}\right|^{2} \leq \sum_{i=1}^{\infty}\left|u_{i}^{(m)}-u_{i}^{(n)}\right|^{2}=\left\|u^{(m)}-u^{(n)}\right\|^{2}<\epsilon^{2}
+$$
+取极限\(n\rightarrow\infty\)我们有
+$$
+\sum_{i=1}^{M}\left|u_{i}^{(m)}-u_{i}\right|^{2} \leq \epsilon^{2}
+$$
+在极限\(M\rightarrow\infty\)的时候
+$$
+\sum_{i=1}^{\infty}\left|u_{i}^{(m)}-u_{i}\right|^{2} \leq \epsilon^{2}
+$$
+所以\(u^{(m)}-u\in \ell^2\)，因此\(u=u^{(m)}-(u^{(m)}-u)\)也属于\(\ell^2\)，因为这是两个\(\ell^2\)内向量的差，并且也是序列\(u^{(m)}\)的极限（对全体\(m>N\)，有\(\left\lVert u^{(m)}-u\right\rVert <\epsilon\)），这表明，我们会发现，\(\ell^2\)会同构于大部分我们感兴趣的希尔伯特空间——我们称之为\textbf{可分希尔伯特空间(separable Hilbert spaces)}
+\end{eg}
+\begin{eg}
+    在\(\mathcal{C}[0,1]\)，也就是\([0,1]\)区间上的连续复函数上，设置内积
+    \[\braket{f|g}=\int_0^1 \overline{f}g \mathrm{d}x\]
+    也是准希尔伯特空间，但是不能是希尔伯特空间，因为连续函数也可能有一个不连续的极限
+\end{eg}
+\begin{exercise}
+    找这么一个\(\mathcal{C}[0,1]\)中的函数序列，有一个不连续的阶梯函数作为其极限
+\end{exercise}
+\begin{eg}\label{eg:13.4}
+    令\(X,\mathcal{M},\mu\)是一个测度空间，而且\(\mathcal{L}^2(X)\)是平方可积复值函数\(f:X\rightarrow\mathbb{C}\),使得
+    \[\int_X\left\lvert f\right\rvert^2d\mu<\infty \]
+    这空间也是复向量空间，因为如果\(f\)和\(g\)都平方可积，那么
+    $$
+\int_{X}|f+\lambda g|^{2} \mathrm{~d} \mu \leq 2 \int_{X}|f|^{2} \mathrm{~d} \mu+2|\lambda|^{2} \int_{X}|g|^{2} \mathrm{~d} \mu
+$$
+把\ref{eq:13.3}应用在复数上
+
+记\(f \sim f'\)当且仅当在\(X\)上几乎处处\(f(x)=f'(x)\)；这明显是\(X\)上的一个等价类，我们记\(L^2(X)\)是商空间\(\mathcal{L}^2(X)/\sim\)。其元素是那些差别仅为零测集的函数等价类\(\tilde{f}\)，两个等价类的内积定义成
+\[\braket{\tilde{f}|\tilde{g}}=\int_X \overline{f}g \mathrm{d}\mu\]
+也是良定义的(见例\ref{eg:5.6})，而且独立于\(f,g\)的选取，因为，如果\(f'\sim f,g'\sim g\)，然后令\(A_f\)和\(A_g\)是分别是\(f(x)\neq f'(x)\)和\(g(x)\neq g'(x)\)的集合，这些集合都有零测度，\(\mu(A_f)=\mu(A_g)=0\)。\(\overline{f^{\prime}(x)} g^{\prime}(x) \neq \overline{f(x)} g(x)\)的集合是\(A_f\cup A_g\)必须也要是零测，所以\(\int_X \overline{f}g \mathrm{d}\mu=\int_X \overline{f'}g' \mathrm{d}\mu\)
+
+内积公理(IP1)和(IP2)是显然的，并且(IP3)遵循形式
+$$
+\|\tilde{f}\|=0 \Longrightarrow \int_{X}|f|^{2} \mathrm{~d} \mu=0 \Longrightarrow f=0 \text { a.e. }
+$$
+在不会搞混的情况下，一般都用简单地用等价类中的一个代表\(f\)来代替函数等价类\(\tilde{f}\in \mathcal{L}^2(X)\)
+
+这表明内积空间\(\mathcal{L}^2(X)\)事实上是一个希尔伯特空间，接下来的定理证明了其完备性
+\end{eg}
+\begin{theorem}[Riesz–Fischer]
+    如果\(f_1,f_2,...\)是一个\(\mathcal{L}^2(X)\)中函数的柯西序列，总存在函数\(f\in \mathcal{L}^2(X)\)使得当\(n\rightarrow\infty\)时\(\left\lVert f-f_n\right\rVert \rightarrow0\).
+\end{theorem}
+\begin{proof}
+    略
+\end{proof}
+\subsection*{习题}
+\section{展开定理}
+\subsection{子空间}
+希尔伯特空间\(\mathcal{H}\)的\textbf{子空间}\(V\)是依范数拓扑\textbf{闭}的向量子空间。因为一个向量子空间为了是闭的我们要求\(V\)中每个向量序列的极限还属于\(V\)，
+\[u_1,u_2,...\rightarrow u\text{且所有的}u_n\in V\Longrightarrow u\in V \]
+如果\(V\)是\(\mathcal{H}\)的任意向量子空间，其\textbf{闭包}\(\overline{V}\)是最小包含\(V\)的子空间，是全体包含\(V\)的子空间的交集。
+
+若\(K\)是\(\mathcal{H}\)的任意子集，那么，就像第三章我们做的那样，由\(K\)生成的向量子空间是
+$$
+L(K)=\left\{\sum_{i=1}^{n} \alpha^{i} u_{i} \mid \alpha^{i} \in \mathbb{C}, u_{i} \in K\right\}
+$$
+但由\(K\)\textbf{生成的子空间}总指由\(K\)生成的闭子空间\(\overline{L(K)}\)。当有一个可数集\(K=\{u_1,u_2,...\}\)使得\(\mathcal{H}\)是由\(K\)生成的
+\[\mathcal{H}=\overline{L(K)}=\overline{L(u_1,u_2,...)}\]
+那我们称这个希尔伯特空间称为\textbf{可分的}
+\subsection{正交标准基}
+如果希尔伯特空间\(\mathcal{H}\)是可分的而且由\(\{u_1,u_2,...\}\)生成，我们需要使用施密特正交化过程(见\ref{sec:5.2}节)来产生一组正交标准基\(\{e_1,e_2,...,e_n\}\)
+$$
+\left\langle e_{i} \mid e_{j}\right\rangle=\delta_{i j}=\begin{cases}
+1 & \text { if } i=j \\
+0 & \text { if } i \neq j
+\end{cases}
+$$
+这些过程的步骤是
+$$
+\begin{array}{ll}
+f_{1}=u_{1} & e_{1}=f_{1} /\left\|f_{1}\right\| \\
+f_{2}=u_{2}-\left\langle e_{1} \mid u_{2}\right\rangle e_{1} & e_{2}=f_{2} /\left\|f_{2}\right\| \\
+f_{3}=u_{3}-\left\langle e_{1} \mid u_{3}\right\rangle e_{1}-\left\langle e_{2} \mid u_{3}\right\rangle e_{2} & e_{3}=f_{3} /\left\|f_{3}\right\|, \text { etc. }
+\end{array}
+$$
+从中可以看出每个\(u_n\)都是都可以是\(\{e_1,e_2,...,e_n\}\)的一个线性组合，于是又\(\mathcal{H}=\overline{L(\{e_1,e_2,...,e_n\})}\)，集合\(\{e_n|n=1,2,...\}\)称为\(\mathcal{H}\)的\textbf{完备正交标准集}或\textbf{正交标准基}
+\begin{theorem}\label{thm:13.2}
+    \(\mathcal{H}\)是可分的希尔伯特空间且\(\{e_1,e_2,...\}\)是一个完备正交标准集，那么任意向量\(u \in \mathcal{H}\)有唯一展开
+    \[u=\sum_{n=1}^{\infty}c_n e_n\quad \text{其中}\quad c_n=\braket{e_n|u}\]
+\end{theorem}
+
+这意味着定理中的和是
+\[\left\lVert u-\sum_{n=1}^{N}c_n e_n\right\rVert\rightarrow0 \quad\text{当}N\rightarrow \infty \text{时}\]
+证明需要用到\textbf{贝塞尔不等式(Bessel’s inequality)}:
+\begin{equation}
+    \sum_{n=1}^{N}\left\lvert \braket{e_n|u} \right\rvert^2 \leq \left\lVert u\right\rVert^2\label{eq:13.5}
+\end{equation}
+其证明如下\\
+对于任意\(N>1\)
+$$
+\begin{aligned}
+0 & \leq\left\|u-\sum_{n=1}^{N}\left\langle e_{n} \mid u\right\rangle e_{n}\right\|^{2} \\
+&=\left\langle u-\sum_{n}\left\langle e_{n} \mid u\right\rangle e_{n} \mid u-\sum_{m}\left\langle e_{m} \mid u\right\rangle e_{m}\right\rangle \\
+&=\|u\|^{2}-2 \sum_{n=1}^{N} \overline{\left\langle e_{n} \mid u\right\rangle}\left\langle e_{n} \mid u\right\rangle+\sum_{n=1}^{N} \sum_{m=1}^{N} \overline{\left\langle e_{n} \mid u\right\rangle} \delta_{m n}\left\langle e_{m} \mid u\right\rangle \\
+&=\|u\|^{2}-\sum_{n=1}^{N}\left|\left\langle e_{n} \mid u\right\rangle\right|^{2}
+\end{aligned}
+$$
+给出了要证的不等式
+\begin{lemma}\label{lema:13.3}
+    在希尔伯特空间中\(\mathcal{H}\)，如果\(v_n\rightarrow v\)，那么对所有向量\(u\in \mathcal{H}\)    
+    \[\braket{u|v_n}\rightarrow\braket{u|v}\]
+\end{lemma}
+\begin{lemma}\label{lema:13.4}
+    如果\(\{e_1,e_2,...\}\)是一个完备正交标准集且对\(n=1,2,...\)有\(\braket{v|e_n}=0\)，则\(v=0\)
+\end{lemma}
+(证明太长了，还有两个引理，之后再写吧)
+\begin{exercise}
+    证明每个可分的希尔伯特空间要么是有限维的内积空间，要么同构于\(\ell^2\)
+\end{exercise}
+\begin{eg}\label{eg:13.5}
+    对于任意实数\(a<b\)，希尔伯特空间\(L^2([a,b])\)是可分的，这里只给出一个提纲挈领的证明，具体细节可以看[1]：由定理\ref{thm:11.2}任意\([a,b]\)上的正可测函数\(f\geq 0\)可以被一个正的简单函数增序列所逼近\(0<s_n(x)\rightarrow f(x)\)，若\(f\in \mathcal{L}^2([a,b])\)那么由于控制收敛定理(定理\ref{thm:11.11}),\(\left\lVert f-s_n\right\rVert \rightarrow 0\)。我们使用一个简单但却带技术性的观点，这些简单函数也可以被连续函数逼近，而且可以证明对于任意\(\epsilon>0\)，存在一个正的连续函数\(h(x)\)使得\(\left\lVert f-h\right\rVert <\epsilon\)。使用著名的魏尔斯特拉斯(Weierstrass)定理：任意闭区间上的连续函数可以被多项式任意逼近，所以我们可以找一个复值多项式\(p(x)\)使\(\left\lVert f-p\right\rVert <\epsilon\)，因为所有多项式都有形式
+    \(p(x)=c_0+c_1 x+c_2 x^2+...+c_n x^n\)其中\(c\in \mathbb{C}\)函数\(1,x,x^2...\)也就组成了\([a,b]\)上的可数函数序列，而且可以生成\(L^2[a,b]\)，这就证明了\(L^2[a,b]\)的可分性。
+
+    \(L^2(\mathbb{R})\)的可分性可以由受限多项式函数\(f_{n,N}=x^n \chi_{[-N,N]}\)是一个可数集且生成\(L^2(\mathbb{R})\)证明
+\end{eg}
+\begin{eg}\label{eg:13.6}
+    在\(L^2([-\pi,\pi])\)，函数
+    $$
+\phi_{n}(x)=\frac{\mathrm{e}^{i n x}}{\sqrt{2 \pi}}
+$$
+形成一组正交基
+$$
+\left\langle\phi_{m} \mid \phi_{n}\right\rangle=\frac{1}{2 \pi} \int_{-\pi}^{\pi} \mathrm{e}^{i(n-m) x} \mathrm{~d} x=\delta_{m n}
+$$
+只需考虑两种情况\(n\neq m\)和\(n=m\)就可以简单计算出上式，这生成了任意在\([-\pi,\pi]\)上平方可积函数的傅里叶级数，
+\[f=\sum_{n=-\infty}^{\infty}c_n\phi_n\quad a.e.\]
+其中\(c_n\)是傅里叶系数
+$$
+c_{n}=\left\langle\phi_{n} \mid f\right\rangle=\frac{1}{\sqrt{2 \pi}} \int_{-\pi}^{\pi} \mathrm{e}^{-i n x} f(x) \mathrm{d} x
+$$
+\end{eg}
+\begin{eg}
+    厄米多项式(hermite polynomials)\(H_n(x)(n=0,1,2,...)\)定义成
+    $$
+H_{n}(x)=(-1)^{n} \mathrm{e}^{x^{2}} \frac{\mathrm{d}^{n} \mathrm{e}^{-x^{2}}}{\mathrm{~d} x^{n}}
+$$
+前几项是
+$$
+H_{0}(x)=1, \quad H_{1}(x)=2 x, \quad H_{2}(x)= 4 x^{2}-2, \quad H_{3}(x)=8 x^{3}-12 x, \ldots
+$$
+第n项的表达式显然具有首项\((-2x)^n\)，函数\(\psi_n=e^{-(1/2)x^2} H_n(x)\)形成一个\(L^2(\mathbb{R})\)的正交系统:
+$$
+\begin{aligned}
+\left\langle\psi_{m} \mid \psi_{n}\right\rangle=&(-1)^{n+m} \int_{-\infty}^{\infty} \mathrm{e}^{x^{2}} \frac{\mathrm{d}^{m} \mathrm{e}^{-x^{2}}}{\mathrm{~d} x^{m}} \frac{\mathrm{d}^{n} \mathrm{e}^{-x^{2}}}{\mathrm{~d} x^{n}} \mathrm{~d} x \\
+=&(-1)^{n+m}\left(\left[\mathrm{e}^{x^{2}} \frac{\mathrm{d}^{m} \mathrm{e}^{-x^{2}}}{\mathrm{~d} x^{m}} \frac{\mathrm{d}^{n-1} \mathrm{e}^{-x^{2}}}{\mathrm{~d} x^{n-1}}\right]_{-\infty}^{\infty}\right.\\
+&\left.-\int_{-\infty}^{\infty} \frac{\mathrm{d}}{\mathrm{d} x}\left(\mathrm{e}^{x^{2}} \frac{\mathrm{d}^{m} \mathrm{e}^{-x^{2}}}{\mathrm{~d} x^{m}}\right) \frac{\mathrm{d}^{n-1} \mathrm{e}^{-x^{2}}}{\mathrm{~d} x^{n-1}} \mathrm{~d} x\right)
+\end{aligned}
+$$
+在分部积分下，右手第一项消失因为当\(x\rightarrow\pm \infty\)时因子\(e^{-x^2}x^{k}\)趋于零，我们可以重复分部积分过程，直到
+$$
+\left\langle\psi_{m} \mid \psi_{n}\right\rangle=(-1)^{m} \int_{-\infty}^{\infty} \mathrm{e}^{-x^{2}} \frac{\mathrm{d}^{n}}{\mathrm{~d} x^{n}}\left(\mathrm{e}^{x^{2}} \frac{\mathrm{d}^{m} \mathrm{e}^{-x^{2}}}{\mathrm{~d} x^{m}}\right) \mathrm{d} x
+$$
+当\(n>m\)时消失因为括号内是一个\(m\)次多项式，\(n<m\)同理，于是导致
+\[\braket{\psi_m|\psi_n}=0\quad \text{当}n\neq m\text{时}\]
+对于\(m=n\)的情形，由厄米多项式的首项\footnote{这是因为对\(n\)阶多项式求\(n\)次导数后只有最高次项有贡献——译者注}
+$$
+\begin{aligned}
+\left\|\psi_{n}\right\|^{2}=\left\langle\psi_{n} \mid \psi_{n}\right\rangle &=(-1)^{n} \int_{-\infty}^{\infty} \mathrm{e}^{-x^{2}} \frac{\mathrm{d}^{n}}{\mathrm{~d} x^{n}}\left(\mathrm{e}^{x^{2}} \frac{\mathrm{d}^{n} \mathrm{e}^{-x^{2}}}{\mathrm{~d} x^{n}}\right) \mathrm{d} x \\
+&=(-1)^{n} \int_{-\infty}^{\infty} \mathrm{e}^{-x^{2}} \frac{\mathrm{d}^{n}}{\mathrm{~d} x^{n}}\left((-2 x)^{n}\right) \mathrm{d} x \\
+&=2^{n} n ! \int_{-\infty}^{\infty} \mathrm{e}^{-x^{2}} \mathrm{~d} x \\
+&=2^{n} n ! \sqrt{\pi}
+\end{aligned}
+$$
+于是函数
+\begin{equation}
+    \phi_n(x)=\frac{e^{-(1/2)x^2}}{\sqrt{2^{n} n ! \sqrt{\pi}}}H_n(x)
+\end{equation}
+形成一个正交标准集，由魏尔斯特拉斯定理它们也形成一组\(L^2(\mathbb{R})\)上的完备的正交标准(\(o.n.\))基。
+\end{eg}
+下面这个引理\ref{lema:13.3}的推广也很有用
+\begin{lemma}\label{lema:13.5}
+    若\(u_n\rightarrow u\)而且\(v_n\rightarrow v\)，那么\(\braket{u_n|v_n}\rightarrow \braket{u|v}\)
+\end{lemma}
+\begin{proof}
+    使用柯西-施瓦茨不等式\ref{eq:5.13}
+    $$
+\begin{aligned}
+\left|\left\langle u_{n} \mid v_{n}\right\rangle-\langle u \mid v\rangle\right| &=\left|\left\langle u_{n} \mid v_{n}\right\rangle-\left\langle u_{n} \mid v\right\rangle+\left\langle u_{n} \mid v\right\rangle-\langle u \mid v\rangle\right| \\
+& \leq\left|\left\langle u_{n} \mid v_{n}\right\rangle-\left\langle u_{n} \mid v\right\rangle\right|+\left|\left\langle u_{n} \mid v\right\rangle-\langle u \mid v\rangle\right| \\
+& \leq\left\|u_{n}\right\|\left\|v_{n}-v\right\|+\left\|u_{n}-u\right\|\|v\| \\
+& \rightarrow\|u\| \cdot 0+0 \cdot \|v\| \rightarrow 0  \qedhere 
+\end{aligned}
+$$
+\end{proof}
+\begin{exercise}
+    如果\(u_n\rightarrow u\)，证明\(\left\lVert u_n\right\rVert\rightarrow\left\lVert u\right\rVert  \)，最后一步使用上面的证明。
+\end{exercise}
+下面的恒等式在量子力学中广为应用
+\begin{theorem}[Parseval恒等式]
+    \begin{equation}
+        \langle u \mid v\rangle=\sum_{i=1}^{\infty}\left\langle u \mid e_{i}\right\rangle\left\langle e_{i} \mid v\right\rangle \label{eq:13.7}
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    用定理\ref{thm:13.2}，\(n\rightarrow \infty\)时，\(u_n\rightarrow u\)而且\(v_n\rightarrow v\)，使用引理\ref{lema:13.5}
+    $$
+\begin{aligned}
+\langle u \mid v\rangle &=\lim _{n \rightarrow \infty}\left\langle u_{n} \mid v_{n}\right\rangle \\
+&=\lim _{n \rightarrow \infty} \sum_{i=1}^{n} \sum_{j=1}^{n} \overline{\left\langle e_{i} \mid u\right\rangle}\left\langle e_{j} \mid v\right\rangle\left\langle e_{i} \mid e_{j}\right\rangle \\
+&=\lim _{n \rightarrow \infty} \sum_{i=1}^{n} \sum_{j=1}^{n}\left\langle u \mid e_{i}\right\rangle\left\langle e_{j} \mid v\right\rangle \delta_{i j} \\
+&=\lim _{n \rightarrow \infty} \sum_{i=1}^{n}\left\langle u \mid e_{i}\right\rangle\left\langle e_{i} \mid v\right\rangle \\
+&=\sum_{i=1}^{\infty}\left\langle u \mid e_{i}\right\rangle\left\langle e_{i} \mid v\right\rangle \qedhere
+\end{aligned}
+$$
+\end{proof}
+对于一个\([-\pi,\pi]\)上的函数\(f(x)=\sum^{\infty}_{n=-\infty}c_n\phi_n\)，其中\(\phi_n (x)\)是例子\ref{eg:13.6}的标准傅里叶函数，Parseval恒等式变成广为人知的等式
+$$
+\|f\|^{2}=\int_{-\pi}^{\pi}|f(x)|^{2} \mathrm{~d} x=\sum_{n=-\infty}^{\infty}\left|c_{n}\right|^{2} .
+$$
+\section{线性泛函}
+\subsection{正交子空间}
+两个向量\(u,v\in H\)\textbf{正交}指\(\braket{u|v}=0\)，记作\(u\bot v\)，如果\(V\)是\(\mathcal{H}\)的子空间，我们可以构造\textbf{正交补}
+$$
+V^{\bot}=\{u \mid u \perp v \text {对全体} v \in V\}
+$$
+\begin{theorem}
+    如果\(V\)是\(\mathcal{H}\)的子空间，那么\(V^{\perp}\)也是子空间
+\end{theorem}
+\begin{proof}
+    略
+\end{proof}
+\begin{theorem}\label{thm:13.8}
+    如果\(V\)是希尔伯特空间\(\mathcal{H}\)的子空间那么任意\(u\in\mathcal{H}\)有唯一分解
+    $$
+u=u^{\prime}+u^{\prime \prime} \quad \text {其中} \quad u^{\prime} \in V, u^{\prime \prime} \in V^{\perp} 
+$$
+\end{theorem}
+\begin{proof}
+    先欠着
+\end{proof}
+\begin{corollary}
+    对任意子空间\(V\)，\(V^{\perp \perp}=V\)
+\end{corollary}
+\begin{proof}
+    同上
+\end{proof}
+\subsection{Riesz表示定理}
+对每个\(v\in \mathcal{H}\)，映射\(\varphi_v:u\mapsto\braket{v|u}\)是一个\(\mathcal{H}\)上的线性泛函，线性性和连续性都来源于引理\ref{lema:13.3}。下面的定理表明了所有在希尔伯特空间上的(连续)线性泛函都可以取这种形式，这是量子力学中非常重要的结果，也是狄拉克左右矢记号(Dirac's bra-ket notation)的动机
+\begin{theorem}[Riesz表示定理]\label{thm:13.10}
+    若\(\varphi\)是希尔伯特空间\(\mathcal{H}\)的线性泛函，那么有唯一的向量\(v\in \mathcal{H}\)使得
+    \[\varphi(u)=\varphi_v(u)=\braket{v|u}\quad\text{对全体}u\in \mathcal{H}\]
+\end{theorem}
+\begin{proof}
+    不会吧不会吧，不会有人连这么重要的定理的证明都不翻译吧
+\end{proof}
+\section{有界线性算符}
+令\(V\)是任意赋范向量空间。线性算符\(A:V\rightarrow V\)如果满足对某常数\(K\geq 0\)和全体\(u\in V\)有
+\[\left\lVert Au\right\rVert\leq K\left\lVert u\right\rVert  \]
+则称为\textbf{有界的}
+\begin{theorem}\label{thm:13.11}
+    一个赋范向量空间上的线性算子是有界的当且仅当其依范数拓扑连续
+\end{theorem}
+\begin{proof}
+    如果\(A\)是有界的那么也是连续的，因为对\(\epsilon>0\)，任意一对向量\(u,v\)使得\(\left\lVert u-v\right\rVert <\epsilon/K\)
+    $$
+\|A u-A v\|=\|A(u-v)\| \leq K\|u-v\|<\epsilon .
+$$
+
+反过来，令\(A\)是\(V\)上的连续算符，如果\(A\)不是有界的，那么对每个\(N>0\)存在\(u_N\)使得\(\left\lVert A u_N\right\rVert \geq N\left\lVert u_N\right\rVert \)，设
+\[ w_{N}=\frac{u_{N}}{N\left\|u_{N}\right\|} \]
+于是
+\[\left\|w_{N}\right\|=\frac{1}{N} \rightarrow 0\]
+因此\(w_N\rightarrow 0\),但是\(\left\lVert Aw_N\right\rVert\geq 1 \)，所以\(Aw_N\)肯定不趋于\(0\)，和原假设矛盾，于是\(A\)连续
+\end{proof}
+有界算符的\textbf{范数}定义成
+$$
+\|A\|=\sup \{\|A u\| \mid\|u\| \leq 1\}
+$$
+由定理\ref{thm:13.11}可知，\(A\)在\(x=0\)点连续，因此存在\(\epsilon>0\)使得\(\|Ax\|\leq 1\)，对全体\(\|x\|\leq \epsilon\)，对任意\(\|u\|\leq 1\)令\(v=\epsilon u\)使得\(\|v\|\leq \epsilon\)且
+$$
+\|A u\|=\frac{1}{\epsilon}\|A v\| \leq \frac{1}{\epsilon}
+$$
+这表明总对一个有界算子而言\(\|A\|\)总存在。
+\begin{eg}\label{eg:13.8}
+    在\(\ell^2\)上的定义两个平移算符(shift operators) \(S\)和\(S'\)
+    \[S\left(\left(x_{1}, x_{2}, x_{3}, \ldots\right)\right)=\left(0, x_{1}, x_{2}, \ldots\right) \]
+    和
+    \[S^{\prime}\left(\left(x_{1}, x_{2}, x_{3}, \ldots\right)\right)=\left(x_{2}, x_{3}, \ldots\right) \]
+    这些算子显然线性，而且满足
+    \[\|Sx\|=\|x\|\quad \text{和}\quad \|S'x\|\leq \|x\|\]
+    所以\(S\)的范数是\(1\)，而\(S'\)的范数也是\(1\)，因为\(x_1=0\)时等式依然成立。
+\end{eg}
+\begin{eg}\label{eg:13.9}
+    \(\alpha\)是测度空间\(X\)上的平方可积函数构成的希尔伯特空间\(L^2(X)\)上的有界可测函数，乘法算符(multiplication operator)\(A_\alpha:L^2(X)\rightarrow L^2(X)\)，定义成\(A_\alpha (f)=\alpha f\)是一个有界线性算符，因为\(\alpha f\)对于每个\(f\in L^2(X)\)，而且是平方可积的因为
+$$
+|\alpha f|^{2} \leq M^{2}|f|^{2} \quad \text { 其中 } \quad M=\sup _{x \in X}|\alpha(x)| .
+$$
+乘法算符在\(L^2(X)\)空间上是良定义的，因为\(f\)和\(f'\)几乎处处相等，\(f\sim f'\)于是\(\alpha f\sim \alpha f'\)，于是我们用\(A_\alpha f\)来代替\(A_\alpha [f]\)并无歧义，线性性显然，而有界性源于
+$$
+\left\|A_{\alpha} f\right\|^{2}=\int_{X}|\alpha f|^{2} \mathrm{~d} \mu \leq M^{2} \int_{X}|f|^{2} \mathrm{~d} \mu=M^{2}\|f\|^{2}
+$$
+\end{eg}
+\begin{exercise}
+    如果\(A,B\)都是赋范空间上的有界线性算符，证明\(A+\lambda B\)和\(AB\)也是有界的。
+\end{exercise}
+对一个有界算符\(A:V\rightarrow V\)而言，如果存在\(A^{-1}:V\rightarrow V\)，使得\(A A^{-1}=A^{-1} A=\mathrm{id}_V\)，那么\(A\)称为\textbf{可逆的(invertible)}，\(A^{-1}\)称为\(A\)的\textbf{逆(inverse)}，显而易见是唯一的，因为如果\(BA=CA\)，那么$B=B I=B A A^{-1}=C A A^{-1}=C$。我们需要指明的是，\(A^{-1}\)既是一个左逆又是一个右逆。例如在\(\ell^2\)中，在例\ref{eg:13.8}中的平移算符\(S\)就只有左逆\(S'\)，因为\(S'S=I\)，但是这不是其右逆因为\(SS'(\left(x_{1}, x_{2}, x_{3}, \ldots\right)=(\left(0, x_{2}, x_{3}, \ldots\right)\)，那么\(S\)就不是一个可逆算符，尽管它是一个等距的单射，\(\|Sx\|=\|x\|\)，对于有限维空间这已经足够保证可逆性了。
+\begin{theorem}\label{thm:13.12}
+    \(A\)是巴拿赫空间\(V\)上的有界算符，\(\|A\|<1\)，那么算符\(I-A\)可逆，而且有
+    \[(1-A)^{-1}=\sum_{n=0}^{\infty}A^n\]
+\end{theorem}
+\begin{proof}
+    显然
+\end{proof}
+\subsection{伴随算符}
+\(A:\mathcal{H}\rightarrow\mathcal{H}\)是希尔伯特空间\(\mathcal{H}\)上的有界线性算符，我们定义其\textbf{伴随(adjoint)}是算符\(A^*:\mathcal{H}\rightarrow\mathcal{H}\)，而且有性质
+\begin{equation}
+    \langle u \mid A v\rangle=\left\langle A^{*} u \mid v\right\rangle \quad \text{对全体} u, v \in \mathcal{H}，这个算符是良定义，线性且有界的。
+\end{equation}
+\begin{proof}
+    我觉得挺显然的
+\end{proof}
+\begin{theorem}
+    伴随算符满足下列性质
+    \begin{enumerate}[(i).]
+        \item $(A+B)^{*}=A^{*}+B^{*}$,
+        \item $(\lambda A)^{*}=\bar{\lambda} A^{*}$,
+        \item $(A B)^{*}=B^{*} A^{*}$,
+        \item $A^{* *}=A$,
+        \item 若 $A$ 是可逆的 $\left(A^{-1}\right)^{*}=\left(A^{*}\right)^{-1}$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    证明留作练习
+\end{proof}
+\begin{eg}
+    \(\ell^2\)上的右平移算符\(S\)诱导出内积
+$$
+\langle x \mid S y\rangle=\overline{x_{1}} \cdot 0+\overline{x_{2}} y_{1}+\overline{x_{3}} y_{2}+\cdots=\left\langle S^{\prime} x \mid y\right\rangle,
+$$
+其中\(S'\)是左平移，因此，\(S^{*}=S'\)，同样\(S^{'*}=S\),因为
+$$
+\langle x \mid S' y\rangle=\overline{x_{1}} y_2+\overline{x_{2}} y_{3}+\cdots=\left\langle S x \mid y\right\rangle,
+$$
+\end{eg}
+\begin{eg}
+    \(\alpha\)是测度空间\(X\)上的平方可积函数构成的希尔伯特空间\(L^2(X)\)上的有界可测函数，乘法算符\(A_\alpha:L^2(X)\rightarrow L^2(X)\)，定义成\ref{eg:13.9}那样。 对任意一对在$X$上平方可积的函数$f, g$而言 , 方程$\left\langle A_{\alpha}^{*} f \mid g\right\rangle=\left\langle f \mid A_{\alpha} g\right\rangle$ 写成
+$$
+\int_{X} \overline{A_{\alpha}^{*} f} g \mathrm{~d} \mu=\int_{X} \bar{f} A_{\alpha} g \mathrm{~d} \mu=\int_{X} \bar{f} \alpha g \mathrm{~d} \mu
+$$
+因为$g$是$\mathcal{L}^{2}(X)$中的任意函数，我们有 $\overline{A_{\alpha}^{*} f}=\alpha \bar{f}$ a.e.， $L^{2}(X)$ 中的每一项等价类函数的伴随算符写成
+$$
+A_{\alpha}^{*}[f]=[\bar{\alpha} f] .
+$$
+所以函数的乘法算符的伴随算符是其复共轭函数的乘法算符。
+\end{eg}
+我们定义\textbf{\(\mathcal{H}\)中向量\(v\)和\(u\)之间的算符\(A\)的矩阵元}是\(\braket{u|Av}\)，如果希尔伯特空间可分而且\(e_i\)是一组正交标准基，由定理\ref{thm:13.2}，我们可以写
+$$
+A e_{j}=\sum_{i} a_{i j} e_{i} \quad \text { 其中 } \quad a_{i j}=\left\langle e_{i} \mid A e_{j}\right\rangle .
+$$
+因此，基向量之间的算子的矩阵元素与该算子的矩阵关于该基的分量相同, $\mathrm{A}=\left[a_{i j}\right]$. 伴随算符有分解
+$$
+A^{*} e_{j}=\sum_{i} a_{i j}^{*} e_{i} \quad \text { 其中 } \quad a_{i j}^{*}=\left\langle e_{i} \mid A^{*} e_{j}\right\rangle .
+$$
+矩阵元素 $\left[a_{i j}^{*}\right]$ 和$\left[a_{i j}\right]$ 之间的关系由
+$$
+a_{i j}^{*}=\left\langle e_{i} \mid A^{*} e_{j}\right\rangle=\left\langle A e_{i} \mid e_{j}\right\rangle=\overline{\left\langle e_{j} \mid A e_{i}\right\rangle}=\overline{a_{j i}},
+$$
+所决定，或用矩阵符号
+$$
+\mathrm{A}^{*} \equiv\left[a_{i j}^{*}\right]=\left[\overline{a_{j i}}\right]=\overline{\mathrm{A}^{T}}=\mathrm{A}^{\dagger}
+$$
+在量子力学中，伴随算子通常使用共轭转置记号 $A^{\dagger}$ , 但是这种与复伴随矩阵的等价性只有在正交基的情形下才适用。
+\begin{exercise}
+ 证明在一组正交标准基下 $A u=\sum_{i} u_{i}^{\prime} e_{i} $其中 $u=\sum_{i} u_{i} e_{i} $ 和 $ u_{i}^{\prime}=\sum_{j} a_{i j} u_{j} $
+\end{exercise}
+\subsection{厄米算符}
+若算符$A$满足$A=A^{*}$，则称为\textbf{厄米的(hermitian)}， 于是
+$$
+\langle u \mid A v\rangle=\left\langle A^{*} u \mid v\right\rangle=\overline{\left\langle v \mid A^{*} u\right\rangle}=\langle A u \mid v\rangle .
+$$
+如果$\mathcal{H}$ 是可分的而且 $e_{1}, e_{2}, \ldots$ 是一个完备正交标准集， 那么在这组基下的矩阵元$a_{i j}=\left\langle e_{i} \mid A e_{j}\right\rangle$，具有厄米性
+$$
+a_{i j}=\overline{a_{j i}} .
+$$
+换句话说，一个算符$A$是厄米的当且仅当其按照任何正交标准基展开是厄米的
+$$
+A=\left[a_{i j}\right]=\overline{A^{T}}=A^{\dagger}
+$$
+这些算符有时也称为自伴的(self-adjoint)，但根据现代的用法，我们将使用这个术语“自伴”来表示第\ref{sec:13.6}节中定义的更一般的概念。
+
+令$M$ 是$\mathcal{H}$ 的一个闭子空间，则由定理\ref{thm:13.8}, 任意$u \in \mathcal{H}$ 有唯一分解
+$$
+u=u^{\prime}+u^{\prime \prime} \quad \text { 其中 } \quad u^{\prime} \in M, u^{\prime \prime} \in M^{\perp} .
+$$
+我们按照$=u^{\prime}$定义一个投影算符 $P_{M}: \mathcal{H} \rightarrow \mathcal{H}$ , 这个映射把 $\mathcal{H}$的每个向量到上的映射到在子空间$M$中的正交投影。
+\begin{theorem}
+    对每个子空间\(M\)，投影算符\(P_{M}(u)\)是有界厄米算符而且满足\(P^2_{M}=P_{M}\)（称为\textbf{幂等算符(dempotent operator)}）；反过来任意幂等算符\(P\)可以与某子空间上的投影算符对应。
+\end{theorem}
+\begin{proof}
+     1. $P_{M}$ is hermitian. For any two vectors from $u, v \in \mathcal{H}$
+$$
+\left\langle u \mid P_{M} v\right\rangle=\left\langle u \mid v^{\prime}\right\rangle=\left\langle u^{\prime}+u^{\prime \prime} \mid v^{\prime}\right\rangle=\left\langle u^{\prime} \mid v^{\prime}\right\rangle
+$$
+since $\left\langle u^{\prime \prime} \mid v^{\prime}\right\rangle=0$. Similarly,
+$$
+\left\langle P_{M} u \mid v\right\rangle=\left\langle u^{\prime} \mid v\right\rangle=\left\langle u^{\prime} \mid v^{\prime}+v^{\prime \prime}\right\rangle=\left\langle u^{\prime} \mid v^{\prime}\right\rangle .
+$$
+Thus $P_{M}=P_{M}^{*}$.
+2. $P_{M}$ is bounded, for $\left\|P_{M} u\right\|^{2} \leq\|u\|^{2}$ since
+$$
+\|u\|^{2}=\langle u \mid u\rangle=\left\langle u^{\prime}+u^{\prime \prime} \mid u^{\prime}+u^{\prime \prime}\right\rangle=\left\langle u^{\prime} \mid u^{\prime}\right\rangle+\left\langle u^{\prime \prime} \mid u^{\prime \prime}\right\rangle \geq\left\|u^{\prime}\right\|^{2} .
+$$
+3. $P_{M}$ is idempotent, for $P_{M}^{2} u=P_{M} u^{\prime}=u^{\prime}$ since $u^{\prime} \in M$. Hence $P_{M}^{2}=P_{M}$.
+
+4. Suppose $P$ is hermitian and idempotent, $P^{2}=P$. The operator $P$ is bounded and therefore continuous, for by the Cauchy-Schwarz inequality (5.13),
+$$
+\|P u\|^{2}=|\langle P u \mid P u\rangle|=\left|\left\langle u \mid P^{2} u\right\rangle\right|=|\langle u \mid P u\rangle| \leq\|u\|\|P u\| .
+$$
+Hence either $\|P u\|=0$ or $\|P u\| \leq\|u\|$.
+Let $M=\{u \mid u=P u\}$. This is obviously a vector subspace of $\mathcal{H}$. It is closed by continuity of $P$, for if $u_{n} \rightarrow u$ and $P u_{n}=u_{n}$, then $P u_{n} \rightarrow P u=\lim _{n \rightarrow \infty} u_{n}=u$. Thus $M$ is a subspace of $\mathcal{H}$. For any vector $v \in \mathcal{H}$, set $v^{\prime}=P v$ and $v^{\prime \prime}=(I-P) v=v-v^{\prime}$. Then $v=v^{\prime}+v^{\prime \prime}$ and $v^{\prime} \in M, v^{\prime \prime} \in M^{\perp}$, for
+$$
+P v^{\prime}=P(P v)=P^{2} v=P v=v^{\prime},
+$$
+and for all $w \in M$
+$$
+\left\langle v^{\prime \prime} \mid w\right\rangle=\langle(I-P) v \mid w\rangle=\langle v \mid w\rangle-\langle P v \mid w\rangle=\langle v \mid w\rangle-\langle v \mid P w\rangle=\langle v \mid w\rangle-\langle v \mid w\rangle=0 .
+$$
+\end{proof}
+\subsection{酉算符}
+算符$U: \mathcal{H} \rightarrow \mathcal{H}$ i若满足
+$$
+\langle U u \mid U v\rangle=\langle u \mid v\rangle \quad \text { 对全体} u, v \in \mathcal{H} .
+$$
+则称为\textbf{酉的(unitary)}
+因为这暗示着 $\left\langle U^{*} U u \mid v\right\rangle=\langle u \mid v\rangle$, 算符$U$ 是酉的当且仅当 $U^{-1}=U^{*}$. 每个酉算符都是\textbf{等距同构(isometric)}, $\|U u\|=\|u\|$，对于所有 $u \in \mathcal{H}$-它保证两个向量间的距离 $d(u, v)=\|u-v\|$ 不变。反过来，每个等距算符都是酉的, 因为若$U$等距则
+$$
+\langle U(u+v) \mid U(u+v)\rangle-i\langle U(u+i v) \mid U(u+i v)\rangle=\langle u+v \mid u+v\rangle-i\langle u+i v \mid u+i v\rangle .
+$$
+两边展开，用$\langle U u \mid U u\rangle=\langle u \mid u\rangle$ 和$\langle U v \mid U v\rangle=\langle v \mid v\rangle$代入，得
+$$
+2\langle U u \mid U v\rangle=2\langle u \mid v\rangle .
+$$
+
+如果$\left\{e_{1}, e_{2}, \ldots\right\}$ 是一组正交标准基那么
+$$
+e_{1}^{\prime}=U e_{1}, e_{2}^{\prime}=U e_{2}, \ldots
+$$
+也是，因为
+$$
+\left\langle e_{i}^{\prime} \mid e_{j}^{\prime}\right\rangle=\left\langle U e_{i} \mid U e_{j}\right\rangle=\left\langle U^{*} U e_{i} \mid e_{j}\right\rangle=\left\langle e_{i} \mid e_{j}\right\rangle=\delta_{i j}
+$$
+反过来，对于任意一对完备正交标准集$\left\{e_{1}, e_{2}, \ldots\right\}$ 和$\left\{e_{1}^{\prime}, e_{2}^{\prime}, \ldots\right\}$而言， 算符 $U e_{i}=e_{i}^{\prime}$ 是酉的，因为若$u$ 是任意矢量 ,由定理\ref{thm:13.2},
+$$
+u=\sum_{i} u_{i} e_{i} \quad \text {其中} \quad u_{i}=\left\langle e_{i} \mid u\right\rangle
+$$
+因此
+$$
+U u=\sum_{i} u_{i} U e_{i}=\sum_{i} u_{i} e_{i}^{\prime}
+$$
+
+给出
+$$
+u_{i}=\left\langle e_{i} \mid u\right\rangle=\left\langle e_{i}^{\prime} \mid U u\right\rangle
+$$
+Parseval恒等式( \ref{eq:13.7}) 可以应用在原基上,
+$$
+\begin{aligned}
+\langle U u \mid U v\rangle &=\sum_{i}\left\langle U u \mid e_{i}^{\prime}\right\rangle\left\langle e_{i}^{\prime} \mid U v\right\rangle \\
+&=\sum_{i} \overline{u_{i}} v_{i} \\
+&=\sum_{i}\left\langle u \mid e_{i}\right\rangle\left\langle e_{i} \mid v\right\rangle \\
+&=\langle u \mid v\rangle
+\end{aligned}
+$$
+这就证明了 $U$ 是酉算符。
+\begin{exercise}
+    证明酉算符\(U\)满足\(\|U\|=1\)
+\end{exercise}
+\begin{exercise}
+    证明\(L^2(X)\)上的乘法算符\(A_\alpha\)是酉的当且仅当对所有\(x\in X \)有\(|\alpha(x)|=1\)
+\end{exercise}
+\section{谱理论}
+\subsection{本征向量}
+对于有界线性算符\(A\) : \(\mathcal{H} \rightarrow \mathcal{H}\) 如果存在非零向量 \(u \in \mathcal{H}\) 使得
+\[
+A u=\alpha u 
+\]
+复数\(\alpha\)称为其\textbf{本征值(eigenvalue)}，\(u\) 称为 \(A\) 对应于本质值\(\alpha\)的\textbf{本征向量(eigenvector)}，这在第四章我们都已经做过了。
+\begin{theorem}\label{thm:13.15}
+    所有厄米算符的本征值都是实数，对应于不同本征值的本征向量互相正交
+\end{theorem}
+\begin{proof}
+If \(A u=\alpha u\) then
+\[
+\langle u \mid A u\rangle=\langle u \mid \alpha u\rangle=\alpha\|u\|^{2} .
+\]
+Since \(A\) is hermitian
+\[
+\langle u \mid A u\rangle=\langle A u \mid u\rangle=\langle\alpha u \mid u\rangle=\bar{\alpha}\|u\|^{2} .
+\]
+For a non-zero vector \(\|u\| \neq 0\), we have \(\alpha=\bar{\alpha}\); the eigenvalue \(\alpha\) is real.
+If \(A v=\beta v\) then
+\[
+\langle u \mid A v\rangle=\langle u \mid \beta v\rangle=\beta\langle u \mid v\rangle
+\]
+and
+\[
+\langle u \mid A v\rangle=\langle A u \mid v\rangle=\langle\alpha u \mid v\rangle=\bar{\alpha}\langle u \mid v\rangle=\alpha\langle u \mid v\rangle .
+\]
+If \(\beta \neq \alpha\) then \(\langle u \mid v\rangle=0\).
+\end{proof}
+如果厄米算符的特征向量构成一个完备正交标准集，那么称该算子是完备的
+\begin{eg} 
+投影算符\(P\)的本征值总是\(0\)和\(1\)，因为
+\[
+P u=\alpha u \Longrightarrow P^{2} u=P(\alpha u)=\alpha P u=\alpha^{2} u
+\]
+而且因为\(P\) 是幂等的
+\[
+P^{2} u=P u=\alpha u .
+\]
+因此\(\alpha^{2}=\alpha\), 所以\(\alpha=0\) 或\(1\) 。如果\(P=P_{M}\) 那么特征值\(1\)对应的特征向量就是属于子空间\(M\)的向量，而那些特征值为 0 的就属于它的正交补\(M^{\perp}\). 结合定理\ref{thm:13.8} 和定理\ref{thm:13.2}, 我们发现每个投影算子都是完备的。
+\end{eg} 
+\begin{theorem}
+    酉算子\(U\)的特征值形式为\(\alpha=\mathrm{e}^{i a}\)，其中a是实数，不同特征值对应的特征向量是正交的。
+\end{theorem}
+\begin{proof}
+Since \(U\) is an isometry, if \(U u=\alpha u\) where \(u \neq 0\), then
+\[
+\|u\|^{2}=\langle u \mid u\rangle=\langle U u \mid U u\rangle=\langle\alpha u \mid \alpha u\rangle=\bar{\alpha} \alpha\|u\|^{2} .
+\]
+Hence \(\bar{\alpha} \alpha=|\alpha|^{2}=1\), and there exists a real \(a\) such that \(\alpha=\mathrm{e}^{i a}\).
+If \(U u=\alpha u\) and \(U v=\beta v\), then
+\[
+\langle u \mid U v\rangle=\beta u v .
+\]
+But \(U^{*} U=I\) implies \(u=U^{*} U u=\alpha U^{*} u\), so that
+\[
+U^{*} u=\alpha^{-1} u=\bar{\alpha} u \text { since } \quad|\alpha|^{2}=1 .
+\]
+Therefore
+\[
+\langle u \mid U v\rangle=\left\langle U^{*} u \mid v\right\rangle=\langle\bar{\alpha} u \mid v\rangle=\alpha\langle u \mid v\rangle .
+\]
+Hence \((\alpha-\beta)\langle u \mid v\rangle=0\). If \(\alpha \neq \beta\) then \(u\) and \(v\) are orthogonal, \(\langle u \mid v\rangle=0\).
+\end{proof}
+\subsection{有界算符的谱}
+在有限维空间的情况下，算子的本征值集合称为它的谱(spectrum)。谱是非空的（见第四章），并且形成了 Jordan 标准形的对角元素。然而，在无限维空间中，算子可能根本没有本征值。
+\begin{eg}
+在\(\ell^{2}\)中 左平移算符 \(S\) 就没有本征值, 因为假设
+\[
+S\left(x_{1}, x_{2}, \ldots\right)=\left(0, x_{1}, x_{2}, \ldots\right)=\lambda\left(x_{1}, x_{2}, \ldots\right) .
+\]
+如果 \(\lambda \neq 0\) 则 \(x_{1}=0, x_{2}=0, \ldots\)，因此 \(\lambda\) 不是本征值。但是\(\lambda=0\) 也暗示了\(x_{1}=x_{2}=\cdots=0\)，所以这个算子根本没有本征值。
+\end{eg}
+\begin{exercise}
+    证明每个 \(\lambda\) 使得 \(|\lambda|<1\) 是右平移算子 \(S^{\prime}=S^{*}\) 的本征值。注意在无限维情况下，\(S\) 和其伴随 \(S^{*}\) 的谱可能是八竿子打不着的
+\end{exercise}
+\begin{eg}\label{eg:13.14}
+   令 \(\alpha(x)\) 为测度空间 \(X\) 上的有界可积函数，并令 \(A_{\alpha}: g \mapsto \alpha g\) 为例 \ref{eg:13.9} 中定义的乘法算符。这样一来便没有一般的函数 \(g \in L^{2}(X)\) 使得 \(\alpha(x) g(x)=\lambda g(x)\) ，除非 \(\alpha(x) \) 在非零测度的区间 \(E\) 上是常函数 \(\lambda\)。比方说如果在 \(X=[a, b]\) 上有 \(\alpha(x)=x\) ，\(f(x)\) 是 \(A_{x}\) 的本征向量 当且仅当存在 \(\lambda \in \mathbb{C}\) 使得
+    %Let \(\alpha(x)\) be a bounded integrable function on measure space \(X\), and let \(A_{\alpha}: g \mapsto \alpha g\) be the multiplication operator defined in Example 13.9. There is no normalizable function \(g \in L^{2}(X)\) such that \(\alpha(x) g(x)=\lambda g(x)\) unless \(\alpha(x)\) has the constant value \(\lambda\) on an interval \(E\) of non-zero measure. For example, if \(\alpha(x)=x\) on \(X=[a, b]\), then \(f(x)\) is an eigenvector of \(A_{x}\) iff there exists \(\lambda \in \mathbb{C}\) such that
+\[
+x f(x)=\lambda f(x)
+\]
+在整个 \([a, b]\) 上只有\(f(x)=0\)才有可能。在量子力学中（见第 14 章），这个问题有时可以通过将本征值方程视为分布方程来解决。因为狄拉克\(\delta\)函数\(\delta\left(x-x_{0}\right)\)作为一个分布本征函数，本征值\(\lambda\)满足\(a<\lambda=x_{0}<b\)，
+\[
+x \delta\left(x-x_{0}\right)=x_{0} \delta\left(x-x_{0}\right)
+\]
+\end{eg}
+
+像 \ref{eg:13.14} 这样的例子引导我们考虑一个算子谱的新定义。由于 \(A-\lambda I\) 不是可逆算子，所以每个算符 \(A\) 在本征值 \(\lambda\) 处都有一个简并性。因为如果 \((A-\lambda I)^{-1}\) 存在，则 \(A u \neq \lambda u\)，这是因为如果 \(A u=\lambda u\) 那么
+%Examples such as \ref{eg:13.14} lead us to consider a new definition for the spectrum of an operator. Every operator \(A\) has a degeneracy at an eigenvalue \(\lambda\), in that \(A-\lambda I\) is not an invertible operator. For, if \((A-\lambda I)^{-1}\) exists then \(A u \neq \lambda u\), for if \(A u=\lambda u\) then
+\[
+u=(A-\lambda I)^{-1}(A-\lambda I) u=(A-\lambda I)^{-1}\cdot 0=0 .
+\]
+
+所以若 \(A-\lambda I\) 是可逆的，我们就称复数 \(\lambda\) 是希尔伯特空间 \(\mathcal{H}\) 上的有界算子 \(A\) 的\textbf{正则值(regular value)}， 此时\((A-\lambda I)^{-1}\) 也存在并且有界。 \(A\) 的\textbf{谱(spectrum)} \(\Sigma(A)\) 定义成 \(A\)中 的那些不是正则值的\(\lambda(\in\mathbb{C})\)的集合。如果 \(\lambda\) 是 \(A\) 的本征值，则如上所述，可以验证它在 \(A\) 的谱中，反之则不然。这些本征值通常称为\textbf{点谱(point spectrum)}。谱中的其他点称为\textbf{连续谱(continuous spectrum.)}。在这种情况下，可以想象\((A-\lambda I)^{-1}\)存在但无界。更常见的情形是，\((A-\lambda I)^{-1}\)只存在于 \(\mathcal{H}\) 的稠密域上，并且在该域上是无界的。我们将把这个问题留到\ref{sec:13.6} 节再讨论。
+%We say a complex number \(\lambda\) is a regular value of a bounded operator \(A\) on a Hilbert space \(\mathcal{H}\) if \(A-\lambda I\) is invertible - that is, \((A-\lambda I)^{-1}\) exists and is bounded. The spectrum \(\Sigma(A)\) of \(A\) is defined to be the set of \(\lambda \in \mathbb{C}\) that are not regular values of \(A\). If \(\lambda\) is an eigenvalue of \(A\) then, as shown above, it is in the spectrum of \(A\) but the converse is not true. The eigenvalues are often called the point spectrum. The other points of the spectrum are called the continuous spectrum. At such points it is conceivable that the inverse exists but is not bounded. More commonly, the inverse only exists on a dense domain of \(\mathcal{H}\) and is unbounded on that domain. We will leave discussion of this to Section 13.6.
+\begin{eg}
+    如果 \(\alpha(x)=x\) 则 \(L^{2}([0,1])\) 上的乘法算符 \(A_{\alpha}\) 具有由区间\([0,1]\)上的所有实数\(\lambda\)组成的谱。如果 \(\lambda>1\) 或 \(\lambda<0\) 或有非零虚部，则函数 \(\beta=x-\lambda\) 显然是可逆的并且在区间 \([0,1]\) 上有界。
+    因此，所有这些都是乘法算符 \(A_{x}\) 的正则值。实数值 \(0 \leq \lambda \leq 1\) 形成 \(A_{x}\) 的谱。在例 \ref{eg:13.14} 中，这些数字都不是特征值，但它们确实位于 \(A_{x}\) 的谱中，因为函数 \(\beta\) 是不可逆的。乘法算符 \(A^{-1}_{\beta}\)\footnote{此处原文有误，已改正——译者注}定义在稠密集 \([0,1]-\{\lambda\}\) 上，是无界的。
+%If \(\alpha(x)=x\) then the multiplication operator \(A_{\alpha}\) on \(L^{2}([0,1])\) has spectrum consisting of all real numbers \(\lambda\) such that \(0 \leq \lambda \leq 1\). If \(\lambda>1\) or \(\lambda<0\) or has non-zero imaginary part then the function \(\beta=x-\lambda\) is clearly invertible and bounded on the interval \([0,1]\). Hence all these are regular values of the operator \(A_{x}\). The real values \(0 \leq \lambda \leq 1\) form the spectrum of \(A_{x}\). From Example \(13.14\) none of these numbers are eigenvalues, but they do lie in the spectrum of \(A_{x}\) since the function \(\beta\) is not invertible. The operator \(A_{\beta}\) is then defined, but unbounded, on the dense set \([0,1]-\{\lambda\}\).
+\end{eg}
+\begin{theorem}\label{thm:13.17} 
+    \(A\)是希尔伯特空间 \(\mathcal{H}\)上的有界算符.
+    \begin{enumerate}[(i).]
+        \item 每个复数\(\lambda \in \Sigma(A)\) 有模长 \(|\lambda| \leq\|A\|\)
+        \item \(A\) 正则值的集合是\(\mathbb{C}\)中的开集
+        \item \(A\) 的谱是\(\mathbb{C}\)的紧子集
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    (i) Let \(|\lambda|>\|A\|\). The operator \(A / \lambda\) then has norm \(<1\) and by Theorem \ref{thm:13.12} the operator \(I-A / \lambda\) is invertible and
+    \[
+    (A-\lambda I)^{-1}=-\lambda^{-1}\left(I-\frac{A}{\lambda}\right)^{-1}=-\lambda^{-1} \sum_{n=0}^{\infty}\left(\frac{A}{\lambda}\right)^{n}
+    \]
+    Hence \(\lambda\) is a regular value. Spectral values must therefore have \(|\lambda| \leq\|A\|\).\\
+    (ii) If \(\lambda_{0}\) is a regular value, then for any other complex number \(\lambda\)
+    \[
+    \begin{aligned}
+    I-\left(A-\lambda_{0} I\right)^{-1}(A-\lambda I) &=\left(A-\lambda_{0} I\right)^{-1}\left(\left(A-\lambda_{0} I\right)-(A-\lambda I)\right) \\
+    &=\left(A-\lambda_{0} I\right)^{-1}\left(\lambda-\lambda_{0}\right)
+    \end{aligned}
+    \]
+    Hence
+    \[
+    \left\|I-\left(A-\lambda_{0} I\right)^{-1}(A-\lambda I)\right\|=\left|\lambda-\lambda_{0}\right|\left\|\left(A-\lambda_{0} I\right)^{-1}\right\|<1
+    \]
+    if
+    \[
+    \left|\lambda-\lambda_{0}\right|<\frac{1}{\left\|\left(A-\lambda_{0} I\right)^{-1}\right\|}
+    \]
+    By Theorem \ref{thm:13.12}, for \(\lambda\) in a small enough neighbourhood of \(\lambda\) the operator \(I-(I-(A-\) \(\left.\left.\lambda_{0} I\right)^{-1}(A-\lambda)\right)=\left(A-\lambda_{0} I\right)^{-1}(A-\lambda I)\) is invertible. If \(B\) is its inverse, then
+    \[
+    B\left(A-\lambda_{0} I\right)^{-1}(A-\lambda)=I
+    \]
+    and \(A-\lambda I\) is invertible with inverse \(B\left(A-\lambda_{0} I\right)^{-1}\). Hence the regular values form an open set.\\
+    (iii) The spectrum \(\Sigma(A)\) is a closed set since it is the complement of an open set (the regular values). By part (i), it is a subset of a bounded set \(|\lambda| \leq\|A\|\), and is therefore a compact set.
+\end{proof}
+\subsection{厄米算符的谱}
+终于到了谱理论中最激动人心的厄米算符的部分了，这部分理论可能会很难，所以我们只能大致勾勒着证明这些结论。
+%Of greatest interest is the spectral theory of hermitian operators. This theory can become quite difficult, and we will only sketch some of the proofs.
+\begin{theorem}
+    厄米算符\( A \)的谱 \(\Sigma(A)\) 完全由实数组成。
+\end{theorem}
+%Theorem 13.18 The spectrum \(\Sigma(A)\) of a hermitian operator A consists entirely of real numbers.
+\begin{proof}
+Proof: Suppose \(\lambda=a+i b\) is a complex number with \(b \neq 0\). Then \(\|(A-\lambda I) u\|^{2}=\) \(\|(A-a I) u\|^{2}+b^{2}\|u\|^{2}\), and
+\begin{equation}\label{eq:13.12}
+    \|u\| \leq \frac{1}{|b|}\|(A-\lambda I) u\| .
+\end{equation}
+The operator \(A-\lambda I\) is therefore one-to-one, for if \((A-\lambda I) u=0\) then \(u=0\).
+The set \(V=\{(A-\lambda I) u \mid u \in \mathcal{H}\}\) is a subspace of \(\mathcal{H}\). To show closure (the vector subspace property is trivial), let \(v_{n}=(A-\lambda I) u_{n} \rightarrow v\) be a convergent sequence of vectors in \(V\). From the fact that it is a Cauchy sequence and the inequality \ref{eq:13.12}, it follows that \(u_{n}\) is also a Cauchy sequence, having limit \(u\). By continuity of the operator \(A-\lambda I\), it follows that \(V\) is closed, for
+\[
+(A-\lambda I) u=\lim _{n \rightarrow \infty}(A-\lambda I) u_{n}=\lim _{n \rightarrow \infty} v_{n}=v
+\]
+Finally, \(V=\mathcal{H}\), for if \(w \in V^{\perp}\), then \(\langle(A-\lambda I) u \mid w\rangle=\langle u \mid(A-\bar{\lambda} I) w\rangle=0\) for all \(u \in\) \(\mathcal{H}\). Setting \(u=(A-\bar{\lambda} I) w\) gives \((A-\bar{\lambda} I) w=0\). Since \(A-\bar{\lambda} I\) is one-to-one, \(w=0\). Hence \(V^{\perp}=\{0\}\), the subspace \(V=\mathcal{H}\) and every vector \(u \in \mathcal{H}\) can be written in the form \(u=(A-\lambda I) v\). Thus \(A-\lambda I\) is invertible, and the inequality (13.12) can be used to show it is bounded.
+\end{proof}
+厄米算符的全谱理论需要我们用谱重构算符。在有限维情况下，谱完全由本征值组成，构成点谱。根据定理 \ref{thm:13.15}，本征值可以写成非空有序实数集 \(\lambda_{1}<\lambda_{2}<\cdots<\lambda_{k}\)。对于每个本征值\(\lambda_{i}\)，对应一个本征向量的本征空间\(M_{i}\)，不同的空间相互正交。一个标准的归纳论证可以用来证明有限维希尔伯特空间上的每个厄米算子都是完备的，因此本征空间跨越整个希尔伯特空间。对于这些特征空间的投影算子\(P_{i}=P_{M_{i}}\)而言，这一论证可以概括为
+%The full spectral theory of a hermitian operator involves reconstructing the operator from its spectrum. In the finite dimensional case, the spectrum consists entirely of eigenvalues, making up the point spectrum. From Theorem \(13.15\) the eigenvalues may be written as a non-empty ordered set of real numbers \(\lambda_{1}<\lambda_{2}<\cdots<\lambda_{k}\). For each eigenvalue \(\lambda_{i}\) there corresponds an eigenspace \(M_{i}\) of eigenvectors, and different spaces are orthogonal to each other. A standard inductive argument can be used to show that every hermitian operator on a finite dimensional Hilbert space is complete, so the eigenspaces span the entire Hilbert space. In terms of projection operators into these eigenspaces \(P_{i}=P_{M_{i}}\), these statements can be summarized as
+\[
+A=\lambda_{1} P_{1}+\lambda_{2} P_{2}+\cdots+\lambda_{k} P_{k}
+\]
+其中
+\[
+P_{1}+P_{2}+\cdots+P_{k}=I, \quad P_{i} P_{j}=P_{j} P_{i}=\delta_{i j} P_{i} .
+\]
+本质上，这是一个熟悉的做法，即厄米矩阵可以通过其特征值沿对角线进行“对角化”。对于任意两个投影算子定义\(P_{M} \leq P_{N}\) 当且仅当\(M \subseteq N\)，我们可以用递增的投影算符之和\(E_{i}=P_{1}+P_{2}+\cdots+P_{i}\)来替换算符\(P_{i}\)。这俩都是投影算符，可以验证它们是厄米和幂等的，\(\left(E_{i}\right)^{2}=E_{i}\)，并且投影到递增的子空间之并 \(V_{i }=L\left(M_{1} \cup M_{2} \cup \cdots \cup M_{i}\right)\)上，而且还有当\(i<j\)时，\(V_{i} \subset V_{j}\)的性质。由于\(P_{i}=E_{i}-E_{i-1}\)，其中 \(E_{0}=0\)，我们可以将谱定理写成形式
+%Essentially, this is the familiar statement that a hermitian matrix can be 'diagonalized' with its eigenvalues along the diagonal. If we write, for any two projection operators, \(P_{M} \leq P_{N}\) iff \(M \subseteq N\), we can replace the operators \(P_{i}\) with an increasing family of projection operators \(E_{i}=P_{1}+P_{2}+\cdots+P_{i}\). These are projection operators since they are clearly hermitian and idempotent, \(\left(E_{i}\right)^{2}=E_{i}\), and project into an increasing family of subspaces, \(V_{i}=L\left(M_{1} \cup M_{2} \cup \cdots \cup M_{i}\right)\), having the property \(V_{i} \subset V_{j}\) if \(i<j\). Since \(P_{i}=E_{i}-E_{i-1}\),where \(E_{0}=0\), we can write the spectral theorem in the form
+\[
+A=\sum_{i=1}^{n} \lambda_{i}\left(E_{i}-E_{i-1}\right) .
+\]
+对于无限维希尔伯特空间，情况要复杂得多，但可以再次使用投影算子语言来实现。任意维度的全谱定理如下：
+
+%For infinite dimensional Hilbert spaces, the situation is considerably more complicated, but the projection operator language can again be used to effect. The full spectral theorem in arbitrary dimensions is as follows:
+\begin{theorem}\label{thm:13.19}
+    设 \(A\) 是希尔伯特空间 \(\mathcal{H}\) 上的厄米算符，谱为 \(\Sigma(A)\)。根据定理 \ref{thm:13.17}，\(\Sigma(A)\)是 \(\mathbb{R}\) 的有界闭子集。存在递增投影算符之和 \(E_{\lambda}(\lambda \in \mathbb{R})\)，其中对于 \(\lambda \leq \lambda^{\prime}\)有 \(P_{\lambda} \leq E_{\lambda^{\prime}}\) \footnote{原文此处疑似有误，译者进行了一些修改——译者注}，这样一来
+    %Let \(A\) be a hermitian operator on a Hilbert space \(\mathcal{H}\), with spectrum \(\Sigma(A)\). By Theorem \(13.17\) this is a closed bounded subset of \(\mathbb{R}\). There exists an increasing family of projection operators \(E_{\lambda}(\lambda \in \mathbb{R})\), with \(E_{\lambda} \leq P_{\lambda^{\prime}}\) for \(\lambda \leq \lambda^{\prime}\), such that
+\[
+E_{\lambda}=0 \quad \text {当} \lambda<\inf (\Sigma(A))\text{时}, \quad E_{\lambda}=I \quad \text {当} \lambda>\sup (\Sigma(A))\text{时}
+\]
+有
+\[
+A=\int_{-\infty}^{\infty} \lambda \mathrm{d} E_{\lambda} .
+\]
+\end{theorem}
+
+这个定理中的积分是在 \textbf{Lebesgue-Stieltjes} 意义上定义的\footnote{这样的测度称为投影算符值测度(projection-valued measure)，这个积分有时也称为算符值积分(operator-valued integration)，这些概念的定义讲起来又臭又长，建议初心者不要去尝试——译者注}。本质上它意味着如果 \(f(x)\) 是一个可测函数，并且 \(g(x)\) 的形式是
+%The integral in this theorem is defined in the Lebesgue-Stieltjes sense. Essentially it means that if \(f(x)\) is a measurable function, and \(g(x)\) is of the form
+\[
+g(x)=c+\int_{0}^{x} h(x) \mathrm{d} x
+\]
+对于某些复常数\(c\)和可积函数\(h(x)\)，有
+%for some complex constant \(c\) and integrable function \(h(x)\), then
+\[
+\int_{a}^{b} f(x) \mathrm{d}(g(x))=\int_{a}^{b} f(x) h(x) \mathrm{d} x .
+\]
+这种形式的函数 \(g\) 被称为\textbf{绝对连续的(absolutely continuous)}；函数 \(h\) 几乎处处都由 \(g\) 唯一定义，我们可以把它写成\(g\)的一种导数\(h(x)=g^{\prime}(x)\) 。对于有限维情况，该定理简化为之前的陈述，\(E_{\lambda}\) 在每个本征值 \(\lambda_{i}\) 处有 \(P_{i}\) 的离散跳跃。这个结果的证明并不容易。有兴趣的读者可参考 \([3,6]\) 进一步了解。
+%A function \(g\) of this form is said to be absolutely continuous; the function \(h\) is uniquely defined almost everywhere by \(g\) and we may write it as a kind of derivative of \(g, h(x)=g^{\prime}(x)\). For the finite dimensional case this theorem reduces to the statement above, on setting \(E_{\lambda}\) to have discrete jumps by \(P_{i}\) at each of the eigenvalues \(\lambda_{i}\). The proof of this result is not easy. The interested reader is referred to \([3,6]\) for details.
+\section{无界算符}\label{sec:13.6}
+对一个希尔伯特空间 \(\mathcal{H}\) 上的线性算符\(A\) 而言，若满足如果对于任何 \(M>0\) ，存在一个向量 \(u\) 使得 \(\|A u \| \geq M\|u\|\)，则算符称为\textbf{无界的(unbounded)}。在整个 \(\mathcal{H}\) 上的无界算符中的有趣示例很少 ， 例如自伴算符就根本没有。因此，通常认为无界算子 \(A\) 不一定定义在整个 \(\mathcal{H}\) 上，而只定义在某个向量子空间 \(D_{A} \subseteq \mathcal{H} \) 称为 \(A\) 的\textbf{定义域(domain)}。它的\textbf{值域(range)}定义为映射到的向量集合，\(R_{A}=A\left(D_{A}\right)\)。一般来说，我们会用一对 \(\left(A, D_{A}\right)\)，其中 \(D_{A}\) 是 \(\mathcal{H}\)的向量子空间  且\(A: D_{A} \rightarrow R_{A} \subseteq \mathcal{H}\) 是一个线性映射，来指代一个\textbf{\(\mathcal{H}\) 中的算子(operator in \(\mathcal{H}\))}。当定义域 \(D_{A}\)没有歧义时，我们通常会简单地用算符 \(A\)来指代。
+%A linear operator \(A\) on a Hilbert space \(\mathcal{H}\) is unbounded if for any \(M>0\) there exists a vector \(u\) such that \(\|A u\| \geq M\|u\|\). Very few interesting examples of unbounded operators are defined on all of \(\mathcal{H}\) - for self-adjoint operators, there are none at all. It is therefore usual to consider an unbounded operator \(A\) as not being necessarily defined over all of \(\mathcal{H}\) but only on some vector subspace \(D_{A} \subseteq \mathcal{H}\) called the domain of \(A\). Its range is defined as the set of vectors that are mapped onto, \(R_{A}=A\left(D_{A}\right)\). In general we will refer to a pair \(\left(A, D_{A}\right)\), where \(D_{A}\) is a vector subspace of \(\mathcal{H}\) and \(A: D_{A} \rightarrow R_{A} \subseteq \mathcal{H}\) is a linear map, as being an operator in \(\mathcal{H}\). Often we will simply refer to the operator \(A\) when the domain \(D_{A}\) is understood.
+
+如果对于每个向量 \(u \in \mathcal{H}\) 和任意 \(\epsilon>0 \) ，存在一个向量 \(v \in D_{A}\) 使得 \(\|u-v\|<\epsilon\)，那我们就称定义域 \(D_{A}\) 是 \(\mathcal{H}\) 的\textbf{稠密(dense)}子空间，算子 \(A\) 被称为是\textbf{稠定(densely defined)}的。
+%We say the domain \(D_{A}\) is a dense subspace of \(\mathcal{H}\) if for every vector \(u \in \mathcal{H}\) and any \(\epsilon>0\) there exists a vector \(v \in D_{A}\) such that \(\|u-v\|<\epsilon\). The operator \(A\) is then said to be densely defined.
+
+如果两个算符\(A\)和\(B\)满足\(D_{B} \subseteq D_{A}\) 和 \(\left.A\right|_{D_{B}}=B\)，我们定义 \(A\) 是 \(B\) 的一个\textbf{延拓(extension)}，写成 \(B \subseteq A\)。 \(\mathcal{H}\) 中的两个运算符 \(\left(A, D_{A}\right)\) 和 \(\left(B, D_{B}\right)\) 称为\textbf{相等(equal)}，当且仅当它们是彼此的延拓。这时它们的定义域相等，\(D_{A}=D_{B}\)，而且对于全体 \(u \in D_{A}\) 有 \(A u=B u\)。
+%We say \(A\) is an extension of \(B\), written \(B \subseteq A\), if \(D_{B} \subseteq D_{A}\) and \(\left.A\right|_{D_{B}}=B\). Two operators \(\left(A, D_{A}\right)\) and \(\left(B, D_{B}\right)\) in \(\mathcal{H}\) are called equal if and only if they are extensions of each other their domains are equal, \(D_{A}=D_{B}\) and \(A u=B u\) for all \(u \in D_{A}\).
+
+对 \(\mathcal{H}\) 中的任意两个算符做运算时要多加小心，例如加法 \(A+B\) 和乘法 \(A B\)。前者只存在于定义域\(D_{A+B}=D_{A}\cap D_{B}\)上，后者只存在于集合\(B^{-1}\left(R_{ B} \cap D_{A}\right)\)上。因此 \(\mathcal{H}\) 中的算符不能形成任何自然的向量空间或代数。
+%For any two operators in \(\mathcal{H}\) we must be careful about simple operations such as addition \(A+B\) and multiplication \(A B\). The former only exists on the domain \(D_{A+B}=D_{A} \cap D_{B}\), while the latter only exists on the set \(B^{-1}\left(R_{B} \cap D_{A}\right)\). Thus operators in \(\mathcal{H}\) do not form a vector space or algebra in any natural sense.
+\begin{eg}\label{eg:13.16}
+    在 \(\mathcal{H}=\ell^{2}\) 中，令 \(A: \mathcal{H} \rightarrow \mathcal{H}\) 是由
+%In \(\mathcal{H}=\ell^{2}\) let \(A: \mathcal{H} \rightarrow \mathcal{H}\) be the operator defined by
+\[
+(A x)_{n}=\frac{1}{n} x_{n} .
+\]
+定义的算符，这个算符是有界的，厄米的，并且有定义域 \(D_{A}=\mathcal{H}\) 因为
+
+%This operator is bounded, hermitian and has domain \(D_{A}=\mathcal{H}\) since
+\[
+\sum_{n=1}^{\infty}\left|x_{n}\right|^{2}<\infty \Longrightarrow \sum_{n=1}^{\infty}\left|\frac{x_{n}}{n}\right|^{2}<\infty
+\]
+这个算符的值域是
+%The range of this operator is
+\[
+R_{A}=\left\{y\left|\sum_{n=1}^{\infty} n^{2}| y_{n}|^{2}<\infty\right.\right\},
+\]
+在 \(\ell^{2}\) 中是稠密的 ， 因为每个 \(x \in \ell^{2}\) 都可以被任意逼近，例如通过有限和\(\sum_{n=1}^{N} x_{n} e_{n}\) 其中 \(e_{n}\) 是具有分量\(\left(e_{n}\right)_{m}=\delta_{n m}\)的标准基，
+%which is dense in \(\ell^{2}\) - since every \(x \in \ell^{2}\) can be approximated arbitrarily closely by, for example, a finite \(\operatorname{sum} \sum_{n=1}^{N} x_{n} e_{n}\) where \(e_{n}\) are the standard basis vectors having components
+在稠密域 \(D_{A^{-1}}=R_{A}\) 上定义的逆算符 \(A^{-1}\) 是无界的，因为
+%The inverse operator \(A^{-1}\), defined on the dense domain \(D_{A^{-1}}=R_{A}\), is unbounded since
+\[
+\left\|A^{-1} e_{n}\right\|=\left\|n e_{n}\right\|=n \rightarrow \infty
+\]    
+\end{eg}
+\begin{eg}\label{eg:13.17}
+    在平方可积函数等价类的希尔伯特空间 \(L^{2}(\mathbb{R})\) 中（见例\ref{eg:13.4}）， 设\(D\)为\(\mathbb{R}\)上具紧支集的\(C^{\infty}\)函数\(\varphi\)的子空间，其元素记作\(\widetilde{\varphi}\)。这本质上是第 12 章中定义的测试函数空间 \(\mathcal{D}^{\infty}(\mathbb{R})\)。参考例 \ref{eg:13.5} 中的论述表明 \(D\) 是 \(L^{2}(\mathbb{R})\) 的稠密子空间。我们定义位置算符 \(Q: D \rightarrow D \subset L^{2}(\mathbb{R}) \) 由 \(Q \widetilde{\varphi}=\widetilde{x \varphi}\)。我们可以更非正式地写成
+    %In the Hilbert space \(L^{2}(\mathbb{R})\) of equivalence classes of square integrable functions 见例\ref{eg:13.4}, set \(D\) to be the vector subspace of elements \(\widetilde{\varphi}\) having a representative \(\varphi\) from the \(C^{\infty}\) functions on \(\mathbb{R}\) of compact support. This is essentially the space of test functions \(\mathcal{D}^{\infty}(\mathbb{R})\) defined in Chapter 12. An argument similar to that outlined in Example \(13.5\) shows that \(D\) is a dense subspace of \(L^{2}(\mathbb{R})\). We define the position operator \(Q: D \rightarrow D \subset L^{2}(\mathbb{R})\) by \(Q \widetilde{\varphi}=\widetilde{x \varphi}\). We may write this more informally as
+\[
+(Q \varphi)(x)=x \varphi(x) 
+\]
+类似地，动量算符 \(P: D \rightarrow D\) 定义为
+%Similarly the momentum operator \(P: D \rightarrow D\) is defined by
+\[
+P \varphi(x)=-i \frac{\mathrm{d}}{\mathrm{d} x} \varphi(x)
+\]
+这两个算符在其定义域上显然都是线性的。
+\end{eg}
+%Both these operators are evidently linear on their domains.
+\begin{exercise}
+    证明 \(L^{2}(\mathbb{R})\) 中的位置和动量算符是无界的。
+\end{exercise}
+%Exercise: Show that the position and momentum operators in \(L^{2}(\mathbb{R})\) are unbounded.
+如果 \(A\) 是定义在稠密域 \(D_{A}\) 上的有界算符，那么它对整体 \(\mathcal{H}\) 都有一个唯一的延拓（见习题 13.30）。我们可假设是在整体 \(\mathcal{H}\) 上都有了一个有界算符，当我们提到一个域是 \(\mathcal{H}\) 的适当子空间的稠定算符时，我们往往暗指它是一个无界算符。
+%If \(A\) is a bounded operator defined on a dense domain \(D_{A}\), it has a unique extension to all of \(\mathcal{H}\) (see Problem 13.30). We may always assume then that a bounded operator is defined on all of \(\mathcal{H}\), and when we refer to a densely defined operator whose domain is a proper subspace of \(\mathcal{H}\) we implicitly assume it to be an unbounded operator.
+\subsection{自伴和对称算符}
+\begin{lemma}\label{lema:13.20}
+    \(D_A\)是一稠密域，\(u\)是\(\mathcal{H}\)中的向量，若能使得对任意\(v \in D_A\)有\(\braket{u|v}=0\)，那么\(u=0\)
+\end{lemma}
+\begin{proof}
+    Let \(w\) be any vector in \(\mathcal{H}\) and \(\epsilon>0\). Since \(D_{A}\) is dense there exists a vector \(v \in D_{A}\) such that \(\|w-v\|<\epsilon\). By the Cauchy-Schwarz inequality
+\[
+|\langle u \mid w\rangle|=|\langle u \mid w-v\rangle| \leq\|u\|\|w-v\|<\epsilon\|u\| .
+\]
+Since \(\epsilon\) is an arbitrary positive number, \(\langle u \mid w\rangle=0\) for all \(w \in \mathcal{H}\); hence \(u=0\).\qedhere
+\end{proof}
+\(\left(A, D_{A}\right)\) 是 \(\mathcal{H}\) 中具有稠密域 \(D_{A}\) 的算子，令 \(D_{A^ {*}}\) 定义为
+%If \(\left(A, D_{A}\right)\) is an operator in \(\mathcal{H}\) with dense domain \(D_{A}\), then let \(D_{A^{*}}\) be defined by
+\[
+u \in D_{A^{*}} \Longleftrightarrow \exists u^{*} \text {使得}\langle u \mid A v\rangle=\left\langle u^{*} \mid v\right\rangle, \quad \forall v \in D_{A} .
+\]
+对于 \(u \in D_{A^{*}}\) ，可以定义 \(A^{*} u=u^{*}\)。这种定义是唯一的，因为如果对任意 \(v \in D_{ A}\)，都有 \(\left\langle u_{1}^{*}-u_{2}^{*} \mid v\right\rangle=0\) ，那么由引理 \ref{lema:13.20} 有 \(u_{1}^{*}=u_{2}^{*}\) 。算符 \(\left(A^{*}, D_{A^{*}}\right)\) 称为 \(\left(A, D_{A}\right)\) 的\textbf{伴随(adjoint)}。
+%If \(u \in D_{A^{*}}\) we set \(A^{*} u=u^{*}\). This is uniquely defined, for if \(\left\langle u_{1}^{*}-u_{2}^{*} \mid v\right\rangle=0\) for all \(v \in D_{A}\) then \(u_{1}^{*}=u_{2}^{*}\) by Lemma 13.20. The operator \(\left(A^{*}, D_{A^{*}}\right)\) is called the adjoint of \(\left(A, D_{A}\right)\).
+
+对于任意一个满足\(u_{n} \rightarrow u\) 和 \(A u_{n} \rightarrow v\) 的序列 \(u_{n} \in\) \( D_{A}\)，如果有 \(u \in D_{A}\) 且 \(A u=v\)，则我们称稠定算符 \(\left(A, D_{A}\right)\) 是\textbf{闭的(closed)}。另一种表述是，一个算符是闭的，当且仅当它的图像 \(G_{A}=\{(x, A x) \mid x \in\) \(\left.D_{A} \right\}\) 是积集 \(\mathcal{H} \times \mathcal{H}\) 的闭子集。封闭性的概念类似于连续性，不同之处在于，对于封闭性，我们必须保证极限 \(A u_{n} \rightarrow v\) 必须成立；而对于连续性，这一性质可以推导出来。每个连续算符显然都是闭的，但反之未必成立。
+%We say a densely defined operator \(\left(A, D_{A}\right)\) in \(\mathcal{H}\) is closed if for every sequence \(u_{n} \in\) \(D_{A}\) such that \(u_{n} \rightarrow u\) and \(A u_{n} \rightarrow v\) it follows that \(u \in D_{A}\) and \(A u=v\). Another way of expressing this is to say that an operator is closed if and only if its graph \(G_{A}=\{(x, A x) \mid x \in\) \(\left.D_{A}\right\}\) is a closed subset of the product set \(\mathcal{H} \times \mathcal{H}\). The notion of closedness is similar to continuity, but differs in that we must assert the limit \(A u_{n} \rightarrow v\), while for continuity it is deduced. Clearly every continuous operator is closed, but the converse does not hold in general.
+\begin{theorem}\label{thm:13.21}
+    若\(A\)是稠定算符则其伴随\(A^*\)是闭的
+\end{theorem}
+\begin{proof}
+     Let \(y_{n}\) be any sequence of vectors in \(D_{A^{*}}\) such that \(y_{n} \rightarrow y\) and \(A^{*} y_{n} \rightarrow z\). Then for all \(x \in D_{A}\)
+\[
+\langle y \mid A x\rangle=\lim _{n \rightarrow \infty}\left\langle y_{n} \mid A x\right\rangle=\lim _{n \rightarrow \infty}\left\langle A^{*} y_{n} \mid x\right\rangle=\langle z \mid x\rangle .
+\]
+Since \(D_{A}\) is a dense domain, it follows from Lemma \(13.20\) that \(y \in D_{A^{*}}\) and \(A^{*} y=z\).
+
+\end{proof}
+\begin{eg}
+    令 \(\mathcal{H}\) 是具有完备正交基 \(e_{n}\) \((n=0,1,2, \ldots)\) 的可分希尔伯特空间。算符 \(a\) 和 \(a^{*}\) 定义为
+%Let \(\mathcal{H}\) be a separable Hilbert space with complete orthonormal basis \(e_{n}\) \((n=0,1,2, \ldots)\). Let the operators \(a\) and \(a^{*}\) be defined by
+\[
+a e_{n}=\sqrt{n} e_{n-1}, \quad a^{*} e_{n}=\sqrt{n+1} e_{n+1} .
+\]
+这个算符对一个一般向量 \(x=\sum_{n=0}^{\infty} x_{n} e_{n}\) 的作用（其中 \(x_{n}=\left\langle x \mid e_{ n}\right\rangle\)）是
+%The effect on a typical vector \(x=\sum_{n=0}^{\infty} x_{n} e_{n}\), where \(x_{n}=\left\langle x \mid e_{n}\right\rangle\), is
+\[
+a x=\sum_{n=0}^{\infty} x_{n+1} \sqrt{n+1} e_{n}, \quad a^{*} x=\sum_{n=1}^{\infty} x_{n-1} \sqrt{n} e_{n}
+\]
+算符 \(a^{*}\) 是 \(a\) 的伴随，因为
+%The operator \(a^{*}\) is the adjoint of \(a\) since
+\[
+\left\langle a^{*} y \mid x\right\rangle=\langle y \mid a x\rangle=\sum_{n=1}^{\infty} \overline{y_{n}} \sqrt{n+1} x_{n+1}
+\]
+并且两个运算符的定义域都是
+%and both operators have domain of definition
+\[
+D=D_{a}=D_{a *}=\left\{y\left|\sum_{n=1}\right.\left| y_{n}\right|^{2}n<\infty\right\}
+\]
+定义域在 \(\mathcal{H}\) 中是稠密的（参见例\ref{eg:13.16}）。在物理学中，\(\mathcal{H}\) 是对称的 Fock 空间，而 \(e_{n}\) 表示给定状态下的 \(n\) 个相同的粒子（玻色子）， \(a^{ *}\) 和 \(a\) 分别被称为产生算符和湮灭算符。
+%which is dense in \(\mathcal{H}\) (see Example 13.16). In physics, \(\mathcal{H}\) is the symmetric Fock space, in which \(e_{n}\) represents \(n\) identical (bosonic) particles in a given state, and \(a^{*}\) and \(a\) are interpreted as creation and annihilation operators, respectively.
+\end{eg}
+\begin{exercise}
+    证明\(N=a^{*} a\)是粒子数算符\(N e_{n}=n e_{n}\)，对易子是\(\left[a, a^{ *}\right]=a a^{*}-a^{*} a=I\)。这些方程生效的定义域是什么？
+    %Show that \(N=a^{*} a\) is the particle number operator, \(N e_{n}=n e_{n}\), and the commutator is \(\left[a, a^{*}\right]=a a^{*}-a^{*} a=I\). What are the domains of validity of these equations?
+\end{exercise}
+\begin{theorem}
+    如果 \(\left(A, D_{A}\right)\) 和 \(\left(B, D_{B}\right)\) 是 \(\mathcal{H}\) 中的稠定算符，则有 \(A \subseteq\) \(B \Longrightarrow B^{*} \subseteq A^{*}\)。
+    %If \(\left(A, D_{A}\right)\) and \(\left(B, D_{B}\right)\) are densely defined operators in \(\mathcal{H}\) then \(A \subseteq\) \(B \Longrightarrow B^{*} \subseteq A^{*}\).
+\end{theorem}
+\begin{proof}
+
+If \(A \subseteq B\) then for any vectors \(u \in D_{A}\) and \(v \in D_{B^{*}}\)
+\[
+\langle v \mid A u\rangle=\langle v \mid B u\rangle=\left\langle B^{*} v \mid u\right\rangle .
+\]
+Hence \(v \in D_{A^{*}}\), so that \(D_{B^{*}} \subseteq D_{A^{*}}\) and
+\[
+\langle v \mid A u\rangle=\left\langle A^{*} v \mid u\right\rangle=\left\langle B^{*} v \mid u\right\rangle .
+\]
+By Lemma \(13.20 A^{*} v=B^{*} v\), hence \(B^{*} \subseteq A^{*}\).
+    
+\end{proof}
+如果 \(A=A^{*}\)，则称稠密域上的算符 \(\left(A, D_{A}\right)\) 是自伴的。这意味着不仅两边的定义域上都有 \(A u=A^{*} u\)，而且两个定义域是相等的，\(D_{A}=D_{A^{*}}\) .根据定理 \ref{thm:13.21}，每个自伴算符都是闭的。这不是将厄米算符概念推广到无界算符的唯一定义。下面的定义也很有用。在 \(\mathcal{H}\) 中，如果对任意的 \(u, v \in D_{A}\)，都有 \(\langle A u \mid v\rangle=\langle u \mid A v\rangle\) ，则稠定算子 \(\left(A, D_{A}\right)\) 称为\textbf{对称算子(symmetric operator)}。
+%An operator \(\left(A, D_{A}\right)\) on a dense domain is said to be self-adjoint if \(A=A^{*}\). This means that not only is \(A u=A^{*} u\) wherever both sides are defined, but also that the domains are equal, \(D_{A}=D_{A^{*}}\). By Theorem \(13.21\) every self-adjoint operator is closed. This is not the only definition that generalizes the concept of a hermitian operator to unbounded operators. The following related definition is also useful. A densely defined operator \(\left(A, D_{A}\right)\) in \(\mathcal{H}\) is called a symmetric operator if \(\langle A u \mid v\rangle=\langle u \mid A v\rangle\) for all \(u, v \in D_{A}\).
+\begin{theorem}
+    在 \(\mathcal{H}\) 中的稠密域上的算子 \(\left(A, D_{A}\right)\) 是对称的，当且仅当 \(A^{*}\) 是 \(A\)的延拓，\(A \subseteq A^{*}\) \label{thm:13.23}
+    %An operator \(\left(A, D_{A}\right)\) on a dense domain in \(\mathcal{H}\) is symmetric if and only if\(A^{*}\) is an extension of \(A, A \subseteq A^{*}\).
+\end{theorem}
+\begin{proof}
+If \(A \subseteq A^{*}\) then for all \(u, v \in D_{A} \subseteq D_{A^{*}}\)
+\(\langle u \mid A v\rangle=\left\langle A^{*} u \mid v\right\rangle .\)
+Furthermore, since \(A^{*} u=A u\) for all \(u \in D_{A}\), we have the symmetry condition \(\langle u \mid A v\rangle=\)
+\(\langle A u \mid v\rangle\).
+Conversely, if \(A\) is symmetric then
+\(\langle u \mid A v\rangle=\langle A u \mid v\rangle \quad\) for all \(u, v \in D_{A} .\)
+On the other hand, the definition of adjoint gives
+\(\langle u \mid A v\rangle=\left\langle A^{*} u \mid v\right\rangle \quad\) for all \(u \in D_{A^{*}}, v \in D_{A}\).
+Hence if \(u \in D_{A}\) then \(u \in D_{A^{*}}\) and \(A u=A^{*} u\), which two conditions are equivalent to
+\(A \subseteq A^{*}\).
+\end{proof}
+从这个定理可知，每个自伴算子都是对称的，因为
+%From this theorem it is immediate that every self-adjoint operator is symmetric, since
+\(A=A^{*} \Longrightarrow A \subseteq A^{*}\),
+\begin{exercise}
+    证明例\ref{eg:13.16}的算符 \(A\) 和 \(A^{-1}\) 都是自伴的。
+    %Show that the operators \(A\) and \(A^{-1}\) of Example \(13.16\) are both self-adjoint.
+\end{exercise}
+\begin{eg}
+    在 例\ref{eg:13.17} 中，我们定义了具有定义域\(D\)的位置算符 \((Q, D)\)，\(\mathbb{R}\) 上具紧支集的 \(C^{\infty}\) 函数空间。该算子在 \(L^{2}(\mathbb{R})\) 中是对称的，因为
+%In Example \(13.17\) we defined the position operator \((Q, D)\) having domain\(D\), the space of \(C^{\infty}\) functions of compact support on \(\mathbb{R}\). This operator is symmetric in \(L^{2}(\mathbb{R})\),
+\[\langle\varphi \mid Q \psi\rangle=\int_{-\infty}^{\infty} \overline{\varphi(x)} x\psi(x) \mathrm{d} x=\int_{-\infty}^{\infty} \overline{x \varphi(x)} \psi(x) \mathrm{d} x=\langle Q \varphi \mid \psi\rangle\]
+对于所有函数 \(\varphi, \psi \in D\)。然而它不是自伴的，因为有许多函数\(\varphi \notin D\) 存在一个函数\(\varphi^{*}\)，使得对全体 \(\psi \in D\)，有
+%for all functions \(\varphi, \psi \in D\). However it is not self-adjoint, since there are many functions\(\varphi \notin D\) for which there exists a function \(\varphi^{*}\) such that 
+\[\langle\varphi \mid Q \psi\rangle=\left\langle\varphi^{*} \mid \psi\right\rangle\] 
+例如函数
+\[
+\varphi(x)=\begin{cases}
+1, & -1 \leq x \leq 1 \\
+0, & |x|>1
+\end{cases}
+\]
+它不在\(D\)中，因为这函数不是\(C^{\infty}\)的，但是
+\[\braket{\varphi|Q\psi}=\braket{\varphi^*|\psi}\quad\text{其中}\quad\varphi^*(x)=x\varphi(x)\]
+类似地\(\varphi=1 /\left(1+x^{2}\right)\) 没有紧支集,但满足相同的方程，因此伴随算符\(Q^*\)的定义域\(D_{Q^*}\)是要比原来\(Q\)的定义域\(D\)大的，于是这算符\((Q, D)\) 不是自伴的
+
+为了纠正这种情况，我们让 \(D_{Q}\) 是函数 \(\varphi\) 所在 \(L^{2}(\mathbb{R})\)的子空间，使得\(\varphi'=x\varphi \in L^{2}(\mathbb{R})\)，也就是
+%To rectify the situation, let \(D_{Q}\) be the subspace of \(L^{2}(\mathbb{R})\) of functions \(\varphi\) such that
+\[\int_{-\infty}^{\infty}|x \varphi(x)|^{2} \mathrm{~d} x<\infty .\]
+函数 \(\varphi\) 和 \(\varphi^{\prime}\) 总是互相认同的，当然，它们需要几乎处处相等 。算符 \(\left(Q, D_{Q}\right) \) 是对称的，因为
+%Functions \(\varphi\) and \(\varphi^{\prime}\) are always to be identified, of course, if they are equal almost everywhere The operator \(\left(Q, D_{Q}\right)\) is symmetric since
+\[
+\langle\varphi \mid Q \psi\rangle=\int_{-\infty}^{\infty} \overline{\varphi(x)} x \psi(x) \mathrm{d} x=\langle Q \varphi \mid \psi\rangle
+\]
+对于所有 \(\varphi, \psi \in D_{Q}\)。域 \(D_{Q}\) 在 \(L^{2}(\mathbb{R})\) 中是稠密的，因为如果 \(\varphi\) 是任意平方可积函数，则函数序列
+%for all \(\varphi, \psi \in D_{Q}\). The domain \(D_{Q}\) is dense in \(L^{2}(\mathbb{R})\), for if \(\varphi\) is any square integrable function then the sequence of functions
+\[
+\varphi_{n}(x)=\begin{cases}
+\varphi(x), & -n \leq x \leq n \\
+0, & |x|>n
+\end{cases}
+\]
+都属于 \(D_{Q}\) ，而且 \(\varphi_{n} \rightarrow \varphi\) 当 \(n \rightarrow \infty\) ，因为
+%all belong to \(D_{Q}\) and \(\varphi_{n} \rightarrow \varphi\) as \(n \rightarrow \infty\) since
+\[
+\left\|\varphi-\varphi_{n}\right\|^{2}=\int_{-\infty}^{-n}|\varphi(x)|^{2} \mathrm{~d} x+\int_{n}^{\infty}|\varphi(x)|^{2} \mathrm{~d} x \rightarrow 0 .
+\]
+根据定理\ref{thm:13.23}，\(Q^{*}\) 是 \(Q\) 的延拓，所以算符 \(\left(Q, D_{Q}\right)\) 是对称的。剩下的就是证明\(D_{Q^{*}}\subseteq D_{Q}\)。定义域 \(D_{Q^{*}}\) 是函数集 \(\varphi \in L^{2}(\mathbb{R})\) 使得存在函数 \(\varphi^ {*}\) 让
+%By Theorem 13.23, \(Q^{*}\) is an extension of \(Q\) since the operator \(\left(Q, D_{Q}\right)\) is symmetric. It only remains to show that \(D_{Q^{*}} \subseteq D_{Q}\). The domain \(D_{Q^{*}}\) is the set of functions \(\varphi \in L^{2}(\mathbb{R})\) such that there exists a function \(\varphi^{*}\) such that
+\[
+\langle\varphi \mid Q \psi\rangle=\left\langle\varphi^{*} \mid \psi\right\rangle, \quad \forall \psi \in D_{Q} .
+\]
+函数 \(\varphi^{*}\) 有性质
+\[
+\int_{-\infty}^{\infty}\left(\overline{x \varphi(x)}-\overline{\varphi^{*}}\right) \psi(x) d x=0, \quad \forall \psi \in D_{Q} .
+\]
+由于 \(D_{Q}\) 是一个稠密域，这只有在 \(\varphi^{*}(x)\)和\(x \varphi(x)\) 几乎处处相等时才有可能。由于 \(\varphi^{*} \in L^{2}(\mathbb{R})\) 一定成立，所以 \(x \varphi(x) \in L^{2}(\mathbb{R })\)，其中 \(\varphi(x) \in D_{Q}\)。这证明了 \(D_{Q^{*}} \subseteq D_{Q}\)。因此 \(D_{Q^{*}}=D_{Q}\)，并且由于 \(\varphi^{*}(x)=x \varphi(x)\) a.e.，我们有 \(\varphi^ {*}=Q \varphi\)。因此，位置算子是自伴的，\(Q=Q^{*}\)。
+%Since \(D_{Q}\) is a dense domain this is only possible if \(\varphi^{*}(x)=x \varphi(x)\) a.e. Since \(\varphi^{*} \in L^{2}(\mathbb{R})\) it must be true that \(x \varphi(x) \in L^{2}(\mathbb{R})\), whence \(\varphi(x) \in D_{Q}\). This proves that \(D_{Q^{*}} \subseteq D_{Q}\). Hence \(D_{Q^{*}}=D_{Q}\), and since \(\varphi^{*}(x)=x \varphi(x)\) a.e., we have \(\varphi^{*}=O \varphi\). The position operator is therefore self-adjoint, \(Q=Q^{*}\).
+    
+\end{eg} 
+\begin{eg}
+    例 \ref{eg:13.17} 中定义的紧致支持的可微函数域 \(D\) 上的动量算子是对称的，对于
+%The momentum operator defined in Example \(13.17\) on the domain \(D\) of differentiable functions of compact support is symmetric, for
+
+\begin{align*}
+    \langle\varphi \mid P \psi\rangle&=\int_{-\infty}^{\infty}-i \overline{\varphi(x)} \frac{\mathrm{d} \psi}{\mathrm{d} x} \mathrm{~d} x\\
+    &=[-i \overline{\varphi(x)} \psi(x)]_{-\infty}^{\infty}+\int_{-\infty}^{\infty} i \frac{\mathrm{d} \overline{\varphi(x)}}{\mathrm{d} x} \psi(x) \mathrm{d} x \\
+&=\int_{-\infty}^{\infty} \overline{i \frac{\mathrm{d} \varphi(x)}{\mathrm{d} x}} \psi(x) \mathrm{d} x \\
+&=\langle P \varphi \mid \psi\rangle
+\end{align*}
+
+对于所有 \(\varphi, \psi \in D\)。同样，不难找到在 \(D\) 之外的函数 \(\varphi\) 满足所有 \(\psi\) 的这种关系，所以这个算子不是自伴的。扩展域以使动量算子成为自伴随的比位置算子要复杂得多。我们只给出结果；详细信息可在 \([3,7]\) 中找到。回想一下定理 \(13.19\) 的讨论，如果存在可测函数 \(\rho\) 在 \(\mathbb{R}\) 上，使得
+%for all \(\varphi, \psi \in D\). Again, it is not hard to find functions \(\varphi\) outside \(D\) that satisfy this relation for all \(\psi\), so this operator is not self-adjoint. Extending the domain so that the momentum operator becomes self-adjoint is rather trickier than for the position operator. We only give the result; details may be found in \([3,7]\). Recall from the discussion following Theorem \(13.19\) that a function \(\varphi: \mathbb{R} \rightarrow \mathbb{C}\) is said to be absolutely continuous if there exists a measurable function \(\rho\) on \(\mathbb{R}\) such that
+\[\varphi(x)=c+\int_{0}^{x} \rho(x) \mathrm{d} x .\]
+然后我们可以设置\(D \varphi=\varphi^{\prime}=\rho\)。当 \(\rho\) 是一个连续函数时，\(\varphi(x)\) 是可微的，并且 \(D \varphi=\mathrm{d} \varphi(x) / \mathrm{d} x\)。令 \(D_{P}\) 由那些绝对连续的函数组成，使得 \(\varphi\) 和 \(D\varphi\) 是平方可积的。可以证明 \(D_{P}\) 是 \(L^{2}(\mathbb{R})\) 的稠密向量子空间，并且算子 \(\left(P, D_{P} \right)\) 其中 \(P \varphi=-i D \varphi\) 是例 13.17 中定义的动量算子 \(P\) 的自伴扩展。
+%We may then set \(D \varphi=\varphi^{\prime}=\rho\). When \(\rho\) is a continuous function, \(\varphi(x)\) is differentiable and \(D \varphi=\mathrm{d} \varphi(x) / \mathrm{d} x\). Let \(D_{P}\) consist of those absolutely continuous functions such that \(\varphi\) and \(D \varphi\) are square integrable. It may be shown that \(D_{P}\) is a dense vector subspace of \(L^{2}(\mathbb{R})\) and that the operator \(\left(P, D_{P}\right)\) where \(P \varphi=-i D \varphi\) is a self-adjoint extension of the momentum operator \(P\) defined in Example 13.17.
+\end{eg}
+\subsection{无界算符的谱}
+对于厄米算子，自伴算子 \(\left(A, D_{A}\right)\) 的特征值是实数，不同特征值对应的特征向量是正交的。如果\(A u=\lambda u\)，则\(\lambda\) 是实数，因为
+%As for hermitian operators, the eigenvalues of a self-adjoint operator \(\left(A, D_{A}\right)\) are real and eigenvectors corresponding to different eigenvalues are orthogonal. If \(A u=\lambda u\), then \(\lambda\) is real since
+\[
+\lambda=\frac{\langle u \mid A u\rangle}{\|u\|^{2}}=\frac{\langle A u \mid u\rangle}{\|u\|^{2}}=\frac{\overline{\langle u \mid A u\rangle}}{\|u\|^{2}}=\bar{\lambda} .
+\]
+若\(A u=\lambda u\) 而且\(A v=\mu v\)那么
+\[
+0=\langle A u \mid v\rangle-\langle u \mid A v\rangle=(\lambda-\mu)\langle u \mid v\rangle
+\]
+其中\(\langle u \mid v\rangle=0\) 每当 \(\lambda \neq \mu\)。
+
+对于每个复数\(\lambda\)，定义\(\Delta_{\lambda}\) 为\textbf{预解算子(resolvent operator)}\((A-\lambda I)^{-1}\)的定义域
+%whence \(\langle u \mid v\rangle=0\) whenever \(\lambda \neq \mu\).For each complex number define \(\Delta_{\lambda}\) to be the domain of the resolvent operator \((A-\lambda I)^{-1}\),
+\[
+\Delta_{\lambda}=D_{(A-\lambda l)^{-1}}=R_{A-\lambda I .} .
+\]
+算符 \((A-\lambda I)^{-1}\) 有良定义的定义域 \(\Delta_{\lambda}\)，前提是 \(\lambda\) 不是特征值。因为如果 \(\lambda\) 不是特征值，则 \(\operatorname{ker}(A-\lambda I)=\{0\}\) 并且对于每个 \(y \in R_{A-\lambda I}\) 都存在唯一的 \(x\in D_{A}\) 使得 \(y=(A-\lambda I) x\)。
+%The operator \((A-\lambda I)^{-1}\) is well-defined with domain \(\Delta_{\lambda}\) provided \(\lambda\) is not an eigenvalue. For, if \(\lambda\) is not an eigenvalue then \(\operatorname{ker}(A-\lambda I)=\{0\}\) and for every \(y \in R_{A-\lambda I}\) there exists a unique \(x \in D_{A}\) such that \(y=(A-\lambda I) x\).
+\begin{exercise}
+    证明对于所有复数 \(\lambda\)，算符 \(A-\lambda I\) 是闭的。
+\end{exercise}
+%Exercise: Show that for all complex numbers \(\lambda\), the operator \(A-\lambda I\) is closed.
+至于有界算符，如果 \(\Delta_{\lambda}=\mathcal{H}\)，则称复数 \(\lambda\) 是 \(A\) 的正则值。预解算子 \((A-\lambda I)^{-1}\) 从而可以写成有界（连续）算子。非正则值的集合称为 \(A\) 的\textbf{谱(spectrum)}
+%As for bounded operators a complex number \(\lambda\) is said to be a regular value for \(A\) if \(\Delta_{\lambda}=\mathcal{H}\). The resolvent operator \((A-\lambda I)^{-1}\) can then be shown to be a bounded (continuous) operator. The set of complex numbers that are not regular are again known as the spectrum of \(A\)
+\begin{theorem}
+    \( \lambda\) 是自伴算子 \(\left(A, D_{A}\right)\) 的特征值当且仅当预解集 \(\Delta_{\lambda}\) 不在 \(\mathcal{H}\) 中稠密。
+\end{theorem}
+%Theorem \( \lambda\) is an eigenvalue of a self-adjoint operator \(\left(A, D_{A}\right)\) if and only if the resolvent set \(\Delta_{\lambda}\) is not dense in \(\mathcal{H}\).
+\begin{proof}
+    Proof: If \(A x=\lambda x\) where \(x \neq 0\), then
+\[
+0=\langle(A-\lambda I) x \mid u\rangle=\langle x \mid(A-\lambda I) u\rangle
+\] 
+for all \(u \in D_{A}\). Hence \(\langle x \mid v\rangle=0\) for all \(v \in \Delta_{\lambda}=R_{A-\lambda I}\). If \(\Delta_{\lambda}\) is dense in \(\mathcal{H}\) then, by Lemma 13.20, this can only be true for \(x=0\), contrary to assumption.
+
+Conversely if \(\Delta_{\lambda}\) is not dense then by Theorem \ref{thm:13.8} there exists a non-zero vector \(x \in\left(\overline{\Delta_{\lambda}}\right)^{\perp}\). This vector has the property
+\[
+0=\langle x \mid(A-\lambda I) u\rangle=\langle(A-\lambda I) x \mid u\rangle
+\]
+for all \(u \in D_{A}\). Since \(D_{A}\) is a dense domain, \(x\) must be an eigenvector, \(A x=\lambda x\).
+\end{proof}
+于是我们很自然地将谱分为两部分 ——由特征值组成的点谱，其中预解集 \(\Delta_{\lambda}\) 在 \(\mathcal{H}\) 中不稠密，而连续谱由使得\(\Delta_{\lambda}\)非闭的\(\lambda\)组成。需要注意的是，这两类谱不是互斥的；可能有本征值 \(\lambda\)，其预解集既不是闭集也不是实数。谱定理 \ref{thm:13.19} 将自伴算子推广如下： 
+\begin{theorem}\label{thm:13.25}
+    令 A 是希尔伯特空间 \(\mathcal{H}\) 上的自伴算子。存在递增投影算子 \(E_{\lambda}(\lambda \in \mathbb{R})\)，其中对于 \( \lambda \leq \lambda^{\prime}\)，有\(E_{\lambda} \leq P_{\lambda}\)，使得
+
+%It is natural to classify the spectrum into two parts - the point spectrum consisting of eigenvalues, where the resolvent set \(\Delta_{\lambda}\) is not dense in \(\mathcal{H}\), and the continuous spectrum consisting of those values \(\lambda\) for which \(\Delta_{\lambda}\) is not closed. Note that these are not mutually exclusive; it is possible to have eigenvalues \(\lambda\) for which the resolvent set is neither closed nor real numbers. The spectral theorem \(13.19\) generalizes for self-adjoint operators as follows: Theorem \(13.25\) Let \(A\) be a self-adjoint operator on a Hilbert space \(\mathcal{H}\). There exists an Theorem \(13.25\) Let A be a self-adjoint operator on a Hilbert space \(\mathcal{H}\). There exists an increasing family of projection operators \(E_{\lambda}(\lambda \in \mathbb{R})\), with \(E_{\lambda} \leq P_{\lambda}\), for \(\lambda \leq \lambda^{\prime}\), such that
+\[
+E_{-\infty}=0 \quad \text {且} \quad E_{\infty}=I
+\]
+使得
+\[
+A=\int_{-\infty}^{\infty} \lambda \mathrm{d} E_{\lambda},
+\]
+其中积分被解释为 Lebesgue-Stieltjes 积分
+%where the integral is interpreted as the Lebesgue-Stieltjes integral
+\[
+\langle u \mid A u\rangle=\int_{-\infty}^{\infty} \lambda \mathrm{d}\left\langle u \mid E_{\lambda} u\right\rangle
+\]
+对全体\(u \in D_{A}\)都是适用的
+\end{theorem} 
+证明很困难，可以在[7]中找到。它的主要用途是它允许我们为非常广泛的函数类定义自伴算子 \(A\) 的函数 \(f(A)\)。例如，如果 \(f: \mathbb{R} \rightarrow \mathbb{C}\) 是 Lebesgue 可积函数，那么我们设
+%The proof is difficult and can be found in [7]. Its main use is that it permits us to define functions \(f(A)\) of a self-adjoint operator \(A\) for a very wide class of functions. For example if \(f: \mathbb{R} \rightarrow \mathbb{C}\) is a Lebesgue integrable function then we set
+\[
+f(A)=\int_{-\infty}^{\infty} f(\lambda) \mathrm{d} E_{\lambda} .
+\]
+该式是下式的简写
+%This is shorthand for
+\[
+\langle u \mid f(A) v\rangle=\int_{-\infty}^{\infty} f(\lambda) \mathrm{d}\left\langle u \mid E_{\lambda} v\right\rangle
+\]
+对于任意向量 \(u \in \mathcal{H}, v \in D_{A}\)。其中最有用的函数之一是 \(f=\mathrm{e}^{i x}\)，引起酉变换
+%for arbitrary vectors \(u \in \mathcal{H}, v \in D_{A}\). One of the most useful of such functions is \(f=\mathrm{e}^{i x}\),giving rise to a unitary transformation
+\[
+U=\mathrm{e}^{i A}=\int_{-\infty}^{\infty} \mathrm{e}^{i \lambda} \mathrm{d} E_{\lambda} .
+\]
+酉算子和自伴算子之间的这种关系主要在Stone定理中表达，该定理概括了有限维向量空间的结果，在例 \ref{eg:6.12} 和问题 6.12 中讨论。
+%This relation between unitary and self-adjoint operators has its main expression in Stone's theorem, which generalizes the result for finite dimensional vector spaces, discussed in Example \(6.12\) and Problem 6.12.
+\begin{theorem}
+    希尔伯特空间上的每一个使得\(U_{t} U_{s}=U_{t+s}\)的单参数酉变换群\(U_{t}\)都可以表示为下列形式
+\end{theorem}
+%Theorem 13.26 Every one-parameter unitary group of transformations \(U_{t}\) on a Hilbert space, such that \(U_{t} U_{s}=U_{t+s}\), can be expressed in the form
+\[
+U_{t}=\mathrm{e}^{i A t}=\int_{-\infty}^{\infty} \mathrm{e}^{i \lambda t} \mathrm{~d} E_{\lambda} .
+\]
