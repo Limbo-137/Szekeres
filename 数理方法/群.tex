@@ -811,4 +811,44 @@ $$
 $$
 \Delta s^{2}=\left(\mathbf{r}_{2}-\mathbf{r}_{1}\right)^{2}=\Delta \mathbf{r}^{T} \Delta \mathbf{r}
 $$
+A transformation of $\mathrm{E}^3$ that leaves the distance between any pair of points imvariant will be called a Euclidean transformation. As for the rotation group, a Euclidean transformation $\mathbf{r} \rightarrow \mathbf{r}^{\prime}$ has
+
+$$
+\Delta \mathbf{r}^{\prime}=\mathrm{A} \Delta \mathbf{r}, \quad \mathrm{AA}^r=1
+$$
+
+
+For any pair of points $r_2-r_1=A\left(r_2-r_1\right)$, and if we set $r_1=0$ to be the origin and $\sigma^{\prime}=a$, then $r_2^{\prime}-a=A r_2$. Since $r_2$ is an arbitrary point in $\mathbb{E}^3$, the general Euclidean transformations have the form
+
+$$
+\mathbf{r}^{\prime}=\mathrm{Ar}+\mathbf{a} \text { where } \quad \mathrm{A}^T \mathrm{~A}=\mathrm{I}, \mathbf{a}=\text { const. }
+$$
+
+
+Transformations of this form are frequently called affine or inhomogeneous linear transformations.
+
+Eyercise: Check directly that these transformations form a group - do not use Theorem 2.6.
+The group of Euclidean transformations, called the Euclidean group, can also be written as a matrix group by replacing $r$ with the $4 \times 1$ column matrix $(x, y, z, 1)^T$ and writing
+
+$$
+\binom{r}{1}=\left(\begin{array}{cc}
+A & \mathbf{a} \\
+0^r & 1
+\end{array}\right)\binom{\mathbf{r}}{1}=\binom{A \mathbf{r}+\mathbf{a}}{1} .
+$$
+
+
+This may seem an odd trick, but its value lies in demonstrating that the Euclidean group is isomorphic to a matrix group - the Euclidean transformations are affine, not linear, on $\mathbb{R}^3$, and thus cannot be written as $3 \times 3$ matrices.
+
+Example 2.29.The Galilean group. To find the set of transformations of space and time that preserve the laws of Newtonian mechanics we follow the lead of special relativity (see Chapter 9) and define an event to be a point of $\mathrm{R}^4$ characterized by four coordinates $(x, y, z, t)$. Define Galilean space $\mathrm{G}^4$ to be the space of events with a structure consisting of three elements:
+1. Time intervals $\Delta r=t_2-t_1$.
+2. The spatial distance $\Delta s=\left|\mathbf{r}_2-\mathbf{r}_1\right|$ between any pair of simultaneous events (events having the same time coordinate, $f_1=t_2$ ).
+3. Motions of inertial (free) particles, otherwise known as reetilinear motions,
+
+$$
+\mathbf{r}(t)=\mathbf{u} t+\mathbf{r}_0 .
+$$
+
+where $u$ and $r_8$ are arbitrary constant vectors.
+Note that only the distance between simultaneous events is relevant. A simple example should make this clear. Consider a train travelling with uniform velocity v between two stations $A$ and $B$. In the frame of an observer who stays at $A$ the distance between the (non-simultancous) events $E_1=$ 'train leaving $A^{\prime}$ and $E_2=$ 'train arriving at $B$ ' is clearly $d=\mathrm{vt}$, where $t$ is the time of the journcy. However, in the rest frame of the train it hasn't moved at all and the distance between these two events is zero! Assuming no accelerations at the start and end of the journey, both frames are equally valid Galilean frames of reference.
 \end{eg}
