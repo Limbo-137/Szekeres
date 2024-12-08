@@ -63,7 +63,7 @@
 	对规则\ref{top:2}进行累次作用，可得知有限个开集的交集是开集，然而一般来说 $\mathcal{O}$ 中无限个交集的并不属于 $\mathcal{O}$ 。另一方面，$\mathcal{O}$ 对于开集的任意并却是闭合的。考虑一个元素对 $(X,\mathcal{O} )$，其中 $\mathcal{O}$ 是 $X$ 上的拓扑，这一元素对被称为\textbf{拓扑空间(topological space)}。拓扑 $\mathcal{O}$ 已知时，我们通常简称拓扑空间 $(X,\mathcal{O} )$ 为 $X$。底空间 $X$ 上的元素通常称为\textbf{点(points)}。
 
 \begin{eg}\label{eg:10.1}
- 	定义 $\mathcal{O}$ 为实数集 $\mathbb{R}$ 的子集族 $U$ 构成的集合，对每个 $x\in U$，存在一个开区间 $(x-\epsilon ,x+\epsilon )\subseteq U$，其中 $\epsilon  >0$。这些集合满足\ref{sec:10.1}中给出的开集条件。首先空集默认属于 $\mathcal{O}$，而整个实数线 $\mathbb{R}$ 显然是开集，因为其中每个点都在一个开区间内。因此，\ref{top:1}对集合 $\mathcal{O}$ 成立。为了证明 \ref{top:2}，设 $U$ 和 $V$ 是开集，且 $U\cap V\neq \emptyset $（ $U\cap V=\emptyset $ 的情况是平凡的）。对于任意 $x\in U\cap V$，存在正数 $\epsilon _{1}$ 和 $\epsilon _{2}$，使得
+ 	定义 $\mathcal{O}$ 为实数集 $\mathbb{R}$ 的子集族 $U$ 构成的集合，对每个 $x\in U$，存在一个开区间 $(x-\epsilon ,x+\epsilon )\subseteq U$，其中 $\epsilon  >0$。这些集合满足\ref{sec:10.1}节中给出的开集条件。首先空集默认属于 $\mathcal{O}$，而整个实数线 $\mathbb{R}$ 显然是开集，因为其中每个点都在一个开区间内。因此，\ref{top:1}对集合 $\mathcal{O}$ 成立。为了证明 \ref{top:2}，设 $U$ 和 $V$ 是开集，且 $U\cap V\neq \emptyset $（ $U\cap V=\emptyset $ 的情况是平凡的）。对于任意 $x\in U\cap V$，存在正数 $\epsilon _{1}$ 和 $\epsilon _{2}$，使得
 \begin{equation*}
     (x-\epsilon _{1} ,x+\epsilon _{1} )\subseteq U\ \ \text{且} \ \ (x-\epsilon _{2} ,x+\epsilon _{2} )\subseteq V。
 \end{equation*}
@@ -74,7 +74,7 @@
     (a-1,a+1),\ \ (a-\frac{1}{2} ,a+\frac{1}{2} ),\ \ (a-\frac{1}{3} ,a+\frac{1}{3} ),\ \ (a-\frac{1}{4} ,a+\frac{1}{4} ),\ \ \dotsc 
 \end{equation*}
 \end{eg}
-类似的论证可以用来证明在\ref{sec:10.1}中 $\mathbb{R}^{2}$ 上的开集族构成拓扑。在 $\mathbb{R}^{n}$ 中，我们定义了一种拓扑，集合 $U$ 被称为开集当且仅当对于每个点 $x\in U$，存在一个开球
+类似的论证可以用来证明在\ref{sec:10.1}节中 $\mathbb{R}^{2}$ 上的开集族构成拓扑。在 $\mathbb{R}^{n}$ 中，我们定义了一种拓扑，集合 $U$ 被称为开集当且仅当对于每个点 $x\in U$，存在一个开球
 \begin{equation*}
     B_{r} (\mathbf{x} )=\{y\in \mathbb{R}^{n} \mid | \mathbf{y} -\mathbf{x}| < r\}\subset U，
 \end{equation*}
@@ -120,7 +120,7 @@
 	如果 $A$ 是闭集，证明在 $A$ 相对拓扑中的每个闭集在 $X$ 中也是闭集。
 \end{exercise}
 
-	若每个包含 $x$ 的开邻域 $U$，都包含除 $x$ 以外的 $A$ 中的点，则称 $x$ 是集合 $A$ 的一个\textbf{聚点(accumulation point/cluster point)}，如\ref{fig:10.3}所示。这意味着 $x$ 可能属于 $A$，也可能不属于 $A$，但是 $A$ 中的点会任意接近 $x$ 。这一概念经常与点列 $x_{n} \in X$中的一个概念类比。如果对每个开邻域 $U$，存在一个整数 $N$，使得对于所有 $n\geq N$，都有 $x_{n} \in U$，则称点列 $x_{n}$ 在 $X$ 中\textbf{收敛到(converges to)} $x\in X$，即 $x$ 是点列 $\{x_{n} \}$ 的\textbf{极限点(limit point)}，记作 $x_{n}\rightarrow x$。这与聚点的不同之处在于，我们可以假设存在某个 $n_{0}$，当 $n >n_{0}$时，有 $x_{n} =x$ 。
+	若每个包含 $x$ 的开邻域 $U$，都包含除 $x$ 以外的 $A$ 中的点，则称 $x$ 是集合 $A$ 的一个\textbf{聚点(accumulation point/cluster point)}，如图\ref{fig:10.3}所示。这意味着 $x$ 可能属于 $A$，也可能不属于 $A$，但是 $A$ 中的点会任意接近 $x$ 。这一概念经常与点列 $x_{n} \in X$中的一个概念类比。如果对每个开邻域 $U$，存在一个整数 $N$，使得对于所有 $n\geq N$，都有 $x_{n} \in U$，则称点列 $x_{n}$ 在 $X$ 中\textbf{收敛到(converges to)} $x\in X$，即 $x$ 是点列 $\{x_{n} \}$ 的\textbf{极限点(limit point)}，记作 $x_{n}\rightarrow x$。这与聚点的不同之处在于，我们可以假设存在某个 $n_{0}$，当 $n >n_{0}$时，有 $x_{n} =x$ 。
 
 	对任意集合 $A$ ，其与其所有积聚点的并集被称为 $A$ 的\textbf{闭包(closure)}，记作 $\overline{A}$ 。集合 $A$ 的\textbf{内部(interior)}是指所有包含于 $A$ 的开集 $U\subseteq A$ 的并集，记作 $A^{o}$。这两者的差集，$b(A)=\overline{A} -A^{o}$，被称为 $A$ 的\textbf{边界(boundary)}。
 
@@ -150,7 +150,7 @@
 \end{exercise}
 
 \begin{eg}\label{eg:10.5}
-	开球 $B_{a} (\mathbf{x} )\subset \mathbb{R}^{n}$（见\ref{eg:10.1}）的闭包是\emph{闭球}
+	开球 $B_{a} (\mathbf{x} )\subset \mathbb{R}^{n}$（见例\ref{eg:10.1}）的闭包是\emph{闭球}
 \begin{equation*}
     \overline{B_{a}} (\mathbf{x} )=\{\mathbf{y} \mid | \mathbf{y} -\mathbf{x}| \leq a\}。
 \end{equation*}
@@ -205,10 +205,10 @@ b_{a} (B(\mathbf{x} ))=S_{a}^{n-1} (\mathbf{x} )=\{y\mid | \mathbf{y} -\mathbf{x
 \begin{equation*}
     \mathcal{B}_{\mathrm{rat}} =\{B_{a} (\mathbf{r} )\mid a >0\in \mathbb{Q} ,\mathbf{r} =( x,y) \ \mathrm{s.t.} \ x,y\in \mathbb{Q} \}。
 \end{equation*}
-集合$\mathcal{B}_{\mathrm{rat}}$是可数的，因为它可以与 $\mathbb{Q}^{3}$ 的一个子集一一对应。由于有理数在实数中是稠密的，一个开集中的每一点 $\mathbf{x}$ 都可以放在一个有理数开球内。通过类似于\ref{eg:10.8}中的论证，可以证明， $\mathcal{B}_{\mathrm{rat}}$ 中两个集合的交集可以看作有理数开球之并，因此 $\mathbb{R}^{2}$ 是可分的。类似地，对所有 $n\geq 1$ ，空间 $\mathbb{R}^{n}$ 都是可分的。
+集合$\mathcal{B}_{\mathrm{rat}}$是可数的，因为它可以与 $\mathbb{Q}^{3}$ 的一个子集一一对应。由于有理数在实数中是稠密的，一个开集中的每一点 $\mathbf{x}$ 都可以放在一个有理数开球内。通过类似于例\ref{eg:10.8}中的论证，可以证明， $\mathcal{B}_{\mathrm{rat}}$ 中两个集合的交集可以看作有理数开球之并，因此 $\mathbb{R}^{2}$ 是可分的。类似地，对所有 $n\geq 1$ ，空间 $\mathbb{R}^{n}$ 都是可分的。
 \end{eg}
 
-	设 $X$ 和 $Y$ 为两个拓扑空间。\ref{thm:10.1}启发了如下的定义：若函数 $f:X\rightarrow Y$ 满足每个 $Y$ 中开集 $U$ 的逆像 $f^{-1} (U)$ 在 $X$ 中是开集，则称该函数为\textbf{连续的(continuous)}。如果 $f$ 是一一对应的且其逆函数 $f^{-1} :Y\rightarrow X$ 是连续的，则该函数称为\textbf{同胚映射(homeomorphism)}，拓扑空间 $X$ 和 $Y$ 的关系被称为\textbf{同胚(homeomorphic)}或\textbf{拓扑等价(topologically equivalent)}，记作 $X\cong Y$。拓扑学的主要任务就是寻找\textbf{拓扑不变量(topological invariants)}——在同胚映射下保持不变的性质。它们可以是实数、从拓扑空间构造的代数结构（如群或向量空间），或者是某些特定的性质，如\emph{紧性}和\emph{连通性}。最终的目标是找到一组能够刻画拓扑空间的拓扑不变量。在范畴论的语言中（见\ref{sec:1.7}），连续函数是以拓扑空间为元素的范畴中的态射，而所谓同胚映射则是该范畴中的同构。
+	设 $X$ 和 $Y$ 为两个拓扑空间。定理\ref{thm:10.1}启发了如下的定义：若函数 $f:X\rightarrow Y$ 满足每个 $Y$ 中开集 $U$ 的逆像 $f^{-1} (U)$ 在 $X$ 中是开集，则称该函数为\textbf{连续的(continuous)}。如果 $f$ 是一一对应的且其逆函数 $f^{-1} :Y\rightarrow X$ 是连续的，则该函数称为\textbf{同胚映射(homeomorphism)}，拓扑空间 $X$ 和 $Y$ 的关系被称为\textbf{同胚(homeomorphic)}或\textbf{拓扑等价(topologically equivalent)}，记作 $X\cong Y$。拓扑学的主要任务就是寻找\textbf{拓扑不变量(topological invariants)}——在同胚映射下保持不变的性质。它们可以是实数、从拓扑空间构造的代数结构（如群或向量空间），或者是某些特定的性质，如\emph{紧性}和\emph{连通性}。最终的目标是找到一组能够刻画拓扑空间的拓扑不变量。在范畴论的语言中（见\ref{sec:1.7}），连续函数是以拓扑空间为元素的范畴中的态射，而所谓同胚映射则是该范畴中的同构。
 
 \begin{eg}\label{eg:10.10}
 	设 $f:X\rightarrow Y$ 为两个拓扑空间之间的连续函数。如果 $X$ 上的拓扑是离散拓扑，那么无论 $Y$ 上的拓扑是什么， $f$ 都是连续的。因为每个逆像集 $f^{-1} (U)$ 在 $X$ 中都是开集。类似地，如果 $Y$ 上的拓扑是凝聚拓扑，则函数 $f$ 也都是连续的，因为 $X$ 中仅有的开集逆像是 $f^{-1} (\emptyset )=\emptyset $ 和 $f^{-1} (Y)=X$，根据\ref{top:1}，它们必定是开集。
@@ -251,8 +251,8 @@ b_{a} (B(\mathbf{x} ))=S_{a}^{n-1} (\mathbf{x} )=\{y\mid | \mathbf{y} -\mathbf{x
 	在 $\mathbb{R}^{2}$ 中画出度量 $d$、$d_{1}$ 和 $d_{2}$ 下的开球 $B_{1} ((0,0))$。
 \end{exercise}
 
-	若 $(M,d)$ 是度量空间，则子集 $U\subset M$ 被称为开集当且仅当对于每个 $x\in U$，存在一个开球 $B_{\epsilon } (x)\subset U$。类似 $\mathbb{R}^{2}$ 中的情况，这为 $M$ 定义了一个自然拓扑，称为\textbf{度量拓扑(metric topology)}。这个拓扑由所有的开球 $B_{\epsilon } (x)\subset M$ 生成。证明方法与\ref{eg:10.8}中的类似
-	在度量空间 $(M,d)$ 中，点列 $x_{n}$ 收敛于点 $x$当且仅当$n\rightarrow \infty $ 时 $d(x_{n} ,x)\rightarrow 0$。等价地，$x_{n}\rightarrow x$ 当且仅当对于每个 $\epsilon  >0$，存在一个足够大的 $n$，使得对于所有 $n\geq N$，都有 $x_{n} \in B_{\epsilon } (x)$。度量空间中点列的极限是唯一的，假设 $x_{n}\rightarrow x$ 且 $x_{n}\rightarrow y$，根据三角不等式有 $d(x,y)\leq d(x,x_{n} )+d(x_{n} ,y)$。对于任意的 $\epsilon  >0$，可以通过选择足够大的 $n$ 使得 $d(x,y)< \epsilon $ 。因此，根据\ref{met:2}，我们有 $d(x,y)=0$，从而 $x=y$。由此可见，序列收敛的概念在度量空间中比在一般拓扑空间中更能体现出价值（见\ref{pro:10.7}）。
+	若 $(M,d)$ 是度量空间，则子集 $U\subset M$ 被称为开集当且仅当对于每个 $x\in U$，存在一个开球 $B_{\epsilon } (x)\subset U$。类似 $\mathbb{R}^{2}$ 中的情况，这为 $M$ 定义了一个自然拓扑，称为\textbf{度量拓扑(metric topology)}。这个拓扑由所有的开球 $B_{\epsilon } (x)\subset M$ 生成。证明方法与例\ref{eg:10.8}中的类似
+	在度量空间 $(M,d)$ 中，点列 $x_{n}$ 收敛于点 $x$当且仅当$n\rightarrow \infty $ 时 $d(x_{n} ,x)\rightarrow 0$。等价地，$x_{n}\rightarrow x$ 当且仅当对于每个 $\epsilon  >0$，存在一个足够大的 $n$，使得对于所有 $n\geq N$，都有 $x_{n} \in B_{\epsilon } (x)$。度量空间中点列的极限是唯一的，假设 $x_{n}\rightarrow x$ 且 $x_{n}\rightarrow y$，根据三角不等式有 $d(x,y)\leq d(x,x_{n} )+d(x_{n} ,y)$。对于任意的 $\epsilon  >0$，可以通过选择足够大的 $n$ 使得 $d(x,y)< \epsilon $ 。因此，根据\ref{met:2}，我们有 $d(x,y)=0$，从而 $x=y$。由此可见，序列收敛的概念在度量空间中比在一般拓扑空间中更能体现出价值（见问题\ref{pro:10.7}）。
 	在度量空间 $(M,d)$ 中，设 $x_{n}$ 为一个收敛到某点 $x\in M$ 的点列。则对于每个 $\epsilon  >0$，存在一个正整数 $N$，使得对于所有 $n,m >N$，都有 $d(x_{n} ,x_{m} )< \epsilon $。为证明这一点，设 $N$ 为一整数，对于 $k >N$，有 $d(x_{k} ,x)< \frac{1}{2} \epsilon $。于是对于所有的$n,m >N$，有
 \begin{equation*}
     d(x_{n} ,x_{m} )\leq d(x_{n} ,x)+d(x,x_{m} )< \epsilon \ 。
@@ -264,7 +264,6 @@ b_{a} (B(\mathbf{x} ))=S_{a}^{n-1} (\mathbf{x} )=\{y\mid | \mathbf{y} -\mathbf{x
 \end{eg}
 
 \section{诱导拓扑}
-（填充）
 \subsection{诱导拓扑和拓扑乘积}
 （填充）
 \subsection{同化拓扑}
@@ -273,7 +272,7 @@ b_{a} (B(\mathbf{x} ))=S_{a}^{n-1} (\mathbf{x} )=\{y\mid | \mathbf{y} -\mathbf{x
 
 在某些拓扑中（例如离散拓扑）由于开集太少，不同的点无法被非相交的邻域分隔开。为了解决这种情况，有时会对拓扑空间施加称为\emph{分离公理}的条件。其中一种最常见的是\textbf{豪斯多夫条件(Hausdorff condition)}：对于每一对点$x,y\in X$，存在$x$的开邻域 $U$ 和 $y$ 的开邻域 $V$ ，使得$U\cap V=\emptyset $。满足此属性的拓扑空间称为\textbf{豪斯多夫空间(Hausdorff space)}。直观来讲，豪斯多夫空间中不存在一对“任意接近”的不同点。
 
-豪斯多夫空间的一个典型的“好的”属性是，任何收敛序列 $x_{n}\rightarrow x$ 的极限（定义见\ref{pro:10.7}）是唯一的。举例来讲，若在豪斯多夫空间$X$中，$x_{n}\rightarrow x$且$x_{n}\rightarrow x'$。假设$x\neq x'$，给出不相交的开邻域$U$和$U'$，使得$x\in U$且$x'\in U'$，并且存在一个整数$N$使得对所有$n >N$，$x_{n} \in U$。在此情况下，由于对所有$n >N$，$x_{n} \notin U'$，因此序列$x_{n}$不能收敛于$x'$，与条件$x_{n}\rightarrow x'$矛盾。于是只能有$x=x'$。
+豪斯多夫空间的一个典型的“好的”属性是，任何收敛序列 $x_{n}\rightarrow x$ 的极限（定义见问题\ref{pro:10.7}）是唯一的。举例来讲，若在豪斯多夫空间$X$中，$x_{n}\rightarrow x$且$x_{n}\rightarrow x'$。假设$x\neq x'$，给出不相交的开邻域$U$和$U'$，使得$x\in U$且$x'\in U'$，并且存在一个整数$N$使得对所有$n >N$，$x_{n} \in U$。在此情况下，由于对所有$n >N$，$x_{n} \notin U'$，因此序列$x_{n}$不能收敛于$x'$，与条件$x_{n}\rightarrow x'$矛盾。于是只能有$x=x'$。
 
 在豪斯多夫空间中，每个单点集$\{x\}$都是闭集。原因如下，令$Y=X-\{x\}$为其补集。$Y$ 中的每个点$y$都有一个不与$x$的某个开邻域相交的开邻域$U_{y}$，特别是对于$x\notin U_{y}$。根据\ref{top:3}，所有这些开邻域的并集$Y=\bigcup _{y\in Y} U_{y} =X-\{x\}$是开的。因此 $\{x\}=X-Y$ 为开集的补集是闭的。
 
@@ -322,7 +321,77 @@ b_{a} (B(\mathbf{x} ))=S_{a}^{n-1} (\mathbf{x} )=\{y\mid | \mathbf{y} -\mathbf{x
 \end{proof}
 
 \section{紧空间}
-（填充）
+
+对于拓扑空间 $X$ 的子集 $A$ ，如果每个点 $x\in A$ 都属于集族 $\mathcal{U} =\{U_{i} \mid i\in I\}$ 中某个集合，则称 $\mathcal{U}$ 是子集 $A$ 的一个\textbf{覆盖(covering)}。若每个 $U_{i}$ 都是开集，则称其为\textbf{开覆盖(open covering)}。若覆盖的子集族 $\mathcal{U} '\subseteq \mathcal{U}$覆盖 $A$，则称 $\mathcal{U} '$ 为\textbf{子覆盖(subcovering)}。若 $\mathcal{U} '$ 由有限个集合 $\{U_{1} ,U_{2} ,\dotsc ,U_{n} \}$ 组成，则称为\textbf{有限子覆盖(finite subcovering)}。
+
+	对于拓扑空间 $(X,\mathcal{O} )$ ，若 $X$ 的每一个开覆盖都包含一个有限子覆盖，则称 $(X,\mathcal{O} )$ 是\textbf{紧致的(compact)}。这一定义是由下述定理启发得到的，其证明可以在任何分析学的标准教材中找到 [10-12]。
+
+\begin{theorem}[海涅-博雷尔定理]\label{thm:10.8} 
+	若 $A$ 是 $\mathbb{R}^{n}$ 中的有界闭子集（即包含在某个中心球内 $A\subset B_{a} (0)$，$a >0$），则$A$ 是紧致的当且仅当 $A$ 的每一个开覆盖都有有限子覆盖。
+\end{theorem}
+
+\begin{theorem}\label{thm:10.9} 
+	紧空间 $X$ 的每个闭子空间 $A$ 都在相对拓扑的意义下是紧致的。
+\end{theorem}
+
+\begin{proof}
+	设 $\mathcal{U}$ 是 $A$ 的任意开覆盖，其中每个集合都是相对拓扑意义下的开集。这个覆盖的每个成员必须是形如 $U\cap A$ 的形式，其中 $U$ 是 $Y$ 中的开集。集合 $\{U\}$ 与开集 $X-A$ 一起构成 $X$ 的一个开覆盖，而由于 $X$ 是紧致的，则它必定有一个有限子覆盖 $\{U_{1} ,U_{2} ,\dotsc ,U_{n} ,X-A\}$。因此，集合 $\{U_{1} \cap A,U_{2} \cap A,\dotsc ,U_{n} \cap A\}$ 就构成 $A$ 的一个有限子覆盖。于是便证明了 $A$ 在相对拓扑下是紧致的。
+\end{proof}
+
+\begin{theorem}\label{thm:10.10} 
+	若 $f:X\rightarrow Y$ 是从紧拓扑空间 $X$ 到拓扑空间 $Y$ 的连续映射，则其像 $f(X)\subseteq Y$ 在相对拓扑下是紧致的。
+\end{theorem}
+
+\begin{proof}
+	设集族 $\mathcal{U}$ 是 $f(X)$ 的任意开覆盖，其中每个集合都是相对拓扑意义下的开集。此覆盖中每个成员的形式是 $U\cap f(X)$，其中 $U$ 是 $Y$ 中的开集。由于 $f$ 是连续的，集合 $f^{-1} (U)$ 构成 $X$ 的开覆盖。而 $X$ 是紧致的，则必定存在有限子覆盖 $\{f^{-1} (U_{i} )\mid i=1,\dotsc ,n\}$覆盖 $X$，与这些集合相对应的集合 $U_{i} \cap f(X)$ 便构成了 $f(X)$ 的有限子覆盖。
+\end{proof}
+
+	紧致性是一个拓扑性质，其在同胚映射下保持不变。
+
+\begin{eg}\label{eg:10.16} 
+	如果 $E$ 是紧致拓扑空间 $X$ 上的一个等价关系，则映射 $i_{E} :X\rightarrow X/E$ 在同化拓扑 $X/E$ 中是连续的。根据定理\ref{thm:10.10}可知拓扑空间 $X/E$ 是紧致的。举例来说，通过认同 $\mathbb{R}^{2}$ 中闭且紧致单位正方形的对边所形成的环面 $T^{2}$ 是一个紧致空间。
+\end{eg}
+
+\begin{theorem}\label{thm:10.11} 
+	拓扑积$X\times Y$ 是紧致的当且仅当 $X$ 和 $Y$ 都是紧致的。
+\end{theorem}
+
+\begin{proof}
+	如果 $X\times Y$ 是紧致的，则根据定理\ref{thm:10.10}，$X$ 和 $Y$ 都是紧致的，因为投影映射 $\mathrm{pr}_{1} :X\times Y\rightarrow X$ 和 $\mathrm{pr}_{2} :X\times Y\rightarrow Y$  都在乘积拓扑中连续。
+	另一方面，假设 $X$ 和 $Y$ 都是紧致的。设 $\mathcal{W} =\{W_{i} \mid i\in I\}$ 是 $X\times Y$ 的一个开覆盖。由于每个集合 $W_{i}$ 是形为 $U\times V$ 的集合的并，其中 $U$ 和 $V$ 分别是 $X$ 和 $Y$ 的开集，作为某些 $W_{i}$ 的子集的所有形如 $U_{i} \times V_{j}$（$j\in J$）的集合构成了 $X\times Y$ 的开覆盖。给定任意点 $y\in Y$，集合 $U_{j}$ （对应的$V_{j} \ni y$）构成了 $X$ 的开覆盖。而 $X$ 是紧致的，因此存在一个有限子覆盖 $\{U_{j_{1}} ,U_{j_{2}} ,\dotsc ,U_{j_{n}} \}$。考虑$U_{j_{k}}$相对应的开集 $V_{j_{k}}$，有$y\in A_{y} =V_{j_{1}} \cap V_{j_{2}} \cap \cdots \cap V_{j_{n}}$，而根据\ref{top:2}，可知$A_{y}$也是开集。于是集合 $\{A_{y} \mid y\in Y\}$ 构成了 $Y$ 的开覆盖，由于 $Y$ 也是紧致的，其存在一个有限子覆盖 $A_{y_{1}} ,A_{y_{2}} ,\dotsc ,A_{y_{m}}$。由此，所有集合 $U_{j_{k}} \times V_{j_{k}}$ 以及与相应的 $A_{y_{a}}$ 构成了 $X\times Y$ 的一个有限开覆盖。这一有限开覆盖中的每一个集合都是某个 $W_{i} \in \mathcal{W}$ 的子集。于是任一开覆盖 $\mathcal{W}$ 存在有限子覆盖，从而证明了 $X\times Y$ 是紧致的。
+\end{proof}
+
+	令人惊讶的是，这一结论可以推广到任意无限乘积空间（\emph{Tychonoff 定理}）。感兴趣的读者可以参考 [8] 或 [2] 中的一个较难的证明。
+
+\begin{theorem}\label{thm:10.12} 
+	每个紧致拓扑空间的无限子集都至少有一个聚点。
+\end{theorem}
+
+\begin{proof}
+	利用反证法。设 $X$ 是一个紧致拓扑空间，$A\subset X$ 且 $A$ 没有聚点。对于 $X-A$ 中的每个点都可以构造一个开邻域 $U_{x}$，使得 $U_{x} \cap A=\emptyset $，于是有$X-A=\bigcup _{x\in A-X} U_{x}$ 是开集，则其补集 $A\subset X$ 是闭集。根据定理\ref{thm:10.9}，$A$ 是紧致的。由于每个点 $a\in A$ 都不是聚点，则对于每个存在开邻域 $U_{a}$，使得 $U_{a} \cap A=\{a\}$。因此，每个单点集 $\{a\}$ 是 $A$ 在相对拓扑意义下的开集，因此这一相对拓扑是离散拓扑。而单点集 $\{a\mid a\in A\}$ 便形成了 $A$ 的一个开覆盖，且由于 $A$ 是紧致的，其必然存在有限子覆盖 $\{a_{1} \},\{a_{2} \},\dotsc ,\{a_{n} \}$。因此，$A=\{a_{1} ,a_{2} ,\dotsc ,a_{n} \}$ 是有限集，与条件矛盾，因此原假设成立， $A$ 至少有一个聚点。
+\end{proof}
+
+\begin{theorem}\label{thm:10.13} 
+	豪斯多夫空间的紧致子空间是闭的。
+\end{theorem}
+
+\begin{proof}
+设 $X$ 是豪斯多夫空间，$A$ 是相对拓扑下的紧致子空间。如果 $a\in A$ 且 $x\in X-A$，则存在不相交开集 $U_{a}$ 和 $V_{a}$，使得 $a\in U_{a}$ 且 $x\in V_{a}$。开集族 $U_{a} \cap A$ 在相对拓扑意义下构成了 $A$ 的开覆盖。而由于 $A$ 是紧致的，此开覆盖存在有限子覆盖 $\{U_{a_{1}} \cap A,U_{a_{2}} \cap A,\dotsc ,U_{a_{n}} \cap A\}$。而相对应的$V_{a_{1}} ,\dotsc ,V_{a_{n}}$满足$x\in W=V_{a_{1}} \cap \dotsc \cap V_{a_{n}}$，其中 $W$ 是一个开集。由于 $W$ 中的每一点都在$U_{a_{i}} \cap A$之外，我们有$W\cap A=\emptyset $。于是对于每一点 $x\in X-A$，都可以构造一个和 $A$ 不相交的开邻域。因此 $A$ 的所有聚点都在 $A$ 内部， $A$ 必为闭的。
+\end{proof}
+
+\begin{theorem}\label{thm:10.14} 
+	度量空间的紧致子空间都是闭且有界的。
+\end{theorem}
+
+\begin{proof}
+	设 $A$ 是度量空间 $(M,d)$ 的一个紧致子空间。由于 $M$ 是豪斯多夫空间，根据定理\ref{thm:10.4}，$A$ 是闭集。构造相对拓扑下 $A$ 的开覆盖$\mathcal{U} =\{B_{1} (a)\cap A\mid a\in A\}$，其中每个 $B_{1} (a)$ 都是以点 $a$ 为中心的单位开球。由于 $A$ 是紧致的，可以挑选出有限个这样的开球$\{B(a_{1} ),B(a_{2} ),\dotsc ,B(a_{n} )\}$来覆盖 $A$。设这些点之间的最大距离为 $D=\max d(a_{i} ,a_{j} )$。对于任意一对点 $a,b\in A$，如果 $a\in B_{1} (a_{k} )$ 且 $b\in B(a_{l} )$，则根据三角不等式
+\begin{equation*}
+d(a,b)\leq d(a,a_{i} )+d(a_{i} ,a_{j} )+\dotsc +d(a_{j} ,b)\leq D+2.
+\end{equation*}
+
+因此，$A$ 是一个有界集合。
+\end{proof}
+
 \section{连通空间}
 （填充）
 \section{拓扑群}
@@ -409,9 +478,9 @@ b_{a} (B(\mathbf{x} ))=S_{a}^{n-1} (\mathbf{x} )=\{y\mid | \mathbf{y} -\mathbf{x
 然而值得一提的的是，复一般线性群 $GL(n,\mathbb{C} )$ 是连通的，这一结论成立的依据是，任何非奇异复矩阵的 Jordan 标准型可以连续变形为单位矩阵 $ \mathbf{I}$ 。
 \end{eg}
 
-特殊正交群 $SO(n)$ 全都是连通的。可以通过利用维数 $n$ 进行数学归纳来证明这一点。显然 $SO(1)=\{1\}$ 是连通的。假设 $SO(n)$ 是连通的，则可以证明（参见\ref{chapter:19}的\ref{eg:19.10}）$SO(n+1)/SO(n)$ 同胚于球面 $S^{n}$。$S^{n}$是一个连通集（\ref{eg:10.19}），由\ref{thm:10.22}可知 $ SO(n+1)$ 是连通集。于是利用数学归纳法可知，对于所有 $n=1,2,\dotsc $， $ SO(n)$ 是连通群。然而，正交群 $O(n)$ 并不是连通的，因为其单位连通分支是 $SO(n)$，剩余的正交矩阵都在另一个对应行列式为 $ -1$ 的连通分支上。
+特殊正交群 $SO(n)$ 全都是连通的。可以通过利用维数 $n$ 进行数学归纳来证明这一点。显然 $SO(1)=\{1\}$ 是连通的。假设 $SO(n)$ 是连通的，则可以证明（参见\ref{chapter:19}章的例\ref{eg:19.10}）$SO(n+1)/SO(n)$ 同胚于球面 $S^{n}$。$S^{n}$是一个连通集（例\ref{eg:10.19}），由定理\ref{thm:10.22}可知 $ SO(n+1)$ 是连通集。于是利用数学归纳法可知，对于所有 $n=1,2,\dotsc $， $ SO(n)$ 是连通群。然而，正交群 $O(n)$ 并不是连通的，因为其单位连通分支是 $SO(n)$，剩余的正交矩阵都在另一个对应行列式为 $ -1$ 的连通分支上。
 
-类似地，由 $SU(1)=\{1\}$ 和 $SU(n)/SU(n)\cong S^{2n-1}$，可知所有的特殊酉群 $SU(n)$ 是连通的。由\ref{thm:10.22}，酉群 $U(n)$ 也都是连通的，因为 $U(n)/SU(n)=S^{1}$ 是连通的。
+类似地，由 $SU(1)=\{1\}$ 和 $SU(n)/SU(n)\cong S^{2n-1}$，可知所有的特殊酉群 $SU(n)$ 是连通的。由定理\ref{thm:10.22}，酉群 $U(n)$ 也都是连通的，因为 $U(n)/SU(n)=S^{1}$ 是连通的。
 
 \section{拓扑向量空间}
 （填充）
