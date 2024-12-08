@@ -826,8 +826,11 @@ $$
 
 
 Transformations of this form are frequently called affine or inhomogeneous linear transformations.
+\end{eg}
+\begin{exercise}
+    Check directly that these transformations form a group - do not use Theorem 2.6.
+\end{exercise}
 
-Eyercise: Check directly that these transformations form a group - do not use Theorem 2.6.
 The group of Euclidean transformations, called the Euclidean group, can also be written as a matrix group by replacing $r$ with the $4 \times 1$ column matrix $(x, y, z, 1)^T$ and writing
 
 $$
@@ -839,8 +842,8 @@ $$
 
 
 This may seem an odd trick, but its value lies in demonstrating that the Euclidean group is isomorphic to a matrix group - the Euclidean transformations are affine, not linear, on $\mathbb{R}^3$, and thus cannot be written as $3 \times 3$ matrices.
-
-Example 2.29.The Galilean group. To find the set of transformations of space and time that preserve the laws of Newtonian mechanics we follow the lead of special relativity (see Chapter 9) and define an event to be a point of $\mathrm{R}^4$ characterized by four coordinates $(x, y, z, t)$. Define Galilean space $\mathrm{G}^4$ to be the space of events with a structure consisting of three elements:
+\begin{eg}
+    The Galilean group. To find the set of transformations of space and time that preserve the laws of Newtonian mechanics we follow the lead of special relativity (see Chapter 9) and define an event to be a point of $\mathrm{R}^4$ characterized by four coordinates $(x, y, z, t)$. Define Galilean space $\mathrm{G}^4$ to be the space of events with a structure consisting of three elements:
 1. Time intervals $\Delta r=t_2-t_1$.
 2. The spatial distance $\Delta s=\left|\mathbf{r}_2-\mathbf{r}_1\right|$ between any pair of simultaneous events (events having the same time coordinate, $f_1=t_2$ ).
 3. Motions of inertial (free) particles, otherwise known as reetilinear motions,
@@ -852,3 +855,209 @@ $$
 where $u$ and $r_8$ are arbitrary constant vectors.
 Note that only the distance between simultaneous events is relevant. A simple example should make this clear. Consider a train travelling with uniform velocity v between two stations $A$ and $B$. In the frame of an observer who stays at $A$ the distance between the (non-simultancous) events $E_1=$ 'train leaving $A^{\prime}$ and $E_2=$ 'train arriving at $B$ ' is clearly $d=\mathrm{vt}$, where $t$ is the time of the journcy. However, in the rest frame of the train it hasn't moved at all and the distance between these two events is zero! Assuming no accelerations at the start and end of the journey, both frames are equally valid Galilean frames of reference.
 \end{eg}
+
+Note that $\Delta r$ is a function on all of $\mathrm{G}^4 \times \mathrm{G}^4$, while $\Delta s$ is a function on the subset of $\mathrm{G}^4 \times \mathrm{G}^4$ consisting of simultancous pairs of events, $\left\{\left((\mathbf{r}, t),\left(\mathbf{r}^{\prime}, r^{\prime}\right)\right) \mid \Delta r=t^{\prime}-t=0\right)$. We define a Galilean transformation as a transformation $\varphi: \mathrm{G}^4 \rightarrow \mathrm{G}^4$ that preserves the three given structural elements. All Galilean transformations have the form
+
+$$
+\begin{aligned}
+& r^{\prime}=r+a \quad(a=\text { const }) \\
+& \mathbf{r}^{\prime}=\mathrm{Ar}-\mathrm{v} t+\mathrm{b} \quad\left(\mathrm{~A}^r \mathrm{~A}=\mathbf{1}, \mathbf{v}, \mathbf{b}=\text { consts }\right)
+\end{aligned}
+$$
+
+
+Proof: From the time difference equation $t^{\prime}-0^{\prime}=t-0$ we obtain (2.20) where $a=0^{\prime}$. Invariance of Property 2. gives, by a similar argument to that used to deduce Euclidean transformations,
+
+$$
+\mathbf{r}^{\prime}=\mathbf{A}(t) \mathbf{r}+\mathbf{a}(t), \quad \mathbf{A}^T \mathbf{A}=1
+$$
+
+where $A(t)$ is a time-dependent orthogonal matrix and $\mathbf{a}(t)$ is an arbitrary vector function of time. These transformations allow for rotating and accelerating frames of reference and are certainly too general to preserve Newton's laws.
+
+Property 3, is essentially the invariance of Newton's first law of motion, or equivalently Galileo's principle of inertia. Consider a particle in uniform motion given by Eq. (2.19). This equation must be transformed into an equation of the form $\mathbf{r}^{\prime}(t)=\mathbf{u}^{\prime} t+\mathbf{r}_0^{\prime}$ under a Galilean transformation. From the transformation law (2.22)
+
+$$
+\mathbf{u}^{\prime} t+\mathbf{r}_0^{\prime}=\mathbf{A}(t)\left(\mathbf{u} t+\mathbf{r}_0\right)+\mathbf{a}(t)
+$$
+
+and taking twice time derivatives of both sides of this equation gives
+
+$$
+0=(\overline{\mathrm{A}} t+2 \dot{A}) \mathbf{u}+\bar{A} \mathbf{r}_0+\overline{\mathbf{a}}
+$$
+
+
+Since $u$ and $\mathrm{r}_{\mathrm{p}}$ are arbitrary constant vectors it follows that
+
+$$
+0=\bar{A}, \quad 0=\bar{A} r+2 \dot{A} \text { and } \quad 0=\overline{\mathbf{a}}
+$$
+
+
+Hence $\ddot{A}=0$, so that $A$ is a constant orthogonal matrix, and $a=-v t+b$ for some constant vectors v and b .
+\begin{exercise}
+    Exhibit the Galilean group as a matrix group, as was done for the Euclidean group in (2.18).
+\end{exercise}
+
+Example 2.30 The Lerentz group. The Galilean transformations do not preserve the light cone at the origin
+
+$$
+\Delta x^2+\Delta y^2+\Delta z^2=c^2 \Delta t^2 \quad\left(\Delta x=x_2-x_1 . \text { etc. }\right)
+$$
+
+
+The correct transformations that achieve this important property preserve the metric of Minkowski space,
+
+$$
+\begin{aligned}
+\Delta x^2 & =\Delta x^2+\Delta y^2+\Delta z^2-c^2 \Delta z^2 \\
+& =\Delta \mathbf{x}^7 \mathbf{G} \Delta \mathbf{x}
+\end{aligned}
+$$
+
+where
+
+$$
+\mathbf{x}=\left(\begin{array}{c}
+x \\
+y \\
+z \\
+c f
+\end{array}\right) . \quad \Delta x=\left(\begin{array}{c}
+\Delta x \\
+\Delta y \\
+\Delta z \\
+c \Delta t
+\end{array}\right) \text { and } \quad \mathbf{G}=\left[g_{m z}\right]=\left(\begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & -1
+\end{array}\right)
+$$
+
+
+The transformations in question must have the form
+
+$$
+x^{\prime}=\mathrm{Lx}+\mathbf{a}
+$$
+
+and the invariance law $\Delta r^{\prime 2}=\Delta s^2$ implies
+
+$$
+\Delta x^T G \Delta x^{\prime}=\Delta x^T L^T G L \Delta x=\Delta x^T G \Delta x
+$$
+
+
+Since this equation holds for arbitrary $\Delta x$, the $4 \times 4$ matrix $L$ must satisfy the equation
+
+$$
+\mathbf{G}=\mathbf{L}^7 \mathbf{G L} .
+$$
+
+
+The lineur transformations, having $\mathbf{a}=0$, are called Lorentz transformations while the general transformations with arbitrary a are called Poincare transformations. The corresponding groups are called the Lorentz group and Poincaré group, respectively. The essence of the special theory of relativity is that all laws of plysics are Poincare imvariant.
+
+Problems
+Problem 2.20. The projective trunsformations of the line are defined by
+
+$$
+x^{\prime}=\frac{a x+b}{c x+d} \quad \text { where } a d-b c=1
+$$
+
+
+Show that projective transformations preserve the cross-tatio
+
+$$
+\frac{\left(x_1-x_2\right)\left(x_1-x_4\right)}{\left(x_1-x_2\right)\left(x_1-x_4\right)}
+$$
+
+between any four points $x_1, x_2, x_3$ and $x_4$. Is every analytic transformation that preserves the crossratio between any four points on the line necessarily a projective trinsformution? Do the projective trassformations form a group?
+Problem 2.21 Show that a matrix U is unitury, satisfying Eq (2.12), if and only if it preserves the 'nerm'
+
+$$
+|x|^2=\sum_{i=1}^n z_i \sum_i
+$$
+
+defined on colume vectors $\left(z_1, z_2, \ldots, z_*\right)^7$ in $\mathrm{C}^*$. Verify that the set of $n \times n$ complex unitary matrices $U(n)$ forms a grow
+
+Problem 2.22 Show that two rotations belong to the same conjugacy clases of the rotation group $S O(3)$ if and only if they have the same magnitude; that is, they have the same angle of rotation but possibly a different auis of rotation.
+Problem 2.23 The general Galilean transformation
+
+$$
+r^{\prime}=t+a, \quad \mathrm{r}^{\prime}=\mathrm{Ar}-\mathrm{v} t+\mathrm{b} \quad \text { where } \quad \mathrm{A}^{\mathrm{V}} \mathrm{~A}=1
+$$
+
+may be denoted by the abstract symbol ( $a, \mathbf{v}, \mathbf{b}, \mathrm{~A}$ ). Show that the reselt of performing two Galilean transformations
+
+$$
+G_1=\left(a_2, v_1, b_1, A_1\right) \quad \text { and } \quad G_2=\left(a_2, v_2, b_2, A_3\right)
+$$
+
+in succession is
+
+$$
+G=G_2 G_1=(a, \mathbf{v}, \mathbf{b}, \mathrm{~A})
+$$
+
+where
+
+$$
+a_a=a_1+a_2 \quad \quad \mathbf{v}=A_i \mathbf{v}_1+\mathbf{v}_{2,} \quad \mathbf{b}=\mathbf{b}_2-a_1 \mathbf{v}_2+\mathrm{A}_2 \mathbf{b}_1 \quad \text { and } \quad \mathrm{A}=\mathrm{A}_3 \mathrm{~A}_3
+$$
+
+
+Show from this rule of composition that the Galilean transformatices form a group. In particular verify explicitly that the associative law holds.
+
+Problem 2.24 (a) From the matrix relation defining a Lorentr transformation L.
+
+$$
+\mathrm{G}=\mathrm{L}^{\mathrm{T}} \mathrm{GL} .
+$$
+
+where $G$ is the $4 \times 4$ dizgonal matrix whose diagonal components are (1, 1. 1. -1); show that Lotentz transformations form a group.
+(b) Denote the Puincare transformation
+
+$$
+\mathbf{x}^{\prime}=\mathrm{Lx}+\mathbf{a}
+$$
+
+by ( L, a), and sbow that two Poincare transformations $\left(\mathrm{L}_1, \mathrm{a}\right)$ and $\left(\mathrm{L}_2\right.$, b) performed in succession is equivalent to the Poincart transformation
+
+$$
+\left(\mathrm{L}_2 \mathrm{~L}_{\mathbf{1}}, \mathbf{b}+\mathrm{L}_2 \mathbf{a}\right)
+$$
+
+(c) From this law of composition show that the Poincare transformations form a group. As in the previous problem the associative law should be shown explicitly.
+
+Problem 2.25 Let $V$ be an abelian group with law of composition + , and $G$ any group with a left actionon $V$, denoted asusual by $g: v \mapsto g v$. Assume further that this actice is a homomorphism of $V$.
+
+$$
+g(v+w)=g v+g w
+$$
+
+(a) Show that $G \times V^{\prime}$ is a group with respect to the law of componition
+
+$$
+(g, v)\left(g^{\prime}, v\right)=\left(g g^{\prime}, v+g v^{\prime}\right)
+$$
+
+
+This group is lnown as the semi-direct product of $G$ and $V$, and is denoted $G(9 V$.
+(b) Stow that the elements of type $(g, 0)$ form a subgroup of $G$ sy that is isomorphic with $G$ and that $V$ is isomorphic with the subgroup ( $e, V$ ). Show that the later is a nomal subgroup,
+(c) Sbow that every element of $G \otimes V$ has a uniçue decomposition of the form vg, where $g=(g, 0) \in G$ and $v=(e, v) \in V$.
+Problem 2.26 The following provide examples of the concept of semi-direct product defined in Problem 225:
+(a) Sbow that the Euclidean group is the semi-direct product of the rotation group $\operatorname{SO}(3, \mathrm{R})$ and $\mathrm{R}^{\prime}$, the space of column 3-vectors.
+(b) Sbow that the Poincare groap is the semi-direct product of the Loventr group $O(3,1)$ and the abelian group of four-dimensional vectors $\mathbb{R}^4$ under vector additioe (see Problem 2.24).
+(c) Display the Galilean group as the semi-direct product of two groops.
+
+\begin{problem}\label{pro:2.27}
+    The group \(A\) of affine transformations of the line consists of transformations of the form
+\[
+x' = ax + b, \quad a \neq 0.
+\]
+Show that these form a semi-direct product on \(\mathbb{R} \times \mathbb{R}\). Although the multiplicative group of reals \(\mathbb{R}^\times\) and the additive group \(\mathbb{R}\) are both abelian, demonstrate that their semi-direct product is not.
+
+\end{problem}
+
