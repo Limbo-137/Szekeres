@@ -1,4 +1,3 @@
-\chapter{拓扑}
 到目前为止，我们主要讨论了代数结构在数学物理中的作用。虽然前一章提到了微积分，但并没有系统地展开。像\emph{连续性}和\emph{可微性}这样的\emph{分析学}核心概念，其本质是几何的，需要依赖\emph{拓扑}来进行严格定义。从广义的角度，\emph{拓扑}是加在几何上的结构，用以定义序列或子集的\emph{收敛}和\emph{极限}。定义了拓扑的空间叫做\emph{拓扑空间}，拓扑空间之间的\emph{连续映射}是保持子集极限点的映射。研究拓扑学最一般的方法是从开集的概念入手。
 
 想象一个嵌入到三维欧几里得空间 $\mathbb{E}^{3}$ 中的二维表面 $S$ 。这种情形下我们可以直观地将“连续变形”理解为曲面的一种不会发生撕裂或粘贴的变形过程。拓扑学主要研究的是那些在连续变形下不变的属性。度量性质并非连续性的关键，像“拉伸”这样的操作是可以允许的，因此拓扑学有时被称为“橡皮片几何”。在本章我们还将定义\emph{度量空间}的概念。这一类空间可以自然地定义出拓扑，但反过来并不一定成立——很多带有拓扑的空间并没有度量的概念。
@@ -13,22 +12,22 @@
 
     类似的定义适用于欧几里得平面 $\mathbb{R}^{2}$，我们设定$|y-x|=\sqrt{(y_{1} -x_{1} )^{2} +(y_{2} -x_{2} )^{2}}$。在这种情况下，开区间的概念被开球取代：
 \begin{equation*}
-B_{r} (x)=\{y\in \mathbb{R}^{2} \mid |y-x|< r\}
+    B_{r} (x)=\{y\in \mathbb{R}^{2} \mid |y-x|< r\}
 \end{equation*}
 如果存在实数 $\epsilon  >0$，使得开球 $B_{\epsilon } (x)\subset U$，则称集合 $U\subset \mathbb{R}^{2}$ 是点 $x\in \mathbb{R}^{2}$ 的一个邻域。对于一个点列 $\{x_{n} \}$ ，若对于每一个 $\epsilon  >0$，都存在一个正整数 $N >0$，使得对于所有 $n >N$，都有
 \begin{equation*}
-x_{n} \in B_{\epsilon } (x)。
+    x_{n} \in B_{\epsilon } (x)。
 \end{equation*}
 则称点列 $\{x_{n} \}$ 收敛于 $x\in \mathbb{R}^{2}$，或者说 $x$ 是点列 $\{x_{n} \}$ 的极限，写作 $x_{n}\rightarrow x$，这个定义等价于这样的表述：对于 $x$ 的每个邻域 $U$，都存在一个 $N >0$，使得对于所有 $n >N$，都有 $x_{n} \in U$。
     在 $\mathbb{R}$ 或 $\mathbb{R}^{2}$ 中，开集 $U$ 是指包含其每个点的邻域的集合。直观地说，$U$ 在 $\mathbb{R}$（或 $\mathbb{R}^{2}$）中是开集，当且仅当 $U$ 中的每个点都可以被“扩展”成一个开区间（或开球）（见图 10.1）。例如，单位球 $B_{1} (O)=\{y\mid |y|^{2} < 1\}$ 是一个开集，因为对于每个点 $x\in B_{1} (O)$，都有开球 $B_{\epsilon } (x)\subset B_{1} (O)$，其中 $\epsilon =1-|x| >0$。
     在实数线上，可以证明最一般的开集是由不相交的开区间组成的，可以写成：
 \begin{equation*}
-\dotsc ,(a_{-1} ,a_{0} ),(a_{1} ,a_{2} ),(a_{3} ,a_{4} ),(a_{5} ,a_{6} ),\dotsc 
+    \dotsc ,(a_{-1} ,a_{0} ),(a_{1} ,a_{2} ),(a_{3} ,a_{4} ),(a_{5} ,a_{6} ),\dotsc 
 \end{equation*}
 其中 $\dotsc a_{-1} < a_{0} \leq a_{1} < a_{2} \leq a_{3} < a_{4} \leq a_{5} < a_{6} \leq \dotsc $。在 $\mathbb{R}^{2}$ 中，开集不能如此简单地分类，因为尽管每个开集都是开球的并集，但这些并集不一定是互不相交的。
 在标准分析中，函数 $f:\mathbb{R}\rightarrow \mathbb{R}$ 在点 $x$ 连续当且仅当对于任意的 $\epsilon  >0$，都存在 $\delta  >0$，使得
 \begin{equation*}
-|y-x|< \delta \ \ \Rightarrow \ \ |f(y)-f(x)|< \epsilon 。
+    |y-x|< \delta \ \ \Rightarrow \ \ |f(y)-f(x)|< \epsilon 。
 \end{equation*}
 因此，对于任意的 $\epsilon  >0$，逆像集 $f^{-1} (f(x)-\epsilon ,f(x)+\epsilon )$ 是 $x$ 的一个邻域，因为它包含一个以 $x$ 为中心的开区间 $(x-\delta ,x+\delta )$。由于每个 $f(x)$ 的邻域都包含一个形如 $(f(x)-\epsilon ,f(x)+\epsilon )$ 的区间，因此，函数 $f$ 在 $x$ 连续，当且仅当每个 $f(x)$ 邻域的逆像也是 $ x$ 的邻域。若一个函数 $ f:\mathbb{R}\rightarrow \mathbb{R}$ 在每点 $ x\in \mathbb{R}$ 连续，则称 $ f$ 在 $ \mathbb{R}$ 上连续。
 
@@ -41,16 +40,230 @@ x_{n} \in B_{\epsilon } (x)。
 \end{proof}
     在更广义的拓扑学上，上述关系将被用于定义连续映射。$\mathbb{R}^{2}$ 中对于连续的处理方法和 $ \mathbb{R}$ 几乎相同。函数 $f:\mathbb{R}^{2}\rightarrow \mathbb{R}^{2}$ 在点 $x$ 连续当且仅当对于每个 $\epsilon  >0$，都存在 $\delta  >0$，使得
 \begin{equation*}
-|y-x|< \delta \ \ \Rightarrow \ \ |f(y)-f(x)|< \epsilon 。
+    |y-x|< \delta \ \ \Rightarrow \ \ |f(y)-f(x)|< \epsilon 。
 \end{equation*}
 利用和定理\ref{thm:10.1}几乎相同的证明方法，可得知函数 $f$ 在 $ \mathbb{R}$ 上连续当且仅当对于每个开集 $U\subset \mathbb{R}^{2}$，其逆像 $f^{-1} (U)$ 是 $\mathbb{R}^{2}$ 的开子集。对实值函数 $f:\mathbb{R}^{2}\rightarrow \mathbb{R}$ 也是如此。于是函数的连续性可以完全通过它们对陪域上开集的逆作用来描述。正因如此，开集被视为拓扑空间的关键成分。处理欧几里得空间及其内嵌曲面的经验使得数学家们认识到，开集的最重要特性可以用几个简单的规则来总结，这些规则将在下一节中列出（另见 [1–8]）。
 
 \section{广义拓扑空间}
-（填充）
-\section{矩阵空间}
-（填充）
+
+给定一个集合 $X$，$X$ 上的一个拓扑由一族子集 $\mathcal{O}$ 组成，它们称为开集，其满足以下条件：
+
+\begin{enumerate}[label=(Top\arabic*),ref=Top\arabic*]
+	\item \label{top:1}
+	空集 $\emptyset $ 是开集，整个空间 $X$ 是开集，即 $\{\emptyset ,X\}\subset \mathcal{O}$。
+	\item \label{top:2}
+	如果 $U$ 和 $V$ 是开集，则它们的交集 $U\cap V$ 也是开集，
+\begin{equation*}
+    U\in \mathcal{O} \ \ \text{且} \ \ V\in \mathcal{O} \ \ \Rightarrow \ \ U\cap V\in \mathcal{O} 。
+\end{equation*}
+	\item \label{top:3}
+	如果 $\{V_{i} \mid i\in I\}$ 是任意一族开集，则它们的并集 $\bigcup _{i\in I} V_{i}$ 是开集。
+\end{enumerate}
+
+	对规则\ref{top:2}进行累次作用，可得知有限个开集的交集是开集，然而一般来说 $\mathcal{O}$ 中无限个交集的并不属于 $\mathcal{O}$ 。另一方面，$\mathcal{O}$ 对于开集的任意并却是闭合的。考虑一个元素对 $(X,\mathcal{O} )$，其中 $\mathcal{O}$ 是 $X$ 上的拓扑，这一元素对被称为\textbf{拓扑空间(topological space)}。拓扑 $\mathcal{O}$ 已知时，我们通常简称拓扑空间 $(X,\mathcal{O} )$ 为 $X$。底空间 $X$ 上的元素通常称为\textbf{点(points)}。
+
+\begin{eg}\label{eg:10.1}
+ 	定义 $\mathcal{O}$ 为实数集 $\mathbb{R}$ 的子集族 $U$ 构成的集合，对每个 $x\in U$，存在一个开区间 $(x-\epsilon ,x+\epsilon )\subseteq U$，其中 $\epsilon  >0$。这些集合满足\ref{sec:10.1}节中给出的开集条件。首先空集默认属于 $\mathcal{O}$，而整个实数线 $\mathbb{R}$ 显然是开集，因为其中每个点都在一个开区间内。因此，\ref{top:1}对集合 $\mathcal{O}$ 成立。为了证明 \ref{top:2}，设 $U$ 和 $V$ 是开集，且 $U\cap V\neq \emptyset $（ $U\cap V=\emptyset $ 的情况是平凡的）。对于任意 $x\in U\cap V$，存在正数 $\epsilon _{1}$ 和 $\epsilon _{2}$，使得
+\begin{equation*}
+    (x-\epsilon _{1} ,x+\epsilon _{1} )\subseteq U\ \ \text{且} \ \ (x-\epsilon _{2} ,x+\epsilon _{2} )\subseteq V。
+\end{equation*}
+当 $\epsilon =\min (\epsilon _{1} ,\epsilon _{2} )$，则 $(x-\epsilon ,x+\epsilon )\subseteq U\cap V$，因此 $U\cap V$ 是开集。
+	而对于\ref{top:3}，设 $U$ 为任意开集族 $\{U_{i} \mid i\in I\}$ 的并集。如果 $x\in U$，则存在某个 $j\in I$，使得 $x\in U_{j}$，并且存在 $\epsilon  >0$，使得 $(x-\epsilon ,x+\epsilon )\subseteq U_{j} \subseteq U$。因此 $U$ 是开集，于是集合族 $\mathcal{O}$ 形成了 $\mathbb{R}$ 上的拓扑。这一拓扑结构通常称为实数集上的\textbf{标准拓扑(standard topology)}。对于任何 $a< b$，开区间 $(a,b)$都是开集，因为如果 $x\in (a,b)$，令 $\epsilon =\frac{1}{2}\min (x-a,b-x)$，则 $(x-\epsilon ,x+\epsilon )\subset (a,b)$。类似地可以证明，半无穷扩展的区间也满足条件，例如 $(-\infty ,a)$ 或 $(b,\infty )$。
+	注意，开集无限交的结果通常并不为开集。例如，孤立点 $\{a\}$ 不是开集，因为它不包含有限开区间，但它是无限多个开区间交集的结果，如
+\begin{equation*}
+    (a-1,a+1),\ \ (a-\frac{1}{2} ,a+\frac{1}{2} ),\ \ (a-\frac{1}{3} ,a+\frac{1}{3} ),\ \ (a-\frac{1}{4} ,a+\frac{1}{4} ),\ \ \dotsc 
+\end{equation*}
+\end{eg}
+类似的论证可以用来证明在\ref{sec:10.1}节中 $\mathbb{R}^{2}$ 上的开集族构成拓扑。在 $\mathbb{R}^{n}$ 中，我们定义了一种拓扑，集合 $U$ 被称为开集当且仅当对于每个点 $x\in U$，存在一个开球
+\begin{equation*}
+    B_{r} (\mathbf{x} )=\{y\in \mathbb{R}^{n} \mid | \mathbf{y} -\mathbf{x}| < r\}\subset U，
+\end{equation*}
+其中
+\begin{equation*}
+    |\mathbf{y} -\mathbf{x} |=\sqrt{(y_{1} -x_{1} )^{2} +(y_{2} -x_{2} )^{2} +\dotsc +(y_{n} -x_{n} )^{2}} 。
+\end{equation*}
+这种拓扑依然被称为 $\mathbb{R}^{n}$ 上的\textbf{标准拓扑}。	
+
+\begin{eg}\label{eg:10.2}
+	设 $\mathcal{O} '$ 为所有形如 $(-a,b)$ 的开区间族，其中 $a,b >0$，并且其包含空集。所有这些区间都包含原点 0。易证 \ref{top:1}-\ref{top:3} 对这个集合成立，从而 $(X,\mathcal{O} ')$ 是拓扑空间。这个空间在某些性质上并不是很“好”。例如，实数线上的任意两点 $x,y\in \mathbb{R}$ 都无法在不交的邻域中找到。从某种意义上讲，在这个拓扑下所有的点都“任意接近”彼此。
+\end{eg}
+
+	如果子集 $V$ 的补集 $X-V$ 是开集，则称 $V$ 为闭集。空集和全空间显然是闭集，因为它们既是开集，又互为补集。任意闭集族的交集是闭集，因为它是开集并集的补集。然而另一方面，只有有限个闭集的并集才是闭集。
+
+\begin{eg}\label{eg:10.3}
+	 对于$-\infty < a\leq b< \infty $，闭区间 $[a,b]=\{x\mid a\leq x\leq b\}$ 是闭集，因为其为开集 $(-\infty ,a)\cup (b,\infty )$ 的补集。因而每个单点集 $\{a\}\equiv [a,a]$ 也是闭集。闭区间 $[a,b]$ 不是开集是因为端点 $a$ 或 $b$ 不属于 $[a,b]$ 中的任何开区间。
+\end{eg}
+
+对于 $X$ 的任意子集 $A$ ，可以定义 $A$ 上的\textbf{相对拓扑(relative topology)}，或称\textbf{诱导拓扑(topology induced)}
+\begin{equation*}
+    \mathcal{O}_{A} =\{A\cap U\mid U\in \mathcal{O} \}。
+\end{equation*}
+因此，一个集合是 $A$ 相对拓扑上的开集，当且仅当它是 $A$ 与 $X$ 中开集 $U$ 的交集（见图 10.2）。这些集合能构成 $A$ 中的拓扑是基于以下事实：
+
+\begin{enumerate}[label=(\arabic*)]
+	\item		$\emptyset \cap A=\emptyset ,\ \ X\cap A=A$。
+	\item		$(U\cap A)\cap (V\cap A)=(U\cap V)\cap A$。
+	\item		$\bigcup _{i\in I} (U_{i} \cap A)=\left(\bigcup _{i\in I} U_{i}\right) \cap A$。
+\end{enumerate}
+
+ $X$ 的子集 $A$ 和在其上诱导的相对拓扑 $\mathcal{O}_{A}$ 一起称为 $(X,\mathcal{O} )$ 的一个\textbf{子空间}。
+
+\begin{eg}\label{eg:10.4}
+	$\mathbb{R}$ 上的标准拓扑，在半开区间 $A=[ 0,1)\subset \mathbb{R}$ 上诱导的相对拓扑，是形如 $[0,a)$ 的半开区间（ $0< a< 1$）与所有形如 $(a,b)$ 的区间（ $0< a< b\leq 1$）的并集。显然，在此拓扑下，一些开集不是 $\mathbb{R}$ 中的开区间。
+\end{eg}
+
+\begin{exercise}
+	证明如果 $A\subset X$ 是开集，则在 $A$ 相对拓扑中的所有开集在 $X$ 中也是开集。
+\end{exercise}
+
+\begin{exercise}
+	如果 $A$ 是闭集，证明在 $A$ 相对拓扑中的每个闭集在 $X$ 中也是闭集。
+\end{exercise}
+
+	若每个包含 $x$ 的开邻域 $U$，都包含除 $x$ 以外的 $A$ 中的点，则称 $x$ 是集合 $A$ 的一个\textbf{聚点(accumulation point/cluster point)}，如图\ref{fig:10.3}所示。这意味着 $x$ 可能属于 $A$，也可能不属于 $A$，但是 $A$ 中的点会任意接近 $x$ 。这一概念经常与点列 $x_{n} \in X$中的一个概念类比。如果对每个开邻域 $U$，存在一个整数 $N$，使得对于所有 $n\geq N$，都有 $x_{n} \in U$，则称点列 $x_{n}$ 在 $X$ 中\textbf{收敛到(converges to)} $x\in X$，即 $x$ 是点列 $\{x_{n} \}$ 的\textbf{极限点(limit point)}，记作 $x_{n}\rightarrow x$。这与聚点的不同之处在于，我们可以假设存在某个 $n_{0}$，当 $n >n_{0}$时，有 $x_{n} =x$ 。
+
+	对任意集合 $A$ ，其与其所有积聚点的并集被称为 $A$ 的\textbf{闭包(closure)}，记作 $\overline{A}$ 。集合 $A$ 的\textbf{内部(interior)}是指所有包含于 $A$ 的开集 $U\subseteq A$ 的并集，记作 $A^{o}$。这两者的差集，$b(A)=\overline{A} -A^{o}$，被称为 $A$ 的\textbf{边界(boundary)}。
+
+\begin{theorem}\label{thm:10.2} 
+	任何集合 $A$ 的闭包是闭集。内部 $A^{o}$ 是包含在 $A$ 中的最大开集。边界 $b(A)$ 是闭集。
+\end{theorem}
+
+\begin{proof}
+	设 $x$ 为任一不在 $\overline{A}$ 中的点。即 $x$ 不在 $A$ 中且不是 $A$ 的聚点，故存在一个开邻域 $U_{x}$ 不与 $A$ 相交。注意 $U_{x}$ 不能包含 $A$ 的任何其他聚点，否则它作为那个聚点的开邻域一定会与 $A$ 相交。因此，集合 $A$ 闭包的补集 $X-\overline{A}$ 是开集 $U_{x}$ 的并集。因此 $X-\overline{A}$ 是开集，而它的补集 $\overline{A}$ 是闭集。
+	由于内核 $A^{o}$ 是开集的并集，因此根据\ref{top:3}，它是开集。若 $U$ 是包含在 $A$ 中的开集，则根据定义，$U\subseteq A^{o}$。因此，$A^{o}$ 是 $A$ 中的最大开子集，其补集是闭集，而边界 $b(A)=\overline{A} \cap \left( X-A^{o}\right)$ 必然是闭集。
+\end{proof}
+
+\begin{exercise}
+	证明集合 $A$ 是闭集当且仅当它包含其边界，即 $A\supseteq b(A)$。
+\end{exercise}
+
+\begin{exercise}
+	集合 $A$ 是开集当且仅当 $A\cap b(A)=\emptyset $。
+\end{exercise}
+
+\begin{exercise}
+	证明集合 $A$ 的所有聚点都在其边界内部。
+\end{exercise} 
+
+\begin{exercise}
+	证明若点 $x$ 的邻域包含既在 $A$ 中又不在 $A$ 中的点，则 $x$ 位于 $A$ 的边界上。
+\end{exercise}
+
+\begin{eg}\label{eg:10.5}
+	开球 $B_{a} (\mathbf{x} )\subset \mathbb{R}^{n}$（见例\ref{eg:10.1}）的闭包是\emph{闭球}
+\begin{equation*}
+    \overline{B_{a}} (\mathbf{x} )=\{\mathbf{y} \mid | \mathbf{y} -\mathbf{x}| \leq a\}。
+\end{equation*}
+由于每个开球都是开集，其为自身的内核，$B_{a}^{o} (\mathbf{x} )=B_{a} (\mathbf{x} )$，它的边界是半径为 $a$，中心为 $\mathbf{x}$ 的 $(n-1)$-球面，
+\begin{equation*}
+b_{a} (B(\mathbf{x} ))=S_{a}^{n-1} (\mathbf{x} )=\{y\mid | \mathbf{y} -\mathbf{x}| =a\}。
+\end{equation*}
+\end{eg}
+
+\begin{eg}\label{eg:10.6}
+	若一个集合的闭包是整个空间 $X$，则称该集合在 $X$ 中是\textbf{稠密的(dense)}。例如，由于每个实数都有无穷多个有理数可以任意接近它，于是有理数集 $\mathbb{Q}$ 是实数集中的可数稠密集。更高维度的情况类似：具有有理数坐标的点集 $\mathbb{Q}^{n}$ 是一 $\mathbb{R}^{n}$ 中的可数稠密集。
+\end{eg}
+
+\begin{exercise}
+	证明 $\mathbb{Q}$ 在 $\mathbb{R}$ 中既不是开集也不是闭集。
+\end{exercise}
+
+\begin{exercise}
+	证明 $\mathbb{Q}^{o} =\emptyset $ ，而 $b(\mathbb{Q}) =\mathbb{R}$。
+\end{exercise}
+
+	有时我们可以对集合 $X$ 上的不同拓扑 $\mathcal{O}_{1}$ 和 $\mathcal{O}_{2}$进行比较。如果 $\mathcal{O}_{1} \subseteq \mathcal{O}_{2}$，则称 $\mathcal{O}_{1}$ 比 $\mathcal{O}_{2}$ \textbf{更细(finer)}或\textbf{更强(stronger)}。本质上是说，$\mathcal{O}_{1}$ 拥有比 $\mathcal{O}_{2}$ 更多的开集。这种情况下也可以说 $\mathcal{O}_{2}$ 比 $\mathcal{O}_{1}$ \textbf{更粗(coarser)}或\textbf{更弱(weaker)}。
+
+\begin{eg}\label{eg:10.7}
+	所有集合 $X$ 上的拓扑都处在两个极端之间，即离散拓扑和凝聚拓扑。\textbf{凝聚(indiscrete)}拓扑（或称\textbf{平凡(trivial)}拓扑）仅有空集与全空间自身组成，即$\mathcal{O}_{1} =\{\emptyset ,X\}$，它是 $X$ 上能存在的最粗拓扑——对于任意其他拓扑$\mathcal{O}$，由\ref{top:1}，即$\mathcal{O}_{1} \subseteq \mathcal{O}$。\textbf{离散拓扑(discrete topology)}由 $X$ 的所有子集组成， 即$\mathcal{O}_{2} =2^{X}$。这个拓扑是 $X$ 上最细的拓扑，因为它包含了 $X$ 上所有其他的拓扑，即$\mathcal{O}_{2} \supseteq \mathcal{O}$。对这两种拓扑\ref{top:1}-\ref{top:3}都很好验证。
+\end{eg}
+
+	给定一个集合 $X$ 和一个任意的子集族 $\mathcal{U}$，我们可以找到包含 $\mathcal{U}$ 的最弱拓扑 $\mathcal{O} (\mathcal{U} )$。这个拓扑是所有包含 $\mathcal{U}$ 的拓扑的交集，被称为称为由 $\mathcal{U}$ \textbf{生成的拓扑}。它类似于由向量空间 $V$ 的任意子集 $M$ 生成的向量子空间 $L(M)$ 的概念（见\ref{sec:3.5}）。
+
+	有一种建设性的构造 $\mathcal{O} (\mathcal{U} )$ 的方法如下。首先，将空集 $\emptyset $ 和 $\mathcal{U}$ 所在的全空间 $X$ 先囊括进来。其次，将 $\mathcal{U}$ 扩展为包括有限交集 $U_{1} \cap U_{2} \cap \cdots \cap U_{n}$ 的更大集族 $\hat{\mathcal{U}}$ ，其中 $U_{i} \in \mathcal{U} \cup \{\emptyset ,X\}$。最后，将 $\hat{\mathcal{U}}$ 中的集合取任意并就构造出了拓扑 $\mathcal{O} (\mathcal{U} )$。对于性质\ref{top:2}，可以通过如下方式证明
+\begin{equation*}
+    \bigcup _{i\in I}\left(\bigcap _{a=1}^{n_{i}} U_{ia}\right) \cap \bigcup _{j\in J}\left(\bigcap _{b=1}^{n_{j}} V_{jb}\right) =\bigcup _{i\in I}\bigcup _{j\in J}( U_{i1} \cap \cdots \cap U_{in_{i}} \cap V_{j1} \cap \cdots V_{jn_{j}}) 。
+\end{equation*}
+至于\ref{top:1}和\ref{top:3}，可以直接从构造过程中看出。
+
+\begin{eg}\label{eg:10.8}
+	在实数线 $\mathbb{R}$ 上，由于每个开集都是形如 $(x-\epsilon ,x+\epsilon )$ 的开集的并，所有开区间构成的集族 $\mathcal{U}$ 生成了标准拓扑。类似地，$\mathbb{R}^{2}$ 上的标准拓扑可由开球的集合生成，
+\begin{equation*}
+    \mathcal{U} =\{B_{a} (\mathbf{r} )\mid a >0,\mathbf{r} =( x,y) \in \mathbb{R}^{2} \}。
+\end{equation*}
+为了证明这一点，必须证明由两个开球 $B(\mathbf{r} )$ 和 $B(\mathbf{r} ')$ 取交集得到的集合是 $\mathcal{U}$ 中开球的并集。如果 $\mathbf{x} \in B_{a} (\mathbf{r} )$，取 $\epsilon < a$ 使得 $B_{\epsilon } (\mathbf{x} )\subset B_{a} (\mathbf{r} )$ 的值。类似地，若 $\mathbf{x} \in B_{b} (\mathbf{r} ')$，令 $\epsilon '< b$，使得 $B_{\epsilon '} (\mathbf{x} )\subset B_{b} (\mathbf{r} ')$。因此若 $\mathbf{x} \in B_{a} (\mathbf{r} )\cap B_{b} (\mathbf{r} ')$，则取 $\epsilon ''=\mathrm{min}( \epsilon ,\epsilon ')$，有$B_{\epsilon ''} (\mathbf{x} )\subset B_{a} (\mathbf{r} )\cap B_{b} (\mathbf{r} ')$。此过程可以简单地推广到任意有限开球交集的情况。因此，$\mathbb{R}^{2}$ 的标准拓扑是由所有开球的集合生成的。这一结论可以直接推广到 $\mathbb{R}^{n}$。
+\end{eg}
+
+\begin{exercise}
+	证明 $X$ 上的离散拓扑是由所有单点集 $\{x\}$ 生成的，其中 $x\in X$。
+\end{exercise}
+
+	对于 $X$ 上的集合 $A$ 与某点 $x\in X$ ，若存在开集 $U$使得 $x\in U\subset A$，则称集合 $A$ 为 $x$ 的一个\textbf{邻域(neighbourhood)}。若 $A$ 自身是开集，则称它为 $x$ 的\textbf{开邻域(open neighbourhood)}。如果对于拓扑空间 $X$ 中每一点 $x$ 都有一组可数个邻域 $U_{1}( x) ,U_{1}( x) ,\cdots $，使得 $x$ 的任一开邻域 $U$ 都包含这些集合中的一个，即 $U\supset U_{n}( x)$ ，则称 $X$ 是\textbf{第一可数的(first countable)}。还有另一个更强的条件：若 $X$ 的拓扑可以由可数个集合$U_{1} ,U_{2} ,U_{3} \cdots $生成，则称拓扑空间 $( X,\mathcal{O})$ 为\textbf{第二可数的(second countable)}或\textbf{可分的(separable)}。
+
+\begin{eg}\label{eg:10.9}
+	欧几里得平面 $\mathbb{R}^{2}$ 的标准拓扑是可分的，因为它可由全体有理数开球构成的集合生成，
+\begin{equation*}
+    \mathcal{B}_{\mathrm{rat}} =\{B_{a} (\mathbf{r} )\mid a >0\in \mathbb{Q} ,\mathbf{r} =( x,y) \ \mathrm{s.t.} \ x,y\in \mathbb{Q} \}。
+\end{equation*}
+集合$\mathcal{B}_{\mathrm{rat}}$是可数的，因为它可以与 $\mathbb{Q}^{3}$ 的一个子集一一对应。由于有理数在实数中是稠密的，一个开集中的每一点 $\mathbf{x}$ 都可以放在一个有理数开球内。通过类似于例\ref{eg:10.8}中的论证，可以证明， $\mathcal{B}_{\mathrm{rat}}$ 中两个集合的交集可以看作有理数开球之并，因此 $\mathbb{R}^{2}$ 是可分的。类似地，对所有 $n\geq 1$ ，空间 $\mathbb{R}^{n}$ 都是可分的。
+\end{eg}
+
+	设 $X$ 和 $Y$ 为两个拓扑空间。定理\ref{thm:10.1}启发了如下的定义：若函数 $f:X\rightarrow Y$ 满足每个 $Y$ 中开集 $U$ 的逆像 $f^{-1} (U)$ 在 $X$ 中是开集，则称该函数为\textbf{连续的(continuous)}。如果 $f$ 是一一对应的且其逆函数 $f^{-1} :Y\rightarrow X$ 是连续的，则该函数称为\textbf{同胚映射(homeomorphism)}，拓扑空间 $X$ 和 $Y$ 的关系被称为\textbf{同胚(homeomorphic)}或\textbf{拓扑等价(topologically equivalent)}，记作 $X\cong Y$。拓扑学的主要任务就是寻找\textbf{拓扑不变量(topological invariants)}——在同胚映射下保持不变的性质。它们可以是实数、从拓扑空间构造的代数结构（如群或向量空间），或者是某些特定的性质，如\emph{紧性}和\emph{连通性}。最终的目标是找到一组能够刻画拓扑空间的拓扑不变量。在范畴论的语言中（见\ref{sec:1.7}），连续函数是以拓扑空间为元素的范畴中的态射，而所谓同胚映射则是该范畴中的同构。
+
+\begin{eg}\label{eg:10.10}
+	设 $f:X\rightarrow Y$ 为两个拓扑空间之间的连续函数。如果 $X$ 上的拓扑是离散拓扑，那么无论 $Y$ 上的拓扑是什么， $f$ 都是连续的。因为每个逆像集 $f^{-1} (U)$ 在 $X$ 中都是开集。类似地，如果 $Y$ 上的拓扑是凝聚拓扑，则函数 $f$ 也都是连续的，因为 $X$ 中仅有的开集逆像是 $f^{-1} (\emptyset )=\emptyset $ 和 $f^{-1} (Y)=X$，根据\ref{top:1}，它们必定是开集。
+\end{eg}
+
+\section{度量空间}
+
+为了推广在 $\mathbb{R}$ 和 $\mathbb{R}^{2}$ 中出现的“距离”概念，我们称\textbf{度量空间(metric space)} [9] 为一个定义了\textbf{距离函数(distance function)}或\textbf{度量(metric)} $d:M\times M\rightarrow \mathbb{R}$ 的集合 $M$，其满足如下条件：
+
+\begin{enumerate}[label=(Met\arabic*),ref=Met\arabic*]
+	\item \label{met:1}
+	对所有 $x,y\in M$，有 $d(x,y)\geq 0$。
+	\item \label{met:2}
+	 $d(x,y)=0$当且仅当 $x=y$。
+	\item \label{met:3}
+	 $d(x,y)=d(y,x)$。
+	\item \label{met:4}
+	 $d(x,y)+d(y,z)\geq d(x,z)$。
+\end{enumerate}
+
+条件\ref{met:4}称为\textbf{三角不等式(triangle inequality)}——三角形 $xyz$ 的任意一边长小于另外两边长的和。对于度量空间 $(M,d)$ 中的每个 $x$ 和正实数 $a >0$，我们可以定义\textbf{开球}为 $B_{a} (x)=\{y\mid d(x,y)< a\}$。
+
+在 $n$ 维欧几里得空间 $\mathbb{R}^{n}$ 中，距离函数定义为
+\begin{equation*}
+    d(\mathbf{x} ,\mathbf{y} )=|\mathbf{x} -\mathbf{y} |=\sqrt{(x_{1} -y_{1} )^{2} +(x_{2} -y_{2} )^{2} +\dotsc +(x_{n} -y_{n} )^{2}} ，
+\end{equation*}
+但下面这些也可以作为合适的度量：
+\begin{equation*}
+    d_{1} (\mathbf{x} ,\mathbf{y} )=|x_{1} -y_{1} |+|x_{2} -y_{2} |+\dotsc +|x_{n} -y_{n} |，
+\end{equation*}
+\begin{equation*}
+    d_{2} (\mathbf{x} ,\mathbf{y} )=\max (|x_{1} -y_{1} |,|x_{2} -y_{2} |,\dotsc ,|x_{n} -y_{n} |)。
+\end{equation*}
+
+\begin{exercise}
+	证明 $d(\mathbf{x} ,\mathbf{y} )$、$d_{1} (\mathbf{x} ,\mathbf{y} )$ 和 $d_{2} (\mathbf{x} ,\mathbf{y} )$ 满足度量公理\ref{met:1}-\ref{met:4}。
+\end{exercise}
+
+\begin{exercise}
+	在 $\mathbb{R}^{2}$ 中画出度量 $d$、$d_{1}$ 和 $d_{2}$ 下的开球 $B_{1} ((0,0))$。
+\end{exercise}
+
+	若 $(M,d)$ 是度量空间，则子集 $U\subset M$ 被称为开集当且仅当对于每个 $x\in U$，存在一个开球 $B_{\epsilon } (x)\subset U$。类似 $\mathbb{R}^{2}$ 中的情况，这为 $M$ 定义了一个自然拓扑，称为\textbf{度量拓扑(metric topology)}。这个拓扑由所有的开球 $B_{\epsilon } (x)\subset M$ 生成。证明方法与例\ref{eg:10.8}中的类似
+	在度量空间 $(M,d)$ 中，点列 $x_{n}$ 收敛于点 $x$当且仅当$n\rightarrow \infty $ 时 $d(x_{n} ,x)\rightarrow 0$。等价地，$x_{n}\rightarrow x$ 当且仅当对于每个 $\epsilon  >0$，存在一个足够大的 $n$，使得对于所有 $n\geq N$，都有 $x_{n} \in B_{\epsilon } (x)$。度量空间中点列的极限是唯一的，假设 $x_{n}\rightarrow x$ 且 $x_{n}\rightarrow y$，根据三角不等式有 $d(x,y)\leq d(x,x_{n} )+d(x_{n} ,y)$。对于任意的 $\epsilon  >0$，可以通过选择足够大的 $n$ 使得 $d(x,y)< \epsilon $ 。因此，根据\ref{met:2}，我们有 $d(x,y)=0$，从而 $x=y$。由此可见，序列收敛的概念在度量空间中比在一般拓扑空间中更能体现出价值（见问题\ref{pro:10.7}）。
+	在度量空间 $(M,d)$ 中，设 $x_{n}$ 为一个收敛到某点 $x\in M$ 的点列。则对于每个 $\epsilon  >0$，存在一个正整数 $N$，使得对于所有 $n,m >N$，都有 $d(x_{n} ,x_{m} )< \epsilon $。为证明这一点，设 $N$ 为一整数，对于 $k >N$，有 $d(x_{k} ,x)< \frac{1}{2} \epsilon $。于是对于所有的$n,m >N$，有
+\begin{equation*}
+    d(x_{n} ,x_{m} )\leq d(x_{n} ,x)+d(x,x_{m} )< \epsilon \ 。
+\end{equation*}
+具有此性质（当 $n,m\rightarrow \infty $ 时$d(x_{n} ,x_{m} )\rightarrow 0$ ）的点列被称为\textbf{柯西列(Cauchy sequence)}。
+
+\begin{eg}\label{eg:10.11}
+	不是每个柯西列都需要收敛到 $M$ 中的某个点。例如，在一般的度量拓扑下的开区间 $(0,1)$ 中，点列 $x_{n} =2^{-n}$ 是一个柯西列，但它并不收敛于该开区间中的任何点。如果每个柯西列 $x_{1} ,x_{2} ,\dotsc $ 都收敛于某个点 $x\in M$，则称度量空间 $(M,d)$ 是\textbf{完备的(complete)}。完备性并不是一种拓扑性质。例如，实数线 $\mathbb{R}$ 是一个完备的度量空间，柯西列 $2^{-n}$ 在 $\mathbb{R}$ 中的极限为 0。在映射 $\varphi :x\mapsto \tan\frac{1}{2} \pi (2x-1)$下，拓扑空间 $\mathbb{R}$ 和 $(0,1)$ 是同胚的。然而在生成它们拓扑的度量下，前者是完备的，后者则不是。
+\end{eg}
+
 \section{诱导拓扑}
-（填充）
 \subsection{诱导拓扑和拓扑乘积}
 （填充）
 \subsection{同化拓扑}
@@ -59,7 +272,7 @@ x_{n} \in B_{\epsilon } (x)。
 
 在某些拓扑中（例如离散拓扑）由于开集太少，不同的点无法被非相交的邻域分隔开。为了解决这种情况，有时会对拓扑空间施加称为\emph{分离公理}的条件。其中一种最常见的是\textbf{豪斯多夫条件(Hausdorff condition)}：对于每一对点$x,y\in X$，存在$x$的开邻域 $U$ 和 $y$ 的开邻域 $V$ ，使得$U\cap V=\emptyset $。满足此属性的拓扑空间称为\textbf{豪斯多夫空间(Hausdorff space)}。直观来讲，豪斯多夫空间中不存在一对“任意接近”的不同点。
 
-豪斯多夫空间的一个典型的“好的”属性是，任何收敛序列 $x_{n}\rightarrow x$ 的极限（定义见\ref{pro:10.7}）是唯一的。举例来讲，若在豪斯多夫空间$X$中，$x_{n}\rightarrow x$且$x_{n}\rightarrow x'$。假设$x\neq x'$，给出不相交的开邻域$U$和$U'$，使得$x\in U$且$x'\in U'$，并且存在一个整数$N$使得对所有$n >N$，$x_{n} \in U$。在此情况下，由于对所有$n >N$，$x_{n} \notin U'$，因此序列$x_{n}$不能收敛于$x'$，与条件$x_{n}\rightarrow x'$矛盾。于是只能有$x=x'$。
+豪斯多夫空间的一个典型的“好的”属性是，任何收敛序列 $x_{n}\rightarrow x$ 的极限（定义见问题\ref{pro:10.7}）是唯一的。举例来讲，若在豪斯多夫空间$X$中，$x_{n}\rightarrow x$且$x_{n}\rightarrow x'$。假设$x\neq x'$，给出不相交的开邻域$U$和$U'$，使得$x\in U$且$x'\in U'$，并且存在一个整数$N$使得对所有$n >N$，$x_{n} \in U$。在此情况下，由于对所有$n >N$，$x_{n} \notin U'$，因此序列$x_{n}$不能收敛于$x'$，与条件$x_{n}\rightarrow x'$矛盾。于是只能有$x=x'$。
 
 在豪斯多夫空间中，每个单点集$\{x\}$都是闭集。原因如下，令$Y=X-\{x\}$为其补集。$Y$ 中的每个点$y$都有一个不与$x$的某个开邻域相交的开邻域$U_{y}$，特别是对于$x\notin U_{y}$。根据\ref{top:3}，所有这些开邻域的并集$Y=\bigcup _{y\in Y} U_{y} =X-\{x\}$是开的。因此 $\{x\}=X-Y$ 为开集的补集是闭的。
 
@@ -74,7 +287,7 @@ x_{n} \in B_{\epsilon } (x)。
 \begin{proof}
 	找任意不同点$x,y\in X$，并设 $\epsilon =\frac{1}{4} d(x,y)$ 。开球$U=B_{\epsilon } (x)$和$V=B_{\epsilon } (y)$分别是$x$和$y$的开邻域。它们的交集是空的，因为如果$z\in U\cap V$，则$d(x,z)< \epsilon $且$d(y,z)< \epsilon $，这与三角不等式\ref{met:4}
 \begin{equation*}
-d(x,y)\leq d(x,z)+d(z,y)\leq 2\epsilon < \frac{1}{2} d(x,y)
+    d(x,y)\leq d(x,z)+d(z,y)\leq 2\epsilon < \frac{1}{2} d(x,y)
 \end{equation*}
 相矛盾。
 \end{proof}
@@ -108,7 +321,77 @@ d(x,y)\leq d(x,z)+d(z,y)\leq 2\epsilon < \frac{1}{2} d(x,y)
 \end{proof}
 
 \section{紧空间}
-（填充）
+
+对于拓扑空间 $X$ 的子集 $A$ ，如果每个点 $x\in A$ 都属于集族 $\mathcal{U} =\{U_{i} \mid i\in I\}$ 中某个集合，则称 $\mathcal{U}$ 是子集 $A$ 的一个\textbf{覆盖(covering)}。若每个 $U_{i}$ 都是开集，则称其为\textbf{开覆盖(open covering)}。若覆盖的子集族 $\mathcal{U} '\subseteq \mathcal{U}$覆盖 $A$，则称 $\mathcal{U} '$ 为\textbf{子覆盖(subcovering)}。若 $\mathcal{U} '$ 由有限个集合 $\{U_{1} ,U_{2} ,\dotsc ,U_{n} \}$ 组成，则称为\textbf{有限子覆盖(finite subcovering)}。
+
+	对于拓扑空间 $(X,\mathcal{O} )$ ，若 $X$ 的每一个开覆盖都包含一个有限子覆盖，则称 $(X,\mathcal{O} )$ 是\textbf{紧致的(compact)}。这一定义是由下述定理启发得到的，其证明可以在任何分析学的标准教材中找到 [10-12]。
+
+\begin{theorem}[海涅-博雷尔定理]\label{thm:10.8} 
+	若 $A$ 是 $\mathbb{R}^{n}$ 中的有界闭子集（即包含在某个中心球内 $A\subset B_{a} (0)$，$a >0$），则$A$ 是紧致的当且仅当 $A$ 的每一个开覆盖都有有限子覆盖。
+\end{theorem}
+
+\begin{theorem}\label{thm:10.9} 
+	紧空间 $X$ 的每个闭子空间 $A$ 都在相对拓扑的意义下是紧致的。
+\end{theorem}
+
+\begin{proof}
+	设 $\mathcal{U}$ 是 $A$ 的任意开覆盖，其中每个集合都是相对拓扑意义下的开集。这个覆盖的每个成员必须是形如 $U\cap A$ 的形式，其中 $U$ 是 $Y$ 中的开集。集合 $\{U\}$ 与开集 $X-A$ 一起构成 $X$ 的一个开覆盖，而由于 $X$ 是紧致的，则它必定有一个有限子覆盖 $\{U_{1} ,U_{2} ,\dotsc ,U_{n} ,X-A\}$。因此，集合 $\{U_{1} \cap A,U_{2} \cap A,\dotsc ,U_{n} \cap A\}$ 就构成 $A$ 的一个有限子覆盖。于是便证明了 $A$ 在相对拓扑下是紧致的。
+\end{proof}
+
+\begin{theorem}\label{thm:10.10} 
+	若 $f:X\rightarrow Y$ 是从紧拓扑空间 $X$ 到拓扑空间 $Y$ 的连续映射，则其像 $f(X)\subseteq Y$ 在相对拓扑下是紧致的。
+\end{theorem}
+
+\begin{proof}
+	设集族 $\mathcal{U}$ 是 $f(X)$ 的任意开覆盖，其中每个集合都是相对拓扑意义下的开集。此覆盖中每个成员的形式是 $U\cap f(X)$，其中 $U$ 是 $Y$ 中的开集。由于 $f$ 是连续的，集合 $f^{-1} (U)$ 构成 $X$ 的开覆盖。而 $X$ 是紧致的，则必定存在有限子覆盖 $\{f^{-1} (U_{i} )\mid i=1,\dotsc ,n\}$覆盖 $X$，与这些集合相对应的集合 $U_{i} \cap f(X)$ 便构成了 $f(X)$ 的有限子覆盖。
+\end{proof}
+
+	紧致性是一个拓扑性质，其在同胚映射下保持不变。
+
+\begin{eg}\label{eg:10.16} 
+	如果 $E$ 是紧致拓扑空间 $X$ 上的一个等价关系，则映射 $i_{E} :X\rightarrow X/E$ 在同化拓扑 $X/E$ 中是连续的。根据定理\ref{thm:10.10}可知拓扑空间 $X/E$ 是紧致的。举例来说，通过认同 $\mathbb{R}^{2}$ 中闭且紧致单位正方形的对边所形成的环面 $T^{2}$ 是一个紧致空间。
+\end{eg}
+
+\begin{theorem}\label{thm:10.11} 
+	拓扑积$X\times Y$ 是紧致的当且仅当 $X$ 和 $Y$ 都是紧致的。
+\end{theorem}
+
+\begin{proof}
+	如果 $X\times Y$ 是紧致的，则根据定理\ref{thm:10.10}，$X$ 和 $Y$ 都是紧致的，因为投影映射 $\mathrm{pr}_{1} :X\times Y\rightarrow X$ 和 $\mathrm{pr}_{2} :X\times Y\rightarrow Y$  都在乘积拓扑中连续。
+	另一方面，假设 $X$ 和 $Y$ 都是紧致的。设 $\mathcal{W} =\{W_{i} \mid i\in I\}$ 是 $X\times Y$ 的一个开覆盖。由于每个集合 $W_{i}$ 是形为 $U\times V$ 的集合的并，其中 $U$ 和 $V$ 分别是 $X$ 和 $Y$ 的开集，作为某些 $W_{i}$ 的子集的所有形如 $U_{i} \times V_{j}$（$j\in J$）的集合构成了 $X\times Y$ 的开覆盖。给定任意点 $y\in Y$，集合 $U_{j}$ （对应的$V_{j} \ni y$）构成了 $X$ 的开覆盖。而 $X$ 是紧致的，因此存在一个有限子覆盖 $\{U_{j_{1}} ,U_{j_{2}} ,\dotsc ,U_{j_{n}} \}$。考虑$U_{j_{k}}$相对应的开集 $V_{j_{k}}$，有$y\in A_{y} =V_{j_{1}} \cap V_{j_{2}} \cap \cdots \cap V_{j_{n}}$，而根据\ref{top:2}，可知$A_{y}$也是开集。于是集合 $\{A_{y} \mid y\in Y\}$ 构成了 $Y$ 的开覆盖，由于 $Y$ 也是紧致的，其存在一个有限子覆盖 $A_{y_{1}} ,A_{y_{2}} ,\dotsc ,A_{y_{m}}$。由此，所有集合 $U_{j_{k}} \times V_{j_{k}}$ 以及与相应的 $A_{y_{a}}$ 构成了 $X\times Y$ 的一个有限开覆盖。这一有限开覆盖中的每一个集合都是某个 $W_{i} \in \mathcal{W}$ 的子集。于是任一开覆盖 $\mathcal{W}$ 存在有限子覆盖，从而证明了 $X\times Y$ 是紧致的。
+\end{proof}
+
+	令人惊讶的是，这一结论可以推广到任意无限乘积空间（\emph{Tychonoff 定理}）。感兴趣的读者可以参考 [8] 或 [2] 中的一个较难的证明。
+
+\begin{theorem}\label{thm:10.12} 
+	每个紧致拓扑空间的无限子集都至少有一个聚点。
+\end{theorem}
+
+\begin{proof}
+	利用反证法。设 $X$ 是一个紧致拓扑空间，$A\subset X$ 且 $A$ 没有聚点。对于 $X-A$ 中的每个点都可以构造一个开邻域 $U_{x}$，使得 $U_{x} \cap A=\emptyset $，于是有$X-A=\bigcup _{x\in A-X} U_{x}$ 是开集，则其补集 $A\subset X$ 是闭集。根据定理\ref{thm:10.9}，$A$ 是紧致的。由于每个点 $a\in A$ 都不是聚点，则对于每个存在开邻域 $U_{a}$，使得 $U_{a} \cap A=\{a\}$。因此，每个单点集 $\{a\}$ 是 $A$ 在相对拓扑意义下的开集，因此这一相对拓扑是离散拓扑。而单点集 $\{a\mid a\in A\}$ 便形成了 $A$ 的一个开覆盖，且由于 $A$ 是紧致的，其必然存在有限子覆盖 $\{a_{1} \},\{a_{2} \},\dotsc ,\{a_{n} \}$。因此，$A=\{a_{1} ,a_{2} ,\dotsc ,a_{n} \}$ 是有限集，与条件矛盾，因此原假设成立， $A$ 至少有一个聚点。
+\end{proof}
+
+\begin{theorem}\label{thm:10.13} 
+	豪斯多夫空间的紧致子空间是闭的。
+\end{theorem}
+
+\begin{proof}
+设 $X$ 是豪斯多夫空间，$A$ 是相对拓扑下的紧致子空间。如果 $a\in A$ 且 $x\in X-A$，则存在不相交开集 $U_{a}$ 和 $V_{a}$，使得 $a\in U_{a}$ 且 $x\in V_{a}$。开集族 $U_{a} \cap A$ 在相对拓扑意义下构成了 $A$ 的开覆盖。而由于 $A$ 是紧致的，此开覆盖存在有限子覆盖 $\{U_{a_{1}} \cap A,U_{a_{2}} \cap A,\dotsc ,U_{a_{n}} \cap A\}$。而相对应的$V_{a_{1}} ,\dotsc ,V_{a_{n}}$满足$x\in W=V_{a_{1}} \cap \dotsc \cap V_{a_{n}}$，其中 $W$ 是一个开集。由于 $W$ 中的每一点都在$U_{a_{i}} \cap A$之外，我们有$W\cap A=\emptyset $。于是对于每一点 $x\in X-A$，都可以构造一个和 $A$ 不相交的开邻域。因此 $A$ 的所有聚点都在 $A$ 内部， $A$ 必为闭的。
+\end{proof}
+
+\begin{theorem}\label{thm:10.14} 
+	度量空间的紧致子空间都是闭且有界的。
+\end{theorem}
+
+\begin{proof}
+	设 $A$ 是度量空间 $(M,d)$ 的一个紧致子空间。由于 $M$ 是豪斯多夫空间，根据定理\ref{thm:10.4}，$A$ 是闭集。构造相对拓扑下 $A$ 的开覆盖$\mathcal{U} =\{B_{1} (a)\cap A\mid a\in A\}$，其中每个 $B_{1} (a)$ 都是以点 $a$ 为中心的单位开球。由于 $A$ 是紧致的，可以挑选出有限个这样的开球$\{B(a_{1} ),B(a_{2} ),\dotsc ,B(a_{n} )\}$来覆盖 $A$。设这些点之间的最大距离为 $D=\max d(a_{i} ,a_{j} )$。对于任意一对点 $a,b\in A$，如果 $a\in B_{1} (a_{k} )$ 且 $b\in B(a_{l} )$，则根据三角不等式
+\begin{equation*}
+d(a,b)\leq d(a,a_{i} )+d(a_{i} ,a_{j} )+\dotsc +d(a_{j} ,b)\leq D+2.
+\end{equation*}
+
+因此，$A$ 是一个有界集合。
+\end{proof}
+
 \section{连通空间}
 （填充）
 \section{拓扑群}
@@ -128,11 +411,11 @@ d(x,y)\leq d(x,z)+d(z,y)\leq 2\epsilon < \frac{1}{2} d(x,y)
 \begin{eg}\label{eg:10.20}
 加法群 $\mathbb{R}^{n}$，其群乘法是向量加法，
 \begin{equation*}
-\phi (\mathbf{x} ,\mathbf{y}) =(x^{1} ,x^{2} ,\dotsc ,x^{n} )+(y^{1} ,y^{2} ,\dotsc ,y^{n} )=(x^{1} +y^{1} ,\dotsc ,x^{n} +y^{n} )
+    \phi (\mathbf{x} ,\mathbf{y}) =(x^{1} ,x^{2} ,\dotsc ,x^{n} )+(y^{1} ,y^{2} ,\dotsc ,y^{n} )=(x^{1} +y^{1} ,\dotsc ,x^{n} +y^{n} )
 \end{equation*}
 逆映射为
 \begin{equation*}
-\tau (\mathbf{x} )=-\mathbf{x} =(-x^{1} ,\dotsc ,-x^{n} ),
+    \tau (\mathbf{x} )=-\mathbf{x} =(-x^{1} ,\dotsc ,-x^{n} ),
 \end{equation*}
 这个群是一个建立在欧几里得拓扑上的阿贝尔拓扑群。$n$-环面 $T^{n} =\mathbb{R}^{n} /\mathbb{Z}^{n}$ 同样也是一个阿贝尔拓扑群，其群乘法是模 $ 1$ 加法。
 \end{eg}
@@ -140,7 +423,7 @@ d(x,y)\leq d(x,z)+d(z,y)\leq 2\epsilon < \frac{1}{2} d(x,y)
 \begin{eg}\label{eg:10.20}
 全体 $n\times n$ 实矩阵 $M_{n} (\mathbb{R} )$ 构成的集合具有与欧几里得拓扑 $\mathbb{R}^{n^{2}}$ 同胚的拓扑。行列式映射 $\det :M_{n} (\mathbb{R} )\rightarrow \mathbb{R}$ 显然是连续的，因为行列式 $ \ \mathrm{det}\mathbf{A}$ 是 $ \mathbf{A}$ 的矩阵元的多项式函数。于是一般线性群 $GL(n,\mathbb{R} )$ 是 $M_{n} (\mathbb{R} )$ 的一个开子集，因为其是开集 $\dot{\mathbb{R}} =\mathbb{R} -\{0\}$在行列式逆映射下的像。如果给 $GL(n,\mathbb{R} )$ 赋予由 $M_{n} (\mathbb{R} )$ 中的拓扑诱导出的相对拓扑，那么映射 $\psi $ 以分量形式写为
 \begin{equation*}
-( \psi (\mathbf{A} ,\mathbf{B} ))_{ij} =\sum _{k=1}^{n} A_{ik}\left( B^{-1}\right)_{kj} 。
+    ( \psi (\mathbf{A} ,\mathbf{B} ))_{ij} =\sum _{k=1}^{n} A_{ik}\left( B^{-1}\right)_{kj} 。
 \end{equation*}
 这些分量的映射都是连续函数，因为 $(B^{-1} )_{ij}$ 是矩阵元 $B_{ij}$ 的有理多项式函数，且函数的分母为非奇异矩阵的多项式 $ \mathrm{det} B$ 。
 \end{eg}
@@ -148,7 +431,7 @@ d(x,y)\leq d(x,z)+d(z,y)\leq 2\epsilon < \frac{1}{2} d(x,y)
 	群 $G$ 的一个子群 $H$ 连带着其相对拓扑一起被称为 $G$ 的\textbf{拓扑子群(topological subgroup)}。为了证明任何子群 $H$ 在相对拓扑下成为拓扑子群，设 $U'=H\cap U$，其中 $U$ 是 $G$ 的任意开子集。由于映射 $\phi $ 的连续性，对于任何一对使得 $gh\in U'\subset U$ 的点 $g,h\in H$，存在 $G$ 中的开集 $A$ 和 $B$，使得 $A\times B\subset \varphi ^{-1} (U)$。由此得出 $\varphi (A'\times B')\subset H\cap U$，其中 $A'=A\cap H$，$B'=B\cap H$，而 $ \phi |_{H}$ 的连续性是显然的。类似地，限制到 $H$ 上逆映射 $\tau $ 也是连续的。如果 $H$ 还是 $G$ 中的闭集，则称其为 $G$ 的\textbf{闭子群}。
 	对于每个 $g\in G$，令左平移映射 $L_{g} :G\rightarrow G$ 为
 \begin{equation*}
-L_{g} (h)\equiv L_{g} h=gh
+    L_{g} (h)\equiv L_{g} h=gh
 \end{equation*}
 与例\ref{eg:2.25}中的定义相同。由于映射 $L_{g}$ 是两个连续映射的复合映射，$L_{g} =\phi \circ \iota _{g}$，因此 $L_{g}$ 是连续的，其中 $\iota _{g} :G\rightarrow G\times G$ 是包含映射 $\iota _{g} (h)=(g,h)$。
 （见定理\ref{thm:10.3}）。它显然是单射，因为 $gh=gh'\Longrightarrow h=g^{-1} gh'=h'$ ，并且它的逆是连续映射 $L_{g^{-1}}$。由此可知 $L_{g}$ 是同胚映射。类似地，对于每个右平移可以定义 $R_{g} :G\rightarrow G$ 为 $R_{g} h=hg$，其也是 $G$ 的同胚映射，还可以定义内自同构 $C_{g} :G\rightarrow G$ 为 $C_{g} h=ghg^{-1} =L_{h} \circ R_{h^{-1}}( g)$ 。
@@ -177,9 +460,9 @@ L_{g} (h)\equiv L_{g} h=gh
 	设 $V$ 为单位元 $e$ 的任意连通邻域，$H$ 为由 $V$ 生成的子群。对于任意 $g\in H$， $L_{g}$ 是同胚映射，于是左陪集 $gV=L_{g} V\subset H$ 是 $g$ 的一个邻域。因此 $H$ 是 $G$ 的一个开子群。另一方面，由于 $H$ 是 $G$ 中 $H$ 陪集之并的补集，则 $H$ 同时也是闭集。由此，$H$ 既是开集又是闭集，其本身就是单位连通分支 $G_{0}$。
 \end{proof}
 
-	设 $H$ 为拓扑群 $G$ 的闭子群，我们可以通过典范投影映射 $\pi :g\mapsto gH$ 给商空间 $G/H$ 诱导出自然拓扑，该拓扑由标准投影映射 $\pi :g\mapsto gH$ 定义。这是 $G/H$ 上使得 $\pi $ 是连续映射的最大拓扑。在这个拓扑中，对于一组 $H$ 的陪集，若它们的并集是 $G$ 的一个开子集，则以每个陪集为元素其全体构成一个集合 $U\subset G/H$ ，其在 $G/H$ 中是开集。显然，在这个拓扑下$\pi $ 是一个\textbf{开映射(open map)}，即是说所有开集 $V\subseteq G$ 的像 $\pi (V)$ 是开集。
+	设 $H$ 为拓扑群 $G$ 的闭子群，我们可以通过典范投影映射 $\pi :g\mapsto gH$ 给商空间 $G/H$ 诱导出自然拓扑，该拓扑由标准投影映射 $\pi :g\mapsto gH$ 定义。这是 $G/H$ 上使得 $\pi $ 是连续映射的最细拓扑。在这个拓扑中，对于一组 $H$ 的陪集，若它们的并集是 $G$ 的一个开子集，则以每个陪集为元素其全体构成一个集合 $U\subset G/H$ ，其在 $G/H$ 中是开集。显然，在这个拓扑下$\pi $ 是一个\textbf{开映射(open map)}，即是说所有开集 $V\subseteq G$ 的像 $\pi (V)$ 是开集。
 
-\begin{theorem}\label{eg:10.21}
+\begin{theorem}\label{eg:10.22}
 	如果 $G$ 是一个拓扑群，而 $H$ 是一个使商空间 $G/H$ 连通的闭连通子群，则 $G$ 是连通的。
 \end{theorem}
 
@@ -190,14 +473,14 @@ L_{g} (h)\equiv L_{g} h=gh
 \begin{eg}\label{eg:10.22}
 	一般线性群 $GL(n,\mathbb{R} )$ 不是连通的，因为行列式映射 $\det :GL(n,\mathbb{R} )\rightarrow \mathbb{R}$ 的像为 $\dot{\mathbb{R}} =\mathbb{R} -\{0\}$，这是一个不连通的集合。单位元 $ \mathbf{I}$ 的单位连通分支 $G_{0}$ 是行列式 $  >0$ 的 $n\times n$ 矩阵集合，以各分支作为元素构成的群是离散群
 \begin{equation*}
-GL(n,\mathbb{R} )/G_{0} \cong \{1,-1\}=Z_{2}
+    GL(n,\mathbb{R} )/G_{0} \cong \{1,-1\}=Z_{2}
 \end{equation*}
 然而值得一提的的是，复一般线性群 $GL(n,\mathbb{C} )$ 是连通的，这一结论成立的依据是，任何非奇异复矩阵的 Jordan 标准型可以连续变形为单位矩阵 $ \mathbf{I}$ 。
 \end{eg}
 
-特殊正交群 $SO(n)$ 全都是连通的。可以通过利用维数 $n$ 进行数学归纳来证明这一点。显然 $SO(1)=\{1\}$ 是连通的。假设 $SO(n)$ 是连通的，则可以证明（参见\ref{chapter:19}的\ref{eg:19.10}）$SO(n+1)/SO(n)$ 同胚于球面 $S^{n}$。$S^{n}$是一个连通集（\ref{eg:10.19}），由\ref{thm:10.22}可知 $ SO(n+1)$ 是连通集。于是利用数学归纳法可知，对于所有 $n=1,2,\dotsc $， $ SO(n)$ 是连通群。然而，正交群 $O(n)$ 并不是连通的，因为其单位连通分支是 $SO(n)$，剩余的正交矩阵都在另一个对应行列式为 $ -1$ 的连通分支上。
+特殊正交群 $SO(n)$ 全都是连通的。可以通过利用维数 $n$ 进行数学归纳来证明这一点。显然 $SO(1)=\{1\}$ 是连通的。假设 $SO(n)$ 是连通的，则可以证明（参见\ref{chapter:19}章的例\ref{eg:19.10}）$SO(n+1)/SO(n)$ 同胚于球面 $S^{n}$。$S^{n}$是一个连通集（例\ref{eg:10.19}），由定理\ref{thm:10.22}可知 $ SO(n+1)$ 是连通集。于是利用数学归纳法可知，对于所有 $n=1,2,\dotsc $， $ SO(n)$ 是连通群。然而，正交群 $O(n)$ 并不是连通的，因为其单位连通分支是 $SO(n)$，剩余的正交矩阵都在另一个对应行列式为 $ -1$ 的连通分支上。
 
-类似地，由 $SU(1)=\{1\}$ 和 $SU(n)/SU(n)\cong S^{2n-1}$，可知所有的特殊酉群 $SU(n)$ 是连通的。由\ref{thm:10.22}，酉群 $U(n)$ 也都是连通的，因为 $U(n)/SU(n)=S^{1}$ 是连通的。
+类似地，由 $SU(1)=\{1\}$ 和 $SU(n)/SU(n)\cong S^{2n-1}$，可知所有的特殊酉群 $SU(n)$ 是连通的。由定理\ref{thm:10.22}，酉群 $U(n)$ 也都是连通的，因为 $U(n)/SU(n)=S^{1}$ 是连通的。
 
 \section{拓扑向量空间}
 （填充）
