@@ -265,9 +265,83 @@ b_{a} (B(\mathbf{x} ))=S_{a}^{n-1} (\mathbf{x} )=\{y\mid | \mathbf{y} -\mathbf{x
 
 \section{诱导拓扑}
 \subsection{诱导拓扑和拓扑乘积}
-（填充）
+
+给定拓扑空间 $(X,\mathcal{O} )$ 和从任意集合 $Y$ 到 $X$ 的映射 $f:Y\rightarrow X$，我们可以寻求在 $Y$ 上能找到的最弱的拓扑，使得该映射是连续的——如例\ref{eg:10.10}所示，离散拓扑总是能保证映射连续，所以没有必要专门寻求最强的拓扑。我们寻求的这一拓扑被称为由映射 $f$ 在 $Y$ 上\textbf{诱导的(induced)}拓扑。设 $\mathcal{O}_{f}$ 为 $X$ 中所有开集的逆像的集合，
+\begin{equation*}
+\mathcal{O}_{f} =\{f^{-1} (U)\mid U\in \mathcal{O} \}。
+\end{equation*}
+由于 $f$ 被要求是连续的，这个集合中的所有成员必须在诱导拓扑下是开集。而且$\mathcal{O}_{f}$ 是 $Y$ 上的一个拓扑，因为 (i)  $\emptyset =f^{-1} (\emptyset )$ 且 $Y=f^{-1} (X)$，性质\ref{top:1}是显然的；(ii) 公理\ref{top:2}和\ref{top:3}可由下述集合论恒等式得出
+\begin{equation*}
+f^{-1}( U\cap V) =f^{-1}( U) \cap f^{-1}( V) \ 且\ \bigcup _{i\in I} f^{-1}( U_{i}) =f^{-1}\left(\bigcup _{i\in I} U_{i}\right) .
+\end{equation*}
+因此，$\mathcal{O}_{f}$ 是 $Y$ 上的拓扑，并包含于任何其他使得映射 $f$ 连续的拓扑中。这一必然是由映射 $f$ 在 $Y$ 上诱导的拓扑，因为它是最这类拓扑中最弱的一个。
+
+\begin{eg}\label{eg:10.12}
+	设 $(X,\mathcal{O} )$ 是任意拓扑空间，$A$ 是 $X$ 的任意子集。在由自然包含映射 $i_{A} :A\rightarrow X$ （由 $i_{A}( x) =x$ 定义）在 $A$ 上诱导的拓扑中，$A$ 的某个子集 $B$ 是开集当且仅当 $B$ 是 $X$ 中某个开集与 $A$ 的交集，即 $B=A\cap U$（ $U$ 代表某个 $X$ 中的开集）。而这一拓扑正是\ref{sec:10.2}节中定义的 $A$ 的相对拓扑。因此，相对拓扑是使得包含映射连续的最粗拓扑。
+\end{eg}
+
+	更一般地，对于一族映射 $\{f_{i} :Y\rightarrow X_{i} \mid i\in I\}$（其中 $X_{i}$ 都带有拓扑结构），在使得所有这些映射连续的拓扑中，最弱的一个称为由这些映射\textbf{诱导的}拓扑。为了构造这个拓扑，需要考虑所有 $X_{i}$ 中开集逆像构成的集族 $\mathcal{U} =\left\{U_{i} =f_{i}^{-1} (U_{i} )\mid U_{i} \in \mathcal{O}_{i}\right\}$。这一集族本身通常并不构成拓扑，而由此集族生成的拓扑将是使得每个函数都连续的最粗拓扑。
+	给定两个拓扑空间 $(X,\mathcal{O}_{X} )$ 和 $(Y,\mathcal{O}_{Y} )$，设 $\mathrm{pr}_{1} :X\times Y\rightarrow X$ 和  $\mathrm{pr}_{2} :X\times Y\rightarrow Y$ 为自然投影映射，定义为
+\begin{equation*}
+\mathrm{pr}_{1} (x,y)=x\ \ \text{和} \ \ \mathrm{pr}_{2} (x,y)=y。
+\end{equation*}
+集合 $X\times Y$ 上的\textbf{乘积拓扑(product topology)}定义为由这两个映射诱导的拓扑。带有乘积拓扑的空间 $X\times Y$ 称为 $X$ 和 $Y$ 的\textbf{拓扑积(topological product)}。它是使得投影是连续的最粗拓扑。$X$ 中某开集 $U$ 在 $\mathrm{pr}_{1}$下的逆像相当于一个“竖条” $U\times Y$ ，而 $Y$ 中某开集 $V$ 在 $\mathrm{pr}_{2}$下的逆像相当于一个“横条” $X\times V$ 。任何一对这样的“条带”的交集都具有 $U\times V$ 的形式（见图\ref{fig:10.4}）。由于这些“横条”和“竖条”生成的拓扑中包含了所有这样的交集，这说明了子集 $A\subset X\times Y$ 是开集当且仅当对点 $( x,y) \in A$ ，存在开集$U\in \mathcal{O}_{X}$和$V\in \mathcal{O}_{Y}$使得$( x,y) \in U\times V\subseteq A$。
+
+	给定任意集族 $\{X_{i} |i\in I\}$，这些集合的\textbf{笛卡尔积(cartesian product)} $P=\prod _{i\in I} X_{i}$ 被定义为所有使得 $f(i)\in X_{i} ,\ i\in I$ 的函数 $f:\prod _{i} X_{i}\rightarrow X$ 的集合。对于有限个集合，即取$I=\{1,2,\dotsc ,n\}$的情况，上述概念相当于$n$-元组 $X_{1} \times X_{2} \times \cdots \times X_{n}$。$P$ 上的乘积拓扑是由 $\mathrm{pr}_{i} (f)=f( i)$定义的投影映射$\mathrm{pr}_{i} :P\rightarrow X_{i}$诱导出的。这一拓扑比由所有形如 $\prod _{i\in I} U_{i}$的集合（$U_{i}$ 是 $X_{i}$ 中的开集）生成出的拓扑更粗。
+
+\begin{eg}\label{eg:10.13}
+	设 $S^{1}$ 为欧几里得平面 $\mathbb{R}^{2}$ 中的单位圆，其方程为 $x^{2} +y^{2} =1$，带有相对拓扑。乘积空间 $S^{1} \times S^{1}$ 同胚于空环面 $T^{2}$， $\mathbb{S^{1} \times S^{1}\rightarrow R}^{3}$ 作为一个空间嵌入使得 $T^{2}$ 获得诱导拓扑。一个直观的描述是将 $S^{1}$ 嵌入到 $\mathbb{R}^{3}$ 中的 $z=0$ 平面，并在此 $S^{1}$ 上每一点粘一个与其垂直的单位圆。当这些垂直圆扫过 $S^{1}$ 时，最终得到的正是一个环面。
+\end{eg}
+
+下面要叙述的定理将会时不时地在后文用到。
+
+\begin{theorem}\label{thm:10.3}
+	如果 $X$ 和 $Y$ 是拓扑空间，则对于每个点 $x\in X$，通过 $\iota _{x} (y)=(x,y)$ 所定义的嵌入映射 $\iota _{x} :Y\rightarrow X\times Y$  是连续的。类似地，通过 $\iota '_{y} (x)=(x,y)$ 所定义的映射 $\iota '_{y} :X\rightarrow X\times Y$  也是连续的。
+\end{theorem}
+
+\begin{proof}
+	设 $U$ 和 $V$ 分别是 $X$ 和 $Y$ 的开集。则
+\begin{equation*}
+( \iota _{x})^{-1} (U\times V)=\begin{cases}
+V & ,x\in U,\\
+\emptyset  & ,x\notin U.
+\end{cases}
+\end{equation*}
+由于在乘积拓扑中，$U\times V$ 的每个开子集都是类如 $U\times V$ 的集合的并集，这说明 $X\times Y$ 中每个开集在 $\iota _{x}$ 下的逆像是 $Y$ 中的开集。因此映射 $\iota _{x}$ 是连续的。类似地， $\iota '_{y}$ 也连续。
+\end{proof}	
+
 \subsection{同化拓扑}
-（填充）
+
+	前文讨论的情形也可以反过来考虑。设 $(X,\mathcal{O} )$ 是一个拓扑空间，$f:X\rightarrow Y$ 是从 $X$ 到任意集合 $Y$ 的映射。在这种情况下，我们定义由 $f$ \textbf{诱导的} $Y$ 上的拓扑为使得映射 $f$ 连续的\emph{最细的}拓扑。这个拓扑由所有使得 $f^{-1} (U)$ 在 $X$ 中是开集的$Y$ 中子集 $U$ 组成，即$\mathcal{O}_{Y} =\{f^{-1} (U)\mid U\in \mathcal{O} \}$。
+
+\begin{exercise}
+	证明 $\mathcal{O}_{Y}$ 是 $Y$ 上的拓扑。
+\end{exercise}
+
+\begin{exercise}
+	证明 $\mathcal{O}_{Y}$ 是使得 $f$ 连续的最强拓扑。
+\end{exercise}
+
+	这种类型的诱导拓扑的一个常见例子可以在定义了等价关系 $E$ 的拓扑空间 $X$ 上得到。设 $[x]=\{y\mid yEx\}$ 为包含点 $x\in X$ 的等价类。在商空间 $X/E=\{[x]\mid x\in X\}$ 中，可以通过 \textbf{认同(identification)}来定义拓扑，这一拓扑是由自然映射 $i_{E} :X\rightarrow X/E$ （将每个点 $x\in X$ 与其所属于的等价类关联，即 $i_{E} (x)=[x]$）诱导的。在此拓扑意义下，子集 $A$ 是开集当且仅当其逆像 $i_{E}^{-1} (A)=\{x\in X\mid [x]\in A\}=\bigcup _{[ x] \in A}[ x]$ 是 $X$ 中的开集。也就是说，等价类的子集 $A=\{[x]\}$ 在 $X/E$ 上的诱导拓扑中是开集当且仅当 $A$ 中集合 $[x]$ 的并集是 $X$ 中的开集。
+
+\begin{exercise}
+	从上述结论出发，验证$X/E$ 上的拓扑满足公理\ref{top:1}-\ref{top:3}。
+\end{exercise}
+
+\begin{eg}\label{eg:10.14}
+	类似\ref{eg:1.4}的情况，对于平面 $\mathbb{R}^{2}$ 中的两点 $(x,y)$ 和 $(x',y')$ ，如果它们的坐标相差整数，
+\begin{equation*}
+(x,y)\equiv (x',y')\Longleftrightarrow x-x'=n,y-y'=m\ \ (n,m\in \mathbb{Z} ),
+\end{equation*}
+我们就称其为是等价的。通过认同操作得到的空间 $\mathbb{R}^{2} /\equiv $ 上的拓扑可以被描绘为单位正方形，且对边相同（见\ref{fig:10.5}）。这实际上正是环面 $T^{2}$ ，为了理解这一点，来想象一块正方形橡胶片。认同 $AD$ 和 $BC$ 等价于将这两条边粘起来形成一个圆柱体。这时再认同 $AB$ 和 $CD$ 等价于将圆柱体的顶部和底部的圆形边缘对接。在三维空间中，这涉及到将圆柱体弯曲，直到顶部和底部连接起来形成一个“轮胎”的表面——注意距离或度量性质在拓扑变换中并不需要被保持。$n$-环面 $T^{n}$ 同样可以通过在 $\mathbb{R}^{n}$中进行类似的认同操作来得到，具体操作就是将其中坐标相差整数的点视作等价。
+\end{eg}
+
+\begin{eg}\label{eg:10.15}
+	设 $\dot{\mathbb{R}}^{3} =\mathbb{R}^{3} -\{\mathbf{0} \}$ 为非零三元实数组的集合，其拓扑为通过 $\mathbb{R}^{3}$ 诱导的相对拓扑。若存在一个非零实数 $\lambda $，使得 $x'=\lambda x$，$y'=\lambda y$ 和 $z'=\lambda z$ ，则定义 $\mathbb{R}^{3}$ 上的一个等价关系 $(x,y,z)\sim (x',y',z')$ 。此时得到的商空间 $P^{2} =\dot{\mathbb{R}}^{3} /\equiv $ 被称为\textbf{实射影平面(real projective plane)}。
+\end{eg}
+	每个等价类 $[(x,y,z)]$ 是通过原点的直线，它与单位 2-球面 $S^{2}$ 相交在关于原点对称的两点（对径点）。通过认同对角线上的对径点在 $S^{2}$ 上定义一个等价关系$(x,y,z)\sim (-x,-y,-z)$，其中 $x^{2} +y^{2} +z^{2} =1$。由 $\mathbb{R}^{3}$ 认同得到的 $P^{2}$ 上的拓扑与对径点认同的 2-球面 $S^{2}$ 上的拓扑是相同的。
+	将上述定义推广，我们定义\textbf{实射影 $n$-空间(real projective $n$-space)} $P^{n}$ 为 $\dot{\mathbb{R}}^{n+1} /\equiv $，当存在 $\lambda \neq 0$，使得 $x_{1} =\lambda x_{1} '$，$x_{2} =\lambda x_{2} '$，$\dotsc $，$x_{n+1} =\lambda x_{n+1} '$时，$(x_{1} ,x_{2} ,\dotsc ,x_{n+1} )\equiv (x_{1} ',x_{2} ',\dotsc ,x_{n+1} ')$ 。这个空间可以看作是 $\mathbb{R}^{n+1}$ 中通过原点的所有直线的集合。$P^{n}$ 的拓扑与对径点认同的 $n$-球面 $S^{n}$ 的拓扑是同胚的。
+
 \section{豪斯多夫空间}
 
 在某些拓扑中（例如离散拓扑）由于开集太少，不同的点无法被非相交的邻域分隔开。为了解决这种情况，有时会对拓扑空间施加称为\emph{分离公理}的条件。其中一种最常见的是\textbf{豪斯多夫条件(Hausdorff condition)}：对于每一对点$x,y\in X$，存在$x$的开邻域 $U$ 和 $y$ 的开邻域 $V$ ，使得$U\cap V=\emptyset $。满足此属性的拓扑空间称为\textbf{豪斯多夫空间(Hausdorff space)}。直观来讲，豪斯多夫空间中不存在一对“任意接近”的不同点。
