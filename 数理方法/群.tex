@@ -761,7 +761,7 @@ F(x)=F(g x) \quad \text { for all } x \in X
 $$
 
 其中，正如第\ref{sec:2.6}节中所述，我们用$g x \equiv g(x)$表示左作用。
-\begin{theorem}
+\begin{theorem}\label{thm:2.6}
     对于$X$上的所有使$F$不变的变换组成一个群。
 \end{theorem}
 \begin{proof}
@@ -811,27 +811,29 @@ $$
 $$
 \Delta s^{2}=\left(\mathbf{r}_{2}-\mathbf{r}_{1}\right)^{2}=\Delta \mathbf{r}^{T} \Delta \mathbf{r}
 $$
-A transformation of $\mathrm{E}^3$ that leaves the distance between any pair of points imvariant will be called a Euclidean transformation. As for the rotation group, a Euclidean transformation $\mathbf{r} \rightarrow \mathbf{r}^{\prime}$ has
+如果 $\mathrm{E}^3$ 的变换使得任意一对点之间的距离不变，那么这个变换就叫做欧几里得变换。至于旋转群，欧几里得变换  $\mathbf{r} \rightarrow \mathbf{r}^{\prime}$ 有
 
 $$
 \Delta \mathbf{r}^{\prime}=\mathrm{A} \Delta \mathbf{r}, \quad \mathrm{AA}^r=1
 $$
 
 
-For any pair of points $r_2-r_1=A\left(r_2-r_1\right)$, and if we set $r_1=0$ to be the origin and $\sigma^{\prime}=a$, then $r_2^{\prime}-a=A r_2$. Since $r_2$ is an arbitrary point in $\mathbb{E}^3$, the general Euclidean transformations have the form
-
-$$
-\mathbf{r}^{\prime}=\mathrm{Ar}+\mathbf{a} \text { where } \quad \mathrm{A}^T \mathrm{~A}=\mathrm{I}, \mathbf{a}=\text { const. }
-$$
+对于任意一对点 $r_2-r_1=A\left(r_2-r_1\right)$，如果我们设置 $r_1=0$ 为原点，并且 $\sigma^{prime}=a$ ，那么 $r_2^{\prime}-a=A r_2$ 。由于 $r_2$ 是 $\mathbb{E}^3$ 中的任意一点，所以一般欧几里得变换的形式为
 
 
-Transformations of this form are frequently called affine or inhomogeneous linear transformations.
+
+\begin{equation}
+    \mathbf{r}^{\prime}=\mathrm{Ar}+\mathbf{a} \text { 其中 } \quad \mathbf{A}^T \mathbf{A}=\mathbf{I}, \mathbf{a}=\text { 常数. }
+\end{equation}
+
+
+这种形式的变换通常称为仿射(affine)变换或非齐次线性变换。
 \end{eg}
 \begin{exercise}
-    Check directly that these transformations form a group - do not use Theorem 2.6.
+    直接检查这些变换是否形成一个群 -不要使用定理\ref{thm:2.6}。
 \end{exercise}
 
-The group of Euclidean transformations, called the Euclidean group, can also be written as a matrix group by replacing $r$ with the $4 \times 1$ column matrix $(x, y, z, 1)^T$ and writing
+欧几里得变换群称为欧几里得群，也可以写成矩阵群，方法是将 $r$ 替换为 $4 \times 1$ 列矩阵 $(x, y, z, 1)^T$，并写成
 
 $$
 \binom{r}{1}=\left(\begin{array}{cc}
@@ -841,124 +843,109 @@ A & \mathbf{a} \\
 $$
 
 
-This may seem an odd trick, but its value lies in demonstrating that the Euclidean group is isomorphic to a matrix group - the Euclidean transformations are affine, not linear, on $\mathbb{R}^3$, and thus cannot be written as $3 \times 3$ matrices.
+这似乎是一个奇怪的技巧，但它的价值在于证明了欧几里得群与矩阵群同构--欧几里得变换在 $\mathbb{R}^3$ 上是仿射变换，而不是线性变换，因此不能写成 $3 \times 3$ 的矩阵。
 \begin{eg}
-    The Galilean group. To find the set of transformations of space and time that preserve the laws of Newtonian mechanics we follow the lead of special relativity (see Chapter 9) and define an event to be a point of $\mathrm{R}^4$ characterized by four coordinates $(x, y, z, t)$. Define Galilean space $\mathrm{G}^4$ to be the space of events with a structure consisting of three elements:
-1. Time intervals $\Delta r=t_2-t_1$.
-2. The spatial distance $\Delta s=\left|\mathbf{r}_2-\mathbf{r}_1\right|$ between any pair of simultaneous events (events having the same time coordinate, $f_1=t_2$ ).
-3. Motions of inertial (free) particles, otherwise known as reetilinear motions,
-
-$$
-\mathbf{r}(t)=\mathbf{u} t+\mathbf{r}_0 .
-$$
-
-where $u$ and $r_8$ are arbitrary constant vectors.
-Note that only the distance between simultaneous events is relevant. A simple example should make this clear. Consider a train travelling with uniform velocity v between two stations $A$ and $B$. In the frame of an observer who stays at $A$ the distance between the (non-simultancous) events $E_1=$ 'train leaving $A^{\prime}$ and $E_2=$ 'train arriving at $B$ ' is clearly $d=\mathrm{vt}$, where $t$ is the time of the journcy. However, in the rest frame of the train it hasn't moved at all and the distance between these two events is zero! Assuming no accelerations at the start and end of the journey, both frames are equally valid Galilean frames of reference.
+    伽利略群 为了找到全体保证牛顿力学定律成立的时空变换的集合，我们效仿狭义相对论（见第\ref{chp:9}章），将事件定义为 $\mathrm{R}^4$ 的一个点，其特征为四个坐标 $(x,y,z,t)$。定义伽利略空间 $\mathrm{G}^4$ 为事件空间，其结构由三个元素组成：
+    \begin{enumerate}
+        \item 时间间隔 $\Delta r=t_2-t_1$
+        \item 任何一对同时发生的事件（具有相同时间坐标的事件，$t_1=t_2$）之间的空间距离$\Delta s=\left|\mathbf{r}_2-\mathbf{r}_1\right|$ 。
+        \item 惯性（自由）粒子的运动，又称直线运动(reetilinear motions)
+        \begin{equation}\label{eq:2.19}
+            \mathbf{r}(t)=\mathbf{u} t+\mathbf{r}_0 .
+        \end{equation}        
+        其中 $u$ 和 $r_0$ 是任意常向量。
+    \end{enumerate}
+    需要注意的是只有同时发生的事件之间的距离才是相关的。一个简单的例子就能说明这一点。考虑一列在两个车站 $A$ 和 $B$ 之间以均匀速度 v 运行的火车。在一个停留在 $A$ 的观察者的框架中，（非同时发生的）事件 $E_1=$ “火车离开 $A$” 和 $E_2=$ “火车到达 $B$” 之间的距离显然是 $d=vt$，其中 $t$ 是旅程的时间。然而，在火车自身的参考系中，它根本没有移动，这两个事件之间的距离为零！假设在旅程的开始和结束时没有加速度，那么这两个参照系都是同样有效的伽利略参照系。
 \end{eg}
 
-Note that $\Delta r$ is a function on all of $\mathrm{G}^4 \times \mathrm{G}^4$, while $\Delta s$ is a function on the subset of $\mathrm{G}^4 \times \mathrm{G}^4$ consisting of simultancous pairs of events, $\left\{\left((\mathbf{r}, t),\left(\mathbf{r}^{\prime}, r^{\prime}\right)\right) \mid \Delta r=t^{\prime}-t=0\right)$. We define a Galilean transformation as a transformation $\varphi: \mathrm{G}^4 \rightarrow \mathrm{G}^4$ that preserves the three given structural elements. All Galilean transformations have the form
-
-$$
-\begin{aligned}
-& r^{\prime}=r+a \quad(a=\text { const }) \\
-& \mathbf{r}^{\prime}=\mathrm{Ar}-\mathrm{v} t+\mathrm{b} \quad\left(\mathrm{~A}^r \mathrm{~A}=\mathbf{1}, \mathbf{v}, \mathbf{b}=\text { consts }\right)
-\end{aligned}
-$$
+请注意，$\Delta r$ 是一个定义在 $\mathrm{G}^4 \times \mathrm{G}^4$ 的函数，而 $\Delta s$ 是关于由同时发生的成对事件组成的 $\mathrm{G}^4 \times \mathrm{G}^4$ 子集的函数、 $\left\{\left((\mathbf{r}, t),\left(\mathbf{r}^{\prime}, r^{\prime}\right)\right) \mid \Delta r=t^{\prime}-t=0\right)$. 我们把伽利略变换定义为 $\varphi: \mathrm{G}^4 \rightarrow \mathrm{G}^4$，它保留了三个给定的结构元素。所有伽利略变换的形式为
 
 
-Proof: From the time difference equation $t^{\prime}-0^{\prime}=t-0$ we obtain (2.20) where $a=0^{\prime}$. Invariance of Property 2. gives, by a similar argument to that used to deduce Euclidean transformations,
+\begin{align}
+& r^{\prime}=r+a \quad(a=\text {常数}) \label{eq:2.20} \\
+& \mathbf{r}^{\prime}=\mathrm{Ar}-\mathrm{v} t+\mathrm{b} \quad\left(\mathrm{~A}^r \mathrm{~A}=\mathbf{I}, \mathbf{~v}, \mathbf{b}=\text {常数}\right) \label{eq:2.21}
+\end{align}
 
-$$
-\mathbf{r}^{\prime}=\mathbf{A}(t) \mathbf{r}+\mathbf{a}(t), \quad \mathbf{A}^T \mathbf{A}=1
-$$
 
-where $A(t)$ is a time-dependent orthogonal matrix and $\mathbf{a}(t)$ is an arbitrary vector function of time. These transformations allow for rotating and accelerating frames of reference and are certainly too general to preserve Newton's laws.
+\begin{proof}
+    根据时间间隔方程 $t^{\prime}-0^{\prime}=t-0$，我们可以得到 (\ref{eq:2.20})，其中 $a=0^{\prime}$。通过与推导欧几里得变换相似的论证，可以得到性质 2 的不变性、
+\begin{equation}\label{eq:2.22}
+    \mathbf{r}^{\prime}=\mathbf{A}(t) \mathbf{r}+\mathbf{a}(t), \quad \mathbf{A}^T \mathbf{A}=1
+\end{equation}
 
-Property 3, is essentially the invariance of Newton's first law of motion, or equivalently Galileo's principle of inertia. Consider a particle in uniform motion given by Eq. (2.19). This equation must be transformed into an equation of the form $\mathbf{r}^{\prime}(t)=\mathbf{u}^{\prime} t+\mathbf{r}_0^{\prime}$ under a Galilean transformation. From the transformation law (2.22)
+其中，$A(t)$ 是与时间相关的正交矩阵，$mathbf{a}(t)$ 是时间的任意矢量函数。这些变换允许旋转参照系和加速参照系，但由于过于笼统，无法保留牛顿定律。
+
+性质 3 本质上是牛顿第一运动定律的不变性，或者等同于伽利略的惯性原理。考虑由式(\ref{eq:2.19})给出的匀速运动质点。在伽利略变换下，这个方程必须转化为$\mathbf{r}^{\prime}(t)=\mathbf{u}^{\prime} t+\mathbf{r}_0^{\prime}$ 形式的方程。根据变换定律(\ref{eq:2.22})
 
 $$
 \mathbf{u}^{\prime} t+\mathbf{r}_0^{\prime}=\mathbf{A}(t)\left(\mathbf{u} t+\mathbf{r}_0\right)+\mathbf{a}(t)
 $$
 
-and taking twice time derivatives of both sides of this equation gives
+对方程两边求两次时间导数，得出
 
 $$
-0=(\overline{\mathrm{A}} t+2 \dot{A}) \mathbf{u}+\bar{A} \mathbf{r}_0+\overline{\mathbf{a}}
-$$
-
-
-Since $u$ and $\mathrm{r}_{\mathrm{p}}$ are arbitrary constant vectors it follows that
-
-$$
-0=\bar{A}, \quad 0=\bar{A} r+2 \dot{A} \text { and } \quad 0=\overline{\mathbf{a}}
+0=(\ddot{\mathbf{A}} t+2 \dot{A}) \mathbf{u}+\ddot{\mathbf{A}} \mathbf{r}_0+\ddot{\mathbf{a}}
 $$
 
 
-Hence $\ddot{A}=0$, so that $A$ is a constant orthogonal matrix, and $a=-v t+b$ for some constant vectors v and b .
+由于 $u$ 和 $\mathrm{r}_{0}$ 是任意常数矢量，因此可以得出
+
+$$
+0=\ddot{\mathbf{A}}, \quad 0=\ddot{\mathbf{A}} t+2 \dot{\mathbf{A}} \text { 且 } \quad 0=\ddot{\mathbf{a}}
+$$
+
+
+因此 $\ddot{A}=0$，所以 $A$ 是一个恒定的正交矩阵，并且对于某个恒定向量 v 和 b，$a=-v t+b$ 。
+\end{proof}
 \begin{exercise}
-    Exhibit the Galilean group as a matrix group, as was done for the Euclidean group in (2.18).
+    将伽利略群展示为矩阵群，如同 (2.18) 中欧几里得群的做法。
 \end{exercise}
 
-Example 2.30 The Lerentz group. The Galilean transformations do not preserve the light cone at the origin
-
+\begin{eg}
+    \textbf{洛伦兹群} 伽利略变换不保留原点处的光锥
 $$
 \Delta x^2+\Delta y^2+\Delta z^2=c^2 \Delta t^2 \quad\left(\Delta x=x_2-x_1 . \text { etc. }\right)
 $$
-
-
-The correct transformations that achieve this important property preserve the metric of Minkowski space,
-
+实现这一重要特性的正确变换保留了\textbf{闵科夫斯基空间(Minkowski space)}的度量,
 $$
 \begin{aligned}
 \Delta x^2 & =\Delta x^2+\Delta y^2+\Delta z^2-c^2 \Delta z^2 \\
-& =\Delta \mathbf{x}^7 \mathbf{G} \Delta \mathbf{x}
+& =\Delta \mathbf{x}^T \mathbf{G} \Delta \mathbf{x}
 \end{aligned}
 $$
-
-where
-
+其中
 $$
 \mathbf{x}=\left(\begin{array}{c}
 x \\
 y \\
 z \\
-c f
+c t
 \end{array}\right) . \quad \Delta x=\left(\begin{array}{c}
 \Delta x \\
 \Delta y \\
 \Delta z \\
 c \Delta t
-\end{array}\right) \text { and } \quad \mathbf{G}=\left[g_{m z}\right]=\left(\begin{array}{cccc}
+\end{array}\right) \text { 和 } \quad \mathbf{G}=\left[g_{\mu \nu}\right]=\left(\begin{array}{cccc}
 1 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 \\
 0 & 0 & 1 & 0 \\
 0 & 0 & 0 & -1
 \end{array}\right)
 $$
-
-
-The transformations in question must have the form
-
+有关变换的形式必须是
 $$
-x^{\prime}=\mathrm{Lx}+\mathbf{a}
+x^{\prime}=\mathbf{Lx}+\mathbf{a}
 $$
-
-and the invariance law $\Delta r^{\prime 2}=\Delta s^2$ implies
-
+而不变性法则 $\Delta r^{\prime 2}=\Delta s^2$ 意味着
 $$
 \Delta x^T G \Delta x^{\prime}=\Delta x^T L^T G L \Delta x=\Delta x^T G \Delta x
 $$
-
-
-Since this equation holds for arbitrary $\Delta x$, the $4 \times 4$ matrix $L$ must satisfy the equation
-
+由于这个等式对任意的 $\Delta x$ 都成立，所以 $4 \times 4$ 矩阵 $L$ 必须满足等式
 $$
-\mathbf{G}=\mathbf{L}^7 \mathbf{G L} .
+\mathbf{G}=\mathbf{L}^T \mathbf{G L} .
 $$
-
-
-The lineur transformations, having $\mathbf{a}=0$, are called Lorentz transformations while the general transformations with arbitrary a are called Poincare transformations. The corresponding groups are called the Lorentz group and Poincaré group, respectively. The essence of the special theory of relativity is that all laws of plysics are Poincare imvariant.
-
+具有 $\mathbf{a}=0$ 的线性变换称为\textbf{洛伦兹变换(Lorentz transformations)}，而具有任意 $a$ 的一般变换称为\textbf{庞加莱变换(Poincare transformations)}。相应的群分别称为\textbf{洛伦兹群(Lorentz group)}和\textbf{庞加莱群(Poincare group)}。狭义相对论的精髓在于，所有的物理定律都是庞加莱不变的。
+\end{eg}
 Problems
 Problem 2.20. The projective trunsformations of the line are defined by
 
